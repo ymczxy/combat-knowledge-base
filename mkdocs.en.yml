@@ -1,0 +1,84 @@
+site_name: Combat Knowledge Base
+site_description: Unified combat knowledge base and game data platform for destory
+site_url: https://ymczxy.github.io/combat-knowledge-base/en/
+repo_url: https://github.com/ymczxy/combat-knowledge-base
+repo_name: ymczxy/combat-knowledge-base
+edit_uri: ""
+docs_dir: site_docs_en
+
+use_directory_urls: true
+strict: true
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+plugins:
+  - search:
+      lang:
+        - en
+        - zh
+
+extra:
+  alternate:
+    - name: 简体中文
+      link: https://ymczxy.github.io/combat-knowledge-base/
+      lang: zh
+    - name: English
+      link: https://ymczxy.github.io/combat-knowledge-base/en/
+      lang: en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+nav:
+  - Home: index.md
+  - Canonical entities: entities/index.md
+  - Browse:
+      - By domain: browse/domains/index.md
+      - By era: browse/eras/index.md
+  - Full catalog: catalog/index.md
+  - Reference:
+      - Architecture: reference/ARCHITECTURE.md
+      - Data standard: reference/DATA_STANDARD.md
+      - Modern experience model: reference/MODERN_EXPERIENCE_MODEL.md
+      - Godot integration: reference/GODOT_INTEGRATION.md
+      - Source strategy: reference/SOURCE_STRATEGY.md
+      - Roadmap: reference/ROADMAP.md
+      - Decisions: reference/DECISIONS.md
