@@ -44,6 +44,15 @@ plugins:
         - zh
         - en
 
+extra:
+  alternate:
+    - name: 简体中文
+      link: https://ymczxy.github.io/combat-knowledge-base/
+      lang: zh
+    - name: English
+      link: https://ymczxy.github.io/combat-knowledge-base/en/
+      lang: en
+
 markdown_extensions:
   - admonition
   - attr_list
