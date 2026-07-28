@@ -49,3 +49,5 @@ jobs:
           git add -A
           git commit -m "Add Chinese-default bilingual CKB website"
           git push origin HEAD:main
+
+# Triggered through a normal contents commit so GitHub Actions receives the push event.
