@@ -3,7 +3,7 @@ name: Apply bilingual website patch
 on:
   push:
     branches:
-      - feature/bilingual-site-v1.2.1
+      - main
     paths:
       - "payload/bilingual/**"
       - ".github/workflows/apply-bilingual.yml"
@@ -48,4 +48,4 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Add Chinese-default bilingual CKB website"
-          git push origin HEAD:feature/bilingual-site-v1.2.1
+          git push origin HEAD:main
