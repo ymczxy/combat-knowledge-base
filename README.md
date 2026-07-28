@@ -24,7 +24,9 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 ```bash
 python -m ckb.cli validate
 python -m ckb.cli stats
-python -m ckb.cli build --output exports
+python -m ckb.cli catalog-audit
+python -m ckb.cli source-audit
+python -m ckb.cli build --output exports --profile destory --allow-unverified
 ```
 
 无安装运行：
@@ -50,4 +52,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.0.0-bootstrap`：仓库工程、分类、Schema、全量目录、种子数据、SQLite/Markdown 构建和 CI。
+`1.1.0`：在工程基线上加入 502 条目录审计、来源登记审计和《destory》项目裁剪 Bundle。

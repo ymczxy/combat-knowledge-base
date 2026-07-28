@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.0
+
+- 增加 502 条目录候选的加载、统计、重复和状态审计。
+- 增加来源登记表审计。
+- 增加按项目 Profile 裁剪的 JSON Bundle 与内容哈希。
+- 增加 `catalog-audit`、`source-audit` 和 `build --profile` 命令。
+- 增加目录、来源和《destory》Bundle 测试。
+
 ## 1.0.0-bootstrap
 
 - 初始化独立 CKB 仓库。
