@@ -1,0 +1,21 @@
+name,status,priority
+AESA radar,planned,P2
+PESA radar,planned,P2
+Fire-control radar,planned,P2
+Counter-battery radar,planned,P2
+Ground surveillance radar,planned,P2
+IRST,planned,P2
+Thermal imager,planned,P2
+Image intensifier,planned,P2
+Laser rangefinder,planned,P2
+Laser designator,planned,P2
+Radar warning receiver,planned,P2
+Missile approach warning,planned,P2
+Electronic support measures,planned,P2
+Electronic countermeasures,planned,P2
+Active protection system,planned,P2
+Battle management system,planned,P2
+Tactical data link,planned,P2
+Satellite navigation,planned,P2
+Inertial navigation,planned,P2
+Terrain-following radar,planned,P2

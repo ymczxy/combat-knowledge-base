@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CKB Entity",
+  "type": "object",
+  "required": ["id", "entity_type", "identity", "classification", "provenance"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^ckb:[a-z0-9_:-]+$"},
+    "entity_type": {"type": "string"},
+    "identity": {"type": "object", "required": ["canonical_name_en", "canonical_name_zh"], "properties": {"canonical_name_en": {"type": "string"}, "canonical_name_zh": {"type": "string"}, "aliases": {"type": "array", "items": {"type": "string"}}}},
+    "classification": {"type": "object", "required": ["domain", "class"], "properties": {"domain": {"type": "string"}, "class": {"type": "string"}, "subclass": {"type": ["string", "null"]}, "eras": {"type": "array", "items": {"type": "string"}}, "tags": {"type": "array", "items": {"type": "string"}}}},
+    "relationships": {"type": "array"},
+    "technical": {"type": ["object", "null"]},
+    "experience_profile": {"type": ["object", "null"]},
+    "gameplay": {"type": ["object", "null"]},
+    "provenance": {"type": "object", "required": ["review_status"], "properties": {"review_status": {"type": "string"}, "sources": {"type": "array"}}},
+    "rights": {"type": ["object", "null"]}
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CKB Experience Profile",
+  "type": "object",
+  "properties": {
+    "acoustic": {"type": "object"}, "visual": {"type": "object"}, "impulse": {"type": "object"},
+    "handling": {"type": "object"}, "environment": {"type": "object"}, "target_response": {"type": "object"},
+    "sensor_ux": {"type": "object"}, "crew_burden": {"type": "object"}, "failure_cues": {"type": "object"}
+  },
+  "additionalProperties": false
+}
