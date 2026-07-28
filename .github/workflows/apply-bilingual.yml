@@ -1,0 +1,51 @@
+name: Apply bilingual website patch
+
+on:
+  push:
+    branches:
+      - feature/bilingual-site-v1.2.1
+    paths:
+      - "payload/bilingual/**"
+      - ".github/workflows/apply-bilingual.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Expand bilingual patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat payload/bilingual/part_* | base64 --decode > /tmp/ckb-bilingual.tar.gz
+          echo "fe4e68ca78d20c57c5d54058e59f2f2ebccd8db25aa837640213a9be32f37fd9  /tmp/ckb-bilingual.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ckb-bilingual.tar.gz -C .
+          rm -rf payload/bilingual .github/workflows/apply-bilingual.yml
+      - name: Run data and bilingual site tests
+        run: |
+          PYTHONPATH=src python -m unittest discover -s tests -v
+          PYTHONPATH=src python -m ckb.cli validate
+          PYTHONPATH=src python -m ckb.cli site --output site_docs
+          test -f site_docs/zh/index.md
+          test -f site_docs/en/index.md
+      - name: Build both languages
+        run: |
+          python -m pip install --upgrade pip "mkdocs-material>=9.5,<10"
+          mkdocs build --strict --config-file mkdocs.yml --site-dir site
+          mkdocs build --strict --config-file mkdocs.en.yml --site-dir site/en
+          test -f site/index.html
+          test -f site/en/index.html
+      - name: Commit bilingual website
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add Chinese-default bilingual CKB website"
+          git push origin HEAD:feature/bilingual-site-v1.2.1
