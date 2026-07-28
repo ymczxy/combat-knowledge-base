@@ -1,1 +1,0 @@
-Trigger the registered bilingual patch workflow after it already exists on main.
