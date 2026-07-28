@@ -19,6 +19,22 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 5. 事实、标准化结果、体验派生值、游戏平衡值严格分层。
 6. 现代装备只整理公开知识和游戏抽象，不收录制造、规避防御或现实攻击操作教程。
 
+## 在线浏览
+
+仓库包含自动生成的 MkDocs 网站和 GitHub Pages 部署流程。GitHub Pages 启用后，浏览地址为：
+
+`https://ymczxy.github.io/combat-knowledge-base/`
+
+本地预览：
+
+```bash
+python -m pip install -e ".[docs]"
+PYTHONPATH=src python -m ckb.cli site --output site_docs
+mkdocs serve
+```
+
+网站提供全局搜索、规范实体详情、按领域/时代浏览、502 条建设目录和设计参考文档。
+
 ## 快速开始
 
 ```bash
@@ -52,4 +68,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.1.0`：在工程基线上加入 502 条目录审计、来源登记审计和《destory》项目裁剪 Bundle。
+`1.2.0`：加入自动生成的知识库网站、全局搜索、领域/时代索引和 GitHub Pages 部署。

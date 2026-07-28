@@ -1,0 +1,75 @@
+site_name: Combat Knowledge Base
+site_description: 统一战斗知识库与《destory》游戏数据中台
+site_url: https://ymczxy.github.io/combat-knowledge-base/
+repo_url: https://github.com/ymczxy/combat-knowledge-base
+repo_name: ymczxy/combat-knowledge-base
+edit_uri: ""
+docs_dir: site_docs
+
+use_directory_urls: true
+strict: true
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tooltips
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: 切换至深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至浅色模式
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+
+nav:
+  - 首页: index.md
+  - 规范实体: entities/index.md
+  - 浏览:
+      - 按领域: browse/domains/index.md
+      - 按时代: browse/eras/index.md
+  - 全量目录: catalog/index.md
+  - 参考文档:
+      - 架构: reference/ARCHITECTURE.md
+      - 数据标准: reference/DATA_STANDARD.md
+      - 现代体验模型: reference/MODERN_EXPERIENCE_MODEL.md
+      - Godot 接入: reference/GODOT_INTEGRATION.md
+      - 来源策略: reference/SOURCE_STRATEGY.md
+      - 路线图: reference/ROADMAP.md
+      - 决策记录: reference/DECISIONS.md
