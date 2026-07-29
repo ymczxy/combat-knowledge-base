@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CKB Predicate Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["registry_version", "predicates"],
+  "properties": {
+    "registry_version": {"type": "string", "minLength": 1},
+    "predicates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "labels", "description", "symmetric", "transitive", "status"],
+        "properties": {
+          "name": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+          "labels": {
+            "type": "object",
+            "additionalProperties": {"type": "string"},
+            "required": ["en", "zh"],
+            "properties": {
+              "en": {"type": "string", "minLength": 1},
+              "zh": {"type": "string", "minLength": 1}
+            }
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": {"type": "string"},
+            "required": ["en", "zh"],
+            "properties": {
+              "en": {"type": "string", "minLength": 1},
+              "zh": {"type": "string", "minLength": 1}
+            }
+          },
+          "inverse": {"type": ["string", "null"], "pattern": "^[a-z][a-z0-9_]*$"},
+          "symmetric": {"type": "boolean"},
+          "transitive": {"type": "boolean"},
+          "source_entity_types": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "target_entity_types": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "source_classes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "target_classes": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+          "status": {"type": "string", "enum": ["active", "experimental", "deprecated"]}
+        }
+      }
+    }
+  }
+}
