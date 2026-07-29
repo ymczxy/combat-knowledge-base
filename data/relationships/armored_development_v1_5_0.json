@@ -1,0 +1,47 @@
+[
+  {
+    "id": "rel:bt_7:development_line_predecessor:t_34_model_1940",
+    "source_id": "ckb:platform:ground:bt_7",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:t_34_model_1940",
+    "confidence": 0.9,
+    "qualifiers": {"scope": "design_lineage"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-34"}]}
+  },
+  {
+    "id": "rel:t_34_model_1940:developed_into:t_34_85",
+    "source_id": "ckb:platform:ground:t_34_model_1940",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:t_34_85",
+    "confidence": 0.95,
+    "qualifiers": {"scope": "production_family"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-34"}]}
+  },
+  {
+    "id": "rel:t_34_model_1940:development_line_predecessor:t_44",
+    "source_id": "ckb:platform:ground:t_34_model_1940",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:t_44",
+    "confidence": 0.85,
+    "qualifiers": {"scope": "design_lineage"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-44"}]}
+  },
+  {
+    "id": "rel:t_44:developed_into:t_54",
+    "source_id": "ckb:platform:ground:t_44",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:t_54",
+    "confidence": 0.9,
+    "qualifiers": {"scope": "design_lineage"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-54/T-55"}]}
+  },
+  {
+    "id": "rel:kv_1:development_line_predecessor:is_2",
+    "source_id": "ckb:platform:ground:kv_1",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:is_2",
+    "confidence": 0.8,
+    "qualifiers": {"scope": "heavy_tank_lineage"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS_tank_family"}]}
+  }
+]
