@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.5.0
+
+- 将 Relationship 提升为带独立 ID、来源、审核状态、置信度和限定条件的一等知识对象。
+- 新增 `KnowledgeGraph`，支持出入边索引、邻居查询、最短有向路径和关系完整性校验。
+- 新增独立 Relationship JSON Schema 与 `data/relationships` 数据目录。
+- 将首批苏联坦克发展关系迁移为可独立审校的图谱关系记录。
+- 新增 `tools/build_graph.py`，可输出同时包含实体与关系的统一图谱 Bundle。
+- 新增关系端点、置信度、邻居查询和路径查询测试。
+- 同步项目包版本与运行时版本为 1.5.0。
+
 ## 1.4.1
 
 - 扩展苏联坦克专题，新增 BT-2、BT-5、KV-2、KV-1S、IS-1、IS-3 和 T-55。
