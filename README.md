@@ -9,7 +9,7 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 - 供数据交换的 JSON；
 - 供 Godot 使用的项目裁剪包；
 - 现代装备的“体验可感知”配置；
-- 可进行语义校验和路径查询的知识图谱 Bundle。
+- 可进行语义校验、事实聚合和路径查询的知识图谱 Bundle。
 
 ## 已批准基线
 
@@ -20,6 +20,7 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 5. 事实、标准化结果、体验派生值、游戏平衡值严格分层。
 6. 现代装备只整理公开知识和游戏抽象，不收录制造、规避防御或现实攻击操作教程。
 7. Relationship 与 Entity 同为一等知识对象，关系必须具备稳定 ID、来源、审核状态和正式谓词语义。
+8. 多条 Relationship 可以表达同一 Canonical Fact，但原始断言必须保留，不能因聚合而丢失证据链。
 
 ## 在线浏览
 
@@ -48,8 +49,10 @@ python -m ckb.cli validate
 python -m ckb.cli stats
 python -m ckb.cli catalog-audit
 python -m ckb.cli source-audit
+python -m ckb.cli predicate-audit
+python -m ckb.cli assertion-audit --output exports/graph/assertion-governance.json
+python -m ckb.cli graph --output exports/graph/ckb-graph.json
 python -m ckb.cli build --output exports --profile destory --allow-unverified
-PYTHONPATH=src python tools/build_graph.py
 ```
 
 ## v1.5 知识图谱
@@ -69,7 +72,7 @@ data/ontology/predicates.json
 构建图谱：
 
 ```bash
-PYTHONPATH=src python tools/build_graph.py \
+PYTHONPATH=src python -m ckb.cli graph \
   --output exports/graph/ckb-graph.json
 ```
 
@@ -81,7 +84,27 @@ PYTHONPATH=src python tools/build_graph.py \
 - 起点和终点实体类型是否符合 Predicate Registry；
 - 图中是否存在悬空实体引用。
 
-谓词设计规范见 `docs/V1_5_1_PREDICATE_REGISTRY.md`。
+图谱 Bundle 1.2 同时保存：
+
+```text
+Entity
+Relationship assertion
+Canonical Fact
+Predicate Registry
+```
+
+同一事实的正向、反向、对称、嵌入式和独立 Relationship 会归并为一个 Canonical Fact，但全部原始断言和来源仍可回溯。
+
+关系治理报告：
+
+```bash
+PYTHONPATH=src python -m ckb.cli assertion-audit \
+  --output exports/graph/assertion-governance.json
+```
+
+它会输出重复断言组、独立来源、肯定/否定冲突和待人工确认的审核晋级建议。系统只提出建议，不自动修改正式审核状态。
+
+谓词设计规范见 `docs/V1_5_1_PREDICATE_REGISTRY.md`，断言治理规范见 `docs/V1_5_2_ASSERTION_GOVERNANCE.md`。
 
 ## v1.3 候选实体解析
 
@@ -157,4 +180,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.5.1`：加入正式 Predicate Registry、反向与对称关系解析、传递关系遍历、端点类型约束和严格语义校验。
+`1.5.2`：加入 Relationship 断言治理、Canonical Fact 聚合、来源去重、冲突检测和人工审核晋级建议。
