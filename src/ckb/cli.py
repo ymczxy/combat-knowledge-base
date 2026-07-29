@@ -4,7 +4,7 @@ from pathlib import Path
 import json
 
 from .catalog import catalog_stats, load_catalog, validate_catalog
-from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle
+from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle, write_drafts
 from .database import build_sqlite
 from .export import load_profile, select_entities, write_project_bundle
 from .importers import load_entity_csv, write_import_records
@@ -34,6 +34,9 @@ def main() -> None:
 
     candidates = sub.add_parser("candidates")
     candidates.add_argument("--output", type=Path, default=ROOT / "exports" / "candidates")
+
+    drafts = sub.add_parser("drafts")
+    drafts.add_argument("--output", type=Path, default=ROOT / "data" / "staging" / "catalog_drafts")
 
     ambiguity = sub.add_parser("ambiguity-report")
     ambiguity.add_argument("--json", action="store_true", dest="as_json")
@@ -76,15 +79,17 @@ def main() -> None:
         print(json.dumps(catalog_stats(items), ensure_ascii=False, indent=2))
         raise SystemExit(_print_errors(errors))
 
-    if args.cmd == "candidates":
+    if args.cmd in {"candidates", "drafts", "ambiguity-report"}:
         rows = build_candidates(load_catalog(ROOT / "data" / "catalog"))
-        write_candidate_bundle(rows, args.output)
-        print(f"Built {len(rows)} candidates into {args.output}")
-        print(f"Ambiguity keys: {len(ambiguity_groups(rows))}")
-        return
-
-    if args.cmd == "ambiguity-report":
-        rows = build_candidates(load_catalog(ROOT / "data" / "catalog"))
+        if args.cmd == "candidates":
+            write_candidate_bundle(rows, args.output)
+            print(f"Built {len(rows)} candidates into {args.output}")
+            print(f"Ambiguity keys: {len(ambiguity_groups(rows))}")
+            return
+        if args.cmd == "drafts":
+            write_drafts(rows, args.output)
+            print(f"Built {len(rows)} reviewable drafts into {args.output}")
+            return
         groups = ambiguity_groups(rows)
         if args.as_json:
             print(json.dumps({key: [row.to_dict() for row in value] for key, value in groups.items()}, ensure_ascii=False, indent=2))
