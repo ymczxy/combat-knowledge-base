@@ -1,0 +1,172 @@
+[
+  {
+    "id": "ckb:platform:ground:bt_2",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "BT-2", "canonical_name_zh": "BT-2快速坦克", "aliases": ["Bystrochodny Tank BT-2"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "CavalryTank", "eras": ["INTERWAR"], "tags": ["soviet", "tracked", "fast_tank", "christie_suspension"]},
+    "relationships": [{"type": "developed_into", "target_id": "ckb:platform:ground:bt_5"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/BT_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:bt_5",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "BT-5", "canonical_name_zh": "BT-5快速坦克", "aliases": ["BT-5 cavalry tank"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "CavalryTank", "eras": ["INTERWAR"], "tags": ["soviet", "tracked", "fast_tank", "christie_suspension"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:bt_2"}, {"type": "developed_into", "target_id": "ckb:platform:ground:bt_7"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/BT_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:kv_2",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "KV-2", "canonical_name_zh": "KV-2重型突击坦克", "aliases": ["KV-2 heavy assault tank"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII"], "tags": ["soviet", "tracked", "heavy_tank", "large_turret", "bunker_buster"]},
+    "relationships": [{"type": "variant_of", "target_id": "ckb:platform:ground:kv_1"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Kliment_Voroshilov_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:kv_1s",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "KV-1S", "canonical_name_zh": "KV-1S重型坦克", "aliases": ["KV-1S"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII"], "tags": ["soviet", "tracked", "heavy_tank", "improved_mobility"]},
+    "relationships": [{"type": "variant_of", "target_id": "ckb:platform:ground:kv_1"}, {"type": "development_line_predecessor", "target_id": "ckb:platform:ground:is_1"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Kliment_Voroshilov_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:is_1",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "IS-1", "canonical_name_zh": "IS-1重型坦克", "aliases": ["IS-85", "JS-1"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII"], "tags": ["soviet", "tracked", "heavy_tank", "breakthrough"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:kv_1s"}, {"type": "developed_into", "target_id": "ckb:platform:ground:is_2"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS_tank_family"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:is_3",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "IS-3", "canonical_name_zh": "IS-3重型坦克", "aliases": ["Object 703", "JS-3"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["soviet", "tracked", "heavy_tank", "pike_nose"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:is_2"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS-3_(tank)"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:t_55",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "T-55", "canonical_name_zh": "T-55主战坦克", "aliases": ["T-55 medium tank"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MainBattleTank", "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["soviet", "tracked", "main_battle_tank", "mass_produced"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:t_54"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-54/T-55"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panzer_i",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panzer I", "canonical_name_zh": "一号坦克", "aliases": ["Panzerkampfwagen I", "Pz.Kpfw. I"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "LightTank", "eras": ["INTERWAR", "WWII"], "tags": ["german", "tracked", "light_tank", "training_origin"]},
+    "relationships": [{"type": "development_line_predecessor", "target_id": "ckb:platform:ground:panzer_ii"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_I"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panzer_ii",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panzer II", "canonical_name_zh": "二号坦克", "aliases": ["Panzerkampfwagen II", "Pz.Kpfw. II"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "LightTank", "eras": ["INTERWAR", "WWII"], "tags": ["german", "tracked", "light_tank", "reconnaissance"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:panzer_i"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_II"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panzer_iii",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panzer III", "canonical_name_zh": "三号坦克", "aliases": ["Panzerkampfwagen III", "Pz.Kpfw. III"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["german", "tracked", "medium_tank", "anti_armor"]},
+    "relationships": [{"type": "contemporary", "target_id": "ckb:platform:ground:panzer_iv"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_III"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panzer_iv",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panzer IV", "canonical_name_zh": "四号坦克", "aliases": ["Panzerkampfwagen IV", "Pz.Kpfw. IV"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["german", "tracked", "medium_tank", "infantry_support", "long_service"]},
+    "relationships": [{"type": "contemporary", "target_id": "ckb:platform:ground:panzer_iii"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_IV"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:tiger_i",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Tiger I", "canonical_name_zh": "虎式重型坦克", "aliases": ["Panzer VI Tiger", "Tiger E"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII"], "tags": ["german", "tracked", "heavy_tank", "88mm_gun"]},
+    "relationships": [{"type": "developed_into", "target_id": "ckb:platform:ground:tiger_ii"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Tiger_I"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:tiger_ii",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Tiger II", "canonical_name_zh": "虎王重型坦克", "aliases": ["King Tiger", "Königstiger", "Panzer VI Ausf. B"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII"], "tags": ["german", "tracked", "heavy_tank", "88mm_gun", "sloped_armor"]},
+    "relationships": [{"type": "development_line_successor", "target_id": "ckb:platform:ground:tiger_i"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Tiger_II"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:elefant",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Elefant tank destroyer", "canonical_name_zh": "象式重型坦克歼击车", "aliases": ["Ferdinand", "Panzerjäger Tiger (P)"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "TankDestroyer", "eras": ["WWII"], "tags": ["german", "tracked", "tank_destroyer", "88mm_gun", "casemate"]},
+    "relationships": [{"type": "related_design", "target_id": "ckb:platform:ground:tiger_i"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Elefant"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panther_ausf_d",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panther Ausf. D", "canonical_name_zh": "黑豹D型坦克", "aliases": ["Panzer V Ausf. D"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["german", "tracked", "medium_tank", "sloped_armor"]},
+    "relationships": [{"type": "variant_of", "target_id": "ckb:platform:ground:panther_tank"}, {"type": "developed_into", "target_id": "ckb:platform:ground:panther_ausf_a"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panther_ausf_a",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panther Ausf. A", "canonical_name_zh": "黑豹A型坦克", "aliases": ["Panzer V Ausf. A"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["german", "tracked", "medium_tank", "sloped_armor"]},
+    "relationships": [{"type": "variant_of", "target_id": "ckb:platform:ground:panther_tank"}, {"type": "development_line_successor", "target_id": "ckb:platform:ground:panther_ausf_d"}, {"type": "developed_into", "target_id": "ckb:platform:ground:panther_ausf_g"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:panther_ausf_g",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Panther Ausf. G", "canonical_name_zh": "黑豹G型坦克", "aliases": ["Panzer V Ausf. G"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["german", "tracked", "medium_tank", "sloped_armor"]},
+    "relationships": [{"type": "variant_of", "target_id": "ckb:platform:ground:panther_tank"}, {"type": "development_line_successor", "target_id": "ckb:platform:ground:panther_ausf_a"}],
+    "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]},
+    "rights": {"rights_status": "deferred"}
+  }
+]
