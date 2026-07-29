@@ -9,9 +9,11 @@ from .catalog import CatalogItem, catalog_stats, load_catalog, validate_catalog
 from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle, write_drafts
 from .database import build_sqlite
 from .export import load_profile, select_entities, write_project_bundle
+from .graph import KnowledgeGraph, embedded_relationships, load_relationships
 from .importers import load_entity_csv, write_import_records
 from .markdown import build_markdown
 from .model import load_entities
+from .predicates import load_predicate_registry
 from .resolution import SearchCache, decide_matches, write_resolution_bundle
 from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
@@ -19,6 +21,8 @@ from .validation import validate_all
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "canonical"
+RELATIONSHIPS = ROOT / "data" / "relationships"
+PREDICATES = ROOT / "data" / "ontology" / "predicates.json"
 
 
 def _print_errors(errors: list[str]) -> int:
@@ -60,6 +64,14 @@ def _load_fixture(path: Path):
     return candidate, hits
 
 
+def _build_graph(entities, include_embedded: bool = True) -> KnowledgeGraph:
+    registry = load_predicate_registry(PREDICATES)
+    relationships = load_relationships(RELATIONSHIPS)
+    if include_embedded:
+        relationships = [*embedded_relationships(entities), *relationships]
+    return KnowledgeGraph(entities, relationships, predicate_registry=registry)
+
+
 def main() -> None:
     parser = ArgumentParser(prog="ckb")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -67,6 +79,7 @@ def main() -> None:
     sub.add_parser("stats")
     sub.add_parser("catalog-audit")
     sub.add_parser("source-audit")
+    sub.add_parser("predicate-audit")
 
     candidates = sub.add_parser("candidates")
     candidates.add_argument("--output", type=Path, default=ROOT / "exports" / "candidates")
@@ -108,6 +121,11 @@ def main() -> None:
     site = sub.add_parser("site")
     site.add_argument("--output", type=Path, default=ROOT / "site_docs")
 
+    graph = sub.add_parser("graph")
+    graph.add_argument("--output", type=Path, default=ROOT / "exports" / "graph" / "ckb-graph.json")
+    graph.add_argument("--exclude-embedded", action="store_true")
+    graph.add_argument("--allow-unknown-predicates", action="store_true")
+
     build = sub.add_parser("build")
     build.add_argument("--output", type=Path, default=ROOT / "exports")
     build.add_argument("--profile", type=str)
@@ -120,6 +138,7 @@ def main() -> None:
         errors = validate_all(entities)
         errors += validate_catalog(load_catalog(ROOT / "data" / "catalog"))
         errors += validate_source_registry(load_source_registry(ROOT / "sources" / "registry.json"))
+        errors += _build_graph(entities).validate()
         print(("OK" if not errors else "FAILED") + f": {len(entities)} entities")
         raise SystemExit(_print_errors(errors))
 
@@ -127,10 +146,35 @@ def main() -> None:
         print("canonical_entities:", len(entities))
         for key, value in sorted(Counter(e.classification.get("domain", "Unknown") for e in entities).items()):
             print(f"  {key}: {value}")
+        graph_model = _build_graph(entities)
+        print("relationships:", len(graph_model.relationships))
+        print("predicates:", len(graph_model.predicate_registry.definitions) if graph_model.predicate_registry else 0)
         stats = catalog_stats(load_catalog(ROOT / "data" / "catalog"))
         print("catalog_candidates:", stats["total"])
         for key, value in stats["priorities"].items():
             print(f"  {key}: {value}")
+        return
+
+    if args.cmd == "predicate-audit":
+        registry = load_predicate_registry(PREDICATES)
+        errors = registry.validate()
+        print(f"predicates: {len(registry.definitions)}")
+        raise SystemExit(_print_errors(errors))
+
+    if args.cmd == "graph":
+        graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
+        errors = graph_model.validate(strict_predicates=not args.allow_unknown_predicates)
+        if errors:
+            raise SystemExit(_print_errors(errors))
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(
+            json.dumps(graph_model.to_bundle(), ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        print(
+            f"Built graph: {len(graph_model.entities)} entities, "
+            f"{len(graph_model.relationships)} relationships -> {args.output}"
+        )
         return
 
     if args.cmd == "catalog-audit":
