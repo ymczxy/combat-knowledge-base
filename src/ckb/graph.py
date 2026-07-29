@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Iterable
 import json
 
+from .assertions import AssertionGovernanceReport, aggregate_assertions
 from .model import Entity
 from .predicates import PredicateRegistry
 
@@ -108,6 +109,9 @@ class KnowledgeGraph:
         for relation in self.relationships:
             self.outgoing[relation.source_id].append(relation)
             self.incoming[relation.target_id].append(relation)
+
+    def governance_report(self) -> AssertionGovernanceReport:
+        return aggregate_assertions(self.relationships, self.predicate_registry)
 
     def neighbors(
         self,
@@ -228,12 +232,17 @@ class KnowledgeGraph:
         return errors
 
     def to_bundle(self) -> dict[str, Any]:
+        governance = self.governance_report()
         bundle: dict[str, Any] = {
-            "graph_version": "1.1",
+            "graph_version": "1.2",
             "entity_count": len(self.entities),
-            "relationship_count": len(self.relationships),
+            "relationship_assertion_count": len(self.relationships),
+            "fact_count": len(governance.facts),
+            "duplicate_assertion_group_count": len(governance.duplicate_groups),
+            "conflict_count": len(governance.conflicts),
             "entities": [entity.raw for entity in self.entities.values()],
             "relationships": [relation.to_dict() for relation in self.relationships],
+            "facts": [fact.to_dict() for fact in governance.facts],
         }
         if self.predicate_registry is not None:
             bundle["predicate_registry"] = self.predicate_registry.to_dict()
