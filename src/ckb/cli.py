@@ -3,13 +3,15 @@ from collections import Counter
 from pathlib import Path
 import json
 
-from .catalog import catalog_stats, load_catalog, validate_catalog
+from .adapters import MediaWikiAdapter, SourceHit, WikidataAdapter
+from .catalog import CatalogItem, catalog_stats, load_catalog, validate_catalog
 from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle, write_drafts
 from .database import build_sqlite
 from .export import load_profile, select_entities, write_project_bundle
 from .importers import load_entity_csv, write_import_records
 from .markdown import build_markdown
 from .model import load_entities
+from .resolution import SearchCache, decide_matches, write_resolution_bundle
 from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
 from .validation import validate_all
@@ -22,6 +24,39 @@ def _print_errors(errors: list[str]) -> int:
     for error in errors:
         print("ERROR:", error)
     return 1 if errors else 0
+
+
+def _candidate_from_args(args: object):
+    item = CatalogItem(
+        group=str(getattr(args, "group")),
+        name=str(getattr(args, "query")),
+        status="researching",
+        priority="P1",
+        source_file="cli",
+    )
+    return build_candidates([item])[0]
+
+
+def _load_fixture(path: Path):
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    candidate_row = payload["candidate"]
+    item = CatalogItem(
+        group=str(candidate_row["group"]),
+        name=str(candidate_row["name"]),
+        status=str(candidate_row.get("status", "researching")),
+        priority=str(candidate_row.get("priority", "P1")),
+        source_file=str(path),
+    )
+    candidate = build_candidates([item])[0]
+    hits = [SourceHit(
+        source=str(row["source"]),
+        external_id=str(row["external_id"]),
+        label=str(row["label"]),
+        description=str(row.get("description", "")),
+        url=str(row.get("url", "")),
+        aliases=tuple(str(value) for value in row.get("aliases", [])),
+    ) for row in payload.get("hits", [])]
+    return candidate, hits
 
 
 def main() -> None:
@@ -40,6 +75,20 @@ def main() -> None:
 
     ambiguity = sub.add_parser("ambiguity-report")
     ambiguity.add_argument("--json", action="store_true", dest="as_json")
+
+    resolve_fixture = sub.add_parser("resolve-fixture")
+    resolve_fixture.add_argument("input", type=Path)
+    resolve_fixture.add_argument("--output", type=Path, default=ROOT / "exports" / "resolution")
+
+    resolve_one = sub.add_parser("resolve-one")
+    resolve_one.add_argument("query")
+    resolve_one.add_argument("--group", required=True)
+    resolve_one.add_argument("--source", choices=["wikidata", "wikipedia"], default="wikidata")
+    resolve_one.add_argument("--language", default="en")
+    resolve_one.add_argument("--limit", type=int, default=10)
+    resolve_one.add_argument("--cache", type=Path, default=ROOT / "data" / "cache" / "search")
+    resolve_one.add_argument("--refresh", action="store_true")
+    resolve_one.add_argument("--output", type=Path, default=ROOT / "exports" / "resolution")
 
     import_csv = sub.add_parser("import-csv")
     import_csv.add_argument("input", type=Path)
@@ -98,6 +147,27 @@ def main() -> None:
                 print(f"[{key}]")
                 for row in value:
                     print(f"  - {row.source_name} ({row.source_group}) -> {row.candidate_id}")
+        return
+
+    if args.cmd == "resolve-fixture":
+        candidate, hits = _load_fixture(args.input)
+        decisions = decide_matches(candidate, hits)
+        write_resolution_bundle(decisions, args.output)
+        print(f"Resolved fixture with {len(decisions)} ranked hits into {args.output}")
+        return
+
+    if args.cmd == "resolve-one":
+        candidate = _candidate_from_args(args)
+        cache = SearchCache(args.cache)
+        source_key = args.source if args.source == "wikidata" else f"wikipedia_{args.language}"
+        hits = None if args.refresh else cache.get(source_key, args.query, args.language)
+        if hits is None:
+            adapter = WikidataAdapter() if args.source == "wikidata" else MediaWikiAdapter(args.language)
+            hits = adapter.search(args.query, language=args.language, limit=args.limit) if args.source == "wikidata" else adapter.search(args.query, limit=args.limit)
+            cache.put(source_key, args.query, hits, args.language)
+        decisions = decide_matches(candidate, hits)
+        write_resolution_bundle(decisions, args.output)
+        print(json.dumps([row.to_dict() for row in decisions], ensure_ascii=False, indent=2))
         return
 
     if args.cmd == "import-csv":
