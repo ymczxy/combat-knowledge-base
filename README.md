@@ -2,13 +2,14 @@
 
 CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一战斗知识库。
 
-它不重新撰写军事百科，而是把公开资料、官方文件、博物馆馆藏、专业专题站点和开源数据集统一映射为可追溯实体，并生成：
+它不重新撰写军事百科，而是把公开资料、官方文件、博物馆馆藏、专业专题站点和开源数据集统一映射为可追溯实体与关系，并生成：
 
 - 供人和 AI 阅读的 Markdown；
 - 供检索和分析的 SQLite；
 - 供数据交换的 JSON；
 - 供 Godot 使用的项目裁剪包；
-- 现代装备的“体验可感知”配置。
+- 现代装备的“体验可感知”配置；
+- 可进行语义校验和路径查询的知识图谱 Bundle。
 
 ## 已批准基线
 
@@ -18,6 +19,7 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 4. 现代装备资料必须细化到玩家可感知的声音、视觉、冲击、操控、环境、传感器和故障征兆。
 5. 事实、标准化结果、体验派生值、游戏平衡值严格分层。
 6. 现代装备只整理公开知识和游戏抽象，不收录制造、规避防御或现实攻击操作教程。
+7. Relationship 与 Entity 同为一等知识对象，关系必须具备稳定 ID、来源、审核状态和正式谓词语义。
 
 ## 在线浏览
 
@@ -47,7 +49,39 @@ python -m ckb.cli stats
 python -m ckb.cli catalog-audit
 python -m ckb.cli source-audit
 python -m ckb.cli build --output exports --profile destory --allow-unverified
+PYTHONPATH=src python tools/build_graph.py
 ```
+
+## v1.5 知识图谱
+
+独立关系位于：
+
+```text
+data/relationships/
+```
+
+正式谓词注册表位于：
+
+```text
+data/ontology/predicates.json
+```
+
+构建图谱：
+
+```bash
+PYTHONPATH=src python tools/build_graph.py \
+  --output exports/graph/ckb-graph.json
+```
+
+构建过程会校验：
+
+- Relationship ID、端点、置信度和来源；
+- 谓词是否注册；
+- 反向、对称和传递语义是否自洽；
+- 起点和终点实体类型是否符合 Predicate Registry；
+- 图中是否存在悬空实体引用。
+
+谓词设计规范见 `docs/V1_5_1_PREDICATE_REGISTRY.md`。
 
 ## v1.3 候选实体解析
 
@@ -110,6 +144,8 @@ taxonomy/                统一分类、时代、作用和体验维度
 sources/                 来源登记与采集策略
 data/catalog/            全量建设目录
 data/canonical/          已标准化实体
+data/relationships/      独立关系断言
+data/ontology/           谓词注册表和本体资源
 data/staging/            机器导入与待审核记录
 data/cache/              外部搜索结果缓存
 data/templates/          人工导入模板
@@ -121,4 +157,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.3.1`：加入外部结果匹配评分、自动接受阈值、人工审核队列、家族/型号范围判断、搜索缓存和解析决策文件。
+`1.5.1`：加入正式 Predicate Registry、反向与对称关系解析、传递关系遍历、端点类型约束和严格语义校验。
