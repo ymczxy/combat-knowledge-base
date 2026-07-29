@@ -4,6 +4,7 @@ from pathlib import Path
 import json
 
 from .adapters import MediaWikiAdapter, SourceHit, WikidataAdapter
+from .batch_resolution import apply_constraints, resolve_cached_candidates, write_batch_bundle
 from .catalog import CatalogItem, catalog_stats, load_catalog, validate_catalog
 from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle, write_drafts
 from .database import build_sqlite
@@ -79,6 +80,7 @@ def main() -> None:
     resolve_fixture = sub.add_parser("resolve-fixture")
     resolve_fixture.add_argument("input", type=Path)
     resolve_fixture.add_argument("--output", type=Path, default=ROOT / "exports" / "resolution")
+    resolve_fixture.add_argument("--constraints", action="store_true")
 
     resolve_one = sub.add_parser("resolve-one")
     resolve_one.add_argument("query")
@@ -89,6 +91,15 @@ def main() -> None:
     resolve_one.add_argument("--cache", type=Path, default=ROOT / "data" / "cache" / "search")
     resolve_one.add_argument("--refresh", action="store_true")
     resolve_one.add_argument("--output", type=Path, default=ROOT / "exports" / "resolution")
+    resolve_one.add_argument("--constraints", action="store_true")
+
+    batch = sub.add_parser("batch-resolve-cache")
+    batch.add_argument("--cache", type=Path, default=ROOT / "data" / "cache" / "search")
+    batch.add_argument("--source", default="wikidata")
+    batch.add_argument("--language", default="en")
+    batch.add_argument("--priority", choices=["P0", "P1", "P2", "P3"])
+    batch.add_argument("--limit", type=int)
+    batch.add_argument("--output", type=Path, default=ROOT / "exports" / "batch_resolution")
 
     import_csv = sub.add_parser("import-csv")
     import_csv.add_argument("input", type=Path)
@@ -151,9 +162,14 @@ def main() -> None:
 
     if args.cmd == "resolve-fixture":
         candidate, hits = _load_fixture(args.input)
-        decisions = decide_matches(candidate, hits)
-        write_resolution_bundle(decisions, args.output)
-        print(f"Resolved fixture with {len(decisions)} ranked hits into {args.output}")
+        if args.constraints:
+            decisions = apply_constraints(candidate, hits)
+            write_batch_bundle(decisions, [], args.output)
+            print(f"Resolved constrained fixture with {len(decisions)} ranked hits into {args.output}")
+        else:
+            decisions = decide_matches(candidate, hits)
+            write_resolution_bundle(decisions, args.output)
+            print(f"Resolved fixture with {len(decisions)} ranked hits into {args.output}")
         return
 
     if args.cmd == "resolve-one":
@@ -165,9 +181,25 @@ def main() -> None:
             adapter = WikidataAdapter() if args.source == "wikidata" else MediaWikiAdapter(args.language)
             hits = adapter.search(args.query, language=args.language, limit=args.limit) if args.source == "wikidata" else adapter.search(args.query, limit=args.limit)
             cache.put(source_key, args.query, hits, args.language)
-        decisions = decide_matches(candidate, hits)
-        write_resolution_bundle(decisions, args.output)
-        print(json.dumps([row.to_dict() for row in decisions], ensure_ascii=False, indent=2))
+        if args.constraints:
+            decisions = apply_constraints(candidate, hits)
+            write_batch_bundle(decisions, [], args.output)
+            print(json.dumps([row.to_dict() for row in decisions], ensure_ascii=False, indent=2))
+        else:
+            decisions = decide_matches(candidate, hits)
+            write_resolution_bundle(decisions, args.output)
+            print(json.dumps([row.to_dict() for row in decisions], ensure_ascii=False, indent=2))
+        return
+
+    if args.cmd == "batch-resolve-cache":
+        rows = build_candidates(load_catalog(ROOT / "data" / "catalog"))
+        if args.priority:
+            rows = [row for row in rows if row.priority == args.priority]
+        if args.limit is not None:
+            rows = rows[:args.limit]
+        decisions, missing = resolve_cached_candidates(rows, SearchCache(args.cache), args.source, args.language)
+        write_batch_bundle(decisions, missing, args.output)
+        print(f"Resolved {len(decisions)} ranked hits; missing cache for {len(missing)} candidates")
         return
 
     if args.cmd == "import-csv":
