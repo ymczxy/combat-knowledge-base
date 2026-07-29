@@ -64,12 +64,13 @@ def normalize_name(value: str) -> str:
 
 
 def stable_slug(value: str) -> str:
-    normalized = unicodedata.normalize("NFKD", value)
+    canonical = normalize_name(value)
+    normalized = unicodedata.normalize("NFKD", canonical)
     ascii_value = normalized.encode("ascii", "ignore").decode("ascii").casefold()
     slug = _NON_ALNUM.sub("_", ascii_value).strip("_")
     if slug:
         return slug
-    digest = sha1(normalize_name(value).encode("utf-8")).hexdigest()[:12]
+    digest = sha1(canonical.encode("utf-8")).hexdigest()[:12]
     return f"u_{digest}"
 
 
