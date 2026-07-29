@@ -51,7 +51,8 @@ class CanonicalFact:
     assertion_ids: list[str]
     sources: list[dict[str, Any]]
     confidence: float
-    review_status: str
+    asserted_review_status: str
+    suggested_review_status: str
     polarities: list[str]
     conflict: bool = False
     duplicate_assertion_count: int = 0
@@ -66,7 +67,9 @@ class CanonicalFact:
             "sources": self.sources,
             "source_count": len(self.sources),
             "confidence": self.confidence,
-            "review_status": self.review_status,
+            "asserted_review_status": self.asserted_review_status,
+            "suggested_review_status": self.suggested_review_status,
+            "promotion_recommended": self.asserted_review_status != self.suggested_review_status,
             "polarities": self.polarities,
             "conflict": self.conflict,
         }
@@ -84,14 +87,20 @@ class AssertionGovernanceReport:
     def conflicts(self) -> list[CanonicalFact]:
         return [fact for fact in self.facts if fact.conflict]
 
+    @property
+    def promotion_candidates(self) -> list[CanonicalFact]:
+        return [fact for fact in self.facts if fact.asserted_review_status != fact.suggested_review_status]
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "fact_count": len(self.facts),
             "duplicate_group_count": len(self.duplicate_groups),
             "conflict_count": len(self.conflicts),
+            "promotion_candidate_count": len(self.promotion_candidates),
             "facts": [fact.to_dict() for fact in self.facts],
             "duplicate_groups": [fact.to_dict() for fact in self.duplicate_groups],
             "conflicts": [fact.to_dict() for fact in self.conflicts],
+            "promotion_candidates": [fact.to_dict() for fact in self.promotion_candidates],
         }
 
 
@@ -126,12 +135,15 @@ def _fact_id(key: FactKey) -> str:
     return f"fact:{source}:{key.predicate}:{target}"
 
 
-def _best_review_status(relationships: list[Any], source_count: int) -> str:
+def _asserted_review_status(relationships: list[Any]) -> str:
     statuses = [str(row.provenance.get("review_status", "unverified")) for row in relationships]
     active = [status for status in statuses if status != "deprecated"]
-    current = max(active or statuses or ["unverified"], key=lambda status: _REVIEW_RANK.get(status, -2))
+    return max(active or statuses or ["unverified"], key=lambda status: _REVIEW_RANK.get(status, -2))
 
-    # This is a conservative recommendation, not an automatic historical-truth promotion.
+
+def _suggested_review_status(current: str, source_count: int, conflict: bool) -> str:
+    if conflict:
+        return current
     if source_count >= 2 and _REVIEW_RANK.get(current, 0) < _REVIEW_RANK["cross_checked"]:
         return "cross_checked"
     if source_count >= 1 and _REVIEW_RANK.get(current, 0) < _REVIEW_RANK["source_checked"]:
@@ -156,17 +168,20 @@ def aggregate_assertions(
                     source_map.setdefault(_source_key(source), dict(source))
 
         polarities = sorted({_polarity(row) for row in rows})
+        conflict = len(polarities) > 1
         confidence = max((float(row.confidence) for row in rows), default=0.0)
         sources = list(source_map.values())
+        asserted_status = _asserted_review_status(rows)
         facts.append(CanonicalFact(
             id=_fact_id(key),
             key=key,
             assertion_ids=sorted(str(row.id) for row in rows),
             sources=sources,
             confidence=confidence,
-            review_status=_best_review_status(rows, len(sources)),
+            asserted_review_status=asserted_status,
+            suggested_review_status=_suggested_review_status(asserted_status, len(sources), conflict),
             polarities=polarities,
-            conflict=len(polarities) > 1,
+            conflict=conflict,
             duplicate_assertion_count=max(0, len(rows) - 1),
         ))
 
