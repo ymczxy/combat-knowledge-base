@@ -12,6 +12,8 @@ jobs:
       - run: PYTHONPATH=src python -m ckb.cli catalog-audit
       - run: PYTHONPATH=src python -m ckb.cli source-audit
       - run: PYTHONPATH=src python -m ckb.cli predicate-audit
+      - run: PYTHONPATH=src python -m ckb.cli assertion-audit --output /tmp/assertion-governance.json --fail-on-conflict
+      - run: test -f /tmp/assertion-governance.json
       - run: PYTHONPATH=src python -m ckb.cli graph --output /tmp/ckb-graph.json
       - run: test -f /tmp/ckb-graph.json
       - run: PYTHONPATH=src python -m ckb.cli candidates --output /tmp/ckb-candidates
