@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CKB Relationship",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "source_id", "predicate", "target_id", "provenance"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^rel:[a-z0-9_:-]+$"},
+    "source_id": {"type": "string", "pattern": "^ckb:[a-z0-9_:-]+$"},
+    "predicate": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "target_id": {"type": "string", "pattern": "^ckb:[a-z0-9_:-]+$"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1, "default": 1},
+    "qualifiers": {"type": "object"},
+    "provenance": {
+      "type": "object",
+      "required": ["review_status", "sources"],
+      "properties": {
+        "review_status": {"type": "string", "enum": ["planned", "unverified", "machine_imported", "source_checked", "cross_checked", "expert_reviewed", "deprecated"]},
+        "sources": {"type": "array", "items": {"type": "object"}}
+      }
+    }
+  }
+}
