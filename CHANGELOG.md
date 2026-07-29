@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.1
+
+- 新增正式 Predicate Registry，为关系定义中英文语义、反向关系、对称性、传递性和状态。
+- 为发展谱系、型号、影响、同期、相关设计、弹药、动力、武装、生产、设计、使用、战役、地点和组织关系建立首批规范谓词。
+- `KnowledgeGraph` 新增反向/对称关系解析和受控传递遍历，不再要求为导航机械复制反向边。
+- 新增关系端点的 `entity_type` 与 `classification.class` 语义约束，并对未注册谓词执行严格校验。
+- 图谱 Bundle 升级为 1.1，内嵌所使用的 Predicate Registry，保证导出数据可以独立解释。
+- 新增 `ckb predicate-audit` 与 `ckb graph`；`ckb validate` 现在同时校验实体、目录、来源、关系和谓词。
+- 新增 Predicate Registry JSON Schema、规范文档及反向、对称、传递、未知谓词和端点类型测试。
+- 同步项目包、运行时和 README 版本为 1.5.1。
+
 ## 1.5.0
 
 - 将 Relationship 提升为带独立 ID、来源、审核状态、置信度和限定条件的一等知识对象。
