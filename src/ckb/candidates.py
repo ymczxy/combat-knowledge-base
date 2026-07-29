@@ -56,6 +56,48 @@ class CandidateEntity:
         row["eras"] = list(self.eras)
         return row
 
+    def to_draft(self) -> dict[str, object]:
+        entity_type = {
+            "Weapon": "weapon",
+            "Platform": "platform",
+            "System": "system",
+        }.get(self.domain, "candidate")
+        return {
+            "id": self.candidate_id,
+            "entity_type": entity_type,
+            "identity": {
+                "canonical_name_en": self.source_name,
+                "canonical_name_zh": "",
+                "aliases": [],
+            },
+            "classification": {
+                "domain": self.domain,
+                "class": self.class_name,
+                "subclass": self.subclass,
+                "eras": list(self.eras),
+                "tags": ["catalog_candidate", f"priority_{self.priority.casefold()}"],
+            },
+            "relationships": [],
+            "technical": None,
+            "experience_profile": None,
+            "gameplay": {"status": "not_started"},
+            "provenance": {
+                "review_status": "machine_imported",
+                "sources": [{
+                    "source_id": "ckb_catalog",
+                    "catalog_group": self.source_group,
+                    "catalog_name": self.source_name,
+                    "catalog_status": self.catalog_status,
+                }],
+                "resolution": {
+                    "status": self.resolution_status,
+                    "normalized_name": self.normalized_name,
+                    "ambiguity_key": self.ambiguity_key,
+                },
+            },
+            "rights": {"rights_status": "deferred"},
+        }
+
 
 def normalize_name(value: str) -> str:
     normalized = unicodedata.normalize("NFKC", value).casefold().strip()
@@ -143,5 +185,20 @@ def write_candidate_bundle(candidates: Iterable[CandidateEntity], output: Path) 
     }
     (output / "manifest.json").write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def write_drafts(candidates: Iterable[CandidateEntity], output: Path) -> None:
+    rows = list(candidates)
+    output.mkdir(parents=True, exist_ok=True)
+    for candidate in rows:
+        filename = candidate.candidate_id.replace(":", "__") + ".json"
+        (output / filename).write_text(
+            json.dumps(candidate.to_draft(), ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    (output / "manifest.json").write_text(
+        json.dumps({"format_version": 1, "draft_count": len(rows)}, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
