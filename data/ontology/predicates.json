@@ -1,0 +1,295 @@
+{
+  "registry_version": "1.0",
+  "predicates": [
+    {
+      "name": "development_line_predecessor",
+      "labels": {"en": "development-line predecessor of", "zh": "发展谱系前身"},
+      "description": {"en": "The source is an earlier design-line predecessor of the target.", "zh": "源实体是目标实体在设计发展谱系中的前身。"},
+      "inverse": "development_line_successor",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["platform"],
+      "target_entity_types": ["platform"],
+      "status": "active"
+    },
+    {
+      "name": "development_line_successor",
+      "labels": {"en": "development-line successor of", "zh": "发展谱系后继"},
+      "description": {"en": "The source is a later design-line successor of the target.", "zh": "源实体是目标实体在设计发展谱系中的后继。"},
+      "inverse": "development_line_predecessor",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["platform"],
+      "target_entity_types": ["platform"],
+      "status": "active"
+    },
+    {
+      "name": "developed_into",
+      "labels": {"en": "developed into", "zh": "直接发展为"},
+      "description": {"en": "The source directly developed into the target model or design.", "zh": "源实体直接发展为目标型号或设计。"},
+      "inverse": "developed_from",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "weapon", "system", "component"],
+      "target_entity_types": ["platform", "weapon", "system", "component"],
+      "status": "active"
+    },
+    {
+      "name": "developed_from",
+      "labels": {"en": "developed from", "zh": "直接发展自"},
+      "description": {"en": "The source directly developed from the target model or design.", "zh": "源实体直接由目标型号或设计发展而来。"},
+      "inverse": "developed_into",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "weapon", "system", "component"],
+      "target_entity_types": ["platform", "weapon", "system", "component"],
+      "status": "active"
+    },
+    {
+      "name": "variant_of",
+      "labels": {"en": "variant of", "zh": "是其变型"},
+      "description": {"en": "The source is a named variant or production model of the target family or base design.", "zh": "源实体是目标家族或基础设计的具名变型、生产型。"},
+      "inverse": "has_variant",
+      "symmetric": false,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "has_variant",
+      "labels": {"en": "has variant", "zh": "拥有变型"},
+      "description": {"en": "The source family or base design has the target as a named variant.", "zh": "源实体家族或基础设计拥有目标变型。"},
+      "inverse": "variant_of",
+      "symmetric": false,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "influenced",
+      "labels": {"en": "influenced", "zh": "影响了"},
+      "description": {"en": "The source materially influenced the target's design or development.", "zh": "源实体对目标实体的设计或发展产生了实质影响。"},
+      "inverse": "influenced_by",
+      "symmetric": false,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "influenced_by",
+      "labels": {"en": "influenced by", "zh": "受到其影响"},
+      "description": {"en": "The source was materially influenced by the target.", "zh": "源实体受到目标实体的实质影响。"},
+      "inverse": "influenced",
+      "symmetric": false,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "contemporary",
+      "labels": {"en": "contemporary with", "zh": "与其同期"},
+      "description": {"en": "The two entities were relevant during substantially overlapping periods.", "zh": "两个实体在大体重叠的时期内具有现实相关性。"},
+      "inverse": "contemporary",
+      "symmetric": true,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "related_design",
+      "labels": {"en": "related design", "zh": "相关设计"},
+      "description": {"en": "The entities share a direct project, chassis, prototype, or design relationship that is not strict lineage.", "zh": "两个实体具有项目、底盘、原型或设计上的直接关联，但不表示严格前后继。"},
+      "inverse": "related_design",
+      "symmetric": true,
+      "transitive": false,
+      "status": "active"
+    },
+    {
+      "name": "uses_ammunition",
+      "labels": {"en": "uses ammunition", "zh": "使用弹药"},
+      "description": {"en": "The source weapon, platform, or system can use the target ammunition type.", "zh": "源武器、平台或系统可以使用目标弹药。"},
+      "inverse": "ammunition_used_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system"],
+      "target_entity_types": ["ammunition"],
+      "status": "active"
+    },
+    {
+      "name": "ammunition_used_by",
+      "labels": {"en": "ammunition used by", "zh": "被其使用"},
+      "description": {"en": "The source ammunition can be used by the target weapon, platform, or system.", "zh": "源弹药可以被目标武器、平台或系统使用。"},
+      "inverse": "uses_ammunition",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["ammunition"],
+      "target_entity_types": ["weapon", "platform", "system"],
+      "status": "active"
+    },
+    {
+      "name": "uses_engine",
+      "labels": {"en": "uses engine", "zh": "使用发动机"},
+      "description": {"en": "The source platform or system uses the target engine component.", "zh": "源平台或系统使用目标发动机部件。"},
+      "inverse": "powers",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "system"],
+      "target_entity_types": ["component"],
+      "status": "active"
+    },
+    {
+      "name": "powers",
+      "labels": {"en": "powers", "zh": "为其提供动力"},
+      "description": {"en": "The source engine component powers the target platform or system.", "zh": "源发动机部件为目标平台或系统提供动力。"},
+      "inverse": "uses_engine",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["component"],
+      "target_entity_types": ["platform", "system"],
+      "status": "active"
+    },
+    {
+      "name": "armed_with",
+      "labels": {"en": "armed with", "zh": "装备武器"},
+      "description": {"en": "The source platform or system carries the target weapon as an armament.", "zh": "源平台或系统将目标武器作为武装搭载。"},
+      "inverse": "mounted_on",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "system"],
+      "target_entity_types": ["weapon"],
+      "status": "active"
+    },
+    {
+      "name": "mounted_on",
+      "labels": {"en": "mounted on", "zh": "安装于"},
+      "description": {"en": "The source weapon is mounted on the target platform or system.", "zh": "源武器安装于目标平台或系统。"},
+      "inverse": "armed_with",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon"],
+      "target_entity_types": ["platform", "system"],
+      "status": "active"
+    },
+    {
+      "name": "produced_by",
+      "labels": {"en": "produced by", "zh": "由其生产"},
+      "description": {"en": "The source entity was produced or manufactured by the target organization.", "zh": "源实体由目标组织生产或制造。"},
+      "inverse": "produces",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "weapon", "ammunition", "component", "system"],
+      "target_entity_types": ["organization"],
+      "status": "active"
+    },
+    {
+      "name": "produces",
+      "labels": {"en": "produces", "zh": "生产"},
+      "description": {"en": "The source organization produces or manufactured the target entity.", "zh": "源组织生产或制造目标实体。"},
+      "inverse": "produced_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["organization"],
+      "target_entity_types": ["platform", "weapon", "ammunition", "component", "system"],
+      "status": "active"
+    },
+    {
+      "name": "designed_by",
+      "labels": {"en": "designed by", "zh": "由其设计"},
+      "description": {"en": "The source entity was designed by the target person or organization.", "zh": "源实体由目标个人或组织设计。"},
+      "inverse": "designed",
+      "symmetric": false,
+      "transitive": false,
+      "target_entity_types": ["person", "organization"],
+      "status": "active"
+    },
+    {
+      "name": "designed",
+      "labels": {"en": "designed", "zh": "设计了"},
+      "description": {"en": "The source person or organization designed the target entity.", "zh": "源个人或组织设计了目标实体。"},
+      "inverse": "designed_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["person", "organization"],
+      "status": "active"
+    },
+    {
+      "name": "operated_by",
+      "labels": {"en": "operated by", "zh": "由其使用"},
+      "description": {"en": "The source equipment or system is or was operated by the target organization or unit.", "zh": "源装备或系统由目标组织或部队使用。"},
+      "inverse": "operates",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform", "weapon", "system"],
+      "target_entity_types": ["organization", "unit"],
+      "status": "active"
+    },
+    {
+      "name": "operates",
+      "labels": {"en": "operates", "zh": "使用"},
+      "description": {"en": "The source organization or unit operates the target equipment or system.", "zh": "源组织或部队使用目标装备或系统。"},
+      "inverse": "operated_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["organization", "unit"],
+      "target_entity_types": ["platform", "weapon", "system"],
+      "status": "active"
+    },
+    {
+      "name": "participated_in",
+      "labels": {"en": "participated in", "zh": "参加了"},
+      "description": {"en": "The source entity participated in or was fielded during the target event or battle.", "zh": "源实体参加了目标事件或战役，或在其中被投入使用。"},
+      "inverse": "involved_entity",
+      "symmetric": false,
+      "transitive": false,
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "involved_entity",
+      "labels": {"en": "involved entity", "zh": "涉及实体"},
+      "description": {"en": "The source event or battle involved the target entity.", "zh": "源事件或战役涉及目标实体。"},
+      "inverse": "participated_in",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "located_in",
+      "labels": {"en": "located in", "zh": "位于"},
+      "description": {"en": "The source place, facility, organization, or event is located in the target place.", "zh": "源地点、设施、组织或事件位于目标地点之内。"},
+      "inverse": "contains_location",
+      "symmetric": false,
+      "transitive": true,
+      "target_entity_types": ["place"],
+      "status": "active"
+    },
+    {
+      "name": "contains_location",
+      "labels": {"en": "contains location", "zh": "包含地点"},
+      "description": {"en": "The source place contains the target place, facility, organization, or event location.", "zh": "源地点包含目标地点、设施、组织或事件位置。"},
+      "inverse": "located_in",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["place"],
+      "status": "active"
+    },
+    {
+      "name": "member_of",
+      "labels": {"en": "member of", "zh": "隶属于"},
+      "description": {"en": "The source person, unit, or organization is a member or subordinate of the target organization.", "zh": "源个人、部队或组织是目标组织的成员或下级。"},
+      "inverse": "has_member",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["person", "unit", "organization"],
+      "target_entity_types": ["unit", "organization"],
+      "status": "active"
+    },
+    {
+      "name": "has_member",
+      "labels": {"en": "has member", "zh": "拥有成员"},
+      "description": {"en": "The source organization or unit contains the target person, unit, or organization as a member or subordinate.", "zh": "源组织或部队拥有目标个人、部队或组织作为成员或下级。"},
+      "inverse": "member_of",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["unit", "organization"],
+      "target_entity_types": ["person", "unit", "organization"],
+      "status": "active"
+    }
+  ]
+}
