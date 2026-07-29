@@ -49,12 +49,13 @@ python -m ckb.cli source-audit
 python -m ckb.cli build --output exports --profile destory --allow-unverified
 ```
 
-### v1.3 候选实体解析
+## v1.3 候选实体解析
 
 将 502 条建设目录生成稳定 Candidate ID、初步分类、歧义队列和清单：
 
 ```bash
 PYTHONPATH=src python -m ckb.cli candidates --output exports/candidates
+PYTHONPATH=src python -m ckb.cli drafts --output data/staging/catalog_drafts
 ```
 
 查看同名和混合目录歧义：
@@ -73,6 +74,34 @@ PYTHONPATH=src python -m ckb.cli import-csv data/templates/entity_import_templat
 
 详细流程见 `docs/V1_3_ENTITY_RESOLUTION.md`。
 
+## v1.3.1 外部实体匹配
+
+使用离线样本验证匹配评分和决策：
+
+```bash
+PYTHONPATH=src python -m ckb.cli resolve-fixture \
+  tests/fixtures/t34_resolution.json \
+  --output exports/resolution
+```
+
+联网查询并解析单个候选：
+
+```bash
+PYTHONPATH=src python -m ckb.cli resolve-one "T-34" \
+  --group wwii_armored_vehicles \
+  --source wikidata \
+  --language en \
+  --output exports/resolution/t34
+```
+
+结果分为：
+
+- `auto_accept`：身份匹配置信度高，但仍不代表技术参数已经核实；
+- `human_review`：必须人工确认；
+- `reject`：相关性不足。
+
+搜索结果默认缓存到 `data/cache/search/`，重复查询优先使用缓存。详细规则见 `docs/V1_3_1_MATCHING.md`。
+
 ## 目录
 
 ```text
@@ -82,6 +111,7 @@ sources/                 来源登记与采集策略
 data/catalog/            全量建设目录
 data/canonical/          已标准化实体
 data/staging/            机器导入与待审核记录
+data/cache/              外部搜索结果缓存
 data/templates/          人工导入模板
 data/curated/destory/    《destory》筛选配置
 src/ckb/                 校验、解析与导出工具
@@ -91,4 +121,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.3.0`：加入稳定候选 ID、同名歧义队列、CSV 导入、Wikidata/MediaWiki 适配器和候选构建命令。
+`1.3.1`：加入外部结果匹配评分、自动接受阈值、人工审核队列、家族/型号范围判断、搜索缓存和解析决策文件。
