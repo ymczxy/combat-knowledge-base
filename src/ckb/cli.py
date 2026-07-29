@@ -81,6 +81,11 @@ def main() -> None:
     sub.add_parser("source-audit")
     sub.add_parser("predicate-audit")
 
+    assertion_audit = sub.add_parser("assertion-audit")
+    assertion_audit.add_argument("--output", type=Path)
+    assertion_audit.add_argument("--exclude-embedded", action="store_true")
+    assertion_audit.add_argument("--fail-on-conflict", action="store_true")
+
     candidates = sub.add_parser("candidates")
     candidates.add_argument("--output", type=Path, default=ROOT / "exports" / "candidates")
 
@@ -147,7 +152,12 @@ def main() -> None:
         for key, value in sorted(Counter(e.classification.get("domain", "Unknown") for e in entities).items()):
             print(f"  {key}: {value}")
         graph_model = _build_graph(entities)
-        print("relationships:", len(graph_model.relationships))
+        governance = graph_model.governance_report()
+        print("relationship_assertions:", len(graph_model.relationships))
+        print("canonical_facts:", len(governance.facts))
+        print("duplicate_assertion_groups:", len(governance.duplicate_groups))
+        print("relationship_conflicts:", len(governance.conflicts))
+        print("promotion_candidates:", len(governance.promotion_candidates))
         print("predicates:", len(graph_model.predicate_registry.definitions) if graph_model.predicate_registry else 0)
         stats = catalog_stats(load_catalog(ROOT / "data" / "catalog"))
         print("catalog_candidates:", stats["total"])
@@ -161,6 +171,25 @@ def main() -> None:
         print(f"predicates: {len(registry.definitions)}")
         raise SystemExit(_print_errors(errors))
 
+    if args.cmd == "assertion-audit":
+        graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
+        errors = graph_model.validate()
+        if errors:
+            raise SystemExit(_print_errors(errors))
+        report = graph_model.governance_report()
+        payload = report.to_dict()
+        print(
+            f"facts: {payload['fact_count']}; duplicate groups: {payload['duplicate_group_count']}; "
+            f"conflicts: {payload['conflict_count']}; promotion candidates: {payload['promotion_candidate_count']}"
+        )
+        if args.output:
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            print(f"Assertion governance report: {args.output}")
+        if args.fail_on_conflict and report.conflicts:
+            raise SystemExit(1)
+        return
+
     if args.cmd == "graph":
         graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
         errors = graph_model.validate(strict_predicates=not args.allow_unknown_predicates)
@@ -171,9 +200,10 @@ def main() -> None:
             json.dumps(graph_model.to_bundle(), ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
+        governance = graph_model.governance_report()
         print(
             f"Built graph: {len(graph_model.entities)} entities, "
-            f"{len(graph_model.relationships)} relationships -> {args.output}"
+            f"{len(graph_model.relationships)} assertions, {len(governance.facts)} facts -> {args.output}"
         )
         return
 
