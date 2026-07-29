@@ -11,5 +11,9 @@ jobs:
       - run: PYTHONPATH=src python -m ckb.cli validate
       - run: PYTHONPATH=src python -m ckb.cli catalog-audit
       - run: PYTHONPATH=src python -m ckb.cli source-audit
+      - run: PYTHONPATH=src python -m ckb.cli candidates --output /tmp/ckb-candidates
+      - run: test -f /tmp/ckb-candidates/candidates.json && test -f /tmp/ckb-candidates/ambiguities.json && test -f /tmp/ckb-candidates/manifest.json
+      - run: PYTHONPATH=src python -m ckb.cli import-csv data/templates/entity_import_template.csv --output /tmp/manual_import.json
+      - run: test -f /tmp/manual_import.json
       - run: PYTHONPATH=src python -m ckb.cli build --output exports --profile destory --allow-unverified
       - run: PYTHONPATH=src python -m ckb.cli site --output /tmp/ckb-site-docs
