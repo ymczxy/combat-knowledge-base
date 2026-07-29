@@ -4,8 +4,10 @@ from pathlib import Path
 import json
 
 from .catalog import catalog_stats, load_catalog, validate_catalog
+from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle
 from .database import build_sqlite
 from .export import load_profile, select_entities, write_project_bundle
+from .importers import load_entity_csv, write_import_records
 from .markdown import build_markdown
 from .model import load_entities
 from .sources import load_source_registry, validate_source_registry
@@ -29,8 +31,20 @@ def main() -> None:
     sub.add_parser("stats")
     sub.add_parser("catalog-audit")
     sub.add_parser("source-audit")
+
+    candidates = sub.add_parser("candidates")
+    candidates.add_argument("--output", type=Path, default=ROOT / "exports" / "candidates")
+
+    ambiguity = sub.add_parser("ambiguity-report")
+    ambiguity.add_argument("--json", action="store_true", dest="as_json")
+
+    import_csv = sub.add_parser("import-csv")
+    import_csv.add_argument("input", type=Path)
+    import_csv.add_argument("--output", type=Path, default=ROOT / "data" / "staging" / "manual_import.json")
+
     site = sub.add_parser("site")
     site.add_argument("--output", type=Path, default=ROOT / "site_docs")
+
     build = sub.add_parser("build")
     build.add_argument("--output", type=Path, default=ROOT / "exports")
     build.add_argument("--profile", type=str)
@@ -61,6 +75,31 @@ def main() -> None:
         errors = validate_catalog(items)
         print(json.dumps(catalog_stats(items), ensure_ascii=False, indent=2))
         raise SystemExit(_print_errors(errors))
+
+    if args.cmd == "candidates":
+        rows = build_candidates(load_catalog(ROOT / "data" / "catalog"))
+        write_candidate_bundle(rows, args.output)
+        print(f"Built {len(rows)} candidates into {args.output}")
+        print(f"Ambiguity keys: {len(ambiguity_groups(rows))}")
+        return
+
+    if args.cmd == "ambiguity-report":
+        rows = build_candidates(load_catalog(ROOT / "data" / "catalog"))
+        groups = ambiguity_groups(rows)
+        if args.as_json:
+            print(json.dumps({key: [row.to_dict() for row in value] for key, value in groups.items()}, ensure_ascii=False, indent=2))
+        else:
+            for key, value in groups.items():
+                print(f"[{key}]")
+                for row in value:
+                    print(f"  - {row.source_name} ({row.source_group}) -> {row.candidate_id}")
+        return
+
+    if args.cmd == "import-csv":
+        rows = load_entity_csv(args.input)
+        write_import_records(rows, args.output)
+        print(f"Imported {len(rows)} rows into {args.output}")
+        return
 
     if args.cmd == "site":
         catalog = load_catalog(ROOT / "data" / "catalog")
