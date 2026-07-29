@@ -1,3 +1,4 @@
+import unittest
 from pathlib import Path
 
 from ckb.graph import KnowledgeGraph, Relationship
@@ -78,49 +79,63 @@ def registry() -> PredicateRegistry:
     })
 
 
-def test_repository_predicate_registry_is_internally_consistent():
-    loaded = load_predicate_registry(ROOT / "data" / "ontology" / "predicates.json")
+class PredicateRegistryTests(unittest.TestCase):
+    def test_repository_predicate_registry_is_internally_consistent(self):
+        loaded = load_predicate_registry(ROOT / "data" / "ontology" / "predicates.json")
 
-    assert loaded.validate() == []
-    assert loaded.inverse_of("uses_ammunition") == "ammunition_used_by"
-    assert loaded.inverse_of("contemporary") == "contemporary"
+        self.assertEqual(loaded.validate(), [])
+        self.assertEqual(loaded.inverse_of("uses_ammunition"), "ammunition_used_by")
+        self.assertEqual(loaded.inverse_of("contemporary"), "contemporary")
+
+    def test_inverse_symmetric_and_transitive_resolution(self):
+        a, b, c = entity("ckb:test:a"), entity("ckb:test:b"), entity("ckb:test:c")
+        ab = relation("rel:test:a:b", a.id, "development_line_predecessor", b.id)
+        bc = relation("rel:test:b:c", b.id, "development_line_predecessor", c.id)
+        contemporary = relation("rel:test:a:c:contemporary", a.id, "contemporary", c.id)
+        graph = KnowledgeGraph([a, b, c], [ab, bc, contemporary], predicate_registry=registry())
+
+        self.assertEqual(graph.validate(), [])
+        inverse = graph.related(b.id, "development_line_successor")
+        self.assertEqual([row.target_id for row in inverse], [a.id])
+        self.assertTrue(inverse[0].inferred_from_inverse)
+        self.assertEqual([row.target_id for row in graph.related(c.id, "contemporary")], [a.id])
+        self.assertEqual(
+            graph.transitive_targets(a.id, "development_line_predecessor"),
+            [b.id, c.id],
+        )
+
+    def test_unknown_predicate_and_endpoint_type_are_rejected(self):
+        weapon = entity("ckb:test:weapon", "weapon", "Firearm")
+        wrong_target = entity("ckb:test:platform", "platform", "GroundVehicle")
+        wrong_type = relation(
+            "rel:test:wrong_type",
+            weapon.id,
+            "uses_ammunition",
+            wrong_target.id,
+        )
+        unknown = relation(
+            "rel:test:unknown",
+            weapon.id,
+            "invented_relation",
+            wrong_target.id,
+        )
+        errors = KnowledgeGraph(
+            [weapon, wrong_target],
+            [wrong_type, unknown],
+            predicate_registry=registry(),
+        ).validate()
+
+        self.assertTrue(any("rejects target entity_type" in error for error in errors))
+        self.assertTrue(any("unknown predicate invented_relation" in error for error in errors))
+
+    def test_non_transitive_predicate_cannot_be_traversed(self):
+        a, b = entity("ckb:test:a"), entity("ckb:test:b")
+        contemporary = relation("rel:test:a:b", a.id, "contemporary", b.id)
+        graph = KnowledgeGraph([a, b], [contemporary], predicate_registry=registry())
+
+        with self.assertRaises(ValueError):
+            graph.transitive_targets(a.id, "contemporary")
 
 
-def test_inverse_symmetric_and_transitive_resolution():
-    a, b, c = entity("ckb:test:a"), entity("ckb:test:b"), entity("ckb:test:c")
-    ab = relation("rel:test:a:b", a.id, "development_line_predecessor", b.id)
-    bc = relation("rel:test:b:c", b.id, "development_line_predecessor", c.id)
-    contemporary = relation("rel:test:a:c:contemporary", a.id, "contemporary", c.id)
-    graph = KnowledgeGraph([a, b, c], [ab, bc, contemporary], predicate_registry=registry())
-
-    assert graph.validate() == []
-    inverse = graph.related(b.id, "development_line_successor")
-    assert [row.target_id for row in inverse] == [a.id]
-    assert inverse[0].inferred_from_inverse is True
-    assert [row.target_id for row in graph.related(c.id, "contemporary")] == [a.id]
-    assert graph.transitive_targets(a.id, "development_line_predecessor") == [b.id, c.id]
-
-
-def test_unknown_predicate_and_endpoint_type_are_rejected():
-    weapon = entity("ckb:test:weapon", "weapon", "Firearm")
-    wrong_target = entity("ckb:test:platform", "platform", "GroundVehicle")
-    wrong_type = relation(
-        "rel:test:wrong_type",
-        weapon.id,
-        "uses_ammunition",
-        wrong_target.id,
-    )
-    unknown = relation(
-        "rel:test:unknown",
-        weapon.id,
-        "invented_relation",
-        wrong_target.id,
-    )
-    errors = KnowledgeGraph(
-        [weapon, wrong_target],
-        [wrong_type, unknown],
-        predicate_registry=registry(),
-    ).validate()
-
-    assert any("rejects target entity_type" in error for error in errors)
-    assert any("unknown predicate invented_relation" in error for error in errors)
+if __name__ == "__main__":
+    unittest.main()
