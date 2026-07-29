@@ -1,0 +1,34 @@
+{
+  "candidate": {
+    "group": "wwii_armored_vehicles",
+    "name": "T-34",
+    "status": "researching",
+    "priority": "P1"
+  },
+  "hits": [
+    {
+      "source": "wikidata",
+      "external_id": "Q170252",
+      "label": "T-34",
+      "description": "Soviet medium tank",
+      "url": "https://www.wikidata.org/wiki/Q170252",
+      "aliases": ["T34"]
+    },
+    {
+      "source": "wikidata",
+      "external_id": "Q181844",
+      "label": "T-34-85",
+      "description": "Soviet medium tank variant",
+      "url": "https://www.wikidata.org/wiki/Q181844",
+      "aliases": []
+    },
+    {
+      "source": "wikidata",
+      "external_id": "Q999999",
+      "label": "T34 heavy tank",
+      "description": "American experimental heavy tank",
+      "url": "https://www.wikidata.org/wiki/Q999999",
+      "aliases": []
+    }
+  ]
+}
