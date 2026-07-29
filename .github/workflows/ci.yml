@@ -15,8 +15,10 @@ jobs:
       - run: test -f /tmp/ckb-candidates/candidates.json && test -f /tmp/ckb-candidates/ambiguities.json && test -f /tmp/ckb-candidates/manifest.json
       - run: PYTHONPATH=src python -m ckb.cli drafts --output /tmp/ckb-drafts
       - run: test -f /tmp/ckb-drafts/manifest.json && test "$(find /tmp/ckb-drafts -name '*.json' | wc -l)" -gt 500
-      - run: PYTHONPATH=src python -m ckb.cli resolve-fixture tests/fixtures/t34_resolution.json --output /tmp/ckb-resolution
-      - run: test -f /tmp/ckb-resolution/decisions.json && test -f /tmp/ckb-resolution/review_queue.json && test -f /tmp/ckb-resolution/manifest.json
+      - run: PYTHONPATH=src python -m ckb.cli resolve-fixture tests/fixtures/t34_resolution.json --constraints --output /tmp/ckb-resolution
+      - run: test -f /tmp/ckb-resolution/decisions.json && test -f /tmp/ckb-resolution/accepted.json && test -f /tmp/ckb-resolution/review_queue.json && test -f /tmp/ckb-resolution/manifest.json
+      - run: PYTHONPATH=src python -m ckb.cli batch-resolve-cache --limit 5 --output /tmp/ckb-batch
+      - run: test -f /tmp/ckb-batch/manifest.json && test -f /tmp/ckb-batch/missing_cache.json
       - run: PYTHONPATH=src python -m ckb.cli import-csv data/templates/entity_import_template.csv --output /tmp/manual_import.json
       - run: test -f /tmp/manual_import.json
       - run: PYTHONPATH=src python -m ckb.cli build --output exports --profile destory --allow-unverified
