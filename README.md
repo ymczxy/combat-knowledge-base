@@ -21,9 +21,13 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 
 ## 在线浏览
 
-仓库包含自动生成的 MkDocs 网站和 GitHub Pages 部署流程。GitHub Pages 启用后，浏览地址为：
+中文默认站：
 
 `https://ymczxy.github.io/combat-knowledge-base/`
+
+英文站：
+
+`https://ymczxy.github.io/combat-knowledge-base/en/`
 
 本地预览：
 
@@ -45,12 +49,29 @@ python -m ckb.cli source-audit
 python -m ckb.cli build --output exports --profile destory --allow-unverified
 ```
 
-无安装运行：
+### v1.3 候选实体解析
+
+将 502 条建设目录生成稳定 Candidate ID、初步分类、歧义队列和清单：
 
 ```bash
-PYTHONPATH=src python -m ckb.cli validate
-PYTHONPATH=src python -m ckb.cli build --output exports
+PYTHONPATH=src python -m ckb.cli candidates --output exports/candidates
 ```
+
+查看同名和混合目录歧义：
+
+```bash
+PYTHONPATH=src python -m ckb.cli ambiguity-report
+PYTHONPATH=src python -m ckb.cli ambiguity-report --json
+```
+
+从人工 CSV 导入 staging：
+
+```bash
+PYTHONPATH=src python -m ckb.cli import-csv data/templates/entity_import_template.csv \
+  --output data/staging/manual_import.json
+```
+
+详细流程见 `docs/V1_3_ENTITY_RESOLUTION.md`。
 
 ## 目录
 
@@ -60,12 +81,14 @@ taxonomy/                统一分类、时代、作用和体验维度
 sources/                 来源登记与采集策略
 data/catalog/            全量建设目录
 data/canonical/          已标准化实体
+data/staging/            机器导入与待审核记录
+data/templates/          人工导入模板
 data/curated/destory/    《destory》筛选配置
-src/ckb/                 校验与导出工具
+src/ckb/                 校验、解析与导出工具
 docs/                    设计、标准和路线图
 exports/                 自动生成结果
 ```
 
 ## 当前版本
 
-`1.2.0`：加入自动生成的知识库网站、全局搜索、领域/时代索引和 GitHub Pages 部署。
+`1.3.0`：加入稳定候选 ID、同名歧义队列、CSV 导入、Wikidata/MediaWiki 适配器和候选构建命令。
