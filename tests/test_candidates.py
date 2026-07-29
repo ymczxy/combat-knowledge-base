@@ -34,6 +34,17 @@ class CandidateTests(unittest.TestCase):
         self.assertEqual(row.resolution_status, "ambiguous")
         self.assertEqual(row.domain, "Mixed")
 
+    def test_candidate_becomes_reviewable_draft(self):
+        row = build_candidates([
+            CatalogItem("wwii_aircraft", "P-51 Mustang", "planned", "P1", "x.csv")
+        ])[0]
+        draft = row.to_draft()
+        self.assertEqual(draft["entity_type"], "platform")
+        self.assertEqual(draft["identity"]["canonical_name_en"], "P-51 Mustang")
+        self.assertEqual(draft["classification"]["eras"], ["WWII"])
+        self.assertEqual(draft["provenance"]["review_status"], "machine_imported")
+        self.assertEqual(draft["provenance"]["resolution"]["status"], "unresolved")
+
 
 if __name__ == "__main__":
     unittest.main()
