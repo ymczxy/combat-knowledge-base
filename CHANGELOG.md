@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.3.3
+
+- 新增从批量匹配结果生成 Canonical 晋级提案的流水线。
+- 每个提案保留 Candidate ID、建议正式 ID、外部 ID、来源、置信度和阻塞项。
+- 自动区分 `promotion_ready` 与 `review_required`，歧义候选不能直接晋级。
+- 新增 `tools/build_promotions.py` 命令与晋级 Bundle。
+- 新增正式晋级、歧义阻塞和输出清单测试。
+
 ## 1.3.2
 
 - 新增类别关键词、排除关键词与时代年份窗口等结构化匹配约束。
