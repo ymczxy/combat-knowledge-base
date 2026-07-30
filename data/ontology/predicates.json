@@ -296,6 +296,28 @@
       "status": "active"
     },
     {
+      "name": "uses_sensor",
+      "labels": {"en": "uses sensor", "zh": "uses sensor"},
+      "description": {"en": "The source weapon, platform, or system uses the target sensor component within a named configuration.", "zh": "The source weapon, platform, or system uses the target sensor component within a named configuration."},
+      "inverse": "sensor_used_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system"],
+      "target_entity_types": ["component"],
+      "status": "active"
+    },
+    {
+      "name": "sensor_used_by",
+      "labels": {"en": "sensor used by", "zh": "sensor used by"},
+      "description": {"en": "The source sensor component is used by the target weapon, platform, or system within a named configuration.", "zh": "The source sensor component is used by the target weapon, platform, or system within a named configuration."},
+      "inverse": "uses_sensor",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["component"],
+      "target_entity_types": ["weapon", "platform", "system"],
+      "status": "active"
+    },
+    {
       "name": "accepts_magazine",
       "labels": {"en": "accepts magazine", "zh": "accepts magazine"},
       "description": {"en": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence.", "zh": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence."},

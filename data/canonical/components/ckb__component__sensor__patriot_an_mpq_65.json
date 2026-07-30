@@ -1,0 +1,16 @@
+{
+  "id":"ckb:component:sensor:patriot_an_mpq_65",
+  "entity_type":"component",
+  "identity":{"canonical_name_en":"Patriot AN/MPQ-65 radar","canonical_name_zh":"爱国者AN/MPQ-65雷达","aliases":["AN/MPQ-65","Patriot radar"]},
+  "classification":{"domain":"Component","class":"Sensor","subclass":"AirDefenseRadar","eras":["POST_COLD_WAR","CONTEMPORARY"],"tags":["radar","phased_array","air_defense","patriot"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public identification and system role of the Patriot radar component; no operating procedures or performance exploitation guidance.","claims":[
+    {"field":"sensor_type","value":"Patriot phased-array radar","unit":"text","qualifiers":{"legacy_designation":"AN/MPQ-65"},"source_urls":["https://www.army.mil/article/225044/patriot_force_halfway_thru_major_modernization"]},
+    {"field":"sensor_role","value":"provides radar support for Patriot air and missile defense engagements","unit":"text","qualifiers":{"system":"PATRIOT"},"source_urls":["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"]},
+    {"field":"processing_context","value":"modernization transitioned internal radar processing from analog to digital","unit":"text","qualifiers":{"program_context":"Patriot PDB8"},"source_urls":["https://www.army.mil/article/225044/patriot_force_halfway_thru_major_modernization"]},
+    {"field":"network_context","value":"can participate in integrated air and missile defense sensor networks","unit":"text","qualifiers":{"scope":"public Army IBCS description"},"source_urls":["https://www.army.mil/article-amp/248655/army_announces_integrated_battle_command_system_ibcs_flight_test"]},
+    {"field":"legacy_context","value":"legacy Patriot radar designation used in Army modernization references","unit":"text","qualifiers":{"designation":"AN/MPQ-65"},"source_urls":["https://asc.army.mil/web/news-the-big-t/"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_army","url":"https://www.army.mil/article/225044/patriot_force_halfway_thru_major_modernization"},{"source_id":"us_army_doctrine","url":"https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"},{"source_id":"us_army_ibcs","url":"https://www.army.mil/article-amp/248655/army_announces_integrated_battle_command_system_ibcs_flight_test"}]},
+  "rights":{"rights_status":"deferred"}
+}

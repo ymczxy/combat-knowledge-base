@@ -1,0 +1,16 @@
+{
+  "id":"ckb:system:air_defense:patriot",
+  "entity_type":"system",
+  "identity":{"canonical_name_en":"PATRIOT air and missile defense system","canonical_name_zh":"爱国者防空反导系统","aliases":["PATRIOT","Patriot system"]},
+  "classification":{"domain":"System","class":"AirDefenseSystem","subclass":"GroundBasedAirAndMissileDefense","eras":["LATE_COLD_WAR","POST_COLD_WAR","CONTEMPORARY"],"tags":["air_defense","missile_defense","radar","networked","patriot"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public system-level identification and component boundaries; no operational employment instructions.","claims":[
+    {"field":"system_role","value":"ground-based air and missile defense system","unit":"text","qualifiers":{},"source_urls":["https://api.army.mil/e2/c/downloads/533115.pdf?ref=kycuong.com"]},
+    {"field":"sensor_dependency","value":"Patriot radar provides tracking and uplink functions for missile guidance","unit":"text","qualifiers":{"scope":"public Army doctrine description"},"source_urls":["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"]},
+    {"field":"interceptor_family","value":"PAC-3 and PAC-3 MSE among Patriot missile variants","unit":"text","qualifiers":{"scope":"public Army modernization description"},"source_urls":["https://www.army.mil/article/225044/patriot_force_halfway_thru_major_modernization"]},
+    {"field":"system_components","value":"radar, command-and-control technology and interceptors","unit":"text","qualifiers":{},"source_urls":["https://www.rtx.com/raytheon/what-we-do/integrated-air-and-missile-defense/global-patriot-solutions"]},
+    {"field":"coverage_context","value":"lower-tier air and missile defense","unit":"text","qualifiers":{"source_context":"Army PAC-3 program description"},"source_urls":["https://api.army.mil/e2/c/downloads/533115.pdf?ref=kycuong.com"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_army_pac3","url":"https://api.army.mil/e2/c/downloads/533115.pdf?ref=kycuong.com"},{"source_id":"us_army_doctrine","url":"https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"},{"source_id":"raytheon","url":"https://www.rtx.com/raytheon/what-we-do/integrated-air-and-missile-defense/global-patriot-solutions"}]},
+  "rights":{"rights_status":"deferred"}
+}
