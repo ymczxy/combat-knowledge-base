@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Iterable
 
@@ -56,6 +56,10 @@ class CanonicalFact:
     polarities: list[str]
     conflict: bool = False
     duplicate_assertion_count: int = 0
+    lifecycle_status: str = "proposed"
+    suggested_lifecycle_status: str = "proposed"
+    current_decision: dict[str, Any] | None = None
+    decision_history: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -72,6 +76,11 @@ class CanonicalFact:
             "promotion_recommended": self.asserted_review_status != self.suggested_review_status,
             "polarities": self.polarities,
             "conflict": self.conflict,
+            "lifecycle_status": self.lifecycle_status,
+            "suggested_lifecycle_status": self.suggested_lifecycle_status,
+            "decision_count": len(self.decision_history),
+            "current_decision": self.current_decision,
+            "decision_history": self.decision_history,
         }
 
 
@@ -91,12 +100,18 @@ class AssertionGovernanceReport:
     def promotion_candidates(self) -> list[CanonicalFact]:
         return [fact for fact in self.facts if fact.asserted_review_status != fact.suggested_review_status]
 
+    @property
+    def lifecycle_counts(self) -> dict[str, int]:
+        counts = Counter(fact.lifecycle_status for fact in self.facts)
+        return dict(sorted(counts.items()))
+
     def to_dict(self) -> dict[str, Any]:
         return {
             "fact_count": len(self.facts),
             "duplicate_group_count": len(self.duplicate_groups),
             "conflict_count": len(self.conflicts),
             "promotion_candidate_count": len(self.promotion_candidates),
+            "lifecycle_counts": self.lifecycle_counts,
             "facts": [fact.to_dict() for fact in self.facts],
             "duplicate_groups": [fact.to_dict() for fact in self.duplicate_groups],
             "conflicts": [fact.to_dict() for fact in self.conflicts],
@@ -170,7 +185,7 @@ def aggregate_assertions(
         polarities = sorted({_polarity(row) for row in rows})
         conflict = len(polarities) > 1
         confidence = max((float(row.confidence) for row in rows), default=0.0)
-        sources = list(source_map.values())
+        sources = [source_map[key] for key in sorted(source_map)]
         asserted_status = _asserted_review_status(rows)
         facts.append(CanonicalFact(
             id=_fact_id(key),
@@ -183,6 +198,7 @@ def aggregate_assertions(
             polarities=polarities,
             conflict=conflict,
             duplicate_assertion_count=max(0, len(rows) - 1),
+            suggested_lifecycle_status="disputed" if conflict else "proposed",
         ))
 
     return AssertionGovernanceReport(facts=facts)
