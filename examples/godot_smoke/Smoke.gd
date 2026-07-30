@@ -19,18 +19,18 @@ func _ready() -> void:
 
 
 func _build_ui() -> void:
-    var background := ColorRect.new()
+    var background: ColorRect = ColorRect.new()
     background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     background.color = Color(0.025, 0.032, 0.05, 1.0)
     add_child(background)
 
-    var accent := ColorRect.new()
+    var accent: ColorRect = ColorRect.new()
     accent.position = Vector2(0, 0)
     accent.size = Vector2(18, 720)
     accent.color = Color(0.16, 0.73, 0.48, 1.0)
     add_child(accent)
 
-    var margin := MarginContainer.new()
+    var margin: MarginContainer = MarginContainer.new()
     margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
     margin.add_theme_constant_override("margin_left", 62)
     margin.add_theme_constant_override("margin_right", 62)
@@ -46,7 +46,7 @@ func _build_ui() -> void:
     _add_text("GODOT LINUX RUNTIME SMOKE TEST", 38, Color(0.95, 0.97, 1.0))
     _add_text("Actual engine execution · locked Bundle · explicit configuration queries", 18, Color(0.62, 0.68, 0.78))
 
-    var separator := HSeparator.new()
+    var separator: HSeparator = HSeparator.new()
     separator.custom_minimum_size.y = 18
     _content.add_child(separator)
 
@@ -54,7 +54,7 @@ func _build_ui() -> void:
     for _index in range(9):
         _detail_labels.append(_add_text("", 18, Color(0.82, 0.86, 0.93)))
 
-    var footer := Label.new()
+    var footer: Label = Label.new()
     footer.text = "The loader does not choose a default, newest, or best configuration."
     footer.add_theme_font_size_override("font_size", 16)
     footer.add_theme_color_override("font_color", Color(0.56, 0.62, 0.72))
@@ -64,7 +64,7 @@ func _build_ui() -> void:
 
 
 func _add_text(value: String, font_size: int, color: Color) -> Label:
-    var label := Label.new()
+    var label: Label = Label.new()
     label.text = value
     label.add_theme_font_size_override("font_size", font_size)
     label.add_theme_color_override("font_color", color)
@@ -76,13 +76,13 @@ func _add_text(value: String, font_size: int, color: Color) -> Label:
 func _run_smoke() -> void:
     var checks: Array[String] = []
     var details: Array[String] = []
-    var runtime = RuntimeBundleScript.load_locked(BUNDLE_PATH, LOCK_PATH)
+    var runtime: Variant = RuntimeBundleScript.load_locked(BUNDLE_PATH, LOCK_PATH)
     if runtime == null:
         checks.append("Bundle and lock could not be loaded by CKBRuntimeBundle.")
         await _finish(false, details, checks)
         return
 
-    var engine_version := str(Engine.get_version_info().get("string", "unknown"))
+    var engine_version: String = str(Engine.get_version_info().get("string", "unknown"))
     var manifest: Dictionary = runtime.manifest
     var ids: PackedStringArray = runtime.entity_ids()
 
@@ -91,9 +91,9 @@ func _run_smoke() -> void:
     _expect(int(manifest.get("derived_metric_count", -1)) == 5, "Expected 5 derived metrics.", checks)
     _expect(int(manifest.get("source_ref_count", -1)) == 14, "Expected 14 source references.", checks)
 
-    var challenger_configs := runtime.list_configurations(CHALLENGER_ID)
-    var challenger_baseline := _find_configuration(challenger_configs, "baseline")
-    var challenger_armour := _find_configuration(challenger_configs, "with add-on armour modules")
+    var challenger_configs: Array = runtime.list_configurations(CHALLENGER_ID)
+    var challenger_baseline: Dictionary = _find_configuration(challenger_configs, "baseline")
+    var challenger_armour: Dictionary = _find_configuration(challenger_configs, "with add-on armour modules")
     _expect(not challenger_baseline.is_empty(), "Challenger 2 baseline configuration is missing.", checks)
     _expect(not challenger_armour.is_empty(), "Challenger 2 add-on armour configuration is missing.", checks)
 
@@ -112,9 +112,9 @@ func _run_smoke() -> void:
     _expect(baseline_metrics.size() == 1, "Challenger 2 baseline metric query failed.", checks)
     _expect(armour_metrics.size() == 1, "Challenger 2 add-on armour metric query failed.", checks)
 
-    var sherman_configs := runtime.list_configurations(SHERMAN_ID)
-    var sherman_e8 := _find_configuration(sherman_configs, "M4A2E8 Sherman")
-    var sherman_firefly := _find_configuration(sherman_configs, "M4A4 Sherman Firefly")
+    var sherman_configs: Array = runtime.list_configurations(SHERMAN_ID)
+    var sherman_e8: Dictionary = _find_configuration(sherman_configs, "M4A2E8 Sherman")
+    var sherman_firefly: Dictionary = _find_configuration(sherman_configs, "M4A4 Sherman Firefly")
     _expect(not sherman_e8.is_empty(), "M4A2E8 configuration is missing.", checks)
     _expect(not sherman_firefly.is_empty(), "M4A4 Sherman Firefly configuration is missing.", checks)
 
@@ -133,13 +133,14 @@ func _run_smoke() -> void:
     _expect(e8_claims.size() > 0, "M4A2E8 explicit claim query returned no rows.", checks)
     _expect(firefly_claims.size() > 0, "M4A4 Firefly explicit claim query returned no rows.", checks)
 
-    var resolved_sources := PackedStringArray()
+    var resolved_sources: PackedStringArray = PackedStringArray()
     if e8_claims.size() > 0:
-        resolved_sources = runtime.resolve_source_refs(e8_claims[0].get("source_refs", []))
+        var first_claim: Dictionary = e8_claims[0]
+        resolved_sources = runtime.resolve_source_refs(first_claim.get("source_refs", []))
     _expect(resolved_sources.size() > 0, "Source reference resolution returned no URLs.", checks)
 
-    var baseline_value := _first_metric_value(baseline_metrics)
-    var armour_value := _first_metric_value(armour_metrics)
+    var baseline_value: String = _first_metric_value(baseline_metrics)
+    var armour_value: String = _first_metric_value(armour_metrics)
     details = [
         "ENGINE      Godot %s · Linux x86_64" % engine_version,
         "LOCK        SHA-256, versions, resource manifest and entity order verified",
@@ -175,9 +176,13 @@ func _find_configuration(configurations: Array, wanted_label: String) -> Diction
 func _first_metric_value(rows: Array) -> String:
     if rows.is_empty() or typeof(rows[0]) != TYPE_DICTIONARY:
         return "missing"
-    var value: Variant = rows[0].get("value", "missing")
+    var row: Dictionary = rows[0]
+    var value: Variant = row.get("value", "missing")
     if value is Array:
-        return "–".join(value.map(func(item: Variant) -> String: return str(item)))
+        var parts: PackedStringArray = PackedStringArray()
+        for item in value:
+            parts.append(str(item))
+        return "–".join(parts)
     return str(value)
 
 
@@ -188,14 +193,15 @@ func _finish(passed: bool, details: Array[String], errors: Array[String]) -> voi
         Color(0.30, 0.92, 0.60) if passed else Color(1.0, 0.38, 0.38),
     )
 
-    var rendered_lines := details.duplicate()
+    var rendered_lines: Array[String] = []
+    rendered_lines.append_array(details)
     if not errors.is_empty():
         rendered_lines.append("ERRORS      %s" % " | ".join(errors))
     for index in range(_detail_labels.size()):
         _detail_labels[index].text = rendered_lines[index] if index < rendered_lines.size() else ""
 
     DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("res://artifacts"))
-    var report := {
+    var report: Dictionary = {
         "passed": passed,
         "engine": Engine.get_version_info(),
         "details": details,
@@ -203,15 +209,15 @@ func _finish(passed: bool, details: Array[String], errors: Array[String]) -> voi
         "bundle_path": BUNDLE_PATH,
         "lock_path": LOCK_PATH,
     }
-    var report_file := FileAccess.open(REPORT_PATH, FileAccess.WRITE)
+    var report_file: FileAccess = FileAccess.open(REPORT_PATH, FileAccess.WRITE)
     if report_file != null:
         report_file.store_string(JSON.stringify(report, "  "))
 
     await get_tree().process_frame
     await get_tree().process_frame
     await RenderingServer.frame_post_draw
-    var image := get_viewport().get_texture().get_image()
-    var screenshot_error := image.save_png(SCREENSHOT_PATH)
+    var image: Image = get_viewport().get_texture().get_image()
+    var screenshot_error: Error = image.save_png(SCREENSHOT_PATH)
     if screenshot_error != OK:
         push_error("Unable to save Godot smoke-test screenshot: %s" % error_string(screenshot_error))
         passed = false
