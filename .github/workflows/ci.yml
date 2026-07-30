@@ -35,3 +35,5 @@ jobs:
       - run: PYTHONPATH=src python -m ckb.cli site --output /tmp/ckb-site-docs
       - run: PYTHONPATH=src python -m ckb.technical --output /tmp/ckb-technical-comparison.json --markdown /tmp/ckb-site-docs/compare/technical.md --fail-on-unsupported
       - run: test -f /tmp/ckb-technical-comparison.json && test -f /tmp/ckb-site-docs/compare/technical.md
+      - run: PYTHONPATH=src python -m ckb.technical_metrics --output /tmp/ckb-derived-metrics.json --markdown /tmp/ckb-site-docs/compare/derived-metrics.md --fail-on-error
+      - run: test -f /tmp/ckb-derived-metrics.json && test -f /tmp/ckb-site-docs/compare/derived-metrics.md
