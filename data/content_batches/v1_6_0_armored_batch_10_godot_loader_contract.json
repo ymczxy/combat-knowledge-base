@@ -1,0 +1,31 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-10-godot-loader-contract",
+  "version": "1.6.0",
+  "status": "loader_contract_ready",
+  "scope": "Godot-side locked runtime Bundle loader plus build-time contract verification for the Batch 09 armored runtime package.",
+  "entity_ids": [
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:challenger_2",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_10_tank",
+    "ckb:platform:ground:m4_sherman",
+    "ckb:platform:ground:t_34_model_1940",
+    "ckb:platform:ground:panther_tank",
+    "ckb:platform:ground:type_59_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "godot_loader_status": "locked_explicit_configuration_only",
+    "runtime_contract_contains_game_balance": false
+  },
+  "notes": [
+    "The Godot loader verifies lock version, Bundle format and schema versions, Bundle filename, file SHA-256, manifest mirrors, resource manifest and exact entity order.",
+    "Configuration-specific claims and metrics are retrieved only through an explicit configuration_id; no best or default configuration is chosen automatically.",
+    "A Python contract verifier enforces the same file and lock invariants during CI before the data reaches Godot.",
+    "The loader resolves integer source references but does not load source documents or interpret gameplay balance.",
+    "Current CI statically checks the GDScript contract and function surface; running Godot headless syntax tests remains a later integration step."
+  ]
+}
