@@ -17,9 +17,10 @@ v1.6.0 不再扩展通用底层抽象，目标是把既有 Entity、Relationship
 `v1.6.0-armored-vehicles-batch-01` 建立美国、英国、法国、中国和日本装甲车辆的首批发展线骨架：
 
 - 27 个 Canonical Entity；
-- 18 条独立 Relationship Assertion；
+- 19 条独立 Relationship Assertion；
 - 覆盖二战、冷战早期、冷战后期和当代；
 - 关系全部存入 `data/relationships/`，不新增实体内嵌关系；
+- 其中一条关系把旧库中的 M1A2 变型连接到本批新增的 M1 Abrams 家族实体；
 - 技术参数和体验模型暂不填充，避免把未经交叉审核的摘要误当作完整档案。
 
 本批实体均保持 `unverified`，单一公开来源只用于建立可追踪的初始记录，不代表事实已经完成审核。
