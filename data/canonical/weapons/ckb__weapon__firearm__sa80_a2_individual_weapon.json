@@ -1,0 +1,119 @@
+{
+  "id": "ckb:weapon:firearm:sa80_a2_individual_weapon",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "SA80 A2 Individual Weapon",
+    "canonical_name_zh": "SA80 A2单兵武器",
+    "aliases": ["SA80 Individual Weapon", "SA80 IW"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "AssaultRifle",
+    "eras": ["CONTEMPORARY"],
+    "tags": ["british", "bullpup", "gas_operated", "infantry", "selective_fire"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "British Army public specification for the SA80 A2 Individual Weapon configuration.",
+    "claims": [
+      {
+        "field": "nominal_caliber",
+        "value": 5.56,
+        "unit": "mm",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "overall_length",
+        "value": 785,
+        "unit": "mm",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "barrel_length",
+        "value": 518,
+        "unit": "mm",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "muzzle_velocity",
+        "value": 940,
+        "unit": "m/s",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon", "source_conditions": "not stated"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "weapon_mass",
+        "value": 4.98,
+        "unit": "kg",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon", "condition": "loaded magazine and optical sight"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "magazine_capacity",
+        "value": 30,
+        "unit": "rounds",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon", "feed": "magazine"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "effective_range",
+        "value": 400,
+        "unit": "m",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon", "target_type": "not stated"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "cyclic_rate",
+        "value": [610, 775],
+        "unit": "rounds/min",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon", "value_type": "published range"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "manufacturer",
+        "value": "Heckler & Koch",
+        "unit": "text",
+        "qualifiers": {"configuration": "SA80 A2 series", "source_wording": "Made by Heckler and Koch"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      },
+      {
+        "field": "chambering",
+        "value": "5.56×45 mm NATO",
+        "unit": "designation",
+        "qualifiers": {"configuration": "SA80 A2 Individual Weapon"},
+        "source_urls": ["https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": {
+    "profile_version": "1.0",
+    "derivation_status": "derived_from_public_technical_facts",
+    "basis_fields": ["weapon_mass", "overall_length", "barrel_length", "magazine_capacity", "effective_range", "cyclic_rate"],
+    "dimensions": {
+      "mass_inertia": 0.48,
+      "overall_length_burden": 0.42,
+      "loaded_optic_mass_burden": 0.62,
+      "automatic_fire_cadence": 0.68,
+      "configuration_specificity": 0.9
+    },
+    "cues": {
+      "handling": "Compact bullpup overall length should be represented separately from the comparatively long barrel.",
+      "mass": "The published mass includes a loaded magazine and optical sight and must not be compared with bare-weapon masses without preserving that condition.",
+      "weapon_cycle": "The published cyclic rate is a range rather than a single universal value."
+    },
+    "not_game_balance": true
+  },
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "official_military", "url": "https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}
