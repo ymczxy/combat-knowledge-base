@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0
+
+- 冻结 CKB Schema、核心谓词、实体边界和 Godot Runtime Bundle/Lock 合同。
+- 完成装甲车辆、轻武器/弹药、航空、舰船、防空传感器及时间/地点/组织/战役上下文首批规范化内容。
+- 新增时间索引、实体/关系查询 API、Godot `CKBQuery` SDK 和独立关系断言消费。
+- 明确 v2.0 迁移、兼容性、发布快照和回滚规则，并通过稳定版门禁。
+
 ## 1.6.1
 
 - 完成 M2 Browning 与 12.7 x 99 mm / .50 BMG source-checked vertical slice。

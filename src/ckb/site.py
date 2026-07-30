@@ -7,6 +7,7 @@ import json
 import shutil
 
 from .catalog import CatalogItem
+from .graph import Relationship
 from .model import Entity
 
 
@@ -301,14 +302,65 @@ def _copy_reference_docs(project_root: Path, output: Path) -> None:
         shutil.copy2(path, reference / path.name)
 
 
+def _write_relationship_index(
+    output: Path,
+    entities: list[Entity],
+    relationships: list[Relationship],
+) -> None:
+    """Write a stable, human-browseable relationship index for the generated site."""
+    entity_names = {entity.id: (entity.name_zh or entity.name_en or entity.id) for entity in entities}
+    root = output / "relationships"
+    root.mkdir(parents=True, exist_ok=True)
+    rows = sorted(relationships, key=lambda row: (row.source_id, row.predicate, row.target_id, row.id))
+    lines = [
+        _front_matter("实体关系索引", "CKB 独立关系断言浏览与查询入口"),
+        "# 实体关系索引",
+        "",
+        f"当前共 **{len(rows)}** 条独立关系断言。关系本身保留断言 ID、方向、谓词和审核状态。",
+        "",
+        "| 来源实体 | 谓词 | 目标实体 | 断言 ID | 审核状态 |",
+        "|---|---|---|---|---|",
+    ]
+    for row in rows:
+        source = entity_names.get(row.source_id, row.source_id)
+        target = entity_names.get(row.target_id, row.target_id)
+        status = row.provenance.get("review_status", "")
+        source_link = f"[{source}](../entities/{_slug(row.source_id)}.md)"
+        target_link = f"[{target}](../entities/{_slug(row.target_id)}.md)"
+        lines.append(f"| {source_link} | `{row.predicate}` | {target_link} | `{row.id}` | {status} |")
+    (root / "index.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+    query_index = {
+        "schema_version": "1.0",
+        "entities": [
+            {
+                "id": entity.id,
+                "name_zh": entity.name_zh,
+                "name_en": entity.name_en,
+                "entity_type": entity.entity_type,
+                "domain": entity.classification.get("domain"),
+                "eras": entity.classification.get("eras", []),
+            }
+            for entity in sorted(entities, key=lambda item: item.id)
+        ],
+        "relationships": [row.to_dict() for row in rows],
+    }
+    (output / "query-index.json").write_text(
+        json.dumps(query_index, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
 def build_site_docs(
     entities: Iterable[Entity],
     catalog: Iterable[CatalogItem],
     project_root: Path,
     output: Path,
+    relationships: Iterable[Relationship] | None = None,
 ) -> None:
     entity_rows = list(entities)
     catalog_rows = list(catalog)
+    relationship_rows = list(relationships or [])
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True, exist_ok=True)
@@ -317,4 +369,5 @@ def build_site_docs(
     _write_domain_indexes(output, entity_rows)
     _write_era_indexes(output, entity_rows)
     _write_catalog(output, catalog_rows)
+    _write_relationship_index(output, entity_rows, relationship_rows)
     _copy_reference_docs(project_root, output)

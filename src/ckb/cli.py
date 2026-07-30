@@ -377,7 +377,7 @@ def main() -> None:
         errors = validate_all(entities) + validate_catalog(catalog)
         if errors:
             raise SystemExit(_print_errors(errors))
-        build_site_docs(entities, catalog, ROOT, args.output)
+        build_site_docs(entities, catalog, ROOT, args.output, load_relationships(RELATIONSHIPS))
         print(f"Built site source into {args.output}")
         return
 

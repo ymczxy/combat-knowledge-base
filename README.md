@@ -254,4 +254,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.6.1`：在装甲车辆闭环基础上完成轻武器与弹药 Batch 08–11、Magazine/Variant 关系治理和独立轻武器 Godot Runtime Bundle，并通过远程 Godot 4.7.1 Linux 实际加载验证。
+`2.0.0`：完成跨装备领域知识实体、独立关系断言、时间/地点/组织/战役上下文、查询接口、Godot Bundle/Lock/SDK 消费链路，并通过稳定版发布门禁。
