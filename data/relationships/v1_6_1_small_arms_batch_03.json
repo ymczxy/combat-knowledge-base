@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_03:lee_enfield_no4_mk1:uses_ammunition:303_british",
+    "source_id": "ckb:weapon:firearm:lee_enfield_no4_mk1",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:303_british",
+    "confidence": 0.99,
+    "qualifiers": {"scope": "standard_service_chambering"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "national_army_museum", "url": "https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"},
+        {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/30035949"}
+      ]
+    }
+  }
+]

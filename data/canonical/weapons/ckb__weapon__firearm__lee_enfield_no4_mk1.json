@@ -1,0 +1,90 @@
+{
+  "id": "ckb:weapon:firearm:lee_enfield_no4_mk1",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "Lee-Enfield No. 4 Mk I",
+    "canonical_name_zh": "李-恩菲尔德4号Mk I步枪",
+    "aliases": ["Rifle, No. 4 Mk I", "Lee Enfield No. 4 Mk I"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "Rifle",
+    "eras": ["WWII", "EARLY_COLD_WAR"],
+    "tags": ["bolt_action", "infantry", "british", "service_rifle"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification, dimensions and service characteristics",
+    "claims": [
+      {
+        "field": "caliber_designation",
+        "value": ".303 inch",
+        "unit": "designation",
+        "qualifiers": {},
+        "source_urls": ["https://www.iwm.org.uk/collections/item/object/30035949", "https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      },
+      {
+        "field": "operating_action",
+        "value": "bolt action",
+        "unit": "categorical",
+        "qualifiers": {},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1961-07-189-8-1"]
+      },
+      {
+        "field": "overall_length",
+        "value": 112,
+        "unit": "cm",
+        "qualifiers": {"catalogue_object": "FIR 7179"},
+        "source_urls": ["https://www.iwm.org.uk/collections/item/object/30035949"]
+      },
+      {
+        "field": "barrel_length",
+        "value": 64,
+        "unit": "cm",
+        "qualifiers": {"catalogue_object": "FIR 7179"},
+        "source_urls": ["https://www.iwm.org.uk/collections/item/object/30035949"]
+      },
+      {
+        "field": "ammunition_capacity",
+        "value": 10,
+        "unit": "rounds",
+        "qualifiers": {"feed_system": "detachable magazine"},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      },
+      {
+        "field": "effective_range_statement",
+        "value": "600 yards",
+        "unit": "text",
+        "qualifiers": {"source_wording_preserved": true},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      },
+      {
+        "field": "maximum_range_statement",
+        "value": "2,000 yards",
+        "unit": "text",
+        "qualifiers": {"source_wording_preserved": true},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      },
+      {
+        "field": "adoption_year",
+        "value": "1941",
+        "unit": "designation",
+        "qualifiers": {"organization": "British Army"},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "national_army_museum", "url": "https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"},
+      {"source_id": "national_army_museum", "url": "https://collection.nam.ac.uk/detail.php?acc=1961-07-189-8-1"},
+      {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/30035949"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}

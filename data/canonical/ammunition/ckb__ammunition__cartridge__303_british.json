@@ -1,0 +1,69 @@
+{
+  "id": "ckb:ammunition:cartridge:303_british",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": ".303 British cartridge",
+    "canonical_name_zh": ".303英制步枪弹",
+    "aliases": ["303 British", ".303 inch cartridge", "7.7×56 mm R"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "FullPowerRifleCartridge",
+    "eras": ["INDUSTRIAL", "WWI", "WWII", "EARLY_COLD_WAR"],
+    "tags": ["cartridge", "rifle_cartridge", "british", "rimmed"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and compatibility metadata",
+    "claims": [
+      {
+        "field": "caliber_designation",
+        "value": ".303 inch",
+        "unit": "designation",
+        "qualifiers": {},
+        "source_urls": ["https://www.iwm.org.uk/collections/item/object/30035949", "https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"]
+      },
+      {
+        "field": "cip_designation",
+        "value": "303 British",
+        "unit": "designation",
+        "qualifiers": {"cartridge_table": "Tab II - Rimmed cartridges"},
+        "source_urls": ["https://bobp.cip-bobp.org/en/homologation_public/show/id/409"]
+      },
+      {
+        "field": "case_type",
+        "value": "rimmed",
+        "unit": "categorical",
+        "qualifiers": {"cip_table": "Tab II"},
+        "source_urls": ["https://bobp.cip-bobp.org/en/homologation_public/show/id/409"]
+      },
+      {
+        "field": "case_length",
+        "value": 57,
+        "unit": "mm",
+        "qualifiers": {"catalogue_object": "SAA 582", "object_type": "cartridge case"},
+        "source_urls": ["https://www.iwm.org.uk/collections/item/object/30026802"]
+      },
+      {
+        "field": "primary_service_context",
+        "value": "British and Commonwealth service-rifle cartridge",
+        "unit": "text",
+        "qualifiers": {"linked_weapon": "ckb:weapon:firearm:lee_enfield_no4_mk1"},
+        "source_urls": ["https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1", "https://www.iwm.org.uk/collections/item/object/30035949"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "national_army_museum", "url": "https://collection.nam.ac.uk/detail.php?acc=1993-07-143--1"},
+      {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/30026802"},
+      {"source_id": "standards_body", "url": "https://bobp.cip-bobp.org/en/homologation_public/show/id/409"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}

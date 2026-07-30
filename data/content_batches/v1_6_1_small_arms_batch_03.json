@@ -1,0 +1,25 @@
+{
+  "batch_id": "v1.6.1-small-arms-batch-03-lee-enfield",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "Add the Lee-Enfield No. 4 Mk I and its .303 British ammunition compatibility chain.",
+  "entity_ids": [
+    "ckb:weapon:firearm:lee_enfield_no4_mk1",
+    "ckb:ammunition:cartridge:303_british"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_1_batch_03:lee_enfield_no4_mk1:uses_ammunition:303_british"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch stores public identification, dimensions, service and compatibility facts only.",
+    "No loading recipes, propellant charges, primer specifications, manufacturing guidance or gameplay balance values are included.",
+    "Museum catalogue range wording is retained as descriptive text rather than silently converted or generalized."
+  ]
+}
