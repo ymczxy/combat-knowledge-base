@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.5.3
+
+- 为 Canonical Fact 增加 `proposed`、`accepted`、`disputed`、`rejected`、`deprecated` 生命周期状态。
+- 新增版本化事实裁决账本，保存裁决人、裁决时间、理由、引用断言和完整状态变更历史。
+- 校验事实状态迁移、未知事实、无效断言引用、重复引用和带时区的 ISO 8601 裁决时间。
+- 冲突事实必须先进入 `disputed`，正式解决时必须同时引用至少两条相关断言。
+- 新增确定性的 `ckb fact-snapshot`，相同事实和裁决输入生成相同 SHA-256 快照 ID。
+- Graph Bundle 升级为 1.3，输出事实生命周期、当前裁决、裁决历史和状态统计。
+- `validate`、`stats`、`assertion-audit` 和 `graph` 接入事实裁决账本及生命周期校验。
+- 新增裁决账本 JSON Schema、生命周期测试和 CI 快照门禁。
+- 同步项目包和运行时版本为 1.5.3。
+
 ## 1.5.2
 
 - 新增 Relationship Assertion 到 Canonical Fact 的聚合层，保留全部原始断言和证据链。
