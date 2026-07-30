@@ -219,6 +219,15 @@ def build_content_report(
         experience_covered += int(bool(entity.experience_profile))
         embedded_relationship_count += len(entity.relationships)
 
+    relationship_review_counts = Counter()
+    relationship_source_covered = 0
+    relationship_multi_source_covered = 0
+    for relationship in relationship_rows:
+        relationship_review_counts[str(relationship.provenance.get("review_status", "missing"))] += 1
+        source_count = len(_relationship_source_keys(relationship))
+        relationship_source_covered += int(source_count >= 1)
+        relationship_multi_source_covered += int(source_count >= 2)
+
     batched_entity_ids = {
         str(entity_id)
         for batch in batch_rows
@@ -230,7 +239,7 @@ def build_content_report(
     total_relationship_count = embedded_relationship_count + independent_relationship_count
 
     return {
-        "report_version": "1.0",
+        "report_version": "1.1",
         "entity_count": len(entity_rows),
         "ground_vehicle_count": len(ground_vehicles),
         "country_counts": dict(sorted(country_counts.items())),
@@ -250,6 +259,17 @@ def build_content_report(
         "embedded_relationship_count": embedded_relationship_count,
         "independent_relationship_count": independent_relationship_count,
         "independent_relationship_rate": _ratio(independent_relationship_count, total_relationship_count),
+        "relationship_review_status_counts": dict(sorted(relationship_review_counts.items())),
+        "relationship_source_covered_count": relationship_source_covered,
+        "relationship_source_coverage_rate": _ratio(
+            relationship_source_covered,
+            independent_relationship_count,
+        ),
+        "relationship_multi_source_covered_count": relationship_multi_source_covered,
+        "relationship_multi_source_coverage_rate": _ratio(
+            relationship_multi_source_covered,
+            independent_relationship_count,
+        ),
         "content_batch_count": len(batch_rows),
         "batched_entity_count": len(batched_entity_ids),
         "unbatched_ground_vehicle_count": len(unbatched_ground_vehicle_ids),
