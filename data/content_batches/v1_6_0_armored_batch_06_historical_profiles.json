@@ -1,0 +1,26 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-06-historical-profiles",
+  "version": "1.6.0",
+  "status": "profiled",
+  "scope": "Structured technical claims and derived experience profiles for representative Second World War and early Cold War armored vehicles.",
+  "entity_ids": [
+    "ckb:platform:ground:m4_sherman",
+    "ckb:platform:ground:t_34_model_1940",
+    "ckb:platform:ground:panther_tank",
+    "ckb:platform:ground:type_59_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "technical_profile_status": "source_claims_with_qualifiers",
+    "experience_profile_status": "derived_not_game_balance"
+  },
+  "notes": [
+    "M4 family claims preserve M4A2E8 and M4A4 Firefly configurations separately.",
+    "T-34 Model 1940 and Panther family records receive independent museum sources and source_checked review status.",
+    "Type 59 claims describe the baseline vehicle and exclude later upgrade packages.",
+    "Historical qualitative design statements are used only when the source explicitly supports them."
+  ]
+}

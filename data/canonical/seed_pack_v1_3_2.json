@@ -1,110 +1,14 @@
 [
-  {
-    "id": "ckb:weapon:siege:counterweight_trebuchet",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "Counterweight trebuchet", "canonical_name_zh": "配重式投石机", "aliases": ["Trebuchet"]},
-    "classification": {"domain": "Weapon", "class": "ProjectileWeapon", "subclass": "MechanicalLauncher", "eras": ["MEDIEVAL"], "tags": ["siege", "projectile", "counterweight"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Trebuchet"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:weapon:early_gunpowder:flintlock_musket",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "Flintlock musket", "canonical_name_zh": "燧发枪", "aliases": ["Flintlock"]},
-    "classification": {"domain": "Weapon", "class": "EarlyGunpowderWeapon", "subclass": "Flintlock", "eras": ["EARLY_MODERN"], "tags": ["black_powder", "muzzle_loading", "infantry"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Flintlock"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:weapon:firearm:gewehr_98",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "Gewehr 98", "canonical_name_zh": "毛瑟98式步枪", "aliases": ["G98", "Mauser Gewehr 98"]},
-    "classification": {"domain": "Weapon", "class": "Firearm", "subclass": "Rifle", "eras": ["INDUSTRIAL", "WWI"], "tags": ["bolt_action", "infantry"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Gewehr_98"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:weapon:artillery:stokes_mortar",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "Stokes mortar", "canonical_name_zh": "斯托克斯迫击炮", "aliases": ["3-inch Stokes mortar"]},
-    "classification": {"domain": "Weapon", "class": "Artillery", "subclass": "Mortar", "eras": ["WWI"], "tags": ["mortar", "indirect_fire", "crew_served"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Stokes_mortar"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:platform:ground:panther_tank",
-    "entity_type": "platform",
-    "identity": {"canonical_name_en": "Panther tank", "canonical_name_zh": "黑豹坦克", "aliases": ["Panzer V Panther"]},
-    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "Tank", "eras": ["WWII"], "tags": ["tracked", "turreted", "armored"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:platform:air:supermarine_spitfire",
-    "entity_type": "platform",
-    "identity": {"canonical_name_en": "Supermarine Spitfire", "canonical_name_zh": "超级马林喷火式战斗机", "aliases": ["Spitfire"]},
-    "classification": {"domain": "Platform", "class": "Aircraft", "subclass": "Fighter", "eras": ["WWII"], "tags": ["fighter", "propeller", "single_engine"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Supermarine_Spitfire"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:platform:naval:iowa_class",
-    "entity_type": "platform",
-    "identity": {"canonical_name_en": "Iowa-class battleship", "canonical_name_zh": "衣阿华级战列舰", "aliases": ["Iowa class"]},
-    "classification": {"domain": "Platform", "class": "NavalPlatform", "subclass": "Battleship", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["battleship", "capital_ship", "class"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Iowa-class_battleship"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:weapon:firearm:fn_fal",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "FN FAL", "canonical_name_zh": "FN FAL自动步枪", "aliases": ["FAL"]},
-    "classification": {"domain": "Weapon", "class": "Firearm", "subclass": "BattleRifle", "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["battle_rifle", "infantry", "gas_operated"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/FN_FAL"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:platform:ground:m1a2_abrams",
-    "entity_type": "platform",
-    "identity": {"canonical_name_en": "M1A2 Abrams", "canonical_name_zh": "M1A2艾布拉姆斯主战坦克", "aliases": ["M1A2"]},
-    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "Tank", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["main_battle_tank", "tracked", "turreted"]},
-    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M1_Abrams"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:platform:air:f_22_raptor",
-    "entity_type": "platform",
-    "identity": {"canonical_name_en": "F-22 Raptor", "canonical_name_zh": "F-22猛禽战斗机", "aliases": ["F-22"]},
-    "classification": {"domain": "Platform", "class": "Aircraft", "subclass": "Fighter", "eras": ["CONTEMPORARY"], "tags": ["fighter", "stealth", "jet"]},
-    "relationships": [], "technical": {}, "experience_profile": {"status": "planned"}, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "official_military", "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104506/f-22-raptor/"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:weapon:missile:fgm_148_javelin",
-    "entity_type": "weapon",
-    "identity": {"canonical_name_en": "FGM-148 Javelin", "canonical_name_zh": "FGM-148标枪反坦克导弹", "aliases": ["Javelin"]},
-    "classification": {"domain": "Weapon", "class": "Missile", "subclass": "AntiTank", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["guided", "anti_tank", "man_portable"]},
-    "relationships": [], "technical": {}, "experience_profile": {"status": "planned"}, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/FGM-148_Javelin"}]},
-    "rights": {"rights_status": "deferred"}
-  },
-  {
-    "id": "ckb:system:air_defense:iron_dome",
-    "entity_type": "system",
-    "identity": {"canonical_name_en": "Iron Dome", "canonical_name_zh": "铁穹防空系统", "aliases": []},
-    "classification": {"domain": "System", "class": "AirDefenseSystem", "subclass": "ShortRangeAirDefense", "eras": ["CONTEMPORARY"], "tags": ["air_defense", "radar", "interceptor", "networked"]},
-    "relationships": [], "technical": {}, "experience_profile": {"status": "planned"}, "gameplay": {"status": "draft"},
-    "provenance": {"review_status": "unverified", "sources": [{"source_id": "manufacturer", "url": "https://www.rafael.co.il/system/iron-dome/"}]},
-    "rights": {"rights_status": "deferred"}
-  }
+  {"id":"ckb:weapon:siege:counterweight_trebuchet","entity_type":"weapon","identity":{"canonical_name_en":"Counterweight trebuchet","canonical_name_zh":"配重式投石机","aliases":["Trebuchet"]},"classification":{"domain":"Weapon","class":"ProjectileWeapon","subclass":"MechanicalLauncher","eras":["MEDIEVAL"],"tags":["siege","projectile","counterweight"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Trebuchet"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:weapon:early_gunpowder:flintlock_musket","entity_type":"weapon","identity":{"canonical_name_en":"Flintlock musket","canonical_name_zh":"燧发枪","aliases":["Flintlock"]},"classification":{"domain":"Weapon","class":"EarlyGunpowderWeapon","subclass":"Flintlock","eras":["EARLY_MODERN"],"tags":["black_powder","muzzle_loading","infantry"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Flintlock"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:weapon:firearm:gewehr_98","entity_type":"weapon","identity":{"canonical_name_en":"Gewehr 98","canonical_name_zh":"毛瑟98式步枪","aliases":["G98","Mauser Gewehr 98"]},"classification":{"domain":"Weapon","class":"Firearm","subclass":"Rifle","eras":["INDUSTRIAL","WWI"],"tags":["bolt_action","infantry"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Gewehr_98"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:weapon:artillery:stokes_mortar","entity_type":"weapon","identity":{"canonical_name_en":"Stokes mortar","canonical_name_zh":"斯托克斯迫击炮","aliases":["3-inch Stokes mortar"]},"classification":{"domain":"Weapon","class":"Artillery","subclass":"Mortar","eras":["WWI"],"tags":["mortar","indirect_fire","crew_served"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Stokes_mortar"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:platform:ground:panther_tank","entity_type":"platform","identity":{"canonical_name_en":"Panther tank","canonical_name_zh":"黑豹坦克","aliases":["Panzer V Panther"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MediumTank","eras":["WWII"],"tags":["german","tracked","medium_tank","sloped_armor","overlapping_road_wheels"]},"relationships":[],"technical":{"profile_version":"1.0","profile_scope":"Panther family reference profile based on The Tank Museum's Sd.Kfz. 171 Panther exhibit.","claims":[{"field":"crew_count","value":5,"unit":"people","qualifiers":{"configuration":"museum Panther"},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"combat_mass","value":44,"unit":"t","qualifiers":{"configuration":"museum Panther"},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"maximum_speed","value":55,"unit":"km/h","qualifiers":{"conditions":"not further specified by source"},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"main_gun","value":"7.5 cm KwK 42 L/70","unit":"designation","qualifiers":{"caliber":75,"caliber_unit":"mm"},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"secondary_armament","value":"2 x 7.92 mm MG 34","unit":"designation","qualifiers":{},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"maximum_stated_armor","value":80,"unit":"mm","qualifiers":{"source_summary":true},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]},{"field":"suspension_layout","value":"torsion_bars_with_18_overlapping_road_wheels_per_side","unit":"categorical","qualifiers":{"wide_tracks":true},"source_urls":["https://tankmuseum.org/tank-nuts/tank-collection/panther/"]}]},"experience_profile":{"profile_version":"1.0","derivation_status":"derived_from_public_technical_facts","basis_fields":["crew_count","combat_mass","maximum_speed","main_gun","maximum_stated_armor","suspension_layout"],"dimensions":{"mass_inertia":0.78,"road_mobility":0.76,"crew_coordination_burden":0.84,"manual_loading_burden":0.88,"suspension_complexity":0.94,"protection_presence":0.8},"cues":{"movement":"Substantial mass paired with a relatively high stated speed should feel powerful rather than sluggish.","running_gear":"Overlapping road wheels and wide tracks should create a visually dense suspension signature and strong soft-ground presence.","crew_workflow":"Five crew positions and manual loading should produce a pronounced coordinated fighting-compartment rhythm."},"not_game_balance":true},"gameplay":{"status":"draft"},"provenance":{"review_status":"source_checked","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Panther_tank"},{"source_id":"tank_museum","url":"https://tankmuseum.org/tank-nuts/tank-collection/panther/"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:platform:air:supermarine_spitfire","entity_type":"platform","identity":{"canonical_name_en":"Supermarine Spitfire","canonical_name_zh":"超级马林喷火式战斗机","aliases":["Spitfire"]},"classification":{"domain":"Platform","class":"Aircraft","subclass":"Fighter","eras":["WWII"],"tags":["fighter","propeller","single_engine"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Supermarine_Spitfire"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:platform:naval:iowa_class","entity_type":"platform","identity":{"canonical_name_en":"Iowa-class battleship","canonical_name_zh":"衣阿华级战列舰","aliases":["Iowa class"]},"classification":{"domain":"Platform","class":"NavalPlatform","subclass":"Battleship","eras":["WWII","EARLY_COLD_WAR","LATE_COLD_WAR"],"tags":["battleship","capital_ship","class"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/Iowa-class_battleship"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:weapon:firearm:fn_fal","entity_type":"weapon","identity":{"canonical_name_en":"FN FAL","canonical_name_zh":"FN FAL自动步枪","aliases":["FAL"]},"classification":{"domain":"Weapon","class":"Firearm","subclass":"BattleRifle","eras":["EARLY_COLD_WAR","LATE_COLD_WAR"],"tags":["battle_rifle","infantry","gas_operated"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/FN_FAL"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:platform:ground:m1a2_abrams","entity_type":"platform","identity":{"canonical_name_en":"M1A2 Abrams","canonical_name_zh":"M1A2艾布拉姆斯主战坦克","aliases":["M1A2"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"Tank","eras":["POST_COLD_WAR","CONTEMPORARY"],"tags":["main_battle_tank","tracked","turreted"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M1_Abrams"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:platform:air:f_22_raptor","entity_type":"platform","identity":{"canonical_name_en":"F-22 Raptor","canonical_name_zh":"F-22猛禽战斗机","aliases":["F-22"]},"classification":{"domain":"Platform","class":"Aircraft","subclass":"Fighter","eras":["CONTEMPORARY"],"tags":["fighter","stealth","jet"]},"relationships":[],"technical":{},"experience_profile":{"status":"planned"},"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"official_military","url":"https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104506/f-22-raptor/"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:weapon:missile:fgm_148_javelin","entity_type":"weapon","identity":{"canonical_name_en":"FGM-148 Javelin","canonical_name_zh":"FGM-148标枪反坦克导弹","aliases":["Javelin"]},"classification":{"domain":"Weapon","class":"Missile","subclass":"AntiTank","eras":["POST_COLD_WAR","CONTEMPORARY"],"tags":["guided","anti_tank","man_portable"]},"relationships":[],"technical":{},"experience_profile":{"status":"planned"},"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/FGM-148_Javelin"}]},"rights":{"rights_status":"deferred"}},
+  {"id":"ckb:system:air_defense:iron_dome","entity_type":"system","identity":{"canonical_name_en":"Iron Dome","canonical_name_zh":"铁穹防空系统","aliases":[]},"classification":{"domain":"System","class":"AirDefenseSystem","subclass":"ShortRangeAirDefense","eras":["CONTEMPORARY"],"tags":["air_defense","radar","interceptor","networked"]},"relationships":[],"technical":{},"experience_profile":{"status":"planned"},"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"manufacturer","url":"https://www.rafael.co.il/system/iron-dome/"}]},"rights":{"rights_status":"deferred"}}
 ]
