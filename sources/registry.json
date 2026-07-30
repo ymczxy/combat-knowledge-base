@@ -3,6 +3,7 @@
   {"source_id":"wikipedia","name":"Wikipedia","source_type":"encyclopedia","url":"https://www.wikipedia.org/","priority":"B","rights_status":"deferred"},
   {"source_id":"commons","name":"Wikimedia Commons","source_type":"media_repository","url":"https://commons.wikimedia.org/","priority":"B","rights_status":"deferred"},
   {"source_id":"royal_armouries","name":"Royal Armouries","source_type":"museum","url":"https://royalarmouries.org/","priority":"A","rights_status":"deferred"},
+  {"source_id":"tank_museum","name":"The Tank Museum","source_type":"museum","url":"https://tankmuseum.org/","priority":"A","rights_status":"deferred"},
   {"source_id":"met_museum","name":"The Metropolitan Museum of Art","source_type":"museum","url":"https://www.metmuseum.org/","priority":"A","rights_status":"deferred"},
   {"source_id":"smithsonian","name":"Smithsonian","source_type":"museum_archive","url":"https://www.si.edu/","priority":"A","rights_status":"deferred"},
   {"source_id":"official_military","name":"Government and military public sources","source_type":"official","url":"","priority":"S","rights_status":"deferred"},

@@ -1,0 +1,52 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-02-source-review",
+  "version": "1.6.0",
+  "status": "source_reviewed",
+  "scope": "Independent source review and relationship-strength correction for the United States and United Kingdom armored-vehicle backbone.",
+  "countries": [
+    "united_states",
+    "united_kingdom"
+  ],
+  "entity_ids": [
+    "ckb:platform:ground:m4_sherman",
+    "ckb:platform:ground:m26_pershing",
+    "ckb:platform:ground:m46_patton",
+    "ckb:platform:ground:m47_patton",
+    "ckb:platform:ground:m48_patton",
+    "ckb:platform:ground:m60_tank",
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:cromwell_tank",
+    "ckb:platform:ground:comet_tank",
+    "ckb:platform:ground:centurion_tank",
+    "ckb:platform:ground:chieftain_tank",
+    "ckb:platform:ground:challenger_1",
+    "ckb:platform:ground:challenger_2"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_0_batch_01:m26_pershing:m46_patton",
+    "rel:v1_6_0_batch_01:m46_patton:m47_patton",
+    "rel:v1_6_0_batch_01:m47_patton:m48_patton",
+    "rel:v1_6_0_batch_01:m48_patton:m60_tank",
+    "rel:v1_6_0_batch_01:m60_tank:m1_abrams",
+    "rel:v1_6_0_batch_01:m1a2_abrams:m1_abrams",
+    "rel:v1_6_0_batch_01:cromwell_tank:comet_tank",
+    "rel:v1_6_0_batch_01:comet_tank:centurion_tank",
+    "rel:v1_6_0_batch_01:centurion_tank:chieftain_tank",
+    "rel:v1_6_0_batch_01:chieftain_tank:challenger_1",
+    "rel:v1_6_0_batch_01:challenger_1:challenger_2"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "review_status": "source_checked",
+    "relationship_review_status": "source_checked",
+    "technical_detail_status": "deferred",
+    "experience_profile_status": "deferred"
+  },
+  "review_notes": [
+    "The Tank Museum and official U.S. or British Army sources were used as independent second sources.",
+    "Source count does not automatically promote records to cross_checked.",
+    "Comet and Centurion are recorded as contemporary rather than as a direct development chain.",
+    "Challenger 2 is recorded as a replacement-generation successor to Challenger 1, not as a direct upgrade of the same vehicle."
+  ]
+}

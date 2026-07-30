@@ -3,16 +3,20 @@
   "source_id": "ckb:platform:ground:m1a2_abrams",
   "predicate": "variant_of",
   "target_id": "ckb:platform:ground:m1_abrams",
-  "confidence": 0.9,
+  "confidence": 0.95,
   "qualifiers": {
     "scope": "named_variant"
   },
   "provenance": {
-    "review_status": "unverified",
+    "review_status": "source_checked",
     "sources": [
       {
         "source_id": "wikipedia",
         "url": "https://en.wikipedia.org/wiki/M1_Abrams"
+      },
+      {
+        "source_id": "official_military",
+        "url": "https://www.army.mil/article/54409/tankers_go_digital_with_abrams_upgrade"
       }
     ]
   }

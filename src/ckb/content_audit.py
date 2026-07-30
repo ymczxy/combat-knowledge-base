@@ -39,6 +39,32 @@ def _source_keys(entity: Entity) -> set[tuple[str, str]]:
     return keys
 
 
+def _relationship_source_keys(relationship: Relationship) -> set[tuple[str, str]]:
+    keys: set[tuple[str, str]] = set()
+    for source in relationship.provenance.get("sources", []):
+        if isinstance(source, dict):
+            keys.add((str(source.get("source_id", "")), str(source.get("url", ""))))
+    return keys
+
+
+def _minimum_source_target(
+    quality_targets: dict[str, Any],
+    field_name: str,
+    prefix: str,
+    errors: list[str],
+) -> int:
+    raw_value = quality_targets.get(field_name, 0)
+    try:
+        value = int(raw_value)
+    except (TypeError, ValueError):
+        errors.append(f"{prefix}: {field_name} must be an integer")
+        return 0
+    if value < 0:
+        errors.append(f"{prefix}: {field_name} must be non-negative")
+        return 0
+    return value
+
+
 def missing_core_fields(entity: Entity) -> list[str]:
     missing: list[str] = []
     checks = {
@@ -80,7 +106,7 @@ def validate_content_batches(
 ) -> list[str]:
     errors: list[str] = []
     entity_map = {entity.id: entity for entity in entities}
-    relationship_ids = {relationship.id for relationship in relationships}
+    relationship_map = {relationship.id: relationship for relationship in relationships}
     seen_batch_ids: set[str] = set()
 
     for batch in batches:
@@ -97,6 +123,23 @@ def validate_content_batches(
         if not str(batch.get("scope", "")).strip():
             errors.append(f"{prefix}: scope is required")
 
+        quality_targets = batch.get("quality_targets", {})
+        if not isinstance(quality_targets, dict):
+            errors.append(f"{prefix}: quality_targets must be an object")
+            quality_targets = {}
+        minimum_entity_sources = _minimum_source_target(
+            quality_targets,
+            "minimum_sources_per_entity",
+            prefix,
+            errors,
+        )
+        minimum_relationship_sources = _minimum_source_target(
+            quality_targets,
+            "minimum_sources_per_relationship",
+            prefix,
+            errors,
+        )
+
         entity_ids = [str(value) for value in batch.get("entity_ids", [])]
         if not entity_ids:
             errors.append(f"{prefix}: entity_ids must not be empty")
@@ -109,13 +152,27 @@ def validate_content_batches(
                 continue
             for field_name in missing_core_fields(entity):
                 errors.append(f"{prefix}: {entity_id} missing core field {field_name}")
+            source_count = len(_source_keys(entity))
+            if source_count < minimum_entity_sources:
+                errors.append(
+                    f"{prefix}: {entity_id} has {source_count} independent sources; "
+                    f"requires at least {minimum_entity_sources}"
+                )
 
         rel_ids = [str(value) for value in batch.get("relationship_ids", [])]
         for relationship_id, count in Counter(rel_ids).items():
             if count > 1:
                 errors.append(f"{prefix}: duplicate relationship id {relationship_id}")
-            if relationship_id not in relationship_ids:
+            relationship = relationship_map.get(relationship_id)
+            if relationship is None:
                 errors.append(f"{prefix}: unknown relationship {relationship_id}")
+                continue
+            source_count = len(_relationship_source_keys(relationship))
+            if source_count < minimum_relationship_sources:
+                errors.append(
+                    f"{prefix}: {relationship_id} has {source_count} independent sources; "
+                    f"requires at least {minimum_relationship_sources}"
+                )
 
     return errors
 
@@ -162,6 +219,15 @@ def build_content_report(
         experience_covered += int(bool(entity.experience_profile))
         embedded_relationship_count += len(entity.relationships)
 
+    relationship_review_counts = Counter()
+    relationship_source_covered = 0
+    relationship_multi_source_covered = 0
+    for relationship in relationship_rows:
+        relationship_review_counts[str(relationship.provenance.get("review_status", "missing"))] += 1
+        source_count = len(_relationship_source_keys(relationship))
+        relationship_source_covered += int(source_count >= 1)
+        relationship_multi_source_covered += int(source_count >= 2)
+
     batched_entity_ids = {
         str(entity_id)
         for batch in batch_rows
@@ -173,7 +239,7 @@ def build_content_report(
     total_relationship_count = embedded_relationship_count + independent_relationship_count
 
     return {
-        "report_version": "1.0",
+        "report_version": "1.1",
         "entity_count": len(entity_rows),
         "ground_vehicle_count": len(ground_vehicles),
         "country_counts": dict(sorted(country_counts.items())),
@@ -193,6 +259,17 @@ def build_content_report(
         "embedded_relationship_count": embedded_relationship_count,
         "independent_relationship_count": independent_relationship_count,
         "independent_relationship_rate": _ratio(independent_relationship_count, total_relationship_count),
+        "relationship_review_status_counts": dict(sorted(relationship_review_counts.items())),
+        "relationship_source_covered_count": relationship_source_covered,
+        "relationship_source_coverage_rate": _ratio(
+            relationship_source_covered,
+            independent_relationship_count,
+        ),
+        "relationship_multi_source_covered_count": relationship_multi_source_covered,
+        "relationship_multi_source_coverage_rate": _ratio(
+            relationship_multi_source_covered,
+            independent_relationship_count,
+        ),
         "content_batch_count": len(batch_rows),
         "batched_entity_count": len(batched_entity_ids),
         "unbatched_ground_vehicle_count": len(unbatched_ground_vehicle_ids),
