@@ -50,7 +50,6 @@ PROFILE_ENTITY_IDS |= {
     "ckb:platform:air:f_16c_fighting_falcon",
     "ckb:component:engine:pratt_whitney_f100_pw_220",
 }
-}
 
 
 def entity_with_claim(claim: dict) -> Entity:
