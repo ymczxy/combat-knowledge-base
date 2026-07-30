@@ -1,1 +1,61 @@
-{"id":"ckb:ammunition:cartridge:7_62x39","entity_type":"ammunition","identity":{"canonical_name_en":"7.62×39 mm cartridge","canonical_name_zh":"7.62×39毫米步枪弹","aliases":[]},"classification":{"domain":"Ammunition","class":"SmallArmsAmmunition","subclass":"IntermediateCartridge","eras":["WWII","EARLY_COLD_WAR","LATE_COLD_WAR","CONTEMPORARY"],"tags":["cartridge","intermediate"]},"technical":{},"relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[]},"rights":{"rights_status":"deferred"}}
+{
+  "id": "ckb:ammunition:cartridge:7_62x39",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": "7.62×39 mm cartridge",
+    "canonical_name_zh": "7.62×39毫米步枪弹",
+    "aliases": ["7,62 x 39", "7.62 Soviet"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "IntermediateCartridge",
+    "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"],
+    "tags": ["cartridge", "intermediate", "rimless"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "Cartridge-family designation and standards classification; no loading recipe or manufacturing data is included.",
+    "claims": [
+      {
+        "field": "nominal_caliber",
+        "value": 7.62,
+        "unit": "mm",
+        "qualifiers": {"standard_name": "7,62 x 39", "value_basis": "metric designation"},
+        "source_urls": ["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=1&page=1"]
+      },
+      {
+        "field": "case_length",
+        "value": 39,
+        "unit": "mm",
+        "qualifiers": {"standard_name": "7,62 x 39", "value_basis": "metric designation"},
+        "source_urls": ["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=1&page=1"]
+      },
+      {
+        "field": "cartridge_designation",
+        "value": "7,62 x 39",
+        "unit": "designation",
+        "qualifiers": {"standards_body": "C.I.P."},
+        "source_urls": ["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=1&page=1"]
+      },
+      {
+        "field": "cartridge_case_class",
+        "value": "rimless cartridge",
+        "unit": "categorical",
+        "qualifiers": {"cip_table": "Tab I"},
+        "source_urls": ["https://bobp.cip-bobp.org/en/homologation_public/show/id/1399"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "standards_body", "url": "https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=1&page=1"},
+      {"source_id": "standards_body", "url": "https://bobp.cip-bobp.org/en/homologation_public/show/id/1399"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}

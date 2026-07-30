@@ -12,7 +12,7 @@ from ckb.technical import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PROFILE_ENTITY_IDS = {
+ARMORED_PROFILE_ENTITY_IDS = {
     "ckb:platform:ground:m1_abrams",
     "ckb:platform:ground:challenger_2",
     "ckb:platform:ground:leclerc_tank",
@@ -22,6 +22,13 @@ PROFILE_ENTITY_IDS = {
     "ckb:platform:ground:panther_tank",
     "ckb:platform:ground:type_59_tank",
 }
+SMALL_ARMS_PROFILE_ENTITY_IDS = {
+    "ckb:weapon:firearm:akm",
+    "ckb:ammunition:cartridge:7_62x39",
+    "ckb:weapon:firearm:sa80_a2_individual_weapon",
+    "ckb:ammunition:cartridge:5_56x45_nato",
+}
+PROFILE_ENTITY_IDS = ARMORED_PROFILE_ENTITY_IDS | SMALL_ARMS_PROFILE_ENTITY_IDS
 
 
 def entity_with_claim(claim: dict) -> Entity:
@@ -125,17 +132,15 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 8)
-        self.assertEqual(summary["claim_count"], 71)
-        self.assertGreater(summary["numeric_claim_count"], 0)
+        self.assertEqual(summary["profile_entity_count"], 12)
+        self.assertEqual(summary["claim_count"], 94)
+        self.assertEqual(summary["numeric_claim_count"], 68)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 68)
+        self.assertEqual(summary["descriptive_claim_count"], 26)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,
             self.payload["unsupported_numeric_claims"],
-        )
-        self.assertEqual(
-            summary["normalized_numeric_claim_count"],
-            summary["numeric_claim_count"],
         )
 
     def test_expected_profile_entities_are_present(self):

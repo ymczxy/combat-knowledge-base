@@ -1,0 +1,67 @@
+{
+  "id": "ckb:ammunition:cartridge:5_56x45_nato",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": "5.56×45 mm NATO cartridge",
+    "canonical_name_zh": "5.56×45毫米北约步枪弹",
+    "aliases": ["5.56 NATO", "5,56 x 45 NATO"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "IntermediateCartridge",
+    "eras": ["LATE_COLD_WAR", "CONTEMPORARY"],
+    "tags": ["cartridge", "intermediate", "nato_standard"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "NATO cartridge-family designation and public standardization summary; no loading recipe or manufacturing data is included.",
+    "claims": [
+      {
+        "field": "nominal_caliber",
+        "value": 5.56,
+        "unit": "mm",
+        "qualifiers": {"standard_name": "5.56×45 mm NATO", "value_basis": "metric designation"},
+        "source_urls": ["https://fnherstal.com/en/defence/ammunition/556x45mm/"]
+      },
+      {
+        "field": "case_length",
+        "value": 45,
+        "unit": "mm",
+        "qualifiers": {"standard_name": "5.56×45 mm NATO", "value_basis": "metric designation"},
+        "source_urls": ["https://fnherstal.com/en/defence/ammunition/556x45mm/"]
+      },
+      {
+        "field": "cartridge_designation",
+        "value": "5.56×45 mm NATO",
+        "unit": "designation",
+        "qualifiers": {"standardization": "NATO"},
+        "source_urls": ["https://fnherstal.com/en/defence/ammunition/556x45mm/"]
+      },
+      {
+        "field": "standardization_history",
+        "value": "SS109 was adopted as the second official NATO standardized calibre in 1980",
+        "unit": "text",
+        "qualifiers": {"claim_scope": "manufacturer public history"},
+        "source_urls": ["https://fnherstal.com/en/defence/ammunition/556x45mm/"]
+      },
+      {
+        "field": "published_ammunition_types",
+        "value": ["SS109 Ball", "L110 Tracer", "Blank"],
+        "unit": "text",
+        "qualifiers": {"claim_scope": "FN Herstal public product family"},
+        "source_urls": ["https://fnherstal.com/en/defence/ammunition/556x45mm/"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "manufacturer", "url": "https://fnherstal.com/en/defence/ammunition/556x45mm/"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}
