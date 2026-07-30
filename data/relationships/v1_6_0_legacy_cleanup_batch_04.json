@@ -4,12 +4,12 @@
     "source_id": "ckb:weapon:firearm:akm",
     "predicate": "uses_ammunition",
     "target_id": "ckb:ammunition:cartridge:7_62x39",
-    "confidence": 0.95,
-    "qualifiers": {"scope": "standard_chambering"},
+    "confidence": 1.0,
+    "qualifiers": {"scope": "standard_chambering", "review_batch": "v1.6.1-small-arms-and-ammunition-batch-01"},
     "provenance": {
-      "review_status": "unverified",
+      "review_status": "source_checked",
       "sources": [
-        {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/AKM"}
+        {"source_id": "official_military", "url": "https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"}
       ]
     }
   }
