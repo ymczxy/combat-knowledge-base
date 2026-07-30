@@ -1,0 +1,38 @@
+{
+  "id": "ckb:ammunition:cartridge:45_auto",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": ".45 ACP / 45 Auto cartridge",
+    "canonical_name_zh": ".45 ACP手枪弹",
+    "aliases": [".45 ACP", "45 Auto", ".45 Auto"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "PistolCartridge",
+    "eras": ["EARLY_20TH_CENTURY", "WWII", "CONTEMPORARY"],
+    "tags": ["cartridge", "pistol_cartridge", "united_states", "rimless"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and compatibility metadata",
+    "claims": [
+      {"field":"canonical_standard_name","value":"45 Auto","unit":"designation","qualifiers":{"standard_body":"C.I.P."},"source_urls":["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=4&page=4"]},
+      {"field":"common_name","value":".45 ACP","unit":"designation","qualifiers":{},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-89-1"]},
+      {"field":"cartridge_category","value":"pistol and revolver cartridge","unit":"categorical","qualifiers":{"standard_table":"C.I.P. Tab IV"},"source_urls":["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=4&page=4"]},
+      {"field":"primary_service_context","value":"associated with wartime Thompson submachine guns","unit":"text","qualifiers":{"linked_weapon":"ckb:weapon:firearm:thompson_m1a1"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+      {"field":"safety_boundary","value":"identification and compatibility only; no loading or manufacturing data","unit":"text","qualifiers":{},"source_urls":["https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=4&page=4"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"cip","url":"https://bobp.cip-bobp.org/en/tdcc_public?cartridge_type_id=4&page=4"},
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}
