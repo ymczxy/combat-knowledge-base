@@ -69,6 +69,12 @@ class TechnicalNormalizationTests(unittest.TestCase):
         self.assertEqual(value, [56, 63])
         self.assertEqual(unit, "t")
 
+    def test_rate_units_use_explicit_rounds_per_minute_target(self):
+        self.assertEqual(
+            normalize_claim_value("sustained_combat_rate", 4, "rounds_per_minute"),
+            (4, "rounds/min"),
+        )
+
     def test_descriptive_claims_are_retained_but_not_ranked(self):
         entity = entity_with_claim({
             "field": "loading_method",
@@ -92,7 +98,7 @@ class TechnicalNormalizationTests(unittest.TestCase):
         })
         errors = technical_normalization_errors(entity)
         self.assertEqual(len(errors), 1)
-        self.assertIn("unsupported unit mystery_power", errors[0])
+        self.assertIn("unsupported source unit mystery_power", errors[0])
 
     def test_comparison_preserves_original_qualifiers_and_sources(self):
         claim = {
@@ -122,7 +128,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
         self.assertEqual(summary["profile_entity_count"], 8)
         self.assertEqual(summary["claim_count"], 71)
         self.assertGreater(summary["numeric_claim_count"], 0)
-        self.assertEqual(summary["unsupported_numeric_count"], 0)
+        self.assertEqual(
+            summary["unsupported_numeric_count"],
+            0,
+            self.payload["unsupported_numeric_claims"],
+        )
         self.assertEqual(
             summary["normalized_numeric_claim_count"],
             summary["numeric_claim_count"],
