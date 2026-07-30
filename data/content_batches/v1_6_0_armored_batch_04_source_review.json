@@ -1,0 +1,45 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-04-source-review",
+  "version": "1.6.0",
+  "status": "source_reviewed",
+  "scope": "Independent source review for the French, Chinese, and Japanese armored-vehicle backbone from Batch 01.",
+  "countries": ["france", "china", "japan"],
+  "entity_ids": [
+    "ckb:platform:ground:char_b1_bis",
+    "ckb:platform:ground:amx_13",
+    "ckb:platform:ground:amx_30",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_59_tank",
+    "ckb:platform:ground:type_69_tank",
+    "ckb:platform:ground:type_80_tank",
+    "ckb:platform:ground:type_96_tank",
+    "ckb:platform:ground:type_99_tank",
+    "ckb:platform:ground:type_97_chi_ha",
+    "ckb:platform:ground:type_61_tank",
+    "ckb:platform:ground:type_74_tank",
+    "ckb:platform:ground:type_90_tank",
+    "ckb:platform:ground:type_10_tank"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_0_batch_01:amx_30:leclerc_tank",
+    "rel:v1_6_0_batch_01:type_59_tank:type_69_tank",
+    "rel:v1_6_0_batch_01:type_69_tank:type_80_tank",
+    "rel:v1_6_0_batch_01:type_61_tank:type_74_tank",
+    "rel:v1_6_0_batch_01:type_74_tank:type_90_tank",
+    "rel:v1_6_0_batch_01:type_90_tank:type_10_tank"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "review_status": "source_checked",
+    "relationship_review_status": "source_checked",
+    "technical_detail_status": "deferred",
+    "experience_profile_status": "deferred"
+  },
+  "review_notes": [
+    "French records use Musée des Blindés and French Army public material.",
+    "Japanese records use JGSDF and ATLA public material.",
+    "Chinese records use Chinese Ministry of National Defense material where available and clearly identified professional references for legacy Type 69 and Type 80 records.",
+    "Type 80 to Type 96 and Type 99 edges remain unverified broad influence assertions and are deliberately excluded from this source-reviewed batch."
+  ]
+}
