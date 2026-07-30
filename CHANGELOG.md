@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.6.0
+
+- 完成首个装甲车辆主体库：79 个 Canonical Entity，其中 57 个 GroundVehicle，覆盖苏联/俄罗斯、德国、美国、英国、法国、中国和日本主要发展线。
+- 建立 11 个正式内容批次，全部 57 个 GroundVehicle 均纳入批次，未入批数量为 0。
+- 将全部实体内嵌关系迁移为独立 Relationship Assertion；当前 44 条独立断言，内嵌关系为 0，独立存储率为 100%。
+- 完成 29 个实体和 17 条关系的独立多来源审核，保留其余记录的 `unverified` 状态，不以数量替代可信度。
+- 为 M1 Abrams、Challenger 2、Leclerc、Type 10、M4 Sherman、T-34 Model 1940、Panther 和 Type 59 建立首批结构化技术与体验档案。
+- 新增 71 条可追溯技术声明；55 条数值声明标准化为统一单位，16 条描述性声明原样保留，未知数值单位为 0。
+- 新增 5 条显式绑定配置和输入 claim 的功重比派生指标，并标记为 `not_source_fact` 与 `not_game_balance`。
+- 新增面向 Godot 的紧凑运行时 Bundle 与 `ckb-lock.json`，包含 8 个实体、18 个显式配置、71 条技术声明、5 条派生指标和 14 个去重来源引用。
+- 新增 Godot 4 `CKBRuntimeBundle` 加载器，校验文件 SHA-256、格式与 Schema 版本、资源清单、实体顺序和配置索引；调用方必须显式选择 `configuration_id`。
+- 在 Ubuntu 24.04 上使用官方 Godot 4.7.1 Linux x86_64 二进制完成真实场景冒烟测试，验证 Bundle/Lock、多配置查询、来源解析和 1280×720 截图生成。
+- 真实引擎测试发现并修复加载器首次编译时通过全局 `class_name` 自引用导致的 GDScript 编译问题。
+- 同步项目包、运行时、README、Roadmap 和发布文档版本为 1.6.0，并增加版本一致性回归测试。
+
 ## 1.5.3
 
 - 为 Canonical Fact 增加 `proposed`、`accepted`、`disputed`、`rejected`、`deprecated` 生命周期状态。
