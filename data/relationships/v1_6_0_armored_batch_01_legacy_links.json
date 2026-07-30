@@ -1,0 +1,19 @@
+{
+  "id": "rel:v1_6_0_batch_01:m1a2_abrams:m1_abrams",
+  "source_id": "ckb:platform:ground:m1a2_abrams",
+  "predicate": "variant_of",
+  "target_id": "ckb:platform:ground:m1_abrams",
+  "confidence": 0.9,
+  "qualifiers": {
+    "scope": "named_variant"
+  },
+  "provenance": {
+    "review_status": "unverified",
+    "sources": [
+      {
+        "source_id": "wikipedia",
+        "url": "https://en.wikipedia.org/wiki/M1_Abrams"
+      }
+    ]
+  }
+}
