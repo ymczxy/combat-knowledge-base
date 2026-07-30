@@ -7,7 +7,7 @@ v1.6.1 extends the CKB content layer from the armored-vehicle baseline into sour
 The release includes:
 
 - 95 Canonical Entities and 54 independent Relationship Assertions;
-- 20 new content batches after the original v1.6.0 baseline, with 21 total content batches in the repository snapshot;
+- 11 new content batches after the original v1.6.0 baseline, with 22 total content batches in the repository snapshot;
 - M2 Browning and 12.7 x 99 mm / .50 BMG source-checked records;
 - a component-based Magazine model with directional `accepts_magazine` / `magazine_accepted_by` constraints;
 - explicit `variant_of` / `has_variant` endpoint constraints;
