@@ -47,6 +47,9 @@ PROFILE_ENTITY_IDS = ARMORED_PROFILE_ENTITY_IDS | SMALL_ARMS_PROFILE_ENTITY_IDS
 PROFILE_ENTITY_IDS |= {
     "ckb:platform:air:spitfire_mk_i",
     "ckb:component:engine:rolls_royce_merlin_ii",
+    "ckb:platform:air:f_16c_fighting_falcon",
+    "ckb:component:engine:pratt_whitney_f100_pw_220",
+}
 }
 
 
@@ -151,11 +154,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 29)
-        self.assertEqual(summary["claim_count"], 202)
-        self.assertEqual(summary["numeric_claim_count"], 91)
-        self.assertEqual(summary["normalized_numeric_claim_count"], 91)
-        self.assertEqual(summary["descriptive_claim_count"], 111)
+        self.assertEqual(summary["profile_entity_count"], 31)
+        self.assertEqual(summary["claim_count"], 213)
+        self.assertEqual(summary["numeric_claim_count"], 94)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 94)
+        self.assertEqual(summary["descriptive_claim_count"], 119)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,

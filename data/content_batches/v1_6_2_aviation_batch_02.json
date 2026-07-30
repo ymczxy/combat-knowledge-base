@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.6.2-aviation-batch-02-f16-f100",
+  "version":"1.6.2",
+  "status":"source_checked",
+  "scope":"Add a modern jet fighter and afterburning turbofan vertical slice with an explicit engine-option relation.",
+  "entity_ids":["ckb:platform:air:f_16c_fighting_falcon","ckb:component:engine:pratt_whitney_f100_pw_220"],
+  "relationship_ids":["rel:v1_6_2_batch_02:f_16c:uses_engine:f100_pw_220"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":2,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["The F-16 has documented alternative engine families; this relation is scoped to the F100 family and is not generalized to every F-16 configuration.","Only public identification and high-level technical facts are recorded."]
+}
