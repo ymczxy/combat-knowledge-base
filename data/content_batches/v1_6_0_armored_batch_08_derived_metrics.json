@@ -1,0 +1,29 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-08-derived-metrics",
+  "version": "1.6.0",
+  "status": "derived",
+  "scope": "Configuration-explicit power-to-mass metrics calculated from normalized public technical claims.",
+  "entity_ids": [
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:challenger_2",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_10_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "derived_metric_specifications": 5,
+    "derived_metric_errors": 0,
+    "input_selection": "explicit_claim_index_and_expected_field",
+    "derived_metric_status": "not_source_fact_and_not_game_balance"
+  },
+  "notes": [
+    "Five power-to-mass rows cover four entities because Challenger 2 baseline and add-on-armour masses remain separate configurations.",
+    "The Leclerc mass range produces an ascending power-to-mass interval and is not collapsed to a midpoint.",
+    "Every metric records its exact input claim indexes, normalized values, original values, qualifiers and sources.",
+    "Any input claim index or expected field drift fails CI and requires manual review.",
+    "The metric output is derived data and is never written back into canonical technical claims."
+  ]
+}
