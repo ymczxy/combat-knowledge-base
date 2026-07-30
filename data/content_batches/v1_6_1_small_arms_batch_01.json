@@ -1,0 +1,32 @@
+{
+  "batch_id": "v1.6.1-small-arms-and-ammunition-batch-01",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "First vertical small-arms data slice: source-checked firearm specifications, cartridge-family records, and independent weapon-to-ammunition compatibility assertions.",
+  "countries": ["soviet_union", "united_kingdom"],
+  "entity_ids": [
+    "ckb:weapon:firearm:akm",
+    "ckb:ammunition:cartridge:7_62x39",
+    "ckb:weapon:firearm:sa80_a2_individual_weapon",
+    "ckb:ammunition:cartridge:5_56x45_nato"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_0_batch_04:akm:uses_ammunition:7_62x39",
+    "rel:v1_6_1_batch_01:sa80_a2_iw:uses_ammunition:5_56x45_nato"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 1,
+    "minimum_sources_per_relationship": 1,
+    "relationship_storage": "independent_assertions",
+    "technical_claims_must_preserve_source_units": true,
+    "unsupported_numeric_units": 0,
+    "review_status": "source_checked"
+  },
+  "notes": [
+    "The AKM and 7.62×39 seed records are upgraded rather than duplicated.",
+    "The SA80 A2 Individual Weapon and 5.56×45 NATO cartridge establish the first new v1.6.1 firearm-ammunition pair.",
+    "Compatibility is represented by independent uses_ammunition assertions, not embedded entity relationships.",
+    "Only public identification and technical specification facts are included; no manufacturing recipes, evasion guidance, or operational attack instructions are stored.",
+    "This batch does not create gameplay balance values or automatically select ammunition variants."
+  ]
+}
