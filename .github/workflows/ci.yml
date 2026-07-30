@@ -39,3 +39,5 @@ jobs:
       - run: test -f /tmp/ckb-derived-metrics.json && test -f /tmp/ckb-site-docs/compare/derived-metrics.md
       - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/build_profile.json --output /tmp/ckb-godot --fail-on-error
       - run: test -f /tmp/ckb-godot/ckb_destory_runtime.json && test -f /tmp/ckb-godot/ckb-lock.json
+      - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot/ckb_destory_runtime.json --lock /tmp/ckb-godot/ckb-lock.json --output /tmp/ckb-runtime-contract.json --fail-on-error
+      - run: test -f /tmp/ckb-runtime-contract.json && test -f examples/godot/CKBRuntimeBundle.gd
