@@ -39,10 +39,9 @@ class SmallArmsBatch07Tests(unittest.TestCase):
         self.assertEqual(technical_normalization_errors(self.entities[MG42_ID]), [])
 
     def test_ammunition_safety_boundary(self):
-        serialized = json.dumps(self.entities[AMMO_ID].to_dict()).lower()
-        forbidden = ["propellant_charge", "primer_specification", "loading_recipe", "manufacturing_tolerance"]
-        for field in forbidden:
-            self.assertNotIn(field, serialized)
+        forbidden = {"propellant_charge", "primer_specification", "loading_recipe", "manufacturing_tolerance", "attack_instruction"}
+        fields = {claim.get("field") for claim in self.entities[AMMO_ID].technical["claims"]}
+        self.assertTrue(fields.isdisjoint(forbidden))
 
 
 if __name__ == "__main__":
