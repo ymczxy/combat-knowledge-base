@@ -1,0 +1,26 @@
+{
+  "batch_id": "v1.6.0-legacy-relationship-cleanup-batch-04",
+  "version": "1.6.0",
+  "status": "migrated",
+  "scope": "Register the final legacy ground vehicles and migrate the repository's last entity-embedded relationship.",
+  "entity_ids": [
+    "ckb:platform:ground:m1a2_abrams",
+    "ckb:platform:ground:panther_tank",
+    "ckb:platform:ground:t_34_85",
+    "ckb:weapon:firearm:akm"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_0_batch_01:m1a2_abrams:m1_abrams",
+    "rel:v1_6_0_batch_04:akm:uses_ammunition:7_62x39"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 1,
+    "minimum_sources_per_relationship": 1,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The three remaining legacy ground vehicles are now covered by a formal content batch.",
+    "The AKM ammunition relationship is stored as an independent assertion.",
+    "This cleanup does not promote legacy records beyond unverified."
+  ]
+}
