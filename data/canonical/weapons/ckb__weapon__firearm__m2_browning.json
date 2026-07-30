@@ -1,0 +1,42 @@
+{
+  "id": "ckb:weapon:firearm:m2_browning",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "M2 Browning machine gun",
+    "canonical_name_zh": "M2勃朗宁机枪",
+    "aliases": ["M2 .50 caliber machine gun", "M2HB", "Ma Deuce"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "HeavyMachineGun",
+    "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"],
+    "tags": ["machine_gun", "heavy_machine_gun", "american", "crew_served", "automatic"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "Public official identification, operating characteristics and mounting context; no operational instruction or gameplay balance values.",
+    "claims": [
+      {"field":"model_designation","value":"M2 .50 Caliber Machine Gun","unit":"designation","qualifiers":{"source_context":"U.S. Army equipment portfolio"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"weapon_category","value":"heavy machine gun","unit":"categorical","qualifiers":{"source_context":"U.S. Army description"},"source_urls":["https://www.army.mil/article/92130/m2a1_machine_gun_features_greater_safety_heightened_lethality"]},
+      {"field":"caliber_designation","value":".50 caliber (12.7 mm)","unit":"designation","qualifiers":{"source_wording_preserved":true},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"operating_system","value":"recoil-operated","unit":"categorical","qualifiers":{},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"feed_system","value":"belt-fed","unit":"categorical","qualifiers":{},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"cooling_system","value":"air-cooled","unit":"categorical","qualifiers":{},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"mounting_context","value":"ground- and vehicle-mounted; also aircraft-mounted in the U.S. Army description","unit":"text","qualifiers":{"scope":"official public description"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/","https://www.army.mil/article/92130/m2a1_machine_gun_features_greater_safety_heightened_lethality"]},
+      {"field":"cyclic_rate","value":[450,600],"unit":"rounds_per_minute","qualifiers":{"source_scope":"M2 specification in U.S. Army equipment portfolio"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]},
+      {"field":"service_context","value":"used in offensive and defensive roles as a versatile automatic weapon system","unit":"text","qualifiers":{"source_context":"U.S. Army mission description"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"official_military","url":"https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"},
+      {"source_id":"official_military","url":"https://www.army.mil/article/92130/m2a1_machine_gun_features_greater_safety_heightened_lethality"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}

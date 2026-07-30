@@ -496,7 +496,11 @@ def write_godot_runtime_artifacts(
     lock_filename = str(config.get("lock_filename", "ckb-lock.json"))
     bundle_path = output / bundle_filename
     bundle_text = json.dumps(bundle, ensure_ascii=False, indent=2)
-    bundle_path.write_text(bundle_text, encoding="utf-8")
+    # Keep the serialized bytes identical across platforms.  The lock stores
+    # the hash of the UTF-8 payload, so Windows newline translation here would
+    # make a freshly written valid Bundle fail its own runtime contract.
+    with bundle_path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(bundle_text)
     bundle_file_sha256 = _sha256_text(bundle_text)
 
     manifest = bundle["manifest"]
@@ -519,10 +523,8 @@ def write_godot_runtime_artifacts(
         ],
     }
     lock_path = output / lock_filename
-    lock_path.write_text(
-        json.dumps(lock, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    with lock_path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(json.dumps(lock, ensure_ascii=False, indent=2))
     return bundle_path, lock_path, lock
 
 

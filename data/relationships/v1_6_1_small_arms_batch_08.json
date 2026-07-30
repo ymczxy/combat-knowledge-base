@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_08:m2_browning:uses_ammunition:12_7x99",
+    "source_id": "ckb:weapon:firearm:m2_browning",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:12_7x99",
+    "confidence": 0.99,
+    "qualifiers": {"scope":"official M2 equipment description and NATO 12.7 x 99 standard reference"},
+    "provenance": {
+      "review_status":"source_checked",
+      "sources":[
+        {"source_id":"official_military","url":"https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"},
+        {"source_id":"standards_body","url":"https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"}
+      ]
+    }
+  }
+]
