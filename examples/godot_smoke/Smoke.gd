@@ -114,9 +114,9 @@ func _run_smoke() -> void:
 
     var sherman_configs: Array = runtime.list_configurations(SHERMAN_ID)
     var sherman_e8: Dictionary = _find_configuration(sherman_configs, "M4A2E8 Sherman")
-    var sherman_firefly: Dictionary = _find_configuration(sherman_configs, "M4A4 Sherman Firefly")
+    var sherman_firefly: Dictionary = _find_configuration(sherman_configs, "M4A4 Sherman VC Firefly")
     _expect(not sherman_e8.is_empty(), "M4A2E8 configuration is missing.", checks)
-    _expect(not sherman_firefly.is_empty(), "M4A4 Sherman Firefly configuration is missing.", checks)
+    _expect(not sherman_firefly.is_empty(), "M4A4 Sherman VC Firefly configuration is missing.", checks)
 
     var e8_claims: Array = []
     var firefly_claims: Array = []
@@ -153,7 +153,7 @@ func _run_smoke() -> void:
         "CHALLENGER  baseline: %s kW/t" % baseline_value,
         "CHALLENGER  add-on armour: %s kW/t" % armour_value,
         "SHERMAN     M4A2E8: %d explicit claims" % e8_claims.size(),
-        "SHERMAN     M4A4 Firefly: %d explicit claims" % firefly_claims.size(),
+        "SHERMAN     M4A4 VC Firefly: %d explicit claims" % firefly_claims.size(),
         "TRACE       first sampled claim resolved to %d source URL(s)" % resolved_sources.size(),
     ]
     await _finish(checks.is_empty(), details, checks)
