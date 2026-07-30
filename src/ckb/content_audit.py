@@ -39,6 +39,32 @@ def _source_keys(entity: Entity) -> set[tuple[str, str]]:
     return keys
 
 
+def _relationship_source_keys(relationship: Relationship) -> set[tuple[str, str]]:
+    keys: set[tuple[str, str]] = set()
+    for source in relationship.provenance.get("sources", []):
+        if isinstance(source, dict):
+            keys.add((str(source.get("source_id", "")), str(source.get("url", ""))))
+    return keys
+
+
+def _minimum_source_target(
+    quality_targets: dict[str, Any],
+    field_name: str,
+    prefix: str,
+    errors: list[str],
+) -> int:
+    raw_value = quality_targets.get(field_name, 0)
+    try:
+        value = int(raw_value)
+    except (TypeError, ValueError):
+        errors.append(f"{prefix}: {field_name} must be an integer")
+        return 0
+    if value < 0:
+        errors.append(f"{prefix}: {field_name} must be non-negative")
+        return 0
+    return value
+
+
 def missing_core_fields(entity: Entity) -> list[str]:
     missing: list[str] = []
     checks = {
@@ -80,7 +106,7 @@ def validate_content_batches(
 ) -> list[str]:
     errors: list[str] = []
     entity_map = {entity.id: entity for entity in entities}
-    relationship_ids = {relationship.id for relationship in relationships}
+    relationship_map = {relationship.id: relationship for relationship in relationships}
     seen_batch_ids: set[str] = set()
 
     for batch in batches:
@@ -98,17 +124,21 @@ def validate_content_batches(
             errors.append(f"{prefix}: scope is required")
 
         quality_targets = batch.get("quality_targets", {})
-        minimum_sources = 0
-        if isinstance(quality_targets, dict):
-            raw_minimum_sources = quality_targets.get("minimum_sources_per_entity", 0)
-            try:
-                minimum_sources = int(raw_minimum_sources)
-            except (TypeError, ValueError):
-                errors.append(f"{prefix}: minimum_sources_per_entity must be an integer")
-                minimum_sources = 0
-            if minimum_sources < 0:
-                errors.append(f"{prefix}: minimum_sources_per_entity must be non-negative")
-                minimum_sources = 0
+        if not isinstance(quality_targets, dict):
+            errors.append(f"{prefix}: quality_targets must be an object")
+            quality_targets = {}
+        minimum_entity_sources = _minimum_source_target(
+            quality_targets,
+            "minimum_sources_per_entity",
+            prefix,
+            errors,
+        )
+        minimum_relationship_sources = _minimum_source_target(
+            quality_targets,
+            "minimum_sources_per_relationship",
+            prefix,
+            errors,
+        )
 
         entity_ids = [str(value) for value in batch.get("entity_ids", [])]
         if not entity_ids:
@@ -123,18 +153,26 @@ def validate_content_batches(
             for field_name in missing_core_fields(entity):
                 errors.append(f"{prefix}: {entity_id} missing core field {field_name}")
             source_count = len(_source_keys(entity))
-            if source_count < minimum_sources:
+            if source_count < minimum_entity_sources:
                 errors.append(
                     f"{prefix}: {entity_id} has {source_count} independent sources; "
-                    f"requires at least {minimum_sources}"
+                    f"requires at least {minimum_entity_sources}"
                 )
 
         rel_ids = [str(value) for value in batch.get("relationship_ids", [])]
         for relationship_id, count in Counter(rel_ids).items():
             if count > 1:
                 errors.append(f"{prefix}: duplicate relationship id {relationship_id}")
-            if relationship_id not in relationship_ids:
+            relationship = relationship_map.get(relationship_id)
+            if relationship is None:
                 errors.append(f"{prefix}: unknown relationship {relationship_id}")
+                continue
+            source_count = len(_relationship_source_keys(relationship))
+            if source_count < minimum_relationship_sources:
+                errors.append(
+                    f"{prefix}: {relationship_id} has {source_count} independent sources; "
+                    f"requires at least {minimum_relationship_sources}"
+                )
 
     return errors
 
