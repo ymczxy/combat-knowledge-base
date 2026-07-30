@@ -49,6 +49,8 @@ PROFILE_ENTITY_IDS |= {
     "ckb:component:engine:rolls_royce_merlin_ii",
     "ckb:platform:air:f_16c_fighting_falcon",
     "ckb:component:engine:pratt_whitney_f100_pw_220",
+    "ckb:platform:naval:arleigh_burke_class",
+    "ckb:component:engine:ge_lm2500_marine",
 }
 
 
@@ -153,11 +155,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 31)
-        self.assertEqual(summary["claim_count"], 213)
-        self.assertEqual(summary["numeric_claim_count"], 94)
-        self.assertEqual(summary["normalized_numeric_claim_count"], 94)
-        self.assertEqual(summary["descriptive_claim_count"], 119)
+        self.assertEqual(summary["profile_entity_count"], 33)
+        self.assertEqual(summary["claim_count"], 225)
+        self.assertEqual(summary["numeric_claim_count"], 95)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 95)
+        self.assertEqual(summary["descriptive_claim_count"], 130)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,

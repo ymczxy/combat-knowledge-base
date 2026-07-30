@@ -1,0 +1,17 @@
+{
+  "id":"ckb:component:engine:ge_lm2500_marine",
+  "entity_type":"component",
+  "identity":{"canonical_name_en":"GE LM2500 marine gas turbine","canonical_name_zh":"GE LM2500舰用燃气轮机","aliases":["LM2500","LM2500 marine gas turbine"]},
+  "classification":{"domain":"Component","class":"Engine","subclass":"MarineGasTurbine","eras":["LATE_COLD_WAR","POST_COLD_WAR","CONTEMPORARY"],"tags":["american","naval_propulsion","gas_turbine","lm2500"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public identification and high-level naval propulsion metadata; no maintenance or construction guidance.","claims":[
+    {"field":"engine_type","value":"marine gas turbine","unit":"text","qualifiers":{"family":"LM2500"},"source_urls":["https://www.geaerospace.com/news/articles/tested-tried-and-true-geaeros-lm2500-continues-set-standard-marine-propulsion"]},
+    {"field":"naval_role","value":"prime mover for Arleigh Burke-class destroyer propulsion","unit":"text","qualifiers":{"class_scope":"DDG 51 family"},"source_urls":["https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"]},
+    {"field":"engine_count_per_ship","value":"four engines per ship","unit":"text","qualifiers":{"source_context":"public DDG 51 propulsion descriptions; exact arrangement remains class-level"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]},
+    {"field":"rated_power_example","value":26250,"unit":"hp","qualifiers":{"configuration":"DDG 80 LM2500 press-release example; not generalized to all LM2500 variants"},"source_urls":["https://www.geaerospace.com/news/press-releases/marine-industrial-engines/ge-delivers-lm2500-gas-turbines-us-navy-s-ddg-80-arleigh"]},
+    {"field":"application_scope","value":"U.S. Navy surface combatants and allied naval applications","unit":"text","qualifiers":{"family_scope":"LM2500 family"},"source_urls":["https://www.geaerospace.com/news/press-releases/marine-industrial-engines/ge-delivers-lm2500-gas-turbines-us-navy-s-ddg-80-arleigh"]},
+    {"field":"service_entry_context","value":"LM2500 entered naval service in 1969","unit":"text","qualifiers":{"family_scope":"LM2500 family"},"source_urls":["https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"ge_aerospace","url":"https://www.geaerospace.com/news/articles/tested-tried-and-true-geaeros-lm2500-continues-set-standard-marine-propulsion"},{"source_id":"ge_aerospace","url":"https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"}]},
+  "rights":{"rights_status":"deferred"}
+}

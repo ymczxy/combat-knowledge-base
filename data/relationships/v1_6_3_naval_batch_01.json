@@ -1,0 +1,11 @@
+[
+  {
+    "id":"rel:v1_6_3_batch_01:arleigh_burke:uses_engine:lm2500",
+    "source_id":"ckb:platform:naval:arleigh_burke_class",
+    "predicate":"uses_engine",
+    "target_id":"ckb:component:engine:ge_lm2500_marine",
+    "confidence":0.97,
+    "qualifiers":{"scope":"U.S. Navy DDG 51 fact file and GE LM2500 Arleigh Burke propulsion references","configuration_specific":true},
+    "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_navy","url":"https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"},{"source_id":"ge_aerospace","url":"https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"}]}
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.6.3-naval-batch-01-arleigh-burke-lm2500",
+  "version":"1.6.3",
+  "status":"source_checked",
+  "scope":"Add a guided-missile destroyer and marine gas-turbine propulsion vertical slice.",
+  "entity_ids":["ckb:platform:naval:arleigh_burke_class","ckb:component:engine:ge_lm2500_marine"],
+  "relationship_ids":["rel:v1_6_3_batch_01:arleigh_burke:uses_engine:lm2500"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":2,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["The engine relation is class-scoped and configuration-qualified; flight-specific differences are not collapsed into one universal specification.","Only public identification and high-level technical facts are recorded."]
+}

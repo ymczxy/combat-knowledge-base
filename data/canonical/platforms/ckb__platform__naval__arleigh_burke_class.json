@@ -1,1 +1,17 @@
-{"id":"ckb:platform:naval:arleigh_burke_class","entity_type":"platform","identity":{"canonical_name_en":"Arleigh Burke-class destroyer","canonical_name_zh":"阿利·伯克级驱逐舰","aliases":[]},"classification":{"domain":"Platform","class":"NavalPlatform","subclass":"Destroyer","eras":["POST_COLD_WAR","CONTEMPORARY"],"tags":["guided_missile","aegis","surface_combatant"]},"technical":{},"relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[]},"rights":{"rights_status":"deferred"}}
+{
+  "id":"ckb:platform:naval:arleigh_burke_class",
+  "entity_type":"platform",
+  "identity":{"canonical_name_en":"Arleigh Burke-class guided-missile destroyer","canonical_name_zh":"阿利·伯克级导弹驱逐舰","aliases":["DDG 51 class","Arleigh Burke class"]},
+  "classification":{"domain":"Platform","class":"NavalPlatform","subclass":"GuidedMissileDestroyer","eras":["POST_COLD_WAR","CONTEMPORARY"],"tags":["american","surface_combatant","aegis","guided_missile_destroyer"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public class-level identification and propulsion relationship; configuration and flight-series differences remain qualified.","claims":[
+    {"field":"platform_role","value":"guided-missile destroyer","unit":"text","qualifiers":{"class_scope":"DDG 51"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]},
+    {"field":"combat_system","value":"Aegis Weapon System","unit":"text","qualifiers":{"class_scope":"Arleigh Burke"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis/aegis-weapon-system/"]},
+    {"field":"radar_system","value":"SPY-1 multi-function phased-array radar","unit":"text","qualifiers":{"class_scope":"Arleigh Burke"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis/aegis-weapon-system/"]},
+    {"field":"propulsion_system","value":"four gas turbines in a combined gas turbine and gas turbine arrangement","unit":"text","qualifiers":{"class_scope":"public DDG 51 fact-file description"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]},
+    {"field":"propulsion_engine_family","value":"GE LM2500 marine gas turbine","unit":"designation","qualifiers":{"class_scope":"DDG 51 family; exact engine variant may differ by flight"},"source_urls":["https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"]},
+    {"field":"service_context","value":"U.S. Navy surface combatant class","unit":"text","qualifiers":{"era":"POST_COLD_WAR and CONTEMPORARY"},"source_urls":["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_navy","url":"https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"},{"source_id":"us_navy_aegis","url":"https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis/aegis-weapon-system/"},{"source_id":"ge_aerospace","url":"https://www.geaerospace.com/news/press-releases/ge-aerospace-secures-orders-lm2500-marine-gas-turbines-power-next-generation-arleigh"}]},
+  "rights":{"rights_status":"deferred"}
+}
