@@ -55,8 +55,6 @@ jobs:
           set -euo pipefail
           mkdir -p examples/godot_smoke/data examples/godot_smoke/artifacts
           cp examples/godot/CKBRuntimeBundle.gd examples/godot_smoke/CKBRuntimeBundle.gd
-          sed -i 's/) -> CKBRuntimeBundle:/):/' examples/godot_smoke/CKBRuntimeBundle.gd
-          sed -i 's/var runtime := CKBRuntimeBundle.new()/var runtime = new()/' examples/godot_smoke/CKBRuntimeBundle.gd
           cp /tmp/ckb-godot/ckb_destory_runtime.json examples/godot_smoke/data/
           cp /tmp/ckb-godot/ckb-lock.json examples/godot_smoke/data/
           cp /tmp/ckb-runtime-contract.json examples/godot_smoke/artifacts/python_runtime_contract.json
@@ -84,15 +82,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          file examples/godot_smoke/artifacts/godot_runtime_smoke.png
-          python - <<'PY'
-          from pathlib import Path
-          from PIL import Image
-          path = Path('examples/godot_smoke/artifacts/godot_runtime_smoke.png')
-          image = Image.open(path)
-          print('screenshot_size=', image.size)
-          assert image.size == (1280, 720)
-          PY
+          file examples/godot_smoke/artifacts/godot_runtime_smoke.png | tee /tmp/screenshot-file.txt
+          grep -q 'PNG image data, 1280 x 720' /tmp/screenshot-file.txt
 
       - name: Upload Godot Linux evidence
         if: always()
