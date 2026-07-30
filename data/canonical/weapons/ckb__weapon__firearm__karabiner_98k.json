@@ -1,0 +1,41 @@
+{
+  "id": "ckb:weapon:firearm:karabiner_98k",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "Karabiner 98k",
+    "canonical_name_zh": "Kar98k卡宾枪",
+    "aliases": ["KAR98", "Kar 98k", "Mauser Karabiner 98k"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "Rifle",
+    "eras": ["WWII"],
+    "tags": ["bolt_action", "infantry", "german", "service_rifle"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification, dimensions and service characteristics",
+    "claims": [
+      {"field":"caliber_designation","value":"7.92 x 57 mm","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30035946","https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"operating_action","value":"bolt action","unit":"categorical","qualifiers":{},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"overall_length","value":111,"unit":"cm","qualifiers":{"catalogue_object":"FIR 7085"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30035946"]},
+      {"field":"barrel_length","value":60,"unit":"cm","qualifiers":{"catalogue_object":"FIR 7085"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30035946"]},
+      {"field":"ammunition_capacity","value":5,"unit":"rounds","qualifiers":{"feed_system":"five-round clip"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"effective_range_statement","value":"around 550 yards (500 metres)","unit":"text","qualifiers":{"source_wording_preserved":true},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"adoption_year","value":"1935","unit":"designation","qualifiers":{"organization":"German Army"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"primary_service_context","value":"German Army main rifle during the Second World War","unit":"text","qualifiers":{},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"},
+      {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30035946"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}
