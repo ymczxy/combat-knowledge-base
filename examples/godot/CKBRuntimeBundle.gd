@@ -15,7 +15,7 @@ var _configuration_index: Dictionary = {}
 var _source_index: Dictionary = {}
 
 
-static func load_locked(bundle_path: String, lock_path: String) -> CKBRuntimeBundle:
+static func load_locked(bundle_path: String, lock_path: String):
     var lock_result: Dictionary = _read_json_object(lock_path)
     if not bool(lock_result.get("ok", false)):
         push_error(str(lock_result.get("error", "Unable to read CKB lock file.")))
@@ -33,7 +33,7 @@ static func load_locked(bundle_path: String, lock_path: String) -> CKBRuntimeBun
         push_error(verification_error)
         return null
 
-    var runtime := CKBRuntimeBundle.new()
+    var runtime = new()
     var initialization_error := runtime._initialize(bundle, lock)
     if not initialization_error.is_empty():
         push_error(initialization_error)
