@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CKB Canonical Fact Decision Ledger",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ledger_version", "decisions"],
+  "properties": {
+    "ledger_version": {"type": "string"},
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "fact_id",
+          "from_status",
+          "to_status",
+          "decided_by",
+          "decided_at",
+          "reason",
+          "assertion_ids"
+        ],
+        "properties": {
+          "id": {"type": "string", "pattern": "^decision:[a-z0-9_:-]+$"},
+          "fact_id": {"type": "string", "pattern": "^fact:[a-z0-9_:-]+$"},
+          "from_status": {
+            "type": "string",
+            "enum": ["proposed", "accepted", "disputed", "rejected", "deprecated"]
+          },
+          "to_status": {
+            "type": "string",
+            "enum": ["proposed", "accepted", "disputed", "rejected", "deprecated"]
+          },
+          "decided_by": {"type": "string", "minLength": 1},
+          "decided_at": {"type": "string", "format": "date-time"},
+          "reason": {"type": "string", "minLength": 1},
+          "assertion_ids": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {"type": "string", "pattern": "^rel:[a-z0-9_:-]+$"}
+          }
+        }
+      }
+    }
+  }
+}
