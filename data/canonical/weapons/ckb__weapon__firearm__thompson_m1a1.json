@@ -1,0 +1,39 @@
+{
+  "id": "ckb:weapon:firearm:thompson_m1a1",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "Thompson M1A1 submachine gun",
+    "canonical_name_zh": "汤普森M1A1冲锋枪",
+    "aliases": ["Thompson M1A1", "M1A1 Thompson", "Tommy gun"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "SubmachineGun",
+    "eras": ["WWII", "EARLY_COLD_WAR"],
+    "tags": ["submachine_gun", "united_states", "infantry", "automatic"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification, ammunition compatibility and service context",
+    "claims": [
+      {"field":"model_designation","value":"M1A1 Thompson","unit":"designation","qualifiers":{},"source_urls":["https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"]},
+      {"field":"weapon_category","value":"submachine gun","unit":"categorical","qualifiers":{},"source_urls":["https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"]},
+      {"field":"caliber_designation","value":".45 calibre","unit":"designation","qualifiers":{"source_wording_preserved":true},"source_urls":["https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"]},
+      {"field":"feed_system","value":"box magazine","unit":"categorical","qualifiers":{"family_context":"wartime Thompson simplification"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+      {"field":"ammunition_capacity","value":[20,30],"unit":"rounds","qualifiers":{"feed_system":"box magazine","family_context":"wartime Thompson A1"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+      {"field":"primary_service_context","value":"Thompson submachine guns were widely used by Allied forces during the Second World War","unit":"text","qualifiers":{"variant_boundary":"family-level service context"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"royal_armouries","url":"https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"},
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}
