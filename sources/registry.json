@@ -6,8 +6,8 @@
   {"source_id":"tank_museum","name":"The Tank Museum","source_type":"museum","url":"https://tankmuseum.org/","priority":"A","rights_status":"deferred"},
   {"source_id":"met_museum","name":"The Metropolitan Museum of Art","source_type":"museum","url":"https://www.metmuseum.org/","priority":"A","rights_status":"deferred"},
   {"source_id":"smithsonian","name":"Smithsonian","source_type":"museum_archive","url":"https://www.si.edu/","priority":"A","rights_status":"deferred"},
-  {"source_id":"official_military","name":"Government and military public sources","source_type":"official","url":"","priority":"S","rights_status":"deferred"},
-  {"source_id":"manufacturer","name":"Manufacturer public materials","source_type":"manufacturer","url":"","priority":"A","rights_status":"deferred"},
-  {"source_id":"professional_reference","name":"Professional equipment references","source_type":"professional_reference","url":"","priority":"B","rights_status":"deferred"},
+  {"source_id":"official_military","name":"Government and military public sources","source_type":"official","url":"https://www.defense.gov/","priority":"S","rights_status":"deferred"},
+  {"source_id":"manufacturer","name":"Manufacturer public materials","source_type":"manufacturer","url":"https://www.nato.int/","priority":"A","rights_status":"deferred"},
+  {"source_id":"professional_reference","name":"Professional equipment references","source_type":"professional_reference","url":"https://weaponsystems.net/","priority":"B","rights_status":"deferred"},
   {"source_id":"github_open_data","name":"GitHub open datasets","source_type":"open_dataset","url":"https://github.com/","priority":"C","rights_status":"deferred"}
 ]
