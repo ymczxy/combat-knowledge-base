@@ -95,6 +95,38 @@ class ContentAuditTests(unittest.TestCase):
 
         self.assertEqual(validate_content_batches([batch], [first, second], [rel]), [])
 
+    def test_batch_enforces_minimum_independent_source_count(self):
+        one_source = entity("ckb:test:one", source_count=1)
+        two_sources = entity("ckb:test:two", source_count=2)
+        batch = {
+            "batch_id": "batch:source-review",
+            "version": "1.0",
+            "scope": "source review",
+            "entity_ids": [one_source.id, two_sources.id],
+            "relationship_ids": [],
+            "quality_targets": {"minimum_sources_per_entity": 2},
+        }
+
+        errors = validate_content_batches([batch], [one_source, two_sources], [])
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("ckb:test:one has 1 independent sources; requires at least 2", errors[0])
+
+    def test_invalid_source_target_is_rejected(self):
+        row = entity("ckb:test:row")
+        batch = {
+            "batch_id": "batch:bad-source-target",
+            "version": "1.0",
+            "scope": "test",
+            "entity_ids": [row.id],
+            "relationship_ids": [],
+            "quality_targets": {"minimum_sources_per_entity": "not-an-integer"},
+        }
+
+        errors = validate_content_batches([batch], [row], [])
+
+        self.assertTrue(any("minimum_sources_per_entity must be an integer" in error for error in errors))
+
     def test_batch_rejects_unknown_duplicate_and_incomplete_references(self):
         incomplete = entity("ckb:test:incomplete", complete=False)
         batch = {
