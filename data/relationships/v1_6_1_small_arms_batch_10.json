@@ -1,0 +1,3 @@
+[
+  {"id":"rel:v1_6_1_batch_10:thompson_m1a1:variant_of:thompson_family","source_id":"ckb:weapon:firearm:thompson_m1a1","predicate":"variant_of","target_id":"ckb:weapon:family:thompson_submachine_gun","confidence":0.9,"qualifiers":{"scope":"named model is a variant of named family; no pooled specifications","relationship_basis":"explicit model/family boundary in curated evidence"},"provenance":{"review_status":"source_checked","sources":[{"source_id":"royal_armouries","url":"https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"},{"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}]}}
+]

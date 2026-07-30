@@ -1,0 +1,16 @@
+{
+  "id":"ckb:weapon:family:thompson_submachine_gun",
+  "entity_type":"weapon",
+  "identity":{"canonical_name_en":"Thompson submachine gun family","canonical_name_zh":"汤普森冲锋枪家族","aliases":["Thompson family","Tommy Gun family"]},
+  "classification":{"domain":"Weapon","class":"Firearm","subclass":"SubmachineGunFamily","eras":["WWI","WWII","EARLY_COLD_WAR"],"tags":["submachine_gun","thompson_family","united_states"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Family-level public identification and variant-boundary metadata; claims do not substitute for model-specific specifications.","claims":[
+    {"field":"family_designation","value":"Thompson submachine gun","unit":"designation","qualifiers":{"scope":"family-level museum description"},"source_urls":["https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/thompson-submachine-gun"]},
+    {"field":"weapon_category","value":"submachine gun","unit":"categorical","qualifiers":{"scope":"family-level"},"source_urls":["https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/thompson-submachine-gun"]},
+    {"field":"family_service_context","value":"Thompson submachine guns were used by Allied forces during the Second World War","unit":"text","qualifiers":{"scope":"family-level historical context"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"named_variant_context","value":"M1A1 is treated as a named wartime Thompson variant in the curated data","unit":"text","qualifiers":{"evidence_boundary":"family and model statements remain separately qualified"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1","https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"]},
+    {"field":"family_identity_boundary","value":"family record is not a representative physical object and carries no pooled model measurements","unit":"text","qualifiers":{"aggregation_policy":"no averaging across variants"},"source_urls":["https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/thompson-submachine-gun"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"royal_armouries","url":"https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/thompson-submachine-gun"},{"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}]},
+  "rights":{"rights_status":"deferred"}
+}

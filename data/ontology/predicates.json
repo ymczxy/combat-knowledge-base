@@ -52,6 +52,8 @@
       "inverse": "has_variant",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system", "component"],
+      "target_entity_types": ["weapon", "platform", "system", "component"],
       "status": "active"
     },
     {
@@ -61,6 +63,8 @@
       "inverse": "variant_of",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system", "component"],
+      "target_entity_types": ["weapon", "platform", "system", "component"],
       "status": "active"
     },
     {
