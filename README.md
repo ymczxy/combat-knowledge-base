@@ -130,6 +130,53 @@ PYTHONPATH=src python -m ckb.cli fact-snapshot \
 - `docs/V1_5_2_ASSERTION_GOVERNANCE.md`：断言与规范事实聚合；
 - `docs/V1_5_3_FACT_LIFECYCLE.md`：事实生命周期、人工裁决与发布快照。
 
+## v1.6 装甲车辆与 Godot 运行时
+
+v1.6.0 完成了首个可消费装甲车辆闭环：
+
+- 79 个规范实体，其中 57 个 GroundVehicle；
+- 44 条独立 Relationship Assertion，实体内嵌关系为 0；
+- 8 个结构化技术档案和 71 条技术声明；
+- 55 条数值声明统一单位标准化，16 条描述性声明保留原义；
+- 5 条显式绑定配置和输入 claim 的派生指标；
+- 8 个实体、18 个配置的 Godot 紧凑运行时 Bundle；
+- Bundle/Lock 哈希、版本、实体顺序和来源引用校验；
+- 官方 Godot 4.7.1 Linux x86_64 实际运行验证。
+
+生成标准化技术比较和派生指标：
+
+```bash
+PYTHONPATH=src python -m ckb.technical \
+  --output exports/technical-comparison.json \
+  --fail-on-unsupported
+
+PYTHONPATH=src python -m ckb.technical_metrics \
+  --output exports/derived-metrics.json \
+  --fail-on-error
+```
+
+生成 Godot 运行时 Bundle 与 Lock：
+
+```bash
+PYTHONPATH=src python -m ckb.godot_bundle \
+  --profile data/curated/destory/build_profile.json \
+  --output exports/godot \
+  --fail-on-error
+
+PYTHONPATH=src python -m ckb.runtime_contract \
+  --bundle exports/godot/ckb_destory_runtime.json \
+  --lock exports/godot/ckb-lock.json \
+  --fail-on-error
+```
+
+Godot 加载器位于 `examples/godot/CKBRuntimeBundle.gd`。加载器不会自动选择“默认”“最新”或“最佳”配置，调用方必须显式传入 `configuration_id`。
+
+相关规范：
+
+- `docs/DATA_STANDARD.md`：技术声明和标准化边界；
+- `docs/GODOT_INTEGRATION.md`：Bundle、Lock 和 Godot 加载方式；
+- `docs/V1_6_0_RELEASE.md`：v1.6.0 发布快照与验证范围。
+
 ## v1.3 候选实体解析
 
 将 502 条建设目录生成稳定 Candidate ID、初步分类、歧义队列和清单：
@@ -207,4 +254,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.5.3`：完成 Canonical Fact 生命周期、人工裁决记录、状态迁移校验和可重复事实发布快照。下一阶段进入 `1.6.0` 装甲车辆内容规模化。
+`1.6.0`：完成首个装甲车辆主体库、技术参数标准化、可追溯派生指标、锁定 Godot 运行时 Bundle，以及官方 Godot 4.7.1 Linux 实际加载验证。下一阶段进入 `1.6.1` 轻武器与弹药。
