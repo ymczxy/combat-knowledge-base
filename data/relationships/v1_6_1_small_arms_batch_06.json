@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_06:thompson_m1a1:uses_ammunition:45_auto",
+    "source_id": "ckb:weapon:firearm:thompson_m1a1",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:45_auto",
+    "confidence": 0.98,
+    "qualifiers": {"scope":"wartime_thompson_family_chambering"},
+    "provenance": {
+      "review_status":"source_checked",
+      "sources":[
+        {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"},
+        {"source_id":"royal_armouries","url":"https://royalarmouries.org/objects-and-stories/stories/m-41a-aliens-pulse-rifle"}
+      ]
+    }
+  }
+]

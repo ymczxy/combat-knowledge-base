@@ -1,0 +1,25 @@
+{
+  "batch_id": "v1.6.1-small-arms-batch-06-thompson-m1a1",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "Add the Thompson M1A1 and its .45 ACP / 45 Auto ammunition compatibility chain.",
+  "entity_ids": [
+    "ckb:weapon:firearm:thompson_m1a1",
+    "ckb:ammunition:cartridge:45_auto"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_1_batch_06:thompson_m1a1:uses_ammunition:45_auto"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 1,
+    "minimum_sources_per_relationship": 1,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch stores public museum and standards-body identification, service and compatibility facts only.",
+    "No loading recipes, propellant charges, primer specifications, manufacturing guidance, attack instructions or gameplay balance values are included.",
+    "Family-level Thompson statements retain explicit variant-boundary qualifiers."
+  ]
+}
