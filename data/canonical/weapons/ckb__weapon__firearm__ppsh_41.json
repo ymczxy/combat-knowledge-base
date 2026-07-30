@@ -1,0 +1,41 @@
+{
+  "id": "ckb:weapon:firearm:ppsh_41",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "PPSh-41",
+    "canonical_name_zh": "PPSh-41冲锋枪",
+    "aliases": ["PPSh 41", "PP-Sh-41", "Shpagin machine pistol"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "SubmachineGun",
+    "eras": ["WWII", "EARLY_COLD_WAR"],
+    "tags": ["submachine_gun", "soviet", "infantry", "select_fire"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification, dimensions and service context",
+    "claims": [
+      {"field":"caliber_designation","value":"7.62 x 25 mm","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"weapon_category","value":"submachine gun","unit":"categorical","qualifiers":{},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1981-01-74-1"]},
+      {"field":"overall_length","value":84.5,"unit":"cm","qualifiers":{"catalogue_object":"FIR 6119"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"barrel_length","value":27,"unit":"cm","qualifiers":{"catalogue_object":"FIR 6119"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"ammunition_capacity","value":71,"unit":"rounds","qualifiers":{"feed_system":"drum magazine","source_wording_preserved":true},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1981-01-74-1"]},
+      {"field":"production_context","value":"produced in large numbers from 1942 onwards","unit":"text","qualifiers":{"source_wording_preserved":true},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1981-01-74-1"]},
+      {"field":"primary_service_context","value":"widely associated with Soviet infantry during the Second World War","unit":"text","qualifiers":{},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1981-01-74-1","https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"catalogue_production_date","value":"1942","unit":"designation","qualifiers":{"catalogue_object":"FIR 6119"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1981-01-74-1"},
+      {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30029316"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}
