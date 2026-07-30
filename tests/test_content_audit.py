@@ -37,7 +37,7 @@ def entity(entity_id: str, country: str = "american", *, complete: bool = True, 
     })
 
 
-def relationship(rel_id: str, source: str, target: str) -> Relationship:
+def relationship(rel_id: str, source: str, target: str, *, source_count: int = 1) -> Relationship:
     return Relationship.from_dict({
         "id": rel_id,
         "source_id": source,
@@ -47,7 +47,10 @@ def relationship(rel_id: str, source: str, target: str) -> Relationship:
         "qualifiers": {},
         "provenance": {
             "review_status": "unverified",
-            "sources": [{"source_id": "source_a", "url": "https://example.test/a"}],
+            "sources": [
+                {"source_id": f"source_{index}", "url": f"https://example.test/rel/{index}"}
+                for index in range(source_count)
+            ],
         },
     })
 
@@ -95,7 +98,7 @@ class ContentAuditTests(unittest.TestCase):
 
         self.assertEqual(validate_content_batches([batch], [first, second], [rel]), [])
 
-    def test_batch_enforces_minimum_independent_source_count(self):
+    def test_batch_enforces_minimum_independent_entity_source_count(self):
         one_source = entity("ckb:test:one", source_count=1)
         two_sources = entity("ckb:test:two", source_count=2)
         batch = {
@@ -111,6 +114,25 @@ class ContentAuditTests(unittest.TestCase):
 
         self.assertEqual(len(errors), 1)
         self.assertIn("ckb:test:one has 1 independent sources; requires at least 2", errors[0])
+
+    def test_batch_enforces_minimum_independent_relationship_source_count(self):
+        first = entity("ckb:test:first")
+        second = entity("ckb:test:second")
+        one_source = relationship("rel:test:one", first.id, second.id, source_count=1)
+        two_sources = relationship("rel:test:two", second.id, first.id, source_count=2)
+        batch = {
+            "batch_id": "batch:relationship-review",
+            "version": "1.0",
+            "scope": "relationship source review",
+            "entity_ids": [first.id, second.id],
+            "relationship_ids": [one_source.id, two_sources.id],
+            "quality_targets": {"minimum_sources_per_relationship": 2},
+        }
+
+        errors = validate_content_batches([batch], [first, second], [one_source, two_sources])
+
+        self.assertEqual(len(errors), 1)
+        self.assertIn("rel:test:one has 1 independent sources; requires at least 2", errors[0])
 
     def test_invalid_source_target_is_rejected(self):
         row = entity("ckb:test:row")
