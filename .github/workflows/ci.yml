@@ -37,3 +37,5 @@ jobs:
       - run: test -f /tmp/ckb-technical-comparison.json && test -f /tmp/ckb-site-docs/compare/technical.md
       - run: PYTHONPATH=src python -m ckb.technical_metrics --output /tmp/ckb-derived-metrics.json --markdown /tmp/ckb-site-docs/compare/derived-metrics.md --fail-on-error
       - run: test -f /tmp/ckb-derived-metrics.json && test -f /tmp/ckb-site-docs/compare/derived-metrics.md
+      - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/build_profile.json --output /tmp/ckb-godot --fail-on-error
+      - run: test -f /tmp/ckb-godot/ckb_destory_runtime.json && test -f /tmp/ckb-godot/ckb-lock.json
