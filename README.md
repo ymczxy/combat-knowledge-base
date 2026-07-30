@@ -9,7 +9,7 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 - 供数据交换的 JSON；
 - 供 Godot 使用的项目裁剪包；
 - 现代装备的“体验可感知”配置；
-- 可进行语义校验、事实聚合和路径查询的知识图谱 Bundle。
+- 可进行语义校验、事实聚合、生命周期治理和路径查询的知识图谱 Bundle。
 
 ## 已批准基线
 
@@ -21,6 +21,7 @@ CKB 是面向《destory》及后续战争、破坏与工程模拟项目的统一
 6. 现代装备只整理公开知识和游戏抽象，不收录制造、规避防御或现实攻击操作教程。
 7. Relationship 与 Entity 同为一等知识对象，关系必须具备稳定 ID、来源、审核状态和正式谓词语义。
 8. 多条 Relationship 可以表达同一 Canonical Fact，但原始断言必须保留，不能因聚合而丢失证据链。
+9. 系统建议不得自动修改正式审核状态或事实生命周期，所有正式裁决必须进入可追溯账本。
 
 ## 在线浏览
 
@@ -51,11 +52,12 @@ python -m ckb.cli catalog-audit
 python -m ckb.cli source-audit
 python -m ckb.cli predicate-audit
 python -m ckb.cli assertion-audit --output exports/graph/assertion-governance.json
+python -m ckb.cli fact-snapshot --output exports/graph/fact-snapshot.json
 python -m ckb.cli graph --output exports/graph/ckb-graph.json
 python -m ckb.cli build --output exports --profile destory --allow-unverified
 ```
 
-## v1.5 知识图谱
+## v1.5 知识图谱与事实治理
 
 独立关系位于：
 
@@ -67,6 +69,12 @@ data/relationships/
 
 ```text
 data/ontology/predicates.json
+```
+
+正式事实裁决账本位于：
+
+```text
+data/governance/fact_decisions.json
 ```
 
 构建图谱：
@@ -82,15 +90,18 @@ PYTHONPATH=src python -m ckb.cli graph \
 - 谓词是否注册；
 - 反向、对称和传递语义是否自洽；
 - 起点和终点实体类型是否符合 Predicate Registry；
-- 图中是否存在悬空实体引用。
+- 图中是否存在悬空实体引用；
+- Fact Decision 的状态迁移、裁决信息和断言引用是否合法。
 
-图谱 Bundle 1.2 同时保存：
+图谱 Bundle 1.3 同时保存：
 
 ```text
 Entity
-Relationship assertion
+Relationship Assertion
 Canonical Fact
 Predicate Registry
+Fact lifecycle state
+Fact decision history
 ```
 
 同一事实的正向、反向、对称、嵌入式和独立 Relationship 会归并为一个 Canonical Fact，但全部原始断言和来源仍可回溯。
@@ -102,9 +113,22 @@ PYTHONPATH=src python -m ckb.cli assertion-audit \
   --output exports/graph/assertion-governance.json
 ```
 
-它会输出重复断言组、独立来源、肯定/否定冲突和待人工确认的审核晋级建议。系统只提出建议，不自动修改正式审核状态。
+它会输出重复断言组、独立来源、肯定/否定冲突、待人工确认的审核晋级建议、正式生命周期和裁决历史。系统只提出建议，不自动修改正式审核或生命周期状态。
 
-谓词设计规范见 `docs/V1_5_1_PREDICATE_REGISTRY.md`，断言治理规范见 `docs/V1_5_2_ASSERTION_GOVERNANCE.md`。
+生成可重复发布的事实快照：
+
+```bash
+PYTHONPATH=src python -m ckb.cli fact-snapshot \
+  --output exports/graph/fact-snapshot.json
+```
+
+相同事实与裁决输入会生成相同 SHA-256 `snapshot_id`，用于发布复现、Bundle 追踪和变更判断。
+
+相关规范：
+
+- `docs/V1_5_1_PREDICATE_REGISTRY.md`：谓词注册表；
+- `docs/V1_5_2_ASSERTION_GOVERNANCE.md`：断言与规范事实聚合；
+- `docs/V1_5_3_FACT_LIFECYCLE.md`：事实生命周期、人工裁决与发布快照。
 
 ## v1.3 候选实体解析
 
@@ -157,6 +181,8 @@ PYTHONPATH=src python -m ckb.cli resolve-one "T-34" \
 - `human_review`：必须人工确认；
 - `reject`：相关性不足。
 
+歧义候选的最佳外部命中始终进入 `human_review`，不会因为歧义惩罚被直接丢弃；其余低质量命中仍可判定为 `reject`。
+
 搜索结果默认缓存到 `data/cache/search/`，重复查询优先使用缓存。详细规则见 `docs/V1_3_1_MATCHING.md`。
 
 ## 目录
@@ -169,6 +195,7 @@ data/catalog/            全量建设目录
 data/canonical/          已标准化实体
 data/relationships/      独立关系断言
 data/ontology/           谓词注册表和本体资源
+data/governance/         事实裁决账本与治理数据
 data/staging/            机器导入与待审核记录
 data/cache/              外部搜索结果缓存
 data/templates/          人工导入模板
@@ -180,4 +207,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.5.2`：加入 Relationship 断言治理、Canonical Fact 聚合、来源去重、冲突检测和人工审核晋级建议。
+`1.5.3`：完成 Canonical Fact 生命周期、人工裁决记录、状态迁移校验和可重复事实发布快照。下一阶段进入 `1.6.0` 装甲车辆内容规模化。

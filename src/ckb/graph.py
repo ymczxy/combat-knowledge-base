@@ -231,15 +231,19 @@ class KnowledgeGraph:
                 ))
         return errors
 
-    def to_bundle(self) -> dict[str, Any]:
-        governance = self.governance_report()
+    def to_bundle(
+        self,
+        governance: AssertionGovernanceReport | None = None,
+    ) -> dict[str, Any]:
+        governance = governance or self.governance_report()
         bundle: dict[str, Any] = {
-            "graph_version": "1.2",
+            "graph_version": "1.3",
             "entity_count": len(self.entities),
             "relationship_assertion_count": len(self.relationships),
             "fact_count": len(governance.facts),
             "duplicate_assertion_group_count": len(governance.duplicate_groups),
             "conflict_count": len(governance.conflicts),
+            "fact_lifecycle_counts": governance.lifecycle_counts,
             "entities": [entity.raw for entity in self.entities.values()],
             "relationships": [relation.to_dict() for relation in self.relationships],
             "facts": [fact.to_dict() for fact in governance.facts],

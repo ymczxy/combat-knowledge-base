@@ -2,7 +2,7 @@
 
 本路线图自 v1.5.2 起作为 CKB 的正式版本规划。版本号只表示计划边界；任何版本均须以仓库实际代码、数据、测试和 CI 结果为准。
 
-## 当前基线：v1.5.2
+## 当前基线：v1.5.3
 
 当前基础架构已经覆盖：
 
@@ -11,33 +11,34 @@
 - KnowledgeGraph 的邻居、反向、对称、传递和路径查询；
 - Relationship Assertion 到 Canonical Fact 的归并；
 - 来源去重、冲突检测和审核晋级建议；
+- Canonical Fact 生命周期与人工裁决历史；
+- 可重复验证的事实发布快照；
 - Markdown、SQLite、JSON、网站和 Godot Bundle 输出基础；
 - 自动测试、数据校验和 GitHub Actions 门禁。
 
-v1.5.2 仍属于架构基线，不代表内容规模、来源审核、网站图谱展示或 Godot 实际接入已经完成。
+v1.5.3 完成了通用底层治理收尾，但不代表内容规模、来源审核、网站图谱展示或 Godot 实际接入已经完成。后续不再继续扩展 v1.5.x 通用抽象，当前活跃阶段转入 v1.6.0。
 
-## v1.5.3：事实生命周期收尾
+## v1.5.3：事实生命周期收尾（已完成）
 
-目标：完成 Canonical Fact 的正式治理闭环，并停止继续扩展 v1.5.x 底层抽象。
+已完成范围：
 
-计划范围：
-
-- 为 Canonical Fact 增加明确生命周期状态：`proposed`、`accepted`、`disputed`、`rejected`、`deprecated`；
+- 为 Canonical Fact 增加 `proposed`、`accepted`、`disputed`、`rejected`、`deprecated` 生命周期状态；
 - 保存人工裁决人、裁决时间、理由和引用的 assertion ID；
 - 保存事实状态变更历史，不覆盖旧裁决记录；
 - 支持冲突解决记录，并区分自动检测结果与人工正式裁决；
-- 生成内容稳定、可重复验证的事实发布快照；
+- 冲突事实必须先进入 `disputed`，解决时必须引用多方断言；
+- 生成内容稳定、可重复验证的 SHA-256 事实发布快照；
 - 增加对应 Schema、CLI、测试和 CI 门禁；
-- 不让 `suggested_review_status` 自动修改正式审核或生命周期状态。
+- `suggested_review_status` 与 `suggested_lifecycle_status` 均不得自动修改正式状态。
 
-完成标准：
+完成标准已经落实为自动测试与 CI 门禁：
 
-- 同一输入数据和裁决文件能够生成相同快照标识；
-- 非法状态迁移、缺失裁决依据和未知 assertion 引用会被校验拒绝；
-- 冲突事实能够保留全部证据并记录最终裁决；
-- v1.5.3 发布后不再新增通用底层抽象，后续优先建设内容和应用。
+- 同一输入数据和裁决文件生成相同快照标识；
+- 非法状态迁移、缺失裁决依据和未知 assertion 引用被校验拒绝；
+- 冲突事实保留全部原始证据和完整裁决历史；
+- `validate`、`assertion-audit`、`fact-snapshot`、`graph` 和 `stats` 均纳入 CI。
 
-## v1.6：知识内容规模化
+## v1.6：知识内容规模化（当前阶段）
 
 ### v1.6.0 装甲车辆主体库
 
@@ -136,6 +137,7 @@ PYTHONPATH=src python -m ckb.cli catalog-audit
 PYTHONPATH=src python -m ckb.cli source-audit
 PYTHONPATH=src python -m ckb.cli predicate-audit
 PYTHONPATH=src python -m ckb.cli assertion-audit --output /tmp/assertion-governance.json --fail-on-conflict
+PYTHONPATH=src python -m ckb.cli fact-snapshot --output /tmp/ckb-fact-snapshot.json
 PYTHONPATH=src python -m ckb.cli graph --output /tmp/ckb-graph.json
 PYTHONPATH=src python -m ckb.cli stats
 ```
