@@ -1,1 +1,60 @@
-{"profile_id":"destory","include_domains":["Weapon","Ammunition","Platform","Material","Effect","Environment","Fortification","Sensor","FireControl"],"priority_tags":["bunker_attack","structural_damage","concrete","steel","fragmentation","incendiary","smoke","pressure","toxic_environment","engineering"],"include_experience_profile":true,"include_unverified":false,"outputs":["sqlite","json","markdown"]}
+{
+  "profile_id": "destory",
+  "include_domains": [
+    "Weapon",
+    "Ammunition",
+    "Platform",
+    "Material",
+    "Effect",
+    "Environment",
+    "Fortification",
+    "Sensor",
+    "FireControl"
+  ],
+  "priority_tags": [
+    "bunker_attack",
+    "structural_damage",
+    "concrete",
+    "steel",
+    "fragmentation",
+    "incendiary",
+    "smoke",
+    "pressure",
+    "toxic_environment",
+    "engineering"
+  ],
+  "include_experience_profile": true,
+  "include_unverified": false,
+  "outputs": [
+    "sqlite",
+    "json",
+    "markdown",
+    "godot_runtime_json",
+    "godot_lock"
+  ],
+  "godot_runtime_bundle": {
+    "enabled": true,
+    "bundle_id": "destory-armored-runtime-v1",
+    "format_version": 1,
+    "output_filename": "ckb_destory_runtime.json",
+    "lock_filename": "ckb-lock.json",
+    "derived_metric_specs": "data/derived/technical_metrics_v1_6_0_batch_08.json",
+    "include_experience_profile": true,
+    "technical_fields": [],
+    "allowed_review_statuses": [
+      "source_checked",
+      "cross_checked",
+      "expert_reviewed"
+    ],
+    "entity_ids": [
+      "ckb:platform:ground:m1_abrams",
+      "ckb:platform:ground:challenger_2",
+      "ckb:platform:ground:leclerc_tank",
+      "ckb:platform:ground:type_10_tank",
+      "ckb:platform:ground:m4_sherman",
+      "ckb:platform:ground:t_34_model_1940",
+      "ckb:platform:ground:panther_tank",
+      "ckb:platform:ground:type_59_tank"
+    ]
+  }
+}
