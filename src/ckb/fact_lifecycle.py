@@ -2,10 +2,10 @@ from __future__ import annotations
 
 from collections import defaultdict
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 from hashlib import sha256
 from pathlib import Path
-from typing import Any, Iterable, Mapping
+from typing import Any, Mapping
 import json
 
 from .assertions import AssertionGovernanceReport
@@ -27,7 +27,7 @@ def _parse_timestamp(value: str) -> datetime:
     parsed = datetime.fromisoformat(normalized)
     if parsed.tzinfo is None:
         raise ValueError("timestamp must include a timezone")
-    return parsed
+    return parsed.astimezone(timezone.utc)
 
 
 @dataclass(frozen=True, slots=True)
@@ -67,7 +67,11 @@ class FactDecision:
         }
 
     def sort_key(self) -> tuple[datetime, str]:
-        return (_parse_timestamp(self.decided_at), self.id)
+        try:
+            timestamp = _parse_timestamp(self.decided_at)
+        except (ValueError, TypeError):
+            timestamp = datetime.max.replace(tzinfo=timezone.utc)
+        return (timestamp, self.id)
 
 
 @dataclass(slots=True)
@@ -100,7 +104,7 @@ class FactDecisionLedger:
         seen_ids: set[str] = set()
 
         for decision in self.decisions:
-            prefix = f"decision:{decision.id}"
+            prefix = decision.id if decision.id.startswith("decision:") else f"decision:{decision.id}"
             if decision.id in seen_ids:
                 errors.append(f"{prefix}: duplicate decision id")
             seen_ids.add(decision.id)
@@ -123,6 +127,10 @@ class FactDecisionLedger:
             if fact is None:
                 errors.append(f"{prefix}: unknown fact {decision.fact_id}")
                 continue
+            if not decision.assertion_ids:
+                errors.append(f"{prefix}: at least one assertion_id is required")
+            if len(set(decision.assertion_ids)) != len(decision.assertion_ids):
+                errors.append(f"{prefix}: assertion_ids must be unique")
             unknown_assertions = sorted(set(decision.assertion_ids) - set(fact.assertion_ids))
             for assertion_id in unknown_assertions:
                 errors.append(f"{prefix}: assertion {assertion_id} does not belong to {decision.fact_id}")
@@ -133,7 +141,7 @@ class FactDecisionLedger:
                 continue
             current = "proposed"
             for decision in decisions:
-                prefix = f"decision:{decision.id}"
+                prefix = decision.id if decision.id.startswith("decision:") else f"decision:{decision.id}"
                 if decision.from_status != current:
                     errors.append(
                         f"{prefix}: from_status {decision.from_status} does not match current status {current}"
@@ -144,6 +152,10 @@ class FactDecisionLedger:
                 if decision.to_status not in allowed:
                     errors.append(
                         f"{prefix}: transition {current} -> {decision.to_status} is not allowed"
+                    )
+                if fact.conflict and current == "proposed" and decision.to_status != "disputed":
+                    errors.append(
+                        f"{prefix}: a conflicted fact must enter disputed before final resolution"
                     )
                 if (
                     fact.conflict
