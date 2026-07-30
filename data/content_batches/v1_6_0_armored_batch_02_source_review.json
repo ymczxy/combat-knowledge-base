@@ -37,6 +37,7 @@
   ],
   "quality_targets": {
     "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
     "review_status": "source_checked",
     "relationship_review_status": "source_checked",
     "technical_detail_status": "deferred",
