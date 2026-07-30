@@ -1,0 +1,39 @@
+{
+  "id": "ckb:ammunition:cartridge:8x57_is",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": "8 x 57 IS cartridge",
+    "canonical_name_zh": "8×57 IS步枪弹",
+    "aliases": ["7.92×57 mm Mauser", "8mm Mauser", "7.92 x 57"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "FullPowerRifleCartridge",
+    "eras": ["INDUSTRIAL", "WWI", "WWII", "EARLY_COLD_WAR"],
+    "tags": ["cartridge", "rifle_cartridge", "german", "rimless"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and compatibility metadata",
+    "claims": [
+      {"field":"caliber_designation","value":"7.92 x 57 mm","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30035946","https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"cip_designation","value":"8 x 57 IS","unit":"designation","qualifiers":{"cartridge_table":"Tab I - Rimless cartridges"},"source_urls":["https://bobp.cip-bobp.org/en/homologation_public/show/id/654"]},
+      {"field":"case_type","value":"rimless","unit":"categorical","qualifiers":{"cip_table":"Tab I"},"source_urls":["https://bobp.cip-bobp.org/en/homologation_public/show/id/654"]},
+      {"field":"primary_service_context","value":"German service-rifle cartridge associated with the Karabiner 98k","unit":"text","qualifiers":{"linked_weapon":"ckb:weapon:firearm:karabiner_98k"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30035946","https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"]},
+      {"field":"standardization_context","value":"C.I.P. Tab I rimless-cartridge designation","unit":"text","qualifiers":{},"source_urls":["https://bobp.cip-bobp.org/en/homologation_public/show/id/654"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1996-07-97-1"},
+      {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30035946"},
+      {"source_id":"standards_body","url":"https://bobp.cip-bobp.org/en/homologation_public/show/id/654"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}

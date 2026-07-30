@@ -1,0 +1,25 @@
+{
+  "batch_id": "v1.6.1-small-arms-batch-04-karabiner-98k",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "Add the Karabiner 98k and its 8 x 57 IS ammunition compatibility chain.",
+  "entity_ids": [
+    "ckb:weapon:firearm:karabiner_98k",
+    "ckb:ammunition:cartridge:8x57_is"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_1_batch_04:karabiner_98k:uses_ammunition:8x57_is"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch stores public identification, dimensions, service and compatibility facts only.",
+    "No loading recipes, propellant charges, primer specifications, manufacturing guidance, attack instructions or gameplay balance values are included.",
+    "Museum catalogue range wording is retained as descriptive text rather than silently generalized."
+  ]
+}
