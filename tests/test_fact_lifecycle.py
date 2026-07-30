@@ -105,6 +105,42 @@ class FactLifecycleTests(unittest.TestCase):
         self.assertTrue(any("does not match current status" in error for error in errors))
         self.assertTrue(any("does not belong" in error for error in errors))
 
+    def test_invalid_timestamp_is_reported_without_crashing(self):
+        report = aggregate_assertions([self.relation("rel:yes")], self.registry)
+        ledger = FactDecisionLedger.from_dict({
+            "decisions": [{
+                "id": "decision:bad_time",
+                "fact_id": "fact:a:predecessor_of:b",
+                "from_status": "proposed",
+                "to_status": "accepted",
+                "decided_by": "reviewer",
+                "decided_at": "not-a-time",
+                "reason": "Invalid timestamp test.",
+                "assertion_ids": ["rel:yes"],
+            }],
+        })
+
+        errors = ledger.validate(report)
+        self.assertTrue(any("ISO 8601 timestamp" in error for error in errors))
+
+    def test_conflicted_fact_must_enter_disputed_first(self):
+        report = self.conflicted_report()
+        ledger = FactDecisionLedger.from_dict({
+            "decisions": [{
+                "id": "decision:skip_disputed",
+                "fact_id": "fact:a:predecessor_of:b",
+                "from_status": "proposed",
+                "to_status": "accepted",
+                "decided_by": "reviewer",
+                "decided_at": "2026-07-30T00:00:00Z",
+                "reason": "Attempted direct resolution.",
+                "assertion_ids": ["rel:yes", "rel:no"],
+            }],
+        })
+
+        errors = ledger.validate(report)
+        self.assertTrue(any("must enter disputed" in error for error in errors))
+
     def test_conflict_resolution_requires_multiple_assertions(self):
         report = self.conflicted_report()
         ledger = FactDecisionLedger.from_dict({
