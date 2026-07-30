@@ -1,0 +1,11 @@
+[
+  {
+    "id":"rel:v1_6_2_batch_01:spitfire_mk_i:uses_engine:merlin_ii",
+    "source_id":"ckb:platform:air:spitfire_mk_i",
+    "predicate":"uses_engine",
+    "target_id":"ckb:component:engine:rolls_royce_merlin_ii",
+    "confidence":0.98,
+    "qualifiers":{"scope":"Spitfire Mk I K9942 collection record and Merlin family identification","configuration_specific":true},
+    "provenance":{"review_status":"source_checked","sources":[{"source_id":"raf_museum","url":"https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"}]}
+  }
+]
