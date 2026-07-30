@@ -19,6 +19,8 @@ jobs:
       - run: PYTHONPATH=src python -m ckb.cli graph --output /tmp/ckb-graph.json
       - run: test -f /tmp/ckb-graph.json
       - run: PYTHONPATH=src python -m ckb.cli stats
+      - run: PYTHONPATH=src python -m ckb.content_audit --output /tmp/ckb-content-report.json
+      - run: test -f /tmp/ckb-content-report.json
       - run: PYTHONPATH=src python -m ckb.cli candidates --output /tmp/ckb-candidates
       - run: test -f /tmp/ckb-candidates/candidates.json && test -f /tmp/ckb-candidates/ambiguities.json && test -f /tmp/ckb-candidates/manifest.json
       - run: PYTHONPATH=src python -m ckb.cli drafts --output /tmp/ckb-drafts
