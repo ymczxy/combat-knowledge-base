@@ -47,6 +47,8 @@ UNIT_DEFINITIONS: dict[str, tuple[str, float]] = {
     "s": ("time", 1.0),
     "min": ("time", 60.0),
     "rpm": ("rotational_speed", 1.0),
+    "rounds_per_minute": ("rounds_rate", 1.0),
+    "rounds/min": ("rounds_rate", 1.0),
     "degrees": ("angle", 1.0),
     "degree": ("angle", 1.0),
     "people": ("people", 1.0),
@@ -67,6 +69,7 @@ CANONICAL_UNIT_FACTORS: dict[str, tuple[str, float]] = {
     "L": ("volume", 1.0),
     "s": ("time", 1.0),
     "rpm": ("rotational_speed", 1.0),
+    "rounds/min": ("rounds_rate", 1.0),
     "degrees": ("angle", 1.0),
     "people": ("people", 1.0),
     "rounds": ("rounds", 1.0),
@@ -74,7 +77,7 @@ CANONICAL_UNIT_FACTORS: dict[str, tuple[str, float]] = {
     "ratio": ("dimensionless", 1.0),
 }
 
-DESCRIPTIVE_UNITS = {"categorical", "boolean", "text"}
+DESCRIPTIVE_UNITS = {"categorical", "boolean", "text", "designation"}
 
 
 def _is_numeric(value: Any) -> bool:
@@ -109,8 +112,25 @@ def _target_unit(field: str, source_unit: str) -> str | None:
         return "people"
     if "ammunition" in key and ("count" in key or "capacity" in key):
         return "rounds"
-    if source_unit in {"people", "rounds", "vehicles", "rpm", "degrees", "degree", "L", "litre", "litres", "ratio", "dimensionless"}:
+    if "rate" in key and source_unit in {"rounds_per_minute", "rounds/min"}:
+        return "rounds/min"
+    if source_unit in {
+        "people",
+        "rounds",
+        "vehicles",
+        "rpm",
+        "rounds_per_minute",
+        "rounds/min",
+        "degrees",
+        "degree",
+        "L",
+        "litre",
+        "litres",
+        "ratio",
+        "dimensionless",
+    }:
         aliases = {
+            "rounds_per_minute": "rounds/min",
             "degree": "degrees",
             "litre": "L",
             "litres": "L",
@@ -131,6 +151,7 @@ def _target_unit(field: str, source_unit: str) -> str | None:
         "volume": "L",
         "time": "s",
         "rotational_speed": "rpm",
+        "rounds_rate": "rounds/min",
         "angle": "degrees",
         "people": "people",
         "rounds": "rounds",
@@ -323,8 +344,17 @@ def _entity_filename(entity_id: str) -> str:
     return entity_id.replace(":", "__").replace("/", "_").replace(" ", "_").lower() + ".md"
 
 
-def render_technical_comparison_markdown(entities: Iterable[Entity]) -> str:
-    payload = build_technical_comparison(entities)
+def render_technical_comparison_markdown(
+    entities: Iterable[Entity],
+    *,
+    fields: Sequence[str] | None = None,
+    entity_ids: Sequence[str] | None = None,
+) -> str:
+    payload = build_technical_comparison(
+        entities,
+        fields=fields,
+        entity_ids=entity_ids,
+    )
     summary = payload["summary"]
     rows = payload["rows"]
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -439,9 +469,9 @@ def main() -> None:
         args.markdown.parent.mkdir(parents=True, exist_ok=True)
         args.markdown.write_text(
             render_technical_comparison_markdown(
-                entity
-                for entity in entities
-                if not args.entity or entity.id in set(args.entity)
+                entities,
+                fields=args.field,
+                entity_ids=args.entity,
             ),
             encoding="utf-8",
         )
