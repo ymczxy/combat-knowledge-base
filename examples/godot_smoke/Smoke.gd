@@ -88,6 +88,8 @@ func _run_smoke() -> void:
     _expect(sherman_results.size() == 1, "CKBQuery search should return one Sherman result.", checks)
     if not sherman_results.is_empty():
         _expect(str(sherman_results[0].get("id", "")) == SHERMAN_ID, "CKBQuery returned the wrong Sherman entity.", checks)
+    var sensor_relations: Array = query.related("ckb:system:air_defense:patriot", "uses_sensor", "out")
+    _expect(sensor_relations.size() == 0, "Armored runtime must not expose unrelated Patriot relations.", checks)
 
     var engine_version: String = str(Engine.get_version_info().get("string", "unknown"))
     var manifest: Dictionary = runtime.manifest

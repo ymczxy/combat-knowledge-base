@@ -9,6 +9,7 @@ const SUPPORTED_LOCK_VERSION: int = 1
 var manifest: Dictionary = {}
 var source_table: Array = []
 var entities: Array = []
+var relationships: Array = []
 
 var _entity_index: Dictionary = {}
 var _configuration_index: Dictionary = {}
@@ -128,6 +129,30 @@ func _initialize(bundle: Dictionary, lock: Dictionary) -> String:
         return "CKB entities must be an array."
     entities = entities_value
 
+    var relationships_value: Variant = bundle.get("relationships", [])
+    if typeof(relationships_value) != TYPE_ARRAY:
+        return "CKB relationships must be an array."
+    relationships = relationships_value
+    var relationship_ids: Dictionary = {}
+    for relationship_value in relationships:
+        if typeof(relationship_value) != TYPE_DICTIONARY:
+            return "CKB relationship row must be an object."
+        var relationship: Dictionary = relationship_value
+        var relationship_id := str(relationship.get("id", ""))
+        if relationship_id.is_empty() or relationship_ids.has(relationship_id):
+            return "CKB relationship ID is missing or duplicated."
+        relationship_ids[relationship_id] = true
+    var locked_relationship_ids_value: Variant = lock.get("relationship_ids", [])
+    if typeof(locked_relationship_ids_value) != TYPE_ARRAY:
+        return "CKB lock relationship_ids must be an array."
+    var locked_relationship_ids: Array = locked_relationship_ids_value
+    if locked_relationship_ids.size() != relationships.size():
+        return "CKB lock relationship count does not match the Bundle."
+    for index in range(relationships.size()):
+        var relationship_row: Dictionary = relationships[index]
+        if str(locked_relationship_ids[index]) != str(relationship_row.get("id", "")):
+            return "CKB lock relationship order does not match the Bundle."
+
     var locked_ids_value: Variant = lock.get("entity_ids", [])
     if typeof(locked_ids_value) != TYPE_ARRAY:
         return "CKB lock entity_ids must be an array."
@@ -202,6 +227,24 @@ func resolve_source_refs(refs: Array) -> PackedStringArray:
         var source_ref := int(value)
         if _source_index.has(source_ref):
             result.append(str(_source_index[source_ref]))
+    return result
+
+
+func related(entity_id: String, predicate: String = "", direction: String = "both") -> Array:
+    if direction not in ["out", "in", "both"]:
+        return []
+    var result: Array = []
+    for relationship_value in relationships:
+        if typeof(relationship_value) != TYPE_DICTIONARY:
+            continue
+        var relationship: Dictionary = relationship_value
+        var is_out := str(relationship.get("source_id", "")) == entity_id
+        var is_in := str(relationship.get("target_id", "")) == entity_id
+        if (direction == "out" and not is_out) or (direction == "in" and not is_in) or (direction == "both" and not (is_out or is_in)):
+            continue
+        if not predicate.is_empty() and str(relationship.get("predicate", "")) != predicate:
+            continue
+        result.append(relationship.duplicate(true))
     return result
 
 

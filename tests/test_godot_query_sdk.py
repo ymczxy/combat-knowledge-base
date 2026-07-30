@@ -16,6 +16,7 @@ class GodotQuerySdkTests(unittest.TestCase):
             "func list_configurations(",
             "func get_claims_for_configuration(",
             "func resolve_source_refs(",
+            "func related(",
         ):
             self.assertIn(signature, source)
 

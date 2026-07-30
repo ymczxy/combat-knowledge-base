@@ -49,6 +49,10 @@ func resolve_source_refs(refs: Array) -> PackedStringArray:
     return _runtime.resolve_source_refs(refs)
 
 
+func related(entity_id: String, predicate: String = "", direction: String = "both") -> Array:
+    return _runtime.related(entity_id, predicate, direction)
+
+
 func _matches_text(entity: Dictionary, needle: String) -> bool:
     var display_name: Dictionary = entity.get("display_name", {})
     var values := PackedStringArray([
