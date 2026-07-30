@@ -1,0 +1,22 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_01:sa80_a2_iw:uses_ammunition:5_56x45_nato",
+    "source_id": "ckb:weapon:firearm:sa80_a2_individual_weapon",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:5_56x45_nato",
+    "confidence": 1.0,
+    "qualifiers": {
+      "scope": "standard_chambering",
+      "configuration": "SA80 A2 Individual Weapon"
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "official_military",
+          "url": "https://www.army.mod.uk/learn-and-explore/equipment/small-arms-and-support-weapons/sa80-individual-weapon/"
+        }
+      ]
+    }
+  }
+]
