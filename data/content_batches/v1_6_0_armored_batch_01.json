@@ -45,6 +45,7 @@
     "rel:v1_6_0_batch_01:m47_patton:m48_patton",
     "rel:v1_6_0_batch_01:m48_patton:m60_tank",
     "rel:v1_6_0_batch_01:m60_tank:m1_abrams",
+    "rel:v1_6_0_batch_01:m1a2_abrams:m1_abrams",
     "rel:v1_6_0_batch_01:cromwell_tank:comet_tank",
     "rel:v1_6_0_batch_01:comet_tank:centurion_tank",
     "rel:v1_6_0_batch_01:centurion_tank:chieftain_tank",
