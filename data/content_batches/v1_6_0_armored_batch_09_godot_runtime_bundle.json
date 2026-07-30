@@ -1,0 +1,31 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-09-godot-runtime-bundle",
+  "version": "1.6.0",
+  "status": "runtime_packaged",
+  "scope": "Compact, versioned Godot-facing runtime package for the eight armored vehicles with structured technical profiles.",
+  "entity_ids": [
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:challenger_2",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_10_tank",
+    "ckb:platform:ground:m4_sherman",
+    "ckb:platform:ground:t_34_model_1940",
+    "ckb:platform:ground:panther_tank",
+    "ckb:platform:ground:type_59_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "runtime_bundle_status": "configuration_explicit_and_locked",
+    "runtime_bundle_contains_game_balance": false
+  },
+  "notes": [
+    "The runtime package contains selected normalized or descriptive values, configuration IDs, claim references and indexed source URLs rather than complete canonical entities.",
+    "The eight entity IDs are an explicit allowlist and must also have an approved review status.",
+    "Derived metrics retain input claim references and are marked not_source_fact and not_game_balance.",
+    "ckb-lock.json records the bundle file hash, payload hash, schema version and exact entity order.",
+    "Canonical data remains authoritative; the runtime package is deterministic and rebuildable."
+  ]
+}
