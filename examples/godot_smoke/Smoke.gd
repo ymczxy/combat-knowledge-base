@@ -1,6 +1,7 @@
 extends Control
 
 const RuntimeBundleScript = preload("res://CKBRuntimeBundle.gd")
+const QueryScript = preload("res://CKBQuery.gd")
 const CHALLENGER_ID := "ckb:platform:ground:challenger_2"
 const SHERMAN_ID := "ckb:platform:ground:m4_sherman"
 const BUNDLE_PATH := "res://data/ckb_destory_runtime.json"
@@ -82,6 +83,12 @@ func _run_smoke() -> void:
         await _finish(false, details, checks)
         return
 
+    var query = QueryScript.new(runtime)
+    var sherman_results: Array = query.search("Sherman", "platform", "WWII", 10)
+    _expect(sherman_results.size() == 1, "CKBQuery search should return one Sherman result.", checks)
+    if not sherman_results.is_empty():
+        _expect(str(sherman_results[0].get("id", "")) == SHERMAN_ID, "CKBQuery returned the wrong Sherman entity.", checks)
+
     var engine_version: String = str(Engine.get_version_info().get("string", "unknown"))
     var manifest: Dictionary = runtime.manifest
     var ids: PackedStringArray = runtime.entity_ids()
@@ -155,6 +162,7 @@ func _run_smoke() -> void:
         "SHERMAN     M4A2E8: %d explicit claims" % e8_claims.size(),
         "SHERMAN     M4A4 VC Firefly: %d explicit claims" % firefly_claims.size(),
         "TRACE       first sampled claim resolved to %d source URL(s)" % resolved_sources.size(),
+        "QUERY       Sherman search returned %d explicit runtime entity" % sherman_results.size(),
     ]
     await _finish(checks.is_empty(), details, checks)
 
