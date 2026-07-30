@@ -234,12 +234,57 @@
       "status": "active"
     },
     {
+      "name": "part_of",
+      "labels": {"en": "part of", "zh": "part of"},
+      "description": {"en": "The source event or battle is a bounded part of the target event or battle.", "zh": "The source event or battle is a bounded part of the target event or battle."},
+      "inverse": "has_part",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "has_part",
+      "labels": {"en": "has part", "zh": "has part"},
+      "description": {"en": "The source event or battle contains the target bounded event or battle as a part.", "zh": "The source event or battle contains the target bounded event or battle as a part."},
+      "inverse": "part_of",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "organized_by",
+      "labels": {"en": "organized by", "zh": "organized by"},
+      "description": {"en": "The source event or battle was organized or directed by the target organization.", "zh": "The source event or battle was organized or directed by the target organization."},
+      "inverse": "organized",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["organization"],
+      "status": "active"
+    },
+    {
+      "name": "organized",
+      "labels": {"en": "organized", "zh": "organized"},
+      "description": {"en": "The source organization organized or directed the target event or battle.", "zh": "The source organization organized or directed the target event or battle."},
+      "inverse": "organized_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["organization"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
       "name": "participated_in",
       "labels": {"en": "participated in", "zh": "参加了"},
       "description": {"en": "The source entity participated in or was fielded during the target event or battle.", "zh": "源实体参加了目标事件或战役，或在其中被投入使用。"},
       "inverse": "involved_entity",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["platform", "weapon", "system", "organization", "unit"],
       "target_entity_types": ["event", "battle"],
       "status": "active"
     },
@@ -260,6 +305,7 @@
       "inverse": "contains_location",
       "symmetric": false,
       "transitive": true,
+      "source_entity_types": ["place", "facility", "organization", "event", "battle"],
       "target_entity_types": ["place"],
       "status": "active"
     },

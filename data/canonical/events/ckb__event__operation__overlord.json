@@ -1,0 +1,16 @@
+{
+  "id":"ckb:event:operation:overlord",
+  "entity_type":"event",
+  "identity":{"canonical_name_en":"Operation Overlord","canonical_name_zh":"霸王行动","aliases":["Normandy landings","D-Day campaign"]},
+  "classification":{"domain":"Event","class":"MilitaryOperation","subclass":"AmphibiousOperation","eras":["WWII"],"tags":["allied","normandy","amphibious","western_front"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public historical event identity and bounded chronology; no operational planning guidance.","claims":[
+    {"field":"event_type","value":"Allied combined naval, air and land operation","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]},
+    {"field":"start_date","value":"6 June 1944","unit":"text","qualifiers":{"date_precision":"day"},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"theater","value":"Normandy, northern France","unit":"text","qualifiers":{"place_id":"ckb:place:region:normandy"},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]},
+    {"field":"assault_context","value":"landings across five assault beaches","unit":"text","qualifiers":{"beaches":["Utah","Omaha","Gold","Juno","Sword"]},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"historical_role","value":"opening of the campaign to liberate northwestern Europe from German occupation","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/d-day-explained"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"}]},
+  "rights":{"rights_status":"deferred"}
+}

@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.7-context-batch-01-normandy-overlord",
+  "version":"1.7",
+  "status":"source_checked",
+  "scope":"Add place, event, battle and organization entities with explicit location, containment and participation assertions.",
+  "entity_ids":["ckb:place:region:normandy","ckb:event:operation:overlord","ckb:battle:normandy:d_day","ckb:organization:military:us_1st_infantry_division"],
+  "relationship_ids":["rel:v1_7_batch_01:overlord:located_in:normandy","rel:v1_7_batch_01:d_day:located_in:normandy","rel:v1_7_batch_01:d_day:part_of:overlord","rel:v1_7_batch_01:1id:participated_in:d_day","rel:v1_7_batch_01:overlord:organized_by:allied_forces"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":1,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["The rejected organized_by assertion is retained as governance evidence and explicitly prevents inferring that the 1st Infantry Division organized Operation Overlord.","Dates remain descriptive text until v1.7 time normalization is implemented."]
+}
