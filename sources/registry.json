@@ -7,7 +7,7 @@
   {"source_id":"met_museum","name":"The Metropolitan Museum of Art","source_type":"museum","url":"https://www.metmuseum.org/","priority":"A","rights_status":"deferred"},
   {"source_id":"smithsonian","name":"Smithsonian","source_type":"museum_archive","url":"https://www.si.edu/","priority":"A","rights_status":"deferred"},
   {"source_id":"official_military","name":"Government and military public sources","source_type":"official","url":"","priority":"S","rights_status":"deferred"},
-  {"source_id":"standards_body","name":"Standards and proof organizations","source_type":"standard","url":"","priority":"S","rights_status":"deferred"},
+  {"source_id":"standards_body","name":"Standards and proof organizations","source_type":"standard","url":"https://www.cip-bobp.org/","priority":"S","rights_status":"deferred"},
   {"source_id":"manufacturer","name":"Manufacturer public materials","source_type":"manufacturer","url":"","priority":"A","rights_status":"deferred"},
   {"source_id":"professional_reference","name":"Professional equipment references","source_type":"professional_reference","url":"https://weaponsystems.net/","priority":"B","rights_status":"deferred"},
   {"source_id":"github_open_data","name":"GitHub open datasets","source_type":"open_dataset","url":"https://github.com/","priority":"C","rights_status":"deferred"}
