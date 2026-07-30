@@ -71,6 +71,7 @@ jobs:
           cp /tmp/godot-version.txt examples/godot_smoke/artifacts/godot_version.txt
           mkdir -p examples/godot_smoke_small/data examples/godot_smoke_small/artifacts
           cp examples/godot/CKBRuntimeBundle.gd examples/godot_smoke_small/CKBRuntimeBundle.gd
+          cp examples/godot/CKBQuery.gd examples/godot_smoke_small/CKBQuery.gd
           cp /tmp/ckb-godot-small-arms/ckb_destory_small_arms_runtime.json examples/godot_smoke_small/data/
           cp /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json examples/godot_smoke_small/data/
           cp /tmp/ckb-small-arms-runtime-contract.json examples/godot_smoke_small/artifacts/python_runtime_contract.json

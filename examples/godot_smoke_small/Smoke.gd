@@ -1,6 +1,7 @@
 extends Control
 
 const RuntimeBundleScript = preload("res://CKBRuntimeBundle.gd")
+const QueryScript = preload("res://CKBQuery.gd")
 const BUNDLE_PATH := "res://data/ckb_destory_small_arms_runtime.json"
 const LOCK_PATH := "res://data/ckb-small-arms-lock.json"
 const SCREENSHOT_PATH := "res://artifacts/godot_small_arms_smoke.png"
@@ -24,6 +25,7 @@ func _run_smoke() -> void:
         errors.append("small-arms Bundle and Lock could not be loaded")
     else:
         var ids: PackedStringArray = runtime.entity_ids()
+        var query = QueryScript.new(runtime)
         _expect(ids.size() == 5, "expected 5 entities, got %d" % ids.size(), errors)
         _expect(int(runtime.manifest.get("technical_claim_count", -1)) == 32, "expected 32 technical claims", errors)
         _expect(int(runtime.manifest.get("derived_metric_count", -1)) == 0, "expected 0 derived metrics", errors)
@@ -37,6 +39,10 @@ func _run_smoke() -> void:
         var ammo_claims: Array = runtime.get_claims_for_configuration("ckb:ammunition:cartridge:12_7x99", ammo_configuration_id)
         _expect(m2_claims.size() > 0, "M2 claim query returned no rows", errors)
         _expect(ammo_claims.size() > 0, "12.7 x 99 claim query returned no rows", errors)
+        var ammunition_relations: Array = query.related("ckb:weapon:firearm:m2_browning", "uses_ammunition", "out")
+        _expect(ammunition_relations.size() == 1, "M2 ammunition relation query returned an unexpected count", errors)
+        if ammunition_relations.size() == 1:
+            _expect(str(ammunition_relations[0].get("target_id", "")) == "ckb:ammunition:cartridge:12_7x99", "M2 relation target mismatch", errors)
         if m2_claims.size() > 0:
             _expect(runtime.resolve_source_refs(m2_claims[0].get("source_refs", [])).size() > 0, "M2 source resolution failed", errors)
     var passed := errors.is_empty()

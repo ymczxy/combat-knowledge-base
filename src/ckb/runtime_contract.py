@@ -116,6 +116,18 @@ def validate_runtime_contract(
     elif [str(value) for value in locked_entity_ids] != actual_entity_ids:
         errors.append("lock.entity_ids does not match the Bundle entity order")
 
+    relationship_rows = bundle.get("relationships", [])
+    actual_relationship_ids = [
+        str(row.get("id", ""))
+        for row in relationship_rows
+        if isinstance(row, dict)
+    ] if isinstance(relationship_rows, list) else []
+    locked_relationship_ids = lock.get("relationship_ids", [])
+    if not isinstance(locked_relationship_ids, list):
+        errors.append("lock.relationship_ids must be an array")
+    elif [str(value) for value in locked_relationship_ids] != actual_relationship_ids:
+        errors.append("lock.relationship_ids does not match the Bundle relationship order")
+
     resource_manifest = lock.get("resource_manifest")
     if not isinstance(resource_manifest, list) or len(resource_manifest) != 1:
         errors.append("lock.resource_manifest must contain exactly one runtime Bundle row")
@@ -138,6 +150,7 @@ def validate_runtime_contract(
         "technical_claim_count": manifest.get("technical_claim_count"),
         "derived_metric_count": manifest.get("derived_metric_count"),
         "source_ref_count": manifest.get("source_ref_count"),
+        "relationship_assertion_count": manifest.get("relationship_assertion_count", len(actual_relationship_ids)),
         "content_sha256": manifest.get("content_sha256"),
         "bundle_file_sha256": actual_file_sha256,
         "error_count": len(errors),
