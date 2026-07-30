@@ -5,7 +5,14 @@ from ckb.graph import Relationship
 from ckb.model import Entity
 
 
-def entity(entity_id: str, country: str = "american", *, complete: bool = True, source_count: int = 1) -> Entity:
+def entity(
+    entity_id: str,
+    country: str = "american",
+    *,
+    complete: bool = True,
+    source_count: int = 1,
+    with_profiles: bool = False,
+) -> Entity:
     classification = {
         "domain": "Platform",
         "class": "GroundVehicle",
@@ -13,6 +20,37 @@ def entity(entity_id: str, country: str = "american", *, complete: bool = True, 
         "eras": ["CONTEMPORARY"],
         "tags": [country, "tracked", "main_battle_tank"],
     }
+    technical = {}
+    experience_profile = None
+    if with_profiles:
+        technical = {
+            "profile_version": "1.0",
+            "profile_scope": "test configuration",
+            "claims": [
+                {
+                    "field": "crew_count",
+                    "value": 3,
+                    "unit": "people",
+                    "qualifiers": {},
+                    "source_urls": ["https://example.test/technical"],
+                },
+                {
+                    "field": "maximum_speed",
+                    "value": 70,
+                    "unit": "km/h",
+                    "qualifiers": {"surface": "road"},
+                    "source_urls": ["https://example.test/technical"],
+                },
+            ],
+        }
+        experience_profile = {
+            "profile_version": "1.0",
+            "derivation_status": "derived_from_public_technical_facts",
+            "basis_fields": ["crew_count", "maximum_speed"],
+            "dimensions": {"road_mobility": 0.8},
+            "cues": {"movement": "Responsive tracked movement."},
+            "not_game_balance": True,
+        }
     return Entity.from_dict({
         "id": entity_id,
         "entity_type": "platform",
@@ -23,8 +61,8 @@ def entity(entity_id: str, country: str = "american", *, complete: bool = True, 
         },
         "classification": classification,
         "relationships": [],
-        "technical": {},
-        "experience_profile": None,
+        "technical": technical,
+        "experience_profile": experience_profile,
         "gameplay": {"status": "draft"},
         "provenance": {
             "review_status": "unverified",
@@ -57,7 +95,7 @@ def relationship(rel_id: str, source: str, target: str, *, source_count: int = 1
 
 class ContentAuditTests(unittest.TestCase):
     def test_report_tracks_country_sources_completeness_and_relationship_storage(self):
-        first = entity("ckb:test:first", source_count=2)
+        first = entity("ckb:test:first", source_count=2, with_profiles=True)
         second = entity("ckb:test:second", country="british", complete=False)
         first.relationships.append({
             "type": "development_line_predecessor",
@@ -74,12 +112,15 @@ class ContentAuditTests(unittest.TestCase):
 
         report = build_content_report([first, second], [rel], batches)
 
-        self.assertEqual(report["report_version"], "1.1")
+        self.assertEqual(report["report_version"], "1.2")
         self.assertEqual(report["entity_count"], 2)
         self.assertEqual(report["ground_vehicle_count"], 2)
         self.assertEqual(report["country_counts"], {"american": 1, "british": 1})
         self.assertEqual(report["multi_source_covered_count"], 1)
         self.assertEqual(report["missing_core_count"], 1)
+        self.assertEqual(report["technical_populated_count"], 1)
+        self.assertEqual(report["technical_claim_count"], 2)
+        self.assertEqual(report["derived_experience_profile_count"], 1)
         self.assertEqual(report["embedded_relationship_count"], 1)
         self.assertEqual(report["independent_relationship_count"], 1)
         self.assertEqual(report["independent_relationship_rate"], 0.5)
@@ -139,20 +180,66 @@ class ContentAuditTests(unittest.TestCase):
         self.assertEqual(len(errors), 1)
         self.assertIn("rel:test:one has 1 independent sources; requires at least 2", errors[0])
 
-    def test_invalid_source_target_is_rejected(self):
+    def test_batch_enforces_technical_and_experience_profiles(self):
+        complete = entity("ckb:test:complete", with_profiles=True)
+        missing = entity("ckb:test:missing")
+        batch = {
+            "batch_id": "batch:profiles",
+            "version": "1.0",
+            "scope": "profile validation",
+            "entity_ids": [complete.id, missing.id],
+            "relationship_ids": [],
+            "quality_targets": {
+                "minimum_technical_claims_per_entity": 2,
+                "require_experience_profile": True,
+            },
+        }
+
+        errors = validate_content_batches([batch], [complete, missing], [])
+
+        self.assertTrue(any("technical profile is required" in error for error in errors))
+        self.assertTrue(any("experience_profile is required" in error for error in errors))
+        self.assertFalse(any(complete.id in error for error in errors))
+
+    def test_profile_validation_rejects_invalid_dimension_and_claim_source(self):
+        row = entity("ckb:test:bad-profile", with_profiles=True)
+        row.technical["claims"][0]["source_urls"] = []
+        row.experience_profile["dimensions"]["road_mobility"] = 1.2
+        batch = {
+            "batch_id": "batch:bad-profile",
+            "version": "1.0",
+            "scope": "bad profile",
+            "entity_ids": [row.id],
+            "relationship_ids": [],
+            "quality_targets": {
+                "minimum_technical_claims_per_entity": 2,
+                "require_experience_profile": True,
+            },
+        }
+
+        errors = validate_content_batches([batch], [row], [])
+
+        self.assertTrue(any("source_urls must not be empty" in error for error in errors))
+        self.assertTrue(any("must be between 0 and 1" in error for error in errors))
+
+    def test_invalid_quality_target_is_rejected(self):
         row = entity("ckb:test:row")
         batch = {
-            "batch_id": "batch:bad-source-target",
+            "batch_id": "batch:bad-target",
             "version": "1.0",
             "scope": "test",
             "entity_ids": [row.id],
             "relationship_ids": [],
-            "quality_targets": {"minimum_sources_per_entity": "not-an-integer"},
+            "quality_targets": {
+                "minimum_sources_per_entity": "not-an-integer",
+                "require_experience_profile": "yes",
+            },
         }
 
         errors = validate_content_batches([batch], [row], [])
 
         self.assertTrue(any("minimum_sources_per_entity must be an integer" in error for error in errors))
+        self.assertTrue(any("require_experience_profile must be a boolean" in error for error in errors))
 
     def test_batch_rejects_unknown_duplicate_and_incomplete_references(self):
         incomplete = entity("ckb:test:incomplete", complete=False)

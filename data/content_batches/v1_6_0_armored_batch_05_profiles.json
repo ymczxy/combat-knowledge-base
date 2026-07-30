@@ -1,0 +1,26 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-05-profiles",
+  "version": "1.6.0",
+  "status": "profiled",
+  "scope": "Structured public technical claims and derived player-experience profiles for four source-reviewed modern main battle tanks.",
+  "entity_ids": [
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:challenger_2",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_10_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "technical_profile_status": "source_claims_with_qualifiers",
+    "experience_profile_status": "derived_not_game_balance"
+  },
+  "notes": [
+    "Each technical claim keeps its own unit, qualifiers, and source URLs.",
+    "Variant, surface, fuel, and armour configuration differences are not silently merged.",
+    "Experience dimensions are explainable derivatives of public technical facts and are explicitly not game-balance values.",
+    "No manufacturing, vulnerability exploitation, or operational attack instructions are included."
+  ]
+}
