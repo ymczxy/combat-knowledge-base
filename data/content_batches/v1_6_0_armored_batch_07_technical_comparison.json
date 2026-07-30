@@ -1,0 +1,31 @@
+{
+  "batch_id": "v1.6.0-armored-vehicles-batch-07-technical-comparison",
+  "version": "1.6.0",
+  "status": "normalized",
+  "scope": "Deterministic canonical-unit comparison views for all currently profiled armored vehicles while preserving original claims, qualifiers and sources.",
+  "entity_ids": [
+    "ckb:platform:ground:m1_abrams",
+    "ckb:platform:ground:challenger_2",
+    "ckb:platform:ground:leclerc_tank",
+    "ckb:platform:ground:type_10_tank",
+    "ckb:platform:ground:m4_sherman",
+    "ckb:platform:ground:t_34_model_1940",
+    "ckb:platform:ground:panther_tank",
+    "ckb:platform:ground:type_59_tank"
+  ],
+  "relationship_ids": [],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_technical_claims_per_entity": 6,
+    "require_experience_profile": true,
+    "numeric_claim_normalization": "all_supported_or_ci_fails",
+    "comparison_output": "original_and_canonical_values_with_qualifiers"
+  },
+  "notes": [
+    "Original source values and units remain unchanged inside canonical entities.",
+    "The comparison layer is a deterministic derivative and can be rebuilt from canonical claims.",
+    "Multiple configurations remain multiple rows; the normalizer does not select a preferred variant.",
+    "Categorical and boolean claims remain visible but are excluded from numeric ranking.",
+    "Unknown numeric units fail the Batch 07 CI gate instead of being guessed."
+  ]
+}
