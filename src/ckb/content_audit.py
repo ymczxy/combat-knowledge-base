@@ -97,6 +97,19 @@ def validate_content_batches(
         if not str(batch.get("scope", "")).strip():
             errors.append(f"{prefix}: scope is required")
 
+        quality_targets = batch.get("quality_targets", {})
+        minimum_sources = 0
+        if isinstance(quality_targets, dict):
+            raw_minimum_sources = quality_targets.get("minimum_sources_per_entity", 0)
+            try:
+                minimum_sources = int(raw_minimum_sources)
+            except (TypeError, ValueError):
+                errors.append(f"{prefix}: minimum_sources_per_entity must be an integer")
+                minimum_sources = 0
+            if minimum_sources < 0:
+                errors.append(f"{prefix}: minimum_sources_per_entity must be non-negative")
+                minimum_sources = 0
+
         entity_ids = [str(value) for value in batch.get("entity_ids", [])]
         if not entity_ids:
             errors.append(f"{prefix}: entity_ids must not be empty")
@@ -109,6 +122,12 @@ def validate_content_batches(
                 continue
             for field_name in missing_core_fields(entity):
                 errors.append(f"{prefix}: {entity_id} missing core field {field_name}")
+            source_count = len(_source_keys(entity))
+            if source_count < minimum_sources:
+                errors.append(
+                    f"{prefix}: {entity_id} has {source_count} independent sources; "
+                    f"requires at least {minimum_sources}"
+                )
 
         rel_ids = [str(value) for value in batch.get("relationship_ids", [])]
         for relationship_id, count in Counter(rel_ids).items():
