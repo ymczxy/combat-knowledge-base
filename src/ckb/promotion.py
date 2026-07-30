@@ -46,7 +46,7 @@ class PromotionProposal:
 
 
 def _entity_type(candidate: CandidateEntity) -> str:
-    return candidate.domain if candidate.domain in {"Weapon", "Platform", "System", "Ammunition", "Material"} else "Entity"
+    return candidate.domain if candidate.domain in {"Weapon", "Platform", "System", "Ammunition", "Material", "Component"} else "Entity"
 
 
 def proposal_from_decision(candidate: CandidateEntity, decision: dict[str, object]) -> PromotionProposal:

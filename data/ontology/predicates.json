@@ -290,6 +290,28 @@
       "source_entity_types": ["unit", "organization"],
       "target_entity_types": ["person", "unit", "organization"],
       "status": "active"
+    },
+    {
+      "name": "accepts_magazine",
+      "labels": {"en": "accepts magazine", "zh": "accepts magazine"},
+      "description": {"en": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence.", "zh": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence."},
+      "inverse": "magazine_accepted_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon"],
+      "target_entity_types": ["component"],
+      "status": "active"
+    },
+    {
+      "name": "magazine_accepted_by",
+      "labels": {"en": "magazine accepted by", "zh": "magazine accepted by"},
+      "description": {"en": "The source magazine or feeding component is explicitly accepted by the target weapon according to named-interface evidence.", "zh": "The source magazine or feeding component is explicitly accepted by the target weapon according to named-interface evidence."},
+      "inverse": "accepts_magazine",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["component"],
+      "target_entity_types": ["weapon"],
+      "status": "active"
     }
   ]
 }
