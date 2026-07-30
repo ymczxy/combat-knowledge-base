@@ -2,7 +2,9 @@
 
 本路线图自 v1.5.2 起作为 CKB 的正式版本规划。版本号只表示计划边界；任何版本均须以仓库实际代码、数据、测试和 CI 结果为准。
 
-## 当前基线：v1.6.0
+## 当前基线：v1.6.1
+
+v1.6.1 已完成轻武器与弹药的 Batch 08–11：M2 Browning、12.7 x 99 mm、Magazine 组件边界、Variant/Family 关系闭环，以及独立轻武器 Godot Runtime profile。正式发布快照以远程 CI 和 Godot 4.7.1 Linux Smoke 结果为准。
 
 当前基础架构和首个规模化内容领域已经覆盖：
 

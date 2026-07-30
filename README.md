@@ -254,4 +254,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`1.6.0`：完成首个装甲车辆主体库、技术参数标准化、可追溯派生指标、锁定 Godot 运行时 Bundle，以及官方 Godot 4.7.1 Linux 实际加载验证。下一阶段进入 `1.6.1` 轻武器与弹药。
+`1.6.1`：在装甲车辆闭环基础上完成轻武器与弹药 Batch 08–11、Magazine/Variant 关系治理和独立轻武器 Godot Runtime Bundle，并通过远程 Godot 4.7.1 Linux 实际加载验证。
