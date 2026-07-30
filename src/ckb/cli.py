@@ -9,6 +9,7 @@ from .catalog import CatalogItem, catalog_stats, load_catalog, validate_catalog
 from .candidates import ambiguity_groups, build_candidates, write_candidate_bundle, write_drafts
 from .database import build_sqlite
 from .export import load_profile, select_entities, write_project_bundle
+from .fact_lifecycle import apply_fact_decisions, build_fact_snapshot, load_fact_decisions
 from .graph import KnowledgeGraph, embedded_relationships, load_relationships
 from .importers import load_entity_csv, write_import_records
 from .markdown import build_markdown
@@ -23,6 +24,7 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "canonical"
 RELATIONSHIPS = ROOT / "data" / "relationships"
 PREDICATES = ROOT / "data" / "ontology" / "predicates.json"
+FACT_DECISIONS = ROOT / "data" / "governance" / "fact_decisions.json"
 
 
 def _print_errors(errors: list[str]) -> int:
@@ -72,6 +74,15 @@ def _build_graph(entities, include_embedded: bool = True) -> KnowledgeGraph:
     return KnowledgeGraph(entities, relationships, predicate_registry=registry)
 
 
+def _governance_with_decisions(graph_model: KnowledgeGraph, decisions_path: Path):
+    report = graph_model.governance_report()
+    ledger = load_fact_decisions(decisions_path)
+    errors = ledger.validate(report)
+    if not errors:
+        apply_fact_decisions(report, ledger)
+    return report, ledger, errors
+
+
 def main() -> None:
     parser = ArgumentParser(prog="ckb")
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -85,6 +96,12 @@ def main() -> None:
     assertion_audit.add_argument("--output", type=Path)
     assertion_audit.add_argument("--exclude-embedded", action="store_true")
     assertion_audit.add_argument("--fail-on-conflict", action="store_true")
+    assertion_audit.add_argument("--decisions", type=Path, default=FACT_DECISIONS)
+
+    fact_snapshot = sub.add_parser("fact-snapshot")
+    fact_snapshot.add_argument("--output", type=Path, default=ROOT / "exports" / "graph" / "fact-snapshot.json")
+    fact_snapshot.add_argument("--exclude-embedded", action="store_true")
+    fact_snapshot.add_argument("--decisions", type=Path, default=FACT_DECISIONS)
 
     candidates = sub.add_parser("candidates")
     candidates.add_argument("--output", type=Path, default=ROOT / "exports" / "candidates")
@@ -130,6 +147,7 @@ def main() -> None:
     graph.add_argument("--output", type=Path, default=ROOT / "exports" / "graph" / "ckb-graph.json")
     graph.add_argument("--exclude-embedded", action="store_true")
     graph.add_argument("--allow-unknown-predicates", action="store_true")
+    graph.add_argument("--decisions", type=Path, default=FACT_DECISIONS)
 
     build = sub.add_parser("build")
     build.add_argument("--output", type=Path, default=ROOT / "exports")
@@ -143,7 +161,10 @@ def main() -> None:
         errors = validate_all(entities)
         errors += validate_catalog(load_catalog(ROOT / "data" / "catalog"))
         errors += validate_source_registry(load_source_registry(ROOT / "sources" / "registry.json"))
-        errors += _build_graph(entities).validate()
+        graph_model = _build_graph(entities)
+        errors += graph_model.validate()
+        _, _, lifecycle_errors = _governance_with_decisions(graph_model, FACT_DECISIONS)
+        errors += lifecycle_errors
         print(("OK" if not errors else "FAILED") + f": {len(entities)} entities")
         raise SystemExit(_print_errors(errors))
 
@@ -152,12 +173,17 @@ def main() -> None:
         for key, value in sorted(Counter(e.classification.get("domain", "Unknown") for e in entities).items()):
             print(f"  {key}: {value}")
         graph_model = _build_graph(entities)
-        governance = graph_model.governance_report()
+        governance, ledger, errors = _governance_with_decisions(graph_model, FACT_DECISIONS)
+        if errors:
+            raise SystemExit(_print_errors(errors))
         print("relationship_assertions:", len(graph_model.relationships))
         print("canonical_facts:", len(governance.facts))
         print("duplicate_assertion_groups:", len(governance.duplicate_groups))
         print("relationship_conflicts:", len(governance.conflicts))
         print("promotion_candidates:", len(governance.promotion_candidates))
+        print("fact_decisions:", len(ledger.decisions))
+        for key, value in governance.lifecycle_counts.items():
+            print(f"  lifecycle_{key}: {value}")
         print("predicates:", len(graph_model.predicate_registry.definitions) if graph_model.predicate_registry else 0)
         stats = catalog_stats(load_catalog(ROOT / "data" / "catalog"))
         print("catalog_candidates:", stats["total"])
@@ -174,13 +200,16 @@ def main() -> None:
     if args.cmd == "assertion-audit":
         graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
         errors = graph_model.validate()
+        report, ledger, lifecycle_errors = _governance_with_decisions(graph_model, args.decisions)
+        errors += lifecycle_errors
         if errors:
             raise SystemExit(_print_errors(errors))
-        report = graph_model.governance_report()
         payload = report.to_dict()
+        payload["decision_ledger"] = ledger.to_dict()
         print(
             f"facts: {payload['fact_count']}; duplicate groups: {payload['duplicate_group_count']}; "
-            f"conflicts: {payload['conflict_count']}; promotion candidates: {payload['promotion_candidate_count']}"
+            f"conflicts: {payload['conflict_count']}; promotion candidates: {payload['promotion_candidate_count']}; "
+            f"decisions: {len(ledger.decisions)}"
         )
         if args.output:
             args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -190,17 +219,31 @@ def main() -> None:
             raise SystemExit(1)
         return
 
+    if args.cmd == "fact-snapshot":
+        graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
+        errors = graph_model.validate()
+        report, ledger, lifecycle_errors = _governance_with_decisions(graph_model, args.decisions)
+        errors += lifecycle_errors
+        if errors:
+            raise SystemExit(_print_errors(errors))
+        payload = build_fact_snapshot(report, ledger)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"Fact snapshot: {payload['snapshot_id']} ({payload['fact_count']} facts) -> {args.output}")
+        return
+
     if args.cmd == "graph":
         graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
         errors = graph_model.validate(strict_predicates=not args.allow_unknown_predicates)
+        governance, _, lifecycle_errors = _governance_with_decisions(graph_model, args.decisions)
+        errors += lifecycle_errors
         if errors:
             raise SystemExit(_print_errors(errors))
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(
-            json.dumps(graph_model.to_bundle(), ensure_ascii=False, indent=2),
+            json.dumps(graph_model.to_bundle(governance), ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
-        governance = graph_model.governance_report()
         print(
             f"Built graph: {len(graph_model.entities)} entities, "
             f"{len(graph_model.relationships)} assertions, {len(governance.facts)} facts -> {args.output}"
