@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ymczxy/combat-knowledge-base/schemas/godot_runtime_bundle.schema.json",
+  "title": "CKB Godot Runtime Bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest", "source_table", "entities"],
+  "properties": {
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bundle_format",
+        "bundle_id",
+        "profile_id",
+        "format_version",
+        "schema_version",
+        "technical_normalization_version",
+        "metric_spec_version",
+        "entity_count",
+        "configuration_count",
+        "technical_claim_count",
+        "normalized_numeric_claim_count",
+        "descriptive_claim_count",
+        "derived_metric_count",
+        "source_ref_count",
+        "content_sha256",
+        "boundaries"
+      ],
+      "properties": {
+        "bundle_format": {"const": "ckb.godot.runtime"},
+        "bundle_id": {"type": "string", "minLength": 1},
+        "profile_id": {"type": "string", "minLength": 1},
+        "format_version": {"type": "integer", "minimum": 1},
+        "schema_version": {"type": "string", "minLength": 1},
+        "technical_normalization_version": {"type": "string", "minLength": 1},
+        "metric_spec_version": {"type": "string", "minLength": 1},
+        "entity_count": {"type": "integer", "minimum": 0},
+        "configuration_count": {"type": "integer", "minimum": 0},
+        "technical_claim_count": {"type": "integer", "minimum": 0},
+        "normalized_numeric_claim_count": {"type": "integer", "minimum": 0},
+        "descriptive_claim_count": {"type": "integer", "minimum": 0},
+        "derived_metric_count": {"type": "integer", "minimum": 0},
+        "source_ref_count": {"type": "integer", "minimum": 0},
+        "content_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "boundaries": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "contains_source_documents",
+            "contains_game_balance",
+            "derived_metrics_are_source_facts",
+            "runtime_values_require_configuration_qualifiers"
+          ],
+          "properties": {
+            "contains_source_documents": {"const": false},
+            "contains_game_balance": {"const": false},
+            "derived_metrics_are_source_facts": {"const": false},
+            "runtime_values_require_configuration_qualifiers": {"const": true}
+          }
+        }
+      }
+    },
+    "source_table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["ref", "url"],
+        "properties": {
+          "ref": {"type": "integer", "minimum": 0},
+          "url": {"type": "string", "format": "uri"}
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/entity"}
+    }
+  },
+  "$defs": {
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["configuration_id", "label"],
+      "properties": {
+        "configuration_id": {"type": "string", "minLength": 1},
+        "label": {"type": "string", "minLength": 1}
+      }
+    },
+    "technical_claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claim_ref",
+        "claim_index",
+        "field",
+        "kind",
+        "value",
+        "unit",
+        "qualifiers",
+        "configuration_id",
+        "source_refs"
+      ],
+      "properties": {
+        "claim_ref": {"type": "string", "minLength": 1},
+        "claim_index": {"type": "integer", "minimum": 0},
+        "field": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["normalized_numeric", "descriptive"]},
+        "value": {},
+        "unit": {"type": "string", "minLength": 1},
+        "qualifiers": {"type": "object"},
+        "configuration_id": {"type": "string", "minLength": 1},
+        "source_refs": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "derived_metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "metric_ref",
+        "metric",
+        "formula",
+        "value",
+        "unit",
+        "qualifiers",
+        "configuration_id",
+        "input_claim_refs",
+        "source_refs",
+        "derivation_status",
+        "not_source_fact",
+        "not_game_balance"
+      ],
+      "properties": {
+        "metric_ref": {"type": "string", "minLength": 1},
+        "metric": {"type": "string", "minLength": 1},
+        "formula": {"type": "string", "minLength": 1},
+        "value": {},
+        "unit": {"type": "string", "minLength": 1},
+        "qualifiers": {"type": "object"},
+        "configuration_id": {"type": "string", "minLength": 1},
+        "input_claim_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 0}
+        },
+        "derivation_status": {"type": "string", "minLength": 1},
+        "not_source_fact": {"const": true},
+        "not_game_balance": {"const": true}
+      }
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "entity_type",
+        "display_name",
+        "classification",
+        "configurations",
+        "technical_claims",
+        "derived_metrics"
+      ],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "entity_type": {"type": "string", "minLength": 1},
+        "display_name": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["en", "zh"],
+          "properties": {
+            "en": {"type": "string"},
+            "zh": {"type": "string"}
+          }
+        },
+        "classification": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["class", "subclass", "eras", "tags"],
+          "properties": {
+            "class": {"type": ["string", "null"]},
+            "subclass": {"type": ["string", "null"]},
+            "eras": {"type": "array", "items": {"type": "string"}},
+            "tags": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "configurations": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/configuration"}
+        },
+        "technical_claims": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/technical_claim"}
+        },
+        "derived_metrics": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/derived_metric"}
+        },
+        "experience_profile": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "profile_version",
+            "derivation_status",
+            "basis_fields",
+            "dimensions",
+            "cues",
+            "not_game_balance"
+          ],
+          "properties": {
+            "profile_version": {"type": ["string", "null"]},
+            "derivation_status": {"type": ["string", "null"]},
+            "basis_fields": {"type": "array", "items": {"type": "string"}},
+            "dimensions": {"type": "object"},
+            "cues": {"type": "object"},
+            "not_game_balance": {"const": true}
+          }
+        }
+      }
+    }
+  }
+}
