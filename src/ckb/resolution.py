@@ -147,7 +147,12 @@ def decide_matches(candidate: CandidateEntity, hits: Iterable[SourceHit]) -> lis
         if candidate.resolution_status == "ambiguous":
             reasons.append("candidate_requires_disambiguation")
 
-        if index == 0 and score.total >= 0.90 and margin >= 0.08 and candidate.resolution_status != "ambiguous":
+        if candidate.resolution_status == "ambiguous" and index == 0:
+            # The best external hit for an ambiguous catalog entry must remain visible
+            # to a reviewer even when the ambiguity penalty pushes its score below the
+            # normal review threshold. Lower-ranked weak hits can still be rejected.
+            decision = "human_review"
+        elif index == 0 and score.total >= 0.90 and margin >= 0.08:
             decision = "auto_accept"
         elif score.total >= 0.62:
             decision = "human_review"
