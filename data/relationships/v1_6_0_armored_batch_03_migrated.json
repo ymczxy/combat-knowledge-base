@@ -1,0 +1,173 @@
+[
+  {
+    "id": "rel:v1_6_0_batch_03:t_18:influenced:t_26",
+    "source_id": "ckb:platform:ground:t_18",
+    "predicate": "influenced",
+    "target_id": "ckb:platform:ground:t_26",
+    "confidence": 0.7,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-18_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:t_28:contemporary:t_35",
+    "source_id": "ckb:platform:ground:t_28",
+    "predicate": "contemporary",
+    "target_id": "ckb:platform:ground:t_35",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "symmetric_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-28"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:bt_2:developed_into:bt_5",
+    "source_id": "ckb:platform:ground:bt_2",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:bt_5",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "inverse_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/BT_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:bt_5:developed_into:bt_7",
+    "source_id": "ckb:platform:ground:bt_5",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:bt_7",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/BT_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:kv_2:variant_of:kv_1",
+    "source_id": "ckb:platform:ground:kv_2",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:ground:kv_1",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Kliment_Voroshilov_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:kv_1s:variant_of:kv_1",
+    "source_id": "ckb:platform:ground:kv_1s",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:ground:kv_1",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Kliment_Voroshilov_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:kv_1s:development_line_predecessor:is_1",
+    "source_id": "ckb:platform:ground:kv_1s",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:is_1",
+    "confidence": 0.8,
+    "qualifiers": {"migration_origin": "inverse_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS_tank_family"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:is_1:developed_into:is_2",
+    "source_id": "ckb:platform:ground:is_1",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:is_2",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS_tank_family"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:is_2:development_line_predecessor:is_3",
+    "source_id": "ckb:platform:ground:is_2",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:is_3",
+    "confidence": 0.8,
+    "qualifiers": {"migration_origin": "reverse_embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/IS-3_(tank)"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:t_54:development_line_predecessor:t_55",
+    "source_id": "ckb:platform:ground:t_54",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:t_55",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "reverse_embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/T-54/T-55"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panzer_i:development_line_predecessor:panzer_ii",
+    "source_id": "ckb:platform:ground:panzer_i",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:panzer_ii",
+    "confidence": 0.8,
+    "qualifiers": {"migration_origin": "inverse_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_I"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panzer_iii:contemporary:panzer_iv",
+    "source_id": "ckb:platform:ground:panzer_iii",
+    "predicate": "contemporary",
+    "target_id": "ckb:platform:ground:panzer_iv",
+    "confidence": 0.95,
+    "qualifiers": {"migration_origin": "symmetric_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panzer_III"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:tiger_i:development_line_predecessor:tiger_ii",
+    "source_id": "ckb:platform:ground:tiger_i",
+    "predicate": "development_line_predecessor",
+    "target_id": "ckb:platform:ground:tiger_ii",
+    "confidence": 0.85,
+    "qualifiers": {"migration_origin": "normalized_mixed_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Tiger_II"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:elefant:related_design:tiger_i",
+    "source_id": "ckb:platform:ground:elefant",
+    "predicate": "related_design",
+    "target_id": "ckb:platform:ground:tiger_i",
+    "confidence": 0.75,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Elefant"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panther_ausf_d:variant_of:panther_tank",
+    "source_id": "ckb:platform:ground:panther_ausf_d",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:ground:panther_tank",
+    "confidence": 0.95,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panther_ausf_a:variant_of:panther_tank",
+    "source_id": "ckb:platform:ground:panther_ausf_a",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:ground:panther_tank",
+    "confidence": 0.95,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panther_ausf_g:variant_of:panther_tank",
+    "source_id": "ckb:platform:ground:panther_ausf_g",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:ground:panther_tank",
+    "confidence": 0.95,
+    "qualifiers": {"migration_origin": "embedded_relationship"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panther_ausf_d:developed_into:panther_ausf_a",
+    "source_id": "ckb:platform:ground:panther_ausf_d",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:panther_ausf_a",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "normalized_mixed_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]}
+  },
+  {
+    "id": "rel:v1_6_0_batch_03:panther_ausf_a:developed_into:panther_ausf_g",
+    "source_id": "ckb:platform:ground:panther_ausf_a",
+    "predicate": "developed_into",
+    "target_id": "ckb:platform:ground:panther_ausf_g",
+    "confidence": 0.9,
+    "qualifiers": {"migration_origin": "normalized_mixed_embedded_pair"},
+    "provenance": {"review_status": "unverified", "sources": [{"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/Panther_tank"}]}
+  }
+]
