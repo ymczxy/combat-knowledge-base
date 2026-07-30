@@ -1,0 +1,25 @@
+{
+  "batch_id": "v1.6.1-small-arms-batch-05-ppsh-41",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "Add the PPSh-41 and its 7.62 x 25 mm Tokarev ammunition compatibility chain.",
+  "entity_ids": [
+    "ckb:weapon:firearm:ppsh_41",
+    "ckb:ammunition:cartridge:7_62x25_tokarev"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_1_batch_05:ppsh_41:uses_ammunition:7_62x25_tokarev"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 1,
+    "minimum_sources_per_relationship": 1,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch stores public museum identification, dimensions, service and compatibility facts only.",
+    "No loading recipes, propellant charges, primer specifications, manufacturing guidance, attack instructions or gameplay balance values are included.",
+    "Object-specific dimensions and catalogue wording retain explicit qualifiers."
+  ]
+}
