@@ -1,0 +1,66 @@
+{
+  "spec_version": "1.0",
+  "scope": "Configuration-explicit power-to-mass metrics derived from normalized public technical claims.",
+  "metrics": [
+    {
+      "metric_id": "metric:v1_6_0:m1a2:power_to_mass",
+      "entity_id": "ckb:platform:ground:m1_abrams",
+      "formula": "power_to_mass",
+      "inputs": {
+        "power": {"claim_index": 3, "expected_field": "engine_power"},
+        "mass": {"claim_index": 1, "expected_field": "combat_mass"}
+      },
+      "qualifiers": {"configuration": "M1A2", "mass_basis": "approximately 70 short tons"}
+    },
+    {
+      "metric_id": "metric:v1_6_0:challenger_2:baseline_power_to_mass",
+      "entity_id": "ckb:platform:ground:challenger_2",
+      "formula": "power_to_mass",
+      "inputs": {
+        "power": {"claim_index": 7, "expected_field": "engine_power"},
+        "mass": {"claim_index": 1, "expected_field": "baseline_mass"}
+      },
+      "qualifiers": {"configuration": "baseline", "mass_basis": "baseline mass"}
+    },
+    {
+      "metric_id": "metric:v1_6_0:challenger_2:add_on_armour_power_to_mass",
+      "entity_id": "ckb:platform:ground:challenger_2",
+      "formula": "power_to_mass",
+      "inputs": {
+        "power": {"claim_index": 7, "expected_field": "engine_power"},
+        "mass": {"claim_index": 2, "expected_field": "combat_ready_mass"}
+      },
+      "qualifiers": {"configuration": "with add-on armour modules", "mass_basis": "combat-ready mass"}
+    },
+    {
+      "metric_id": "metric:v1_6_0:leclerc:authorised_mass_range_power_to_mass",
+      "entity_id": "ckb:platform:ground:leclerc_tank",
+      "formula": "power_to_mass",
+      "inputs": {
+        "power": {"claim_index": 5, "expected_field": "engine_power"},
+        "mass": {"claim_index": 4, "expected_field": "mass_range"}
+      },
+      "qualifiers": {
+        "configuration": "public French Army specification",
+        "mass_basis": "empty to maximum authorised mass range",
+        "output_interpretation": "ascending power-to-mass interval"
+      }
+    },
+    {
+      "metric_id": "metric:v1_6_0:type_10:power_to_mass",
+      "entity_id": "ckb:platform:ground:type_10_tank",
+      "formula": "power_to_mass",
+      "inputs": {
+        "power": {"claim_index": 6, "expected_field": "engine_power"},
+        "mass": {"claim_index": 4, "expected_field": "combat_mass"}
+      },
+      "qualifiers": {"configuration": "standard public specification", "mass_basis": "approximately 44 tonnes"}
+    }
+  ],
+  "notes": [
+    "Every metric selects exact input claim indexes and expected fields; no heuristic claim selection is permitted.",
+    "The output is derived data, not a source fact and not a gameplay balance value.",
+    "Input original values, normalized values, qualifiers and source URLs remain attached to each metric row.",
+    "A mass range produces an ascending power-to-mass interval rather than a single midpoint."
+  ]
+}
