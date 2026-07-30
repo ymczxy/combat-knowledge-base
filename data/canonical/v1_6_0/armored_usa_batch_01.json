@@ -1,1 +1,86 @@
-[{"id":"ckb:platform:ground:m4_sherman","entity_type":"platform","identity":{"canonical_name_en":"M4 Sherman","canonical_name_zh":"M4谢尔曼中型坦克","aliases":["Sherman tank","Medium Tank, M4"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MediumTank","eras":["WWII","EARLY_COLD_WAR"],"tags":["american","tracked","medium_tank","mass_produced"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M4_Sherman"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m26_pershing","entity_type":"platform","identity":{"canonical_name_en":"M26 Pershing","canonical_name_zh":"M26潘兴重型坦克","aliases":["Pershing tank","Heavy Tank T26E3"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"HeavyTank","eras":["WWII","EARLY_COLD_WAR"],"tags":["american","tracked","heavy_tank","transitional_design"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M26_Pershing"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m46_patton","entity_type":"platform","identity":{"canonical_name_en":"M46 Patton","canonical_name_zh":"M46巴顿中型坦克","aliases":["Patton tank","M46"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MediumTank","eras":["EARLY_COLD_WAR"],"tags":["american","tracked","medium_tank","patton_family"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M46_Patton"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m47_patton","entity_type":"platform","identity":{"canonical_name_en":"M47 Patton","canonical_name_zh":"M47巴顿中型坦克","aliases":["M47"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MediumTank","eras":["EARLY_COLD_WAR"],"tags":["american","tracked","medium_tank","patton_family"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M47_Patton"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m48_patton","entity_type":"platform","identity":{"canonical_name_en":"M48 Patton","canonical_name_zh":"M48巴顿主战坦克","aliases":["M48"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MainBattleTank","eras":["EARLY_COLD_WAR","LATE_COLD_WAR"],"tags":["american","tracked","main_battle_tank","patton_family"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M48_Patton"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m60_tank","entity_type":"platform","identity":{"canonical_name_en":"M60 tank","canonical_name_zh":"M60主战坦克","aliases":["M60 Patton"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MainBattleTank","eras":["LATE_COLD_WAR","CONTEMPORARY"],"tags":["american","tracked","main_battle_tank","patton_family"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M60_tank"}]},"rights":{"rights_status":"deferred"}},{"id":"ckb:platform:ground:m1_abrams","entity_type":"platform","identity":{"canonical_name_en":"M1 Abrams","canonical_name_zh":"M1艾布拉姆斯主战坦克","aliases":["Abrams tank"]},"classification":{"domain":"Platform","class":"GroundVehicle","subclass":"MainBattleTank","eras":["LATE_COLD_WAR","CONTEMPORARY"],"tags":["american","tracked","main_battle_tank","gas_turbine"]},"relationships":[],"technical":{},"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/M1_Abrams"}]},"rights":{"rights_status":"deferred"}}]
+[
+  {
+    "id": "ckb:platform:ground:m4_sherman",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M4 Sherman", "canonical_name_zh": "M4谢尔曼中型坦克", "aliases": ["Sherman tank", "Medium Tank, M4"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["american", "tracked", "medium_tank", "mass_produced"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M4_Sherman"},
+      {"source_id": "official_military", "url": "https://www.aschq.army.mil/About/History/Tours/RIA/Ordnance/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m26_pershing",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M26 Pershing", "canonical_name_zh": "M26潘兴重型坦克", "aliases": ["Pershing tank", "Heavy Tank T26E3"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "HeavyTank", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["american", "tracked", "heavy_tank", "transitional_design"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M26_Pershing"},
+      {"source_id": "tank_museum", "url": "https://tankmuseum.org/article/the-patton-family"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m46_patton",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M46 Patton", "canonical_name_zh": "M46巴顿中型坦克", "aliases": ["Patton tank", "M46"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["EARLY_COLD_WAR"], "tags": ["american", "tracked", "medium_tank", "patton_family"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M46_Patton"},
+      {"source_id": "tank_museum", "url": "https://tankmuseum.org/article/the-patton-family"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m47_patton",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M47 Patton", "canonical_name_zh": "M47巴顿中型坦克", "aliases": ["M47"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["EARLY_COLD_WAR"], "tags": ["american", "tracked", "medium_tank", "patton_family"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M47_Patton"},
+      {"source_id": "tank_museum", "url": "https://tankmuseum.org/tank-nuts/tank-collection/m47/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m48_patton",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M48 Patton", "canonical_name_zh": "M48巴顿主战坦克", "aliases": ["M48"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MainBattleTank", "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["american", "tracked", "main_battle_tank", "patton_family"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M48_Patton"},
+      {"source_id": "tank_museum", "url": "https://tankmuseum.org/tank-nuts/tank-collection/m48-tank-medium/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m60_tank",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M60 tank", "canonical_name_zh": "M60主战坦克", "aliases": ["M60 Patton"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MainBattleTank", "eras": ["LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "tracked", "main_battle_tank", "patton_family"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M60_tank"},
+      {"source_id": "official_military", "url": "https://history.army.mil/Archives/Army-Heritage-Trail/CW/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m1_abrams",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M1 Abrams", "canonical_name_zh": "M1艾布拉姆斯主战坦克", "aliases": ["Abrams tank"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MainBattleTank", "eras": ["LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "tracked", "main_battle_tank", "gas_turbine"]},
+    "relationships": [], "technical": {}, "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/M1_Abrams"},
+      {"source_id": "official_military", "url": "https://www.army.mil/article/86839/AMC_developed_weapons_remain_vital_to_Army/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  }
+]
