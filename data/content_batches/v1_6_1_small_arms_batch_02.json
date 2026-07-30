@@ -1,0 +1,25 @@
+{
+  "batch_id": "v1.6.1-small-arms-batch-02-m1-garand",
+  "version": "1.6.1",
+  "status": "source_checked",
+  "scope": "Upgrade the M1 Garand seed entity and add its .30-06 Springfield ammunition compatibility chain.",
+  "entity_ids": [
+    "ckb:weapon:firearm:m1_garand",
+    "ckb:ammunition:cartridge:30_06_springfield"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_1_batch_02:m1_garand:uses_ammunition:30_06_springfield"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch stores public identification, service and compatibility facts only.",
+    "No loading recipes, propellant charges, primer specifications, manufacturing guidance or gameplay balance values are included.",
+    "The M1's source wording for approximate weight is retained as descriptive text rather than silently converted into a new canonical fact."
+  ]
+}

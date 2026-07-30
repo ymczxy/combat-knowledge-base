@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_02:m1_garand:uses_ammunition:30_06_springfield",
+    "source_id": "ckb:weapon:firearm:m1_garand",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:30_06_springfield",
+    "confidence": 0.99,
+    "qualifiers": {"scope": "standard_service_chambering"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "official_military", "url": "https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"},
+        {"source_id": "official_military", "url": "https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"}
+      ]
+    }
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "id": "ckb:ammunition:cartridge:30_06_springfield",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": ".30-06 Springfield cartridge",
+    "canonical_name_zh": ".30-06斯普林菲尔德步枪弹",
+    "aliases": ["7.62×63 mm", ".30-06", "Cartridge, Ball, Caliber .30, M2"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "FullPowerRifleCartridge",
+    "eras": ["INDUSTRIAL", "WWI", "WWII", "EARLY_COLD_WAR"],
+    "tags": ["cartridge", "rifle_cartridge", "american", "rimless"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and compatibility metadata",
+    "claims": [
+      {
+        "field": "metric_designation",
+        "value": "7.62×63 mm",
+        "unit": "designation",
+        "qualifiers": {},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "caliber_designation",
+        "value": ".30 caliber",
+        "unit": "designation",
+        "qualifiers": {"weapon_context": "M1 Rifle"},
+        "source_urls": ["https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"]
+      },
+      {
+        "field": "cartridge_class",
+        "value": "full-power rifle cartridge",
+        "unit": "categorical",
+        "qualifiers": {},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "case_type",
+        "value": "rimless bottleneck",
+        "unit": "categorical",
+        "qualifiers": {},
+        "source_urls": ["https://saami.org/technical-information/cartridge-chamber-drawings/"]
+      },
+      {
+        "field": "primary_service_context",
+        "value": "United States service-rifle cartridge",
+        "unit": "text",
+        "qualifiers": {"linked_weapon": "ckb:weapon:firearm:m1_garand"},
+        "source_urls": ["https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "official_military", "url": "https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"},
+      {"source_id": "official_military", "url": "https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"},
+      {"source_id": "standards_body", "url": "https://saami.org/technical-information/cartridge-chamber-drawings/"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}

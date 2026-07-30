@@ -1,1 +1,83 @@
-{"id":"ckb:weapon:firearm:m1_garand","entity_type":"weapon","identity":{"canonical_name_en":"M1 Garand","canonical_name_zh":"M1加兰德步枪","aliases":[]},"classification":{"domain":"Weapon","class":"Firearm","subclass":"Rifle","eras":["WWII"],"tags":["semi_automatic","infantry"]},"technical":{},"relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[]},"rights":{"rights_status":"deferred"}}
+{
+  "id": "ckb:weapon:firearm:m1_garand",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "M1 Garand",
+    "canonical_name_zh": "M1加兰德步枪",
+    "aliases": ["U.S. Rifle, Caliber .30, M1", "M1 Rifle"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "Rifle",
+    "eras": ["WWII", "EARLY_COLD_WAR"],
+    "tags": ["semi_automatic", "infantry", "american", "service_rifle"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and service specifications",
+    "claims": [
+      {
+        "field": "caliber_designation",
+        "value": ".30 caliber",
+        "unit": "designation",
+        "qualifiers": {"official_name": "U.S. Rifle, Semiautomatic, Caliber .30, M1"},
+        "source_urls": ["https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"]
+      },
+      {
+        "field": "operating_mode",
+        "value": "semi-automatic",
+        "unit": "categorical",
+        "qualifiers": {},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "feed_system",
+        "value": "eight-shot clip",
+        "unit": "categorical",
+        "qualifiers": {},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "ammunition_capacity",
+        "value": 8,
+        "unit": "rounds",
+        "qualifiers": {"feed_system": "en-bloc clip"},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "weight_statement",
+        "value": "approximately 9.5 pounds",
+        "unit": "text",
+        "qualifiers": {"source_wording_preserved": true},
+        "source_urls": ["https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"]
+      },
+      {
+        "field": "army_adoption_date",
+        "value": "1936-01-09",
+        "unit": "designation",
+        "qualifiers": {"organization": "United States Army"},
+        "source_urls": ["https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"]
+      },
+      {
+        "field": "standard_service_period",
+        "value": "1936–1957",
+        "unit": "text",
+        "qualifiers": {"scope": "United States standard service rifle period"},
+        "source_urls": ["https://www.nps.gov/articles/springfieldarmoryww2.htm"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "official_military", "url": "https://goordnance.army.mil/HallOfFame/1970/1973/garand.html"},
+      {"source_id": "official_military", "url": "https://www.nps.gov/spar/learn/historyculture/john-c-garand.htm"},
+      {"source_id": "official_military", "url": "https://www.nps.gov/articles/springfieldarmoryww2.htm"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}
