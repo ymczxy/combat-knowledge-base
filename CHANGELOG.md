@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.5.2
+
+- 新增 Relationship Assertion 到 Canonical Fact 的聚合层，保留全部原始断言和证据链。
+- 对正向、反向、对称、实体内嵌和独立 Relationship 进行稳定规范化与事实归并。
+- 按 `source_id + url` 去重来源，输出独立来源数量、重复断言组和事实置信度。
+- 支持 `affirmed` / `denied` 极性并检测同一事实的正反冲突。
+- 分离 `asserted_review_status` 与 `suggested_review_status`，审核建议不得自动修改正式状态。
+- 新增 `ckb assertion-audit` 命令、治理报告、冲突门禁及对应测试。
+- Graph Bundle 升级为 1.2，包含 Entity、Relationship Assertion、Canonical Fact 与 Predicate Registry。
+- 同步项目包和运行时版本为 1.5.2。
+
 ## 1.5.1
 
 - 新增正式 Predicate Registry，为关系定义中英文语义、反向关系、对称性、传递性和状态。
