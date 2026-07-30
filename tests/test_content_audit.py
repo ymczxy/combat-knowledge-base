@@ -46,7 +46,7 @@ def relationship(rel_id: str, source: str, target: str, *, source_count: int = 1
         "confidence": 0.8,
         "qualifiers": {},
         "provenance": {
-            "review_status": "unverified",
+            "review_status": "source_checked" if source_count >= 2 else "unverified",
             "sources": [
                 {"source_id": f"source_{index}", "url": f"https://example.test/rel/{index}"}
                 for index in range(source_count)
@@ -63,7 +63,7 @@ class ContentAuditTests(unittest.TestCase):
             "type": "development_line_predecessor",
             "target_id": second.id,
         })
-        rel = relationship("rel:test:first:second", first.id, second.id)
+        rel = relationship("rel:test:first:second", first.id, second.id, source_count=2)
         batches = [{
             "batch_id": "batch:test",
             "version": "1.0",
@@ -74,6 +74,7 @@ class ContentAuditTests(unittest.TestCase):
 
         report = build_content_report([first, second], [rel], batches)
 
+        self.assertEqual(report["report_version"], "1.1")
         self.assertEqual(report["entity_count"], 2)
         self.assertEqual(report["ground_vehicle_count"], 2)
         self.assertEqual(report["country_counts"], {"american": 1, "british": 1})
@@ -82,6 +83,10 @@ class ContentAuditTests(unittest.TestCase):
         self.assertEqual(report["embedded_relationship_count"], 1)
         self.assertEqual(report["independent_relationship_count"], 1)
         self.assertEqual(report["independent_relationship_rate"], 0.5)
+        self.assertEqual(report["relationship_review_status_counts"], {"source_checked": 1})
+        self.assertEqual(report["relationship_source_covered_count"], 1)
+        self.assertEqual(report["relationship_multi_source_covered_count"], 1)
+        self.assertEqual(report["relationship_multi_source_coverage_rate"], 1.0)
         self.assertEqual(report["content_batch_count"], 1)
 
     def test_valid_batch_accepts_complete_entities_and_known_relationships(self):
