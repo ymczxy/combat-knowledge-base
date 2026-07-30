@@ -1,0 +1,37 @@
+{
+  "id": "ckb:ammunition:cartridge:7_62x25_tokarev",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": "7.62×25 mm Tokarev cartridge",
+    "canonical_name_zh": "7.62×25毫米托卡列夫手枪弹",
+    "aliases": ["7.62 x 25", "7.62 mm Tokarev", "7.62×25 Tokarev"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "PistolCartridge",
+    "eras": ["INTERWAR", "WWII", "EARLY_COLD_WAR"],
+    "tags": ["cartridge", "pistol_cartridge", "soviet", "rimless"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public identification and compatibility metadata",
+    "claims": [
+      {"field":"caliber_designation","value":"7.62 x 25 mm","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"cartridge_family_name","value":"7.62×25 mm Tokarev","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"primary_service_context","value":"Soviet pistol cartridge associated with the PPSh-41 submachine gun","unit":"text","qualifiers":{"linked_weapon":"ckb:weapon:firearm:ppsh_41"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"weapon_compatibility_statement","value":"catalogued PPSh-41 chambering","unit":"text","qualifiers":{"catalogue_object":"FIR 6119"},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]},
+      {"field":"safety_boundary","value":"identification and compatibility only; no loading or manufacturing data","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30029316"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30029316"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}

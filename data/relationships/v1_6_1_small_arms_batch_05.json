@@ -1,0 +1,16 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_05:ppsh_41:uses_ammunition:7_62x25_tokarev",
+    "source_id": "ckb:weapon:firearm:ppsh_41",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:7_62x25_tokarev",
+    "confidence": 0.99,
+    "qualifiers": {"scope":"catalogued_service_chambering"},
+    "provenance": {
+      "review_status":"source_checked",
+      "sources":[
+        {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30029316"}
+      ]
+    }
+  }
+]
