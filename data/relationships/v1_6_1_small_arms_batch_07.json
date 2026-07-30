@@ -1,0 +1,17 @@
+[
+  {
+    "id": "rel:v1_6_1_batch_07:mg42:uses_ammunition:8x57_is",
+    "source_id": "ckb:weapon:firearm:mg42",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:8x57_is",
+    "confidence": 0.98,
+    "qualifiers": {"scope":"museum-identified 7.92 mm chambering mapped to existing 8 x 57 IS canonical cartridge"},
+    "provenance": {
+      "review_status":"source_checked",
+      "sources":[
+        {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1964-05-60-12"},
+        {"source_id":"cip","url":"https://bobp.cip-bobp.org/uploads/tdcc/tab-i/8-x-57-is-en.pdf"}
+      ]
+    }
+  }
+]

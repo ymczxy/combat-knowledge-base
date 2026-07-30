@@ -1,0 +1,42 @@
+{
+  "id": "ckb:weapon:firearm:mg42",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "MG 42 machine gun",
+    "canonical_name_zh": "MG42通用机枪",
+    "aliases": ["MG42", "Maschinengewehr 42"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "GeneralPurposeMachineGun",
+    "eras": ["WWII", "EARLY_COLD_WAR"],
+    "tags": ["machine_gun", "germany", "infantry", "automatic"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "public museum identification, object dimensions, ammunition compatibility and service context",
+    "claims": [
+      {"field":"model_designation","value":"MG42","unit":"designation","qualifiers":{},"source_urls":["https://www.iwm.org.uk/collections/item/object/30034546"]},
+      {"field":"weapon_category","value":"general purpose machine gun","unit":"categorical","qualifiers":{"source_context":"Royal Armouries interpretation"},"source_urls":["https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/mg42-machine-gun"]},
+      {"field":"caliber_designation","value":"7.92 mm","unit":"designation","qualifiers":{"source_wording_preserved":true},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1964-05-60-12"]},
+      {"field":"overall_length","value":1220,"unit":"mm","qualifiers":{"object":"IWM FIR 8042","production_date":1944},"source_urls":["https://www.iwm.org.uk/collections/item/object/30034546"]},
+      {"field":"overall_height","value":370,"unit":"mm","qualifiers":{"object":"IWM FIR 8042","production_date":1944},"source_urls":["https://www.iwm.org.uk/collections/item/object/30034546"]},
+      {"field":"overall_width","value":145,"unit":"mm","qualifiers":{"object":"IWM FIR 8042","production_date":1944},"source_urls":["https://www.iwm.org.uk/collections/item/object/30034546"]},
+      {"field":"mass","value":11.85,"unit":"kg","qualifiers":{"object":"IWM FIR 8042","production_date":1944},"source_urls":["https://www.iwm.org.uk/collections/item/object/30034546"]},
+      {"field":"cyclic_rate","value":[1200,1500],"unit":"rounds_per_minute","qualifiers":{"source_scope":"National Army Museum general MG42 description"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1964-05-60-12"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/collections/item/object/30034546"},
+      {"source_id":"royal_armouries","url":"https://royalarmouries.org/objects-and-stories/up-close-online-exhibition/mg42-machine-gun"},
+      {"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1964-05-60-12"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}

@@ -37,6 +37,7 @@ SMALL_ARMS_PROFILE_ENTITY_IDS = {
     "ckb:ammunition:cartridge:7_62x25_tokarev",
     "ckb:weapon:firearm:thompson_m1a1",
     "ckb:ammunition:cartridge:45_auto",
+    "ckb:weapon:firearm:mg42",
 }
 PROFILE_ENTITY_IDS = ARMORED_PROFILE_ENTITY_IDS | SMALL_ARMS_PROFILE_ENTITY_IDS
 
@@ -142,11 +143,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 22)
-        self.assertEqual(summary["claim_count"], 156)
-        self.assertEqual(summary["numeric_claim_count"], 80)
-        self.assertEqual(summary["normalized_numeric_claim_count"], 80)
-        self.assertEqual(summary["descriptive_claim_count"], 76)
+        self.assertEqual(summary["profile_entity_count"], 23)
+        self.assertEqual(summary["claim_count"], 164)
+        self.assertEqual(summary["numeric_claim_count"], 85)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 85)
+        self.assertEqual(summary["descriptive_claim_count"], 79)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,
