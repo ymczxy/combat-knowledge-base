@@ -1,0 +1,16 @@
+{
+  "id":"ckb:organization:military:us_1st_infantry_division",
+  "entity_type":"organization",
+  "identity":{"canonical_name_en":"U.S. 1st Infantry Division","canonical_name_zh":"美国陆军第1步兵师","aliases":["1st Infantry Division","Big Red One"]},
+  "classification":{"domain":"Organization","class":"MilitaryUnit","subclass":"InfantryDivision","eras":["WWI","WWII","EARLY_COLD_WAR","LATE_COLD_WAR","CONTEMPORARY"],"tags":["united_states","army","infantry","normandy","big_red_one"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public organizational identity and historical participation context; no tactical or operational instruction.","claims":[
+    {"field":"organization_type","value":"United States Army infantry division","unit":"text","qualifiers":{},"source_urls":["https://www.1id.army.mil/About-Us/Mission-History/"]},
+    {"field":"formation_date","value":"8 June 1917","unit":"text","qualifiers":{"date_precision":"day"},"source_urls":["https://www.1id.army.mil/About-Us/Mission-History/"]},
+    {"field":"wwii_context","value":"first U.S. division on the beaches of Normandy on D-Day","unit":"text","qualifiers":{"battle_id":"ckb:battle:normandy:d_day"},"source_urls":["https://www.1id.army.mil/About-Us/Mission-History/"]},
+    {"field":"campaign_context","value":"fought in North Africa, Sicily and Normandy during WWII","unit":"text","qualifiers":{"era":"WWII"},"source_urls":["https://www.1id.army.mil/About-Us/Mission-History/"]},
+    {"field":"identity_context","value":"known by the Big Red One shoulder-sleeve insignia","unit":"text","qualifiers":{},"source_urls":["https://www.1id.army.mil/About-Us/Mission-History/"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_army_1id","url":"https://www.1id.army.mil/About-Us/Mission-History/"},{"source_id":"us_army","url":"https://www.army.mil/article/267478/the_big_red_one_returns_d_day_79_years_later"}]},
+  "rights":{"rights_status":"deferred"}
+}

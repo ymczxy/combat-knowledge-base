@@ -1,0 +1,16 @@
+{
+  "id":"ckb:battle:normandy:d_day",
+  "entity_type":"battle",
+  "identity":{"canonical_name_en":"D-Day landings","canonical_name_zh":"诺曼底登陆","aliases":["D-Day","Normandy landings"]},
+  "classification":{"domain":"Battle","class":"AmphibiousBattle","subclass":"InvasionLanding","eras":["WWII"],"tags":["normandy","allied","amphibious","overlord"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public historical battle identity and date/place context; no operational planning guidance.","claims":[
+    {"field":"battle_type","value":"Allied amphibious invasion landing","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"date","value":"6 June 1944","unit":"text","qualifiers":{"date_precision":"day"},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]},
+    {"field":"location","value":"Normandy coast","unit":"text","qualifiers":{"place_id":"ckb:place:region:normandy"},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"operation_context","value":"first day of Operation Overlord","unit":"text","qualifiers":{"event_id":"ckb:event:operation:overlord"},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"force_context","value":"combined naval, air and land assault by Allied forces","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/d-day-explained"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"}]},
+  "rights":{"rights_status":"deferred"}
+}
