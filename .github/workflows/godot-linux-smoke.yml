@@ -1,0 +1,99 @@
+name: Godot Linux Runtime Smoke
+
+on:
+  push:
+    branches:
+      - agent/godot-linux-runtime-smoke
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  godot-linux-smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download Godot 4.7.1 Linux x86_64
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L --fail --retry 3 \
+            -o /tmp/godot.zip \
+            https://github.com/godotengine/godot-builds/releases/download/4.7.1-stable/Godot_v4.7.1-stable_linux.x86_64.zip
+          unzip -q /tmp/godot.zip -d /tmp/godot
+          GODOT_BIN="$(find /tmp/godot -maxdepth 1 -type f -name 'Godot*linux*x86_64*' | head -1)"
+          test -n "$GODOT_BIN"
+          chmod +x "$GODOT_BIN"
+          mv "$GODOT_BIN" /tmp/godot/godot
+          /tmp/godot/godot --version | tee /tmp/godot-version.txt
+          grep -q '^4\.7\.1' /tmp/godot-version.txt
+
+      - name: Build locked CKB runtime data
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPATH=src python -m ckb.godot_bundle \
+            --profile data/curated/destory/build_profile.json \
+            --output /tmp/ckb-godot \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.runtime_contract \
+            --bundle /tmp/ckb-godot/ckb_destory_runtime.json \
+            --lock /tmp/ckb-godot/ckb-lock.json \
+            --output /tmp/ckb-runtime-contract.json \
+            --fail-on-error
+
+      - name: Prepare Godot smoke project
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p examples/godot_smoke/data examples/godot_smoke/artifacts
+          cp examples/godot/CKBRuntimeBundle.gd examples/godot_smoke/CKBRuntimeBundle.gd
+          cp /tmp/ckb-godot/ckb_destory_runtime.json examples/godot_smoke/data/
+          cp /tmp/ckb-godot/ckb-lock.json examples/godot_smoke/data/
+          cp /tmp/ckb-runtime-contract.json examples/godot_smoke/artifacts/python_runtime_contract.json
+          cp /tmp/godot-version.txt examples/godot_smoke/artifacts/godot_version.txt
+
+      - name: Run actual Godot Linux scene and capture screenshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v xvfb-run >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y xvfb
+          fi
+          xvfb-run -a -s '-screen 0 1280x720x24' \
+            timeout 45s /tmp/godot/godot \
+              --path examples/godot_smoke \
+              --rendering-method gl_compatibility \
+              --audio-driver Dummy \
+              2>&1 | tee examples/godot_smoke/artifacts/godot_console.log
+          grep -q 'CKB_GODOT_SMOKE_RESULT=PASS' examples/godot_smoke/artifacts/godot_console.log
+          test -s examples/godot_smoke/artifacts/godot_runtime_smoke.png
+          test -s examples/godot_smoke/artifacts/godot_runtime_smoke.json
+
+      - name: Inspect screenshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          file examples/godot_smoke/artifacts/godot_runtime_smoke.png | tee /tmp/screenshot-file.txt
+          grep -q 'PNG image data, 1280 x 720' /tmp/screenshot-file.txt
+
+      - name: Upload Godot Linux evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-linux-runtime-smoke
+          if-no-files-found: warn
+          retention-days: 14
+          path: |
+            examples/godot_smoke/artifacts/
+            examples/godot_smoke/project.godot
+            examples/godot_smoke/Smoke.gd
+            examples/godot_smoke/Smoke.tscn
