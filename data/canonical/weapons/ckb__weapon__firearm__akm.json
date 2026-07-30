@@ -1,1 +1,75 @@
-{"id":"ckb:weapon:firearm:akm","entity_type":"weapon","identity":{"canonical_name_en":"AKM","canonical_name_zh":"AKM突击步枪","aliases":[]},"classification":{"domain":"Weapon","class":"Firearm","subclass":"AssaultRifle","eras":["EARLY_COLD_WAR","LATE_COLD_WAR"],"tags":["gas_operated","infantry"]},"technical":{},"relationships":[],"experience_profile":{"acoustic":{"impulse_class":"high","low_frequency_weight":0.55,"indoor_reflection":0.8},"visual":{"flash_class":"medium","smoke_signature":"low_to_medium","night_exposure":"medium"},"impulse":{"camera_translation":0.18,"camera_rotation":0.16,"recovery_s":0.35},"handling":{"turn_inertia":0.35,"reload_complexity":0.3,"confined_space_penalty":0.35},"environment":{"smoke_generation":0.08,"dust_generation":0.18,"pressure_event":"low"},"target_response":{"penetration":"medium","functional_kill":"contextual"},"sensor_ux":{},"crew_burden":{"crew_count":1,"noise_load":0.45},"failure_cues":{"audio_anomaly":true,"accuracy_decay":true}},"gameplay":{"status":"draft"},"provenance":{"review_status":"unverified","sources":[{"source_id":"wikipedia","url":"https://en.wikipedia.org/wiki/AKM"}]},"rights":{"rights_status":"deferred"}}
+{
+  "id": "ckb:weapon:firearm:akm",
+  "entity_type": "weapon",
+  "identity": {
+    "canonical_name_en": "AKM",
+    "canonical_name_zh": "AKM突击步枪",
+    "aliases": ["Avtomat Kalashnikova Modernizirovanniy"]
+  },
+  "classification": {
+    "domain": "Weapon",
+    "class": "Firearm",
+    "subclass": "AssaultRifle",
+    "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"],
+    "tags": ["soviet", "gas_operated", "infantry", "selective_fire"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "AKM family-level public specification; claims retain the source wording and do not imply a specific production batch.",
+    "claims": [
+      {
+        "field": "nominal_caliber",
+        "value": 7.62,
+        "unit": "mm",
+        "qualifiers": {"configuration": "AKM", "source_wording": "Russian 7.62mm assault rifle"},
+        "source_urls": ["https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"]
+      },
+      {
+        "field": "chambering",
+        "value": "7.62×39 mm",
+        "unit": "designation",
+        "qualifiers": {"configuration": "AKM"},
+        "source_urls": ["https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"]
+      },
+      {
+        "field": "operating_role",
+        "value": "assault rifle",
+        "unit": "categorical",
+        "qualifiers": {"configuration": "AKM"},
+        "source_urls": ["https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"]
+      },
+      {
+        "field": "family_relation",
+        "value": "improved AK-47 variant",
+        "unit": "text",
+        "qualifiers": {"configuration": "AKM", "relation_strength": "source_description"},
+        "source_urls": ["https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"]
+      }
+    ]
+  },
+  "relationships": [],
+  "experience_profile": {
+    "profile_version": "1.0",
+    "derivation_status": "derived_from_public_technical_facts",
+    "basis_fields": ["nominal_caliber", "chambering", "operating_role"],
+    "acoustic": {"impulse_class": "high", "low_frequency_weight": 0.55, "indoor_reflection": 0.8},
+    "visual": {"flash_class": "medium", "smoke_signature": "low_to_medium", "night_exposure": "medium"},
+    "impulse": {"camera_translation": 0.18, "camera_rotation": 0.16, "recovery_s": 0.35},
+    "handling": {"turn_inertia": 0.35, "reload_complexity": 0.3, "confined_space_penalty": 0.35},
+    "environment": {"smoke_generation": 0.08, "dust_generation": 0.18, "pressure_event": "low"},
+    "target_response": {"penetration": "medium", "functional_kill": "contextual"},
+    "sensor_ux": {},
+    "crew_burden": {"crew_count": 1, "noise_load": 0.45},
+    "failure_cues": {"audio_anomaly": true, "accuracy_decay": true},
+    "not_game_balance": true
+  },
+  "gameplay": {"status": "draft"},
+  "provenance": {
+    "review_status": "source_checked",
+    "sources": [
+      {"source_id": "official_military", "url": "https://odin.t2com.army.mil/WEG/Asset/9aeec045149d0b5a7fbe2e567440b66d"},
+      {"source_id": "wikipedia", "url": "https://en.wikipedia.org/wiki/AKM"}
+    ]
+  },
+  "rights": {"rights_status": "deferred"}
+}
