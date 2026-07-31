@@ -109,6 +109,8 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p godot/data godot/artifacts
+          cp examples/godot/CKBRuntimeBundle.gd godot/CKBRuntimeBundle.gd
+          cp examples/godot/CKBQuery.gd godot/CKBQuery.gd
           cp /tmp/ckb-godot/ckb_destory_runtime.json godot/data/ckb_destory_runtime.json
           cp /tmp/ckb-godot/ckb-lock.json godot/data/ckb-lock.json
           xvfb-run -a -s '-screen 0 1280x720x24' \
