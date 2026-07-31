@@ -1,0 +1,38 @@
+{
+  "batch_id": "v1.6.2-aviation-release-closure",
+  "version": "1.6.2",
+  "status": "source_checked",
+  "scope": "Close the aviation milestone with propeller and jet propulsion, configuration-specific family/variant, radar, air-to-air weapon, explicit ammunition compatibility and a locked Godot runtime profile.",
+  "entity_ids": [
+    "ckb:platform:air:spitfire_mk_i",
+    "ckb:component:engine:rolls_royce_merlin_ii",
+    "ckb:ammunition:cartridge:303_british",
+    "ckb:platform:air:f_16c_fighting_falcon",
+    "ckb:component:engine:pratt_whitney_f100_pw_220",
+    "ckb:platform:air:f_15_eagle_family",
+    "ckb:platform:air:f_15e_strike_eagle",
+    "ckb:component:sensor:an_apg_82_v1",
+    "ckb:weapon:missile:aim_120_amraam"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_2_batch_01:spitfire_mk_i:uses_engine:merlin_ii",
+    "rel:v1_6_2_release:spitfire_mk_i:uses_ammunition:303_british",
+    "rel:v1_6_2_batch_02:f_16c:uses_engine:f100_pw_220",
+    "rel:v1_6_2_batch_03:f_15e:variant_of:f_15_family",
+    "rel:v1_6_2_batch_03:f_15e:uses_engine:f100_pw_220",
+    "rel:v1_6_2_batch_03:f_15e:uses_sensor:apg_82",
+    "rel:v1_6_2_batch_03:f_15e:armed_with:aim_120"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 3,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The Spitfire ammunition link is configuration-qualified and is not inferred from caliber alone.",
+    "F-15 family and F-15E model records remain separate.",
+    "The release closure includes a deterministic aviation Bundle/Lock profile and no gameplay balance values."
+  ]
+}

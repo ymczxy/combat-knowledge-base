@@ -1,0 +1,37 @@
+{
+  "batch_id": "v1.6.4-scaled-artillery-missile-air-defense-batch-02",
+  "version": "1.6.4",
+  "status": "source_checked",
+  "scope": "Scale artillery, missile, air-defense and sensor coverage across historical and contemporary systems with explicit component relationships.",
+  "entity_ids": [
+    "ckb:weapon:artillery:stokes_mortar",
+    "ckb:weapon:artillery:m777a2_howitzer",
+    "ckb:platform:ground:m109a7_paladin",
+    "ckb:weapon:missile:fgm_148_javelin",
+    "ckb:component:sensor:javelin_command_launch_unit",
+    "ckb:system:air_defense:iron_dome",
+    "ckb:component:sensor:elm_2084_mmr",
+    "ckb:weapon:missile:tamir_interceptor",
+    "ckb:system:air_defense:nasams",
+    "ckb:component:sensor:an_mpq_64_sentinel"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_4_batch_02:javelin:uses_sensor:clu",
+    "rel:v1_6_4_batch_02:iron_dome:uses_sensor:elm_2084",
+    "rel:v1_6_4_batch_02:iron_dome:armed_with:tamir",
+    "rel:v1_6_4_batch_02:nasams:uses_sensor:sentinel",
+    "rel:v1_6_4_batch_02:nasams:armed_with:aim_120"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 3,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "The batch separates systems, interceptors, launch/sight units and radar sensors.",
+    "All component links are independent, configuration-qualified relationship assertions.",
+    "No firing tables, attack guidance, manufacturing details, evasion advice or gameplay balance values are included."
+  ]
+}

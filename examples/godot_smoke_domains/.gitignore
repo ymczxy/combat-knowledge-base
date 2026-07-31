@@ -1,0 +1,5 @@
+.godot/
+artifacts/
+data/
+CKBRuntimeBundle.gd
+CKBQuery.gd

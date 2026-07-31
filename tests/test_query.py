@@ -37,6 +37,26 @@ class QueryFoundationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             search_entities(self.entities, limit=0)
 
+    def test_advanced_filters_are_composable_and_exact(self):
+        rows = search_entities(
+            self.entities,
+            entity_class="Manufacturer",
+            review_status="source_checked",
+            technical_field="industry",
+            minimum_sources=2,
+            has_technical=True,
+            limit=20,
+        )
+        self.assertGreaterEqual(len(rows), 5)
+        self.assertTrue(
+            all(row.classification.get("class") == "Manufacturer" for row in rows)
+        )
+        self.assertTrue(all(len(row.provenance.get("sources", [])) >= 2 for row in rows))
+
+    def test_minimum_sources_must_be_non_negative(self):
+        with self.assertRaises(ValueError):
+            search_entities(self.entities, minimum_sources=-1)
+
 
 if __name__ == "__main__":
     unittest.main()

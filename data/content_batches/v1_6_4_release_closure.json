@@ -1,0 +1,48 @@
+{
+  "batch_id": "v1.6.4-artillery-missile-air-defense-release-closure",
+  "version": "1.6.4",
+  "status": "source_checked",
+  "scope": "Close the artillery, missile, air-defense and sensor milestone with explicit artillery/ammunition and mortar/ammunition chains, multi-component systems and a locked Godot runtime profile.",
+  "entity_ids": [
+    "ckb:weapon:artillery:m777a2_howitzer",
+    "ckb:platform:ground:m109a7_paladin",
+    "ckb:ammunition:artillery:m795_155mm_projectile",
+    "ckb:weapon:artillery:stokes_mortar",
+    "ckb:ammunition:mortar:3_inch_stokes_bomb",
+    "ckb:system:air_defense:patriot",
+    "ckb:component:sensor:patriot_an_mpq_65",
+    "ckb:weapon:missile:patriot_pac_3_interceptor",
+    "ckb:weapon:missile:fgm_148_javelin",
+    "ckb:component:sensor:javelin_command_launch_unit",
+    "ckb:system:air_defense:iron_dome",
+    "ckb:component:sensor:elm_2084_mmr",
+    "ckb:weapon:missile:tamir_interceptor",
+    "ckb:system:air_defense:nasams",
+    "ckb:component:sensor:an_mpq_64_sentinel",
+    "ckb:weapon:missile:aim_120_amraam"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_4_release:m777a2:uses_ammunition:m795",
+    "rel:v1_6_4_release:m109a7:uses_ammunition:m795",
+    "rel:v1_6_4_release:stokes:uses_ammunition:3_inch_bomb",
+    "rel:v1_6_4_batch_01:patriot:uses_sensor:an_mpq_65",
+    "rel:v1_6_4_batch_01:patriot:armed_with:pac_3",
+    "rel:v1_6_4_batch_02:javelin:uses_sensor:clu",
+    "rel:v1_6_4_batch_02:iron_dome:uses_sensor:elm_2084",
+    "rel:v1_6_4_batch_02:iron_dome:armed_with:tamir",
+    "rel:v1_6_4_batch_02:nasams:uses_sensor:sentinel",
+    "rel:v1_6_4_batch_02:nasams:armed_with:aim_120"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 3,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "Ammunition compatibility is based on named official evidence, not caliber inference.",
+    "All system composition is represented by independent assertions.",
+    "No firing tables, loading instructions, manufacture, guidance implementation, attack planning, evasion advice or gameplay values are included."
+  ]
+}

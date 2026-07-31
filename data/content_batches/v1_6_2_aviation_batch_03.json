@@ -1,0 +1,30 @@
+{
+  "batch_id": "v1.6.2-aviation-batch-03-f15-system-slice",
+  "version": "1.6.2",
+  "status": "source_checked",
+  "scope": "Add a third aviation vertical slice covering aircraft family, named variant, engine, airborne radar and air-to-air weapon relationships.",
+  "entity_ids": [
+    "ckb:platform:air:f_15_eagle_family",
+    "ckb:platform:air:f_15e_strike_eagle",
+    "ckb:component:sensor:an_apg_82_v1",
+    "ckb:weapon:missile:aim_120_amraam"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_2_batch_03:f_15e:variant_of:f_15_family",
+    "rel:v1_6_2_batch_03:f_15e:uses_engine:f100_pw_220",
+    "rel:v1_6_2_batch_03:f_15e:uses_sensor:apg_82",
+    "rel:v1_6_2_batch_03:f_15e:armed_with:aim_120"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 5,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "Family-level and model-specific statements remain separate.",
+    "Sensor and weapon relationships are explicitly configuration-qualified.",
+    "No tactics, construction guidance, classified characteristics or gameplay balance values are included."
+  ]
+}

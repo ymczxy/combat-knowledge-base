@@ -44,6 +44,12 @@ plugins:
         - zh
         - en
 
+extra_javascript:
+  - assets/javascripts/ckb-explorer.js
+
+extra_css:
+  - assets/stylesheets/ckb-explorer.css
+
 extra:
   alternate:
     - name: 简体中文
@@ -69,12 +75,28 @@ markdown_extensions:
 
 nav:
   - 首页: index.md
+  - 交互式知识图谱: explorer/index.md
   - 规范实体: entities/index.md
+  - 关系断言: relationships/index.md
   - 浏览:
       - 按领域: browse/domains/index.md
       - 按时代: browse/eras/index.md
+  - 可视化:
+      - 全量关系图: visualizations/graph.md
+      - 装备时间轴: visualizations/timeline.md
+      - 地图数据: visualizations/map.md
+      - 发展谱系: visualizations/lineage.md
+      - 战役装备图: visualizations/battle_equipment.md
+      - 产业链图: visualizations/industry_chain.md
+      - 工厂地点图: visualizations/factory_location.md
+      - 部队编制图: visualizations/unit_organization.md
   - 全量目录: catalog/index.md
   - 参考文档:
+      - v1.6–v2.0 验收矩阵: reference/V1_6_TO_V2_0_ACCEPTANCE.md
+      - v1.6.2 航空验收: reference/V1_6_2_RELEASE.md
+      - v1.6.3 海军验收: reference/V1_6_3_RELEASE.md
+      - v1.6.4 综合系统验收: reference/V1_6_4_RELEASE.md
+      - v2.0.0 发布说明: reference/V2_0_0_RELEASE.md
       - 架构: reference/ARCHITECTURE.md
       - 数据标准: reference/DATA_STANDARD.md
       - 现代体验模型: reference/MODERN_EXPERIENCE_MODEL.md

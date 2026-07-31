@@ -22,7 +22,17 @@ class VisualizationTests(unittest.TestCase):
     def test_all_roadmap_visualization_datasets_exist(self) -> None:
         datasets = build_visualization_datasets(self.entities, self.relationships)
         self.assertEqual(
-            set(datasets), {"graph", "timeline", "map", "lineage", "battle_equipment", "industry_chain"}
+            set(datasets),
+            {
+                "graph",
+                "timeline",
+                "map",
+                "lineage",
+                "battle_equipment",
+                "industry_chain",
+                "factory_location",
+                "unit_organization",
+            },
         )
         self.assertEqual(len(datasets["graph"]["nodes"]), len(self.entities))
         self.assertEqual(len(datasets["graph"]["edges"]), len(self.relationships))
@@ -34,7 +44,16 @@ class VisualizationTests(unittest.TestCase):
             second = Path(tmp) / "second"
             write_visualization_artifacts(self.entities, self.relationships, first)
             write_visualization_artifacts(self.entities, self.relationships, second)
-            for name in ("graph", "timeline", "map", "lineage", "battle_equipment", "industry_chain"):
+            for name in (
+                "graph",
+                "timeline",
+                "map",
+                "lineage",
+                "battle_equipment",
+                "industry_chain",
+                "factory_location",
+                "unit_organization",
+            ):
                 self.assertEqual(
                     (first / f"{name}.json").read_bytes(), (second / f"{name}.json").read_bytes()
                 )

@@ -1,0 +1,174 @@
+[
+  {
+    "id": "ckb:weapon:artillery:stokes_mortar",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "Stokes mortar", "canonical_name_zh": "斯托克斯迫击炮", "aliases": ["3-inch Stokes mortar", "Stokes trench mortar"]},
+    "classification": {"domain": "Weapon", "class": "Artillery", "subclass": "Mortar", "eras": ["WWI"], "tags": ["british", "mortar", "indirect_fire", "crew_served"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Historical identification from museum collection records; no operating or construction instructions.", "claims": [
+      {"field": "weapon_type", "value": "3-inch trench mortar", "unit": "text", "qualifiers": {"period": "First World War"}, "source_urls": ["https://www.awm.gov.au/collection/LIB42013"]},
+      {"field": "service_context", "value": "British Army service from 1916 on the Western Front", "unit": "text", "qualifiers": {"scope": "associated 3-inch Stokes ammunition record"}, "source_urls": ["https://www.awm.gov.au/collection/RELAWM01909"]},
+      {"field": "historical_era", "value": "First World War", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.awm.gov.au/collection/LIB42013"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "awm_stokes_handbook", "url": "https://www.awm.gov.au/collection/LIB42013"},
+      {"source_id": "awm_stokes_munition", "url": "https://www.awm.gov.au/collection/RELAWM01909"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:artillery:m777a2_howitzer",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "M777A2 155 mm howitzer", "canonical_name_zh": "M777A2型155毫米榴弹炮", "aliases": ["M777A2", "LW155"]},
+    "classification": {"domain": "Weapon", "class": "Artillery", "subclass": "TowedHowitzer", "eras": ["CONTEMPORARY"], "tags": ["american", "towed", "howitzer", "155_mm", "crew_served"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public program identity, configuration and transportability; no firing procedures.", "claims": [
+      {"field": "weapon_type", "value": "155 mm towed howitzer", "unit": "text", "qualifiers": {"configuration": "M777A2"}, "source_urls": ["https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Tactical-Artillery-Systems/Products/M777A2/"]},
+      {"field": "program_context", "value": "joint U.S. Army and U.S. Marine Corps artillery system", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Tactical-Artillery-Systems/Products/M777A2/"]},
+      {"field": "transport_context", "value": "towed and air-transportable artillery system", "unit": "text", "qualifiers": {"scope": "public Army program description"}, "source_urls": ["https://www.army.mil/article/22037/milestone_reached_as_troops_receive_500th_m777a2_howitzer"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_army_m777_program", "url": "https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Tactical-Artillery-Systems/Products/M777A2/"},
+      {"source_id": "us_army_m777_fielding", "url": "https://www.army.mil/article/22037/milestone_reached_as_troops_receive_500th_m777a2_howitzer"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:m109a7_paladin",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "M109A7 Paladin", "canonical_name_zh": "M109A7帕拉丁自行榴弹炮", "aliases": ["M109A7", "Paladin Integrated Management"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "SelfPropelledHowitzer", "eras": ["CONTEMPORARY"], "tags": ["american", "tracked", "self_propelled_artillery", "155_mm"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public platform, armament and modernization identity; no employment instructions.", "claims": [
+      {"field": "platform_role", "value": "self-propelled 155 mm howitzer", "unit": "text", "qualifiers": {"configuration": "M109A7"}, "source_urls": ["https://www.peogcs.army.mil/Portals/126/Documents/GCS-FactSheets.pdf"]},
+      {"field": "main_armament", "value": "M284 155 mm cannon", "unit": "designation", "qualifiers": {}, "source_urls": ["https://www.army.mil/article/273189/position_areas_for_artillery_paa_analysis_in_severely_restricted_terrain"]},
+      {"field": "modernization_context", "value": "modernized M109 family configuration with Bradley-common drivetrain components", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.army.mil/article/243102/the_m109a7_self_propelled_howitzer_has_arrived_at_the_ordnance_school"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "peo_gcs_m109", "url": "https://www.peogcs.army.mil/Portals/126/Documents/GCS-FactSheets.pdf"},
+      {"source_id": "us_army_m109a7_analysis", "url": "https://www.army.mil/article/273189/position_areas_for_artillery_paa_analysis_in_severely_restricted_terrain"},
+      {"source_id": "us_army_m109a7_school", "url": "https://www.army.mil/article/243102/the_m109a7_self_propelled_howitzer_has_arrived_at_the_ordnance_school"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:missile:fgm_148_javelin",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "FGM-148 Javelin", "canonical_name_zh": "FGM-148标枪反坦克导弹", "aliases": ["Javelin", "CCMS-M Javelin"]},
+    "classification": {"domain": "Weapon", "class": "Missile", "subclass": "ManPortableAntiArmorMissile", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "guided", "anti_armor", "man_portable"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public high-level role and component boundaries; no employment, attack or evasion instructions.", "claims": [
+      {"field": "weapon_role", "value": "man-portable medium anti-armor missile system", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.army.mil/article-amp/3187/javelin"]},
+      {"field": "system_components", "value": "reusable command launch unit and missile round", "unit": "text", "qualifiers": {"scope": "public system boundary"}, "source_urls": ["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/58016C43-60DA-41F3-8B76-72536FC5B799-1376939376712/tc_3-22x37.pdf"]},
+      {"field": "service_start", "value": "1996", "unit": "year", "qualifiers": {"operator": "U.S. Army", "precision": "year"}, "source_urls": ["https://www.army.mil/article-amp/3187/javelin"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_army_javelin", "url": "https://www.army.mil/article-amp/3187/javelin"},
+      {"source_id": "us_army_javelin_tc", "url": "https://rdl.train.army.mil/catalog-ws/view/100.ATSC/58016C43-60DA-41F3-8B76-72536FC5B799-1376939376712/tc_3-22x37.pdf"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:javelin_command_launch_unit",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "Javelin Command Launch Unit", "canonical_name_zh": "标枪导弹指令发射单元", "aliases": ["Javelin CLU", "M98A1 CLU"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "ElectroOpticalSightAndLauncherInterface", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "electro_optical", "infrared", "javelin"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public component identity and observation role only; no operating procedures.", "claims": [
+      {"field": "component_role", "value": "reusable command launch and sight unit", "unit": "text", "qualifiers": {"system": "Javelin"}, "source_urls": ["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/58016C43-60DA-41F3-8B76-72536FC5B799-1376939376712/tc_3-22x37.pdf"]},
+      {"field": "sensor_context", "value": "day and night observation sights", "unit": "text", "qualifiers": {"scope": "public system description"}, "source_urls": ["https://history.redstone.army.mil/miss-javelin.html"]},
+      {"field": "interface_context", "value": "interfaces with a Javelin missile round", "unit": "text", "qualifiers": {}, "source_urls": ["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/58016C43-60DA-41F3-8B76-72536FC5B799-1376939376712/tc_3-22x37.pdf"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_army_javelin_tc", "url": "https://rdl.train.army.mil/catalog-ws/view/100.ATSC/58016C43-60DA-41F3-8B76-72536FC5B799-1376939376712/tc_3-22x37.pdf"},
+      {"source_id": "redstone_javelin_history", "url": "https://history.redstone.army.mil/miss-javelin.html"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:system:air_defense:iron_dome",
+    "entity_type": "system",
+    "identity": {"canonical_name_en": "Iron Dome", "canonical_name_zh": "铁穹防空系统", "aliases": ["Iron Dome Defense System"]},
+    "classification": {"domain": "System", "class": "AirDefenseSystem", "subclass": "ShortRangeAirDefense", "eras": ["CONTEMPORARY"], "tags": ["israeli", "air_defense", "radar", "interceptor", "networked"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public system role and component composition; no engagement procedures.", "claims": [
+      {"field": "system_role", "value": "mobile short-range air-defense system", "unit": "text", "qualifiers": {}, "source_urls": ["https://mod.gov.il/en/departments/directorate-of-defense-research-development-ddrd"]},
+      {"field": "system_components", "value": "MMR radar, command-and-control center, launcher and interceptor", "unit": "text", "qualifiers": {"scope": "public ministry description"}, "source_urls": ["https://mod.gov.il/en/departments/directorate-of-defense-research-development-ddrd"]},
+      {"field": "service_start", "value": "2011", "unit": "year", "qualifiers": {"operator_context": "Israeli Air Force", "precision": "year"}, "source_urls": ["https://mod.gov.il/en/press-releases/press-room/iron-dome-receives-additional-upgrade-israel-mod-and-rafael-successfully-complete-comprehensive-test-series"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "israel_mod_ddrd", "url": "https://mod.gov.il/en/departments/directorate-of-defense-research-development-ddrd"},
+      {"source_id": "israel_mod_iron_dome_upgrade", "url": "https://mod.gov.il/en/press-releases/press-room/iron-dome-receives-additional-upgrade-israel-mod-and-rafael-successfully-complete-comprehensive-test-series"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:elm_2084_mmr",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "ELM-2084 Multi-Mission Radar", "canonical_name_zh": "ELM-2084多任务雷达", "aliases": ["ELM-2084 MMR", "MMR radar"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "GroundBasedMultimissionRadar", "eras": ["CONTEMPORARY"], "tags": ["israeli", "ground_based", "radar", "iron_dome"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public sensor identity and system integration.", "claims": [
+      {"field": "sensor_type", "value": "mobile S-band active electronically steered array radar", "unit": "text", "qualifiers": {"designation": "ELM-2084"}, "source_urls": ["https://www.iai.co.il/wp-content/uploads/2026/04/2084-MS-MMR.pdf"]},
+      {"field": "system_context", "value": "sensor for Iron Dome, David's Sling and Barak systems", "unit": "text", "qualifiers": {"scope": "manufacturer public description"}, "source_urls": ["https://www.iai.co.il/wp-content/uploads/2026/04/2084-MS-MMR.pdf"]},
+      {"field": "iron_dome_role", "value": "detects and tracks incoming rocket routes for the Iron Dome battery", "unit": "text", "qualifiers": {}, "source_urls": ["https://mod.gov.il/en/departments/directorate-of-defense-research-development-ddrd"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "iai_elm2084", "url": "https://www.iai.co.il/wp-content/uploads/2026/04/2084-MS-MMR.pdf"},
+      {"source_id": "israel_mod_ddrd", "url": "https://mod.gov.il/en/departments/directorate-of-defense-research-development-ddrd"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:missile:tamir_interceptor",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "Tamir interceptor", "canonical_name_zh": "塔米尔拦截弹", "aliases": ["Iron Dome interceptor", "Tamir missile"]},
+    "classification": {"domain": "Weapon", "class": "Missile", "subclass": "ShortRangeAirDefenseInterceptor", "eras": ["CONTEMPORARY"], "tags": ["israeli", "interceptor", "air_defense", "iron_dome"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public interceptor identity and system compatibility; no construction or engagement instructions.", "claims": [
+      {"field": "weapon_role", "value": "Iron Dome interceptor missile", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rtx.com/raytheon/what-we-do/integrated-air-and-missile-defense/irondome"]},
+      {"field": "system_context", "value": "Iron Dome weapon system", "unit": "text", "qualifiers": {}, "source_urls": ["https://mod.gov.il/en/press-releases/press-room/the-us-marines-have-successfully-completed-their-first-live-fire-training-with-an-air-defense-system-integrating-the-iron-dome-interceptor"]},
+      {"field": "documented_target_categories", "value": "rockets, artillery shells, mortars, UAVs and cruise missiles", "unit": "text", "qualifiers": {"scope": "public ministry statement"}, "source_urls": ["https://mod.gov.il/en/press-releases/press-room/the-us-marines-have-successfully-completed-their-first-live-fire-training-with-an-air-defense-system-integrating-the-iron-dome-interceptor"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "rtx_iron_dome", "url": "https://www.rtx.com/raytheon/what-we-do/integrated-air-and-missile-defense/irondome"},
+      {"source_id": "israel_mod_tamir_mric", "url": "https://mod.gov.il/en/press-releases/press-room/the-us-marines-have-successfully-completed-their-first-live-fire-training-with-an-air-defense-system-integrating-the-iron-dome-interceptor"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:system:air_defense:nasams",
+    "entity_type": "system",
+    "identity": {"canonical_name_en": "NASAMS", "canonical_name_zh": "国家先进地空导弹系统", "aliases": ["National Advanced Surface-to-Air Missile System"]},
+    "classification": {"domain": "System", "class": "AirDefenseSystem", "subclass": "ShortToMediumRangeAirDefense", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["norwegian", "american", "air_defense", "networked", "amraam"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public system composition and defensive role; no deployment or engagement instructions.", "claims": [
+      {"field": "system_role", "value": "ground-based short-to-medium-range air-defense system", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.kongsberg.com/what-we-do/defence-and-security/integrated-air-and-missile-defence/nasams-air-defence-system/"]},
+      {"field": "system_components", "value": "fire distribution center, AN/MPQ-64F1 Sentinel radar and missile launchers", "unit": "text", "qualifiers": {"configuration": "standard public description"}, "source_urls": ["https://www.kongsberg.com/globalassets/kongsberg/1.-what-we-do/1.-defence-and-security/intergrated-air-and-missile-defence/nasams-air-defence-system/nasams_brochure_2026.pdf"]},
+      {"field": "documented_effector", "value": "AIM-120 AMRAAM family", "unit": "text", "qualifiers": {"configuration": "one supported effector family"}, "source_urls": ["https://www.kongsberg.com/what-we-do/defence-and-security/integrated-air-and-missile-defence/nasams-air-defence-system/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "kongsberg_nasams", "url": "https://www.kongsberg.com/what-we-do/defence-and-security/integrated-air-and-missile-defence/nasams-air-defence-system/"},
+      {"source_id": "kongsberg_nasams_brochure", "url": "https://www.kongsberg.com/globalassets/kongsberg/1.-what-we-do/1.-defence-and-security/intergrated-air-and-missile-defence/nasams-air-defence-system/nasams_brochure_2026.pdf"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:an_mpq_64_sentinel",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "AN/MPQ-64 Sentinel radar", "canonical_name_zh": "AN/MPQ-64哨兵雷达", "aliases": ["Sentinel radar", "AN/MPQ-64"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "GroundBasedAirDefenseRadar", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "ground_based", "radar", "nasams"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public sensor type, mission and system integration.", "claims": [
+      {"field": "sensor_type", "value": "three-dimensional X-band phased-array air-defense radar", "unit": "text", "qualifiers": {"family": "AN/MPQ-64"}, "source_urls": ["https://api.army.mil/e2/c/downloads/2024/07/19/ab2038a9/u-s-army-portfolio-2024.pdf"]},
+      {"field": "documented_role", "value": "persistent air surveillance and fire-control-quality data", "unit": "text", "qualifiers": {}, "source_urls": ["https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"]},
+      {"field": "system_context", "value": "standard NASAMS active radar", "unit": "text", "qualifiers": {"variant": "AN/MPQ-64F1 in NASAMS description"}, "source_urls": ["https://www.kongsberg.com/what-we-do/defence-and-security/integrated-air-and-missile-defence/nasams-air-defence-system/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_army_sentinel_portfolio", "url": "https://api.army.mil/e2/c/downloads/2024/07/19/ab2038a9/u-s-army-portfolio-2024.pdf"},
+      {"source_id": "us_army_air_defense_doctrine", "url": "https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"},
+      {"source_id": "kongsberg_nasams", "url": "https://www.kongsberg.com/what-we-do/defence-and-security/integrated-air-and-missile-defence/nasams-air-defence-system/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  }
+]

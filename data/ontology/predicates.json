@@ -364,6 +364,32 @@
       "status": "active"
     },
     {
+      "name": "member_of_class",
+      "labels": {"en": "member of class", "zh": "属于舰级"},
+      "description": {"en": "The source vessel is a named member of the target ship class.", "zh": "源舰艇是目标舰级的具名成员。"},
+      "inverse": "has_vessel",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform"],
+      "target_entity_types": ["platform"],
+      "source_classes": ["NavalVessel"],
+      "target_classes": ["NavalPlatform"],
+      "status": "active"
+    },
+    {
+      "name": "has_vessel",
+      "labels": {"en": "has vessel", "zh": "包含舰艇"},
+      "description": {"en": "The source ship class contains the target named vessel.", "zh": "源舰级包含目标具名舰艇。"},
+      "inverse": "member_of_class",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["platform"],
+      "target_entity_types": ["platform"],
+      "source_classes": ["NavalPlatform"],
+      "target_classes": ["NavalVessel"],
+      "status": "active"
+    },
+    {
       "name": "accepts_magazine",
       "labels": {"en": "accepts magazine", "zh": "accepts magazine"},
       "description": {"en": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence.", "zh": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence."},

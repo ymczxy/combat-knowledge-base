@@ -1,0 +1,298 @@
+[
+  {
+    "id": "ckb:platform:air:f_15_eagle_family",
+    "entity_type": "platform",
+    "identity": {
+      "canonical_name_en": "F-15 Eagle family",
+      "canonical_name_zh": "F-15 鹰式战斗机家族",
+      "aliases": ["F-15 family", "Eagle family"]
+    },
+    "classification": {
+      "domain": "Platform",
+      "class": "Aircraft",
+      "subclass": "FighterAircraftFamily",
+      "eras": ["LATE_COLD_WAR", "POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "jet", "twin_engine", "fighter_family"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public family-level identification only; model-specific values remain on qualified variant entities.",
+      "claims": [
+        {
+          "field": "family_role",
+          "value": "tactical fighter aircraft family",
+          "unit": "text",
+          "qualifiers": {"scope": "F-15 family"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104501/f-15-eagle/source/f-15-eagle/"]
+        },
+        {
+          "field": "family_origin",
+          "value": "United States",
+          "unit": "text",
+          "qualifiers": {},
+          "source_urls": ["https://www.boeing.com/features/2026/02/built-to-adapt-the-f-15s-transformation-and-global-impact"]
+        },
+        {
+          "field": "family_engine_layout",
+          "value": "twin-engine",
+          "unit": "text",
+          "qualifiers": {"model_values": "vary by variant"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104501/f-15-eagle/source/f-15-eagle/"]
+        },
+        {
+          "field": "documented_variants",
+          "value": "F-15A/B/C/D and F-15E",
+          "unit": "text",
+          "qualifiers": {"scope": "publicly documented lineage"},
+          "source_urls": ["https://www.boeing.com/features/2026/02/built-to-adapt-the-f-15s-transformation-and-global-impact"]
+        },
+        {
+          "field": "service_era",
+          "value": "entered U.S. Air Force service in the 1970s and continued through later variants",
+          "unit": "text",
+          "qualifiers": {"scope": "family chronology"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104501/f-15-eagle/source/f-15-eagle/"]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_f15",
+          "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104501/f-15-eagle/source/f-15-eagle/"
+        },
+        {
+          "source_id": "boeing_f15_history",
+          "url": "https://www.boeing.com/features/2026/02/built-to-adapt-the-f-15s-transformation-and-global-impact"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:air:f_15e_strike_eagle",
+    "entity_type": "platform",
+    "identity": {
+      "canonical_name_en": "F-15E Strike Eagle",
+      "canonical_name_zh": "F-15E 攻击鹰",
+      "aliases": ["Strike Eagle", "F-15E"]
+    },
+    "classification": {
+      "domain": "Platform",
+      "class": "Aircraft",
+      "subclass": "DualRoleFighter",
+      "eras": ["LATE_COLD_WAR", "POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "jet", "twin_engine", "two_crew", "dual_role"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public identification, configuration, propulsion, sensor and compatible-weapon statements; no employment instructions.",
+      "claims": [
+        {
+          "field": "platform_role",
+          "value": "dual-role fighter for air-to-air and air-to-ground missions",
+          "unit": "text",
+          "qualifiers": {"configuration": "F-15E"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"]
+        },
+        {
+          "field": "crew_count",
+          "value": 2,
+          "unit": "people",
+          "qualifiers": {"roles": "pilot and weapon systems officer"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"]
+        },
+        {
+          "field": "engine_configuration",
+          "value": "two Pratt & Whitney F100-PW-220 or F100-PW-229 engines",
+          "unit": "text",
+          "qualifiers": {"configuration": "public F-15E fact sheet"},
+          "source_urls": ["https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"]
+        },
+        {
+          "field": "radar_options",
+          "value": "AN/APG-70 mechanically scanned array or AN/APG-82 active electronically scanned array",
+          "unit": "text",
+          "qualifiers": {"configuration": "fleet modernization dependent"},
+          "source_urls": ["https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"]
+        },
+        {
+          "field": "compatible_air_to_air_weapon",
+          "value": "AIM-120 AMRAAM",
+          "unit": "designation",
+          "qualifiers": {"configuration": "documented F-15E armament"},
+          "source_urls": ["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_f15e",
+          "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"
+        },
+        {
+          "source_id": "air_combat_command_f15e",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:an_apg_82_v1",
+    "entity_type": "component",
+    "identity": {
+      "canonical_name_en": "AN/APG-82(V)1 radar",
+      "canonical_name_zh": "AN/APG-82(V)1 有源相控阵雷达",
+      "aliases": ["APG-82(V)1", "AN/APG-82"]
+    },
+    "classification": {
+      "domain": "Component",
+      "class": "Sensor",
+      "subclass": "AirborneFireControlRadar",
+      "eras": ["CONTEMPORARY"],
+      "tags": ["american", "airborne", "radar", "aesa", "f_15"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public manufacturer and operator descriptions of the APG-82(V)1; no electronic-warfare procedures.",
+      "claims": [
+        {
+          "field": "sensor_type",
+          "value": "active electronically scanned array radar",
+          "unit": "text",
+          "qualifiers": {"designation": "AN/APG-82(V)1"},
+          "source_urls": ["https://www.rtx.com/raytheon/what-we-do/air/apg82v1"]
+        },
+        {
+          "field": "platform_context",
+          "value": "F-15 Eagle modernization",
+          "unit": "text",
+          "qualifiers": {},
+          "source_urls": ["https://www.rtx.com/raytheon/what-we-do/air/apg82v1"]
+        },
+        {
+          "field": "documented_function",
+          "value": "multi-target detection, identification and tracking",
+          "unit": "text",
+          "qualifiers": {"scope": "manufacturer public description"},
+          "source_urls": ["https://www.rtx.com/raytheon/what-we-do/air/apg82v1"]
+        },
+        {
+          "field": "operator_configuration",
+          "value": "one of the radar configurations documented for the F-15E",
+          "unit": "text",
+          "qualifiers": {"configuration": "modernized aircraft"},
+          "source_urls": ["https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"]
+        },
+        {
+          "field": "technology_lineage",
+          "value": "draws on APG-79 and APG-63(V)3 technology",
+          "unit": "text",
+          "qualifiers": {"scope": "manufacturer public description"},
+          "source_urls": ["https://www.rtx.com/raytheon/what-we-do/air/apg82v1"]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "rtx_apg82",
+          "url": "https://www.rtx.com/raytheon/what-we-do/air/apg82v1"
+        },
+        {
+          "source_id": "air_combat_command_f15e",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:missile:aim_120_amraam",
+    "entity_type": "weapon",
+    "identity": {
+      "canonical_name_en": "AIM-120 AMRAAM",
+      "canonical_name_zh": "AIM-120 先进中程空对空导弹",
+      "aliases": ["AMRAAM", "Advanced Medium Range Air-to-Air Missile"]
+    },
+    "classification": {
+      "domain": "Weapon",
+      "class": "Missile",
+      "subclass": "AirToAirMissile",
+      "eras": ["POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "air_to_air", "radar_guided", "beyond_visual_range"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public role, compatibility and guidance descriptions; excludes construction, evasion and employment instructions.",
+      "claims": [
+        {
+          "field": "weapon_role",
+          "value": "medium-range air-to-air missile",
+          "unit": "text",
+          "qualifiers": {},
+          "source_urls": ["https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"]
+        },
+        {
+          "field": "weather_context",
+          "value": "all-weather",
+          "unit": "text",
+          "qualifiers": {"scope": "public capability classification"},
+          "source_urls": ["https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"]
+        },
+        {
+          "field": "guidance_context",
+          "value": "active-radar terminal guidance with inertial midcourse reference",
+          "unit": "text",
+          "qualifiers": {"scope": "high-level public description"},
+          "source_urls": ["https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"]
+        },
+        {
+          "field": "documented_variants",
+          "value": "AIM-120A, AIM-120B and AIM-120C",
+          "unit": "text",
+          "qualifiers": {"scope": "Air Force public fact sheet"},
+          "source_urls": ["https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"]
+        },
+        {
+          "field": "compatible_platform_family",
+          "value": "F-15 family",
+          "unit": "text",
+          "qualifiers": {"scope": "documented Air Force compatibility"},
+          "source_urls": ["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196742/AFmuseum/hughes-aim-120-amraam/"]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_amraam",
+          "url": "https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"
+        },
+        {
+          "source_id": "national_museum_usaf_amraam",
+          "url": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196742/AFmuseum/hughes-aim-120-amraam/"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  }
+]

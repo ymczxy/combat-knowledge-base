@@ -6,9 +6,12 @@ from typing import Any, Iterable
 import json
 import shutil
 
+from .assertions import aggregate_assertions
 from .catalog import CatalogItem
 from .graph import Relationship
 from .model import Entity
+from .predicates import PredicateRegistry, load_predicate_registry
+from .query import QUERY_CONTRACT_VERSION
 from .visualizations import write_visualization_artifacts
 
 
@@ -69,11 +72,17 @@ def entity_filename(entity: Entity) -> str:
     return _slug(entity.id) + ".md"
 
 
-def render_entity_page(entity: Entity) -> str:
+def render_entity_page(
+    entity: Entity,
+    relationships: Iterable[Relationship] | None = None,
+) -> str:
     classification = entity.classification
     provenance = entity.provenance
     sources = provenance.get("sources", [])
-    relations = entity.relationships
+    relations = sorted(
+        list(relationships or []),
+        key=lambda row: (row.predicate, row.source_id, row.target_id, row.id),
+    )
     aliases = entity.aliases
     title = entity.name_zh or entity.name_en
     lines = [
@@ -108,11 +117,48 @@ def render_entity_page(entity: Entity) -> str:
         "",
     ]
     if relations:
-        lines.extend(["| 关系 | 目标 |", "|---|---|"])
+        lines.extend(["| 方向 | 谓词 | 关联实体 | 断言 | 状态 |", "|---|---|---|---|---|"])
         for relation in relations:
-            target = relation.get("target_id", "")
-            target_link = f"[{target}]({_slug(str(target))}.md)" if target else "未记录"
-            lines.append(f"| {relation.get('type', 'related')} | {target_link} |")
+            outgoing = relation.source_id == entity.id
+            neighbor_id = relation.target_id if outgoing else relation.source_id
+            direction = "出向 →" if outgoing else "入向 ←"
+            neighbor_link = f"[{neighbor_id}]({_slug(neighbor_id)}.md)"
+            status = _display(relation.provenance.get("review_status"))
+            lines.append(
+                f"| {direction} | `{relation.predicate}` | {neighbor_link} | "
+                f"`{relation.id}` | {status} |"
+            )
+        lines.extend(["", "### 关系断言与证据", ""])
+        for relation in relations:
+            sources = [
+                source
+                for source in relation.provenance.get("sources", [])
+                if isinstance(source, dict)
+            ]
+            lines.extend(["", f"??? info \"关系证据：{relation.id}\"", ""])
+            if sources:
+                for source in sources:
+                    label = source.get("source_id") or "来源"
+                    url = source.get("url")
+                    lines.append(
+                        f"    - [{label}]({url})" if url else f"    - {label}"
+                    )
+            else:
+                lines.append("    - 尚未登记来源")
+            lines.extend(
+                [
+                    "",
+                    "    ```json",
+                    *[
+                        f"    {line}"
+                        for line in json.dumps(
+                            relation.to_dict(), ensure_ascii=False, indent=2
+                        ).splitlines()
+                    ],
+                    "    ```",
+                    "",
+                ]
+            )
     else:
         lines.append("尚未建立关系。")
     lines.extend(["", "## 来源", ""])
@@ -194,14 +240,26 @@ def _write_index(output: Path, entities: list[Entity], catalog: list[CatalogItem
     (output / "index.md").write_text("\n".join(lines), encoding="utf-8")
 
 
-def _write_entity_indexes(output: Path, entities: list[Entity]) -> None:
+def _write_entity_indexes(
+    output: Path,
+    entities: list[Entity],
+    relationships: list[Relationship],
+) -> None:
     entity_root = output / "entities"
     entity_root.mkdir(parents=True, exist_ok=True)
     lines = [_front_matter("规范实体", "已经进入 CKB 主数据层的实体"), "# 规范实体", ""]
     grouped: dict[str, list[Entity]] = defaultdict(list)
+    relationship_index: dict[str, list[Relationship]] = defaultdict(list)
+    for relationship in relationships:
+        relationship_index[relationship.source_id].append(relationship)
+        if relationship.target_id != relationship.source_id:
+            relationship_index[relationship.target_id].append(relationship)
     for entity in entities:
         grouped[str(entity.classification.get("domain", "Unknown"))].append(entity)
-        (entity_root / entity_filename(entity)).write_text(render_entity_page(entity), encoding="utf-8")
+        (entity_root / entity_filename(entity)).write_text(
+            render_entity_page(entity, relationship_index.get(entity.id, [])),
+            encoding="utf-8",
+        )
     for domain in sorted(grouped):
         lines.extend([f"## {domain}", "", "| 中文名 | 英文名 | 类别 | 时代 | 状态 |", "|---|---|---|---|---|"])
         for entity in sorted(grouped[domain], key=lambda e: e.name_en.casefold()):
@@ -307,6 +365,7 @@ def _write_relationship_index(
     output: Path,
     entities: list[Entity],
     relationships: list[Relationship],
+    predicate_registry: PredicateRegistry | None = None,
 ) -> None:
     """Write a stable, human-browseable relationship index for the generated site."""
     entity_names = {entity.id: (entity.name_zh or entity.name_en or entity.id) for entity in entities}
@@ -331,8 +390,36 @@ def _write_relationship_index(
         lines.append(f"| {source_link} | `{row.predicate}` | {target_link} | `{row.id}` | {status} |")
     (root / "index.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
+    governance = aggregate_assertions(rows, predicate_registry)
+    fact_by_assertion = {
+        assertion_id: fact.id
+        for fact in governance.facts
+        for assertion_id in fact.assertion_ids
+    }
+    assertion_map = {row.id: row for row in rows}
     query_index = {
-        "schema_version": "1.0",
+        "schema_version": QUERY_CONTRACT_VERSION,
+        "contract": {
+            "name": "ckb.local.query-index",
+            "version": QUERY_CONTRACT_VERSION,
+            "filter_fields": [
+                "text",
+                "entity_type",
+                "domain",
+                "class",
+                "subclass",
+                "era",
+                "tag",
+                "review_status",
+                "technical_field",
+                "minimum_sources",
+                "has_technical",
+                "predicate",
+                "direction",
+            ],
+            "directions": ["out", "in", "both"],
+            "evidence_chain": ["fact", "assertions", "sources"],
+        },
         "entities": [
             {
                 "id": entity.id,
@@ -340,16 +427,95 @@ def _write_relationship_index(
                 "name_en": entity.name_en,
                 "entity_type": entity.entity_type,
                 "domain": entity.classification.get("domain"),
+                "class": entity.classification.get("class"),
+                "subclass": entity.classification.get("subclass"),
                 "eras": entity.classification.get("eras", []),
+                "tags": entity.classification.get("tags", []),
+                "review_status": entity.provenance.get("review_status"),
+                "source_count": len(
+                    {
+                        (
+                            str(source.get("source_id", "")),
+                            str(source.get("url", "")),
+                        )
+                        for source in entity.provenance.get("sources", [])
+                        if isinstance(source, dict)
+                    }
+                ),
+                "technical_fields": sorted(
+                    {
+                        str(claim.get("field", ""))
+                        for claim in (
+                            entity.technical.get("claims", [])
+                            if isinstance(entity.technical, dict)
+                            else []
+                        )
+                        if isinstance(claim, dict) and claim.get("field")
+                    }
+                ),
+                "sources": [
+                    source
+                    for source in entity.provenance.get("sources", [])
+                    if isinstance(source, dict)
+                ],
+                "href": f"../entities/{_slug(entity.id)}/",
             }
             for entity in sorted(entities, key=lambda item: item.id)
         ],
-        "relationships": [row.to_dict() for row in rows],
+        "relationships": [
+            {**row.to_dict(), "fact_id": fact_by_assertion.get(row.id)}
+            for row in rows
+        ],
+        "facts": [
+            {
+                **fact.to_dict(),
+                "assertions": [
+                    assertion_map[assertion_id].to_dict()
+                    for assertion_id in fact.assertion_ids
+                    if assertion_id in assertion_map
+                ],
+            }
+            for fact in governance.facts
+        ],
     }
     (output / "query-index.json").write_text(
         json.dumps(query_index, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
     )
+
+
+def _write_explorer(output: Path) -> None:
+    root = output / "explorer"
+    root.mkdir(parents=True, exist_ok=True)
+    content = [
+        _front_matter("交互式知识图谱", "本地筛选、关系展开与证据回溯"),
+        "# 交互式知识图谱",
+        "",
+        "筛选规范实体，逐层展开关系，并从规范事实回溯到原始断言和来源证据。所有查询在浏览器本地执行，不上传数据。",
+        "",
+        '<div id="ckb-explorer" class="ckb-explorer" data-query-index="../query-index.json">',
+        '  <p class="ckb-loading">正在载入本地查询索引…</p>',
+        "</div>",
+        "",
+        "!!! info \"稳定查询契约\"",
+        f"    当前查询索引契约版本为 `{QUERY_CONTRACT_VERSION}`；过滤字段、方向语义和证据链均写入 `query-index.json`。",
+        "",
+    ]
+    (root / "index.md").write_text("\n".join(content), encoding="utf-8")
+
+
+def _copy_site_assets(project_root: Path, output: Path) -> None:
+    source = project_root / "assets" / "site"
+    if not source.exists():
+        return
+    target = output / "assets"
+    for path in sorted(source.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(source)
+        destination = target / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, destination)
 
 
 def build_site_docs(
@@ -362,14 +528,24 @@ def build_site_docs(
     entity_rows = list(entities)
     catalog_rows = list(catalog)
     relationship_rows = list(relationships or [])
+    predicate_registry = load_predicate_registry(
+        project_root / "data" / "ontology" / "predicates.json"
+    )
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True, exist_ok=True)
     _write_index(output, entity_rows, catalog_rows)
-    _write_entity_indexes(output, entity_rows)
+    _write_entity_indexes(output, entity_rows, relationship_rows)
     _write_domain_indexes(output, entity_rows)
     _write_era_indexes(output, entity_rows)
     _write_catalog(output, catalog_rows)
-    _write_relationship_index(output, entity_rows, relationship_rows)
+    _write_relationship_index(
+        output,
+        entity_rows,
+        relationship_rows,
+        predicate_registry,
+    )
+    _write_explorer(output)
     write_visualization_artifacts(entity_rows, relationship_rows, output / "visualizations")
     _copy_reference_docs(project_root, output)
+    _copy_site_assets(project_root, output)

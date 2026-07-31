@@ -22,6 +22,8 @@ def _entity_row(entity: Entity) -> dict[str, Any]:
         "name_zh": entity.name_zh,
         "entity_type": entity.entity_type,
         "domain": entity.classification.get("domain"),
+        "class": entity.classification.get("class"),
+        "subclass": entity.classification.get("subclass"),
         "eras": entity.classification.get("eras", []),
         "tags": entity.classification.get("tags", []),
     }
@@ -74,6 +76,54 @@ def build_visualization_datasets(
     lineage_edges = [edge for edge in edges if edge["predicate"] in lineage_predicates]
     battle_edges = [edge for edge in edges if edge["predicate"] in {"participated_in", "part_of", "located_in", "armed_with", "uses_ammunition"}]
     industry_edges = [edge for edge in edges if edge["predicate"] in {"produces", "produced_by", "manufactures", "manufactured_by", "located_in"}]
+    entity_map = {entity.id: entity for entity in entity_rows}
+    factory_location_edges = [
+        edge
+        for edge in edges
+        if edge["predicate"] == "located_in"
+        and edge["source_id"] in entity_map
+        and edge["target_id"] in entity_map
+        and (
+            entity_map[edge["source_id"]].entity_type == "facility"
+            or entity_map[edge["source_id"]].classification.get("class") == "Manufacturer"
+        )
+        and entity_map[edge["target_id"]].entity_type == "place"
+    ]
+    factory_location_rows = []
+    for edge in factory_location_edges:
+        source = entity_map[edge["source_id"]]
+        place = entity_map[edge["target_id"]]
+        location = source.raw.get("location") or place.raw.get("location")
+        factory_location_rows.append(
+            {
+                "source": _entity_row(source),
+                "place": _entity_row(place),
+                "location": location if isinstance(location, dict) else None,
+                "relationship_id": edge["id"],
+                "source_urls": [
+                    row.get("url")
+                    for row in next(
+                        relationship.provenance.get("sources", [])
+                        for relationship in relation_rows
+                        if relationship.id == edge["id"]
+                    )
+                    if isinstance(row, dict) and row.get("url")
+                ],
+            }
+        )
+    unit_organization_edges = [
+        edge
+        for edge in edges
+        if edge["predicate"] in {"member_of", "has_member"}
+        and edge["source_id"] in entity_map
+        and edge["target_id"] in entity_map
+        and (
+            entity_map[edge["source_id"]].entity_type == "unit"
+            or entity_map[edge["target_id"]].entity_type == "unit"
+            or entity_map[edge["source_id"]].classification.get("class") == "MilitaryUnit"
+            or entity_map[edge["target_id"]].classification.get("class") == "MilitaryUnit"
+        )
+    ]
 
     return {
         "graph": {"schema_version": SCHEMA_VERSION, "nodes": nodes, "edges": edges},
@@ -82,6 +132,17 @@ def build_visualization_datasets(
         "lineage": {"schema_version": SCHEMA_VERSION, "nodes": nodes, "edges": lineage_edges},
         "battle_equipment": {"schema_version": SCHEMA_VERSION, "nodes": nodes, "edges": battle_edges},
         "industry_chain": {"schema_version": SCHEMA_VERSION, "nodes": nodes, "edges": industry_edges},
+        "factory_location": {
+            "schema_version": SCHEMA_VERSION,
+            "nodes": nodes,
+            "edges": factory_location_edges,
+            "rows": factory_location_rows,
+        },
+        "unit_organization": {
+            "schema_version": SCHEMA_VERSION,
+            "nodes": nodes,
+            "edges": unit_organization_edges,
+        },
     }
 
 
@@ -128,6 +189,8 @@ def write_visualization_artifacts(
         "lineage": "发展谱系图",
         "battle_equipment": "战役装备图",
         "industry_chain": "产业链图",
+        "factory_location": "工厂地点图",
+        "unit_organization": "部队编制图",
     }
     for name, title in pages.items():
         payload = datasets[name]

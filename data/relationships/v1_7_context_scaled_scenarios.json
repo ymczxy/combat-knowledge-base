@@ -1,0 +1,228 @@
+[
+  {
+    "id": "rel:v1_7_scale:battle_of_britain:located_in:southern_england",
+    "source_id": "ckb:battle:britain:battle_of_britain", "predicate": "located_in", "target_id": "ckb:place:region:southern_england", "confidence": 0.99,
+    "qualifiers": {"scope": "Battle of Britain operational geography"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_battle_of_britain", "url": "https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"}, {"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:battle_of_britain:part_of:western_front",
+    "source_id": "ckb:battle:britain:battle_of_britain", "predicate": "part_of", "target_id": "ckb:conflict:western_front_world_war_ii", "confidence": 0.95,
+    "qualifiers": {"scope": "European theater context"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_battle_of_britain", "url": "https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:raf_11_group:member_of:fighter_command",
+    "source_id": "ckb:unit:military:raf_no_11_group", "predicate": "member_of", "target_id": "ckb:organization:military:raf_fighter_command", "confidence": 0.99,
+    "qualifiers": {"scope": "1940 Fighter Command structure"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:raf_11_group:participated_in:battle_of_britain",
+    "source_id": "ckb:unit:military:raf_no_11_group", "predicate": "participated_in", "target_id": "ckb:battle:britain:battle_of_britain", "confidence": 0.99,
+    "qualifiers": {"scope": "11 Group combat participation"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:dowding:member_of:fighter_command",
+    "source_id": "ckb:person:commander:hugh_dowding", "predicate": "member_of", "target_id": "ckb:organization:military:raf_fighter_command", "confidence": 0.99,
+    "qualifiers": {"role": "Commander-in-Chief", "period": "1940"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/research/online-exhibitions/history-of-the-battle-of-britain/commander-in-chief-of-fighter-command/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:supermarine:produces:spitfire_mk_i",
+    "source_id": "ckb:organization:manufacturer:supermarine_aviation_works", "predicate": "produces", "target_id": "ckb:platform:air:spitfire_mk_i", "confidence": 0.99,
+    "qualifiers": {"scope": "manufacturer and product"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:supermarine:located_in:castle_bromwich",
+    "source_id": "ckb:organization:manufacturer:supermarine_aviation_works", "predicate": "located_in", "target_id": "ckb:place:city:castle_bromwich", "confidence": 0.72,
+    "qualifiers": {"scope": "wartime Spitfire production presence through Castle Bromwich factory", "not_headquarters": true},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}, {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/205208601"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:castle_bromwich_factory:located_in:castle_bromwich",
+    "source_id": "ckb:facility:factory:castle_bromwich_aircraft_factory", "predicate": "located_in", "target_id": "ckb:place:city:castle_bromwich", "confidence": 0.99,
+    "qualifiers": {"scope": "factory location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}, {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/205208601"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:spitfire_mk_i:participated_in:battle_of_britain",
+    "source_id": "ckb:platform:air:spitfire_mk_i", "predicate": "participated_in", "target_id": "ckb:battle:britain:battle_of_britain", "confidence": 0.99,
+    "qualifiers": {"scope": "RAF fighter service in 1940"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/listen-to-raf-pilots-tell-the-story-of-the-battle-of-britain"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}]}
+  },
+
+  {
+    "id": "rel:v1_7_scale:midway:located_in:midway_atoll",
+    "source_id": "ckb:battle:pacific:battle_of_midway", "predicate": "located_in", "target_id": "ckb:place:island:midway_atoll", "confidence": 0.99,
+    "qualifiers": {"scope": "battle geography"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:midway:part_of:pacific_war",
+    "source_id": "ckb:battle:pacific:battle_of_midway", "predicate": "part_of", "target_id": "ckb:conflict:pacific_war", "confidence": 0.99,
+    "qualifiers": {"scope": "Pacific War theater"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_combat_narrative", "url": "https://www.history.navy.mil/content/dam/nhhc/browse-by-topic/War%20and%20Conflict/WWII/midway-170519.pdf"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:tf16:member_of:pacific_fleet",
+    "source_id": "ckb:unit:military:us_task_force_16_midway", "predicate": "member_of", "target_id": "ckb:organization:military:us_pacific_fleet", "confidence": 0.99,
+    "qualifiers": {"scope": "Midway command structure"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:tf16:participated_in:midway",
+    "source_id": "ckb:unit:military:us_task_force_16_midway", "predicate": "participated_in", "target_id": "ckb:battle:pacific:battle_of_midway", "confidence": 0.99,
+    "qualifiers": {"scope": "Task Force 16 at Midway"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:nimitz:member_of:pacific_fleet",
+    "source_id": "ckb:person:commander:chester_nimitz", "predicate": "member_of", "target_id": "ckb:organization:military:us_pacific_fleet", "confidence": 0.99,
+    "qualifiers": {"role": "Commander in Chief", "period": "1942"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:grumman:produces:f4f_3",
+    "source_id": "ckb:organization:manufacturer:grumman_aircraft_engineering", "predicate": "produces", "target_id": "ckb:platform:air:f4f_3_wildcat", "confidence": 0.99,
+    "qualifiers": {"scope": "manufacturer and product"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_naval_aviation_museum", "url": "https://navalaviationmuseum.org/f4f-3-wildcat/"}, {"source_id": "naval_history_and_heritage_command", "url": "https://www.history.navy.mil/content/history/museums/nnam/explore/collections/aircraft/f/f4f-3a-wildcat.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:grumman:located_in:bethpage",
+    "source_id": "ckb:organization:manufacturer:grumman_aircraft_engineering", "predicate": "located_in", "target_id": "ckb:place:city:bethpage_new_york", "confidence": 0.95,
+    "qualifiers": {"scope": "principal manufacturing location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_park_service", "url": "https://www.nps.gov/articles/000/grumman-bethpage.htm"}, {"source_id": "national_naval_aviation_museum", "url": "https://navalaviationmuseum.org/f4f-3-wildcat/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:nas_midway:located_in:midway_atoll",
+    "source_id": "ckb:facility:airfield:naval_air_station_midway", "predicate": "located_in", "target_id": "ckb:place:island:midway_atoll", "confidence": 0.99,
+    "qualifiers": {"scope": "air station location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}, {"source_id": "national_naval_aviation_museum", "url": "https://www.history.navy.mil/content/history/museums/nnam/education/articles/history-up-close/marine-fighter-ace-scores-first-kill-at-midway.html"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:f4f_3:participated_in:midway",
+    "source_id": "ckb:platform:air:f4f_3_wildcat", "predicate": "participated_in", "target_id": "ckb:battle:pacific:battle_of_midway", "confidence": 0.99,
+    "qualifiers": {"scope": "F4F-3 and F4F-4 participation"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_photo", "url": "https://www.history.navy.mil/our-collections/photography/wars-and-events/world-war-ii/midway/80-G-61533.html"}, {"source_id": "national_naval_aviation_museum", "url": "https://navalaviationmuseum.org/f4f-3-wildcat/"}]}
+  },
+
+  {
+    "id": "rel:v1_7_scale:prokhorovka:located_in:prokhorovka",
+    "source_id": "ckb:battle:kursk:prokhorovka", "predicate": "located_in", "target_id": "ckb:place:town:prokhorovka", "confidence": 0.99,
+    "qualifiers": {"scope": "battle geography"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}, {"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:prokhorovka:part_of:eastern_front",
+    "source_id": "ckb:battle:kursk:prokhorovka", "predicate": "part_of", "target_id": "ckb:conflict:eastern_front_world_war_ii", "confidence": 0.99,
+    "qualifiers": {"scope": "Eastern Front theater"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/background-battle-kursk/"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/eastern-front-1941"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:5gta:member_of:red_army",
+    "source_id": "ckb:unit:military:soviet_5th_guards_tank_army", "predicate": "member_of", "target_id": "ckb:organization:military:red_army", "confidence": 0.99,
+    "qualifiers": {"scope": "1943 Soviet command structure"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:5gta:participated_in:prokhorovka",
+    "source_id": "ckb:unit:military:soviet_5th_guards_tank_army", "predicate": "participated_in", "target_id": "ckb:battle:kursk:prokhorovka", "confidence": 0.99,
+    "qualifiers": {"scope": "5th Guards Tank Army combat participation"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:rotmistrov:member_of:5gta",
+    "source_id": "ckb:person:commander:pavel_rotmistrov", "predicate": "member_of", "target_id": "ckb:unit:military:soviet_5th_guards_tank_army", "confidence": 0.99,
+    "qualifiers": {"role": "commander", "period": "1943"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:factory_183_org:produces:t34_1943",
+    "source_id": "ckb:organization:manufacturer:ural_tank_factory_183", "predicate": "produces", "target_id": "ckb:platform:ground:t_34_model_1943", "confidence": 0.95,
+    "qualifiers": {"scope": "wartime T-34 production"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}, {"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:factory_183_org:located_in:nizhny_tagil",
+    "source_id": "ckb:organization:manufacturer:ural_tank_factory_183", "predicate": "located_in", "target_id": "ckb:place:city:nizhny_tagil", "confidence": 0.95,
+    "qualifiers": {"scope": "wartime manufacturing location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}, {"source_id": "britannica", "url": "https://www.britannica.com/place/Nizhny-Tagil"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:factory_183_site:located_in:nizhny_tagil",
+    "source_id": "ckb:facility:factory:ural_tank_factory_183", "predicate": "located_in", "target_id": "ckb:place:city:nizhny_tagil", "confidence": 0.99,
+    "qualifiers": {"scope": "factory location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}, {"source_id": "britannica", "url": "https://www.britannica.com/place/Nizhny-Tagil"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:t34_1943:participated_in:prokhorovka",
+    "source_id": "ckb:platform:ground:t_34_model_1943", "predicate": "participated_in", "target_id": "ckb:battle:kursk:prokhorovka", "confidence": 0.95,
+    "qualifiers": {"scope": "T-34/76 wartime configuration at Kursk"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}, {"source_id": "tank_museum_prokhorovka", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]}
+  },
+
+  {
+    "id": "rel:v1_7_scale:san_carlos:located_in:san_carlos_water",
+    "source_id": "ckb:battle:falklands:san_carlos_landings", "predicate": "located_in", "target_id": "ckb:place:water:san_carlos_water", "confidence": 0.99,
+    "qualifiers": {"scope": "landing geography"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war-operation-sutton"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:san_carlos:part_of:falklands_war",
+    "source_id": "ckb:battle:falklands:san_carlos_landings", "predicate": "part_of", "target_id": "ckb:conflict:falklands_war", "confidence": 0.99,
+    "qualifiers": {"scope": "Falklands War campaign"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war-operation-sutton"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:tg3178:member_of:royal_navy",
+    "source_id": "ckb:unit:military:royal_navy_task_group_317_8", "predicate": "member_of", "target_id": "ckb:organization:military:royal_navy", "confidence": 0.99,
+    "qualifiers": {"scope": "1982 task force structure"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:tg3178:participated_in:san_carlos",
+    "source_id": "ckb:unit:military:royal_navy_task_group_317_8", "predicate": "participated_in", "target_id": "ckb:battle:falklands:san_carlos_landings", "confidence": 0.95,
+    "qualifiers": {"scope": "carrier task group support for landings"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war-operation-sutton"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:woodward:member_of:royal_navy",
+    "source_id": "ckb:person:commander:sandy_woodward", "predicate": "member_of", "target_id": "ckb:organization:military:royal_navy", "confidence": 0.99,
+    "qualifiers": {"role": "Rear Admiral and task force commander", "period": "1982"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/18667"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:hawker_siddeley:produces:sea_harrier",
+    "source_id": "ckb:organization:manufacturer:hawker_siddeley_aviation", "predicate": "produces", "target_id": "ckb:platform:air:sea_harrier_frs1", "confidence": 0.95,
+    "qualifiers": {"scope": "manufacturer lineage and product"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "bae_systems_heritage", "url": "https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"}, {"source_id": "royal_air_force_museum", "url": "https://www.rafmuseum.org.uk/research/collections/hawker-siddeley-sea-harrier-falklands/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:hawker_siddeley:located_in:kingston",
+    "source_id": "ckb:organization:manufacturer:hawker_siddeley_aviation", "predicate": "located_in", "target_id": "ckb:place:city:kingston_upon_thames", "confidence": 0.9,
+    "qualifiers": {"scope": "historic aircraft design and manufacturing presence", "not_corporate_headquarters_claim": true},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "royal_borough_kingston", "url": "https://www.kingston.gov.uk/heritage-conservation/aviation-history"}, {"source_id": "kingston_aviation", "url": "https://www.kingstonaviation.org/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:kingston_factory:located_in:kingston",
+    "source_id": "ckb:facility:factory:kingston_aircraft_factory", "predicate": "located_in", "target_id": "ckb:place:city:kingston_upon_thames", "confidence": 0.99,
+    "qualifiers": {"scope": "factory location"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "royal_borough_kingston", "url": "https://www.kingston.gov.uk/heritage-conservation/aviation-history"}, {"source_id": "kingston_aviation", "url": "https://www.kingstonaviation.org/"}]}
+  },
+  {
+    "id": "rel:v1_7_scale:sea_harrier:participated_in:san_carlos",
+    "source_id": "ckb:platform:air:sea_harrier_frs1", "predicate": "participated_in", "target_id": "ckb:battle:falklands:san_carlos_landings", "confidence": 0.9,
+    "qualifiers": {"scope": "task-force and landing-area air defence during the San Carlos phase"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]}
+  },
+
+  {
+    "id": "rel:v1_7_scale:m4_sherman:participated_in:d_day",
+    "source_id": "ckb:platform:ground:m4_sherman", "predicate": "participated_in", "target_id": "ckb:battle:normandy:d_day", "confidence": 0.95,
+    "qualifiers": {"scope": "Sherman variants used in Normandy landings and campaign"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/the-hobarts-funnies-of-d-day"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/article/tanks-of-d-day/"}]}
+  }
+]
