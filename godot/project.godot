@@ -7,6 +7,10 @@ config_version=5
 config/name="destory - CKB Integration"
 run/main_scene="res://DestoryIntegration.tscn"
 
+[autoload]
+
+CKBRuntimeCache="*res://addons/ckb/CKBRuntimeCache.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/ckb/plugin.cfg")
