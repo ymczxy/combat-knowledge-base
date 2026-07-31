@@ -41,7 +41,7 @@ PYTHONPATH=src python -m ckb.cli site --output site_docs
 mkdocs serve
 ```
 
-网站提供全局搜索、规范实体详情、按领域/时代浏览、502 条建设目录和设计参考文档。
+网站提供全局搜索、关系面板、递归展开图谱、时间轴、地图、发展谱系、战役装备图、产业链图、高级筛选，以及从事实回溯到断言和来源的完整证据链。建设目录仍保留 502 条候选；候选不等于已经核实的规范实体。
 
 ## 快速开始
 
@@ -130,18 +130,23 @@ PYTHONPATH=src python -m ckb.cli fact-snapshot \
 - `docs/V1_5_2_ASSERTION_GOVERNANCE.md`：断言与规范事实聚合；
 - `docs/V1_5_3_FACT_LIFECYCLE.md`：事实生命周期、人工裁决与发布快照。
 
-## v1.6 装甲车辆与 Godot 运行时
+## v1.6–v2.0 稳定版能力
 
-v1.6.0 完成了首个可消费装甲车辆闭环：
+当前 v2.0.0 数据快照包含：
 
-- 79 个规范实体，其中 57 个 GroundVehicle；
-- 44 条独立 Relationship Assertion，实体内嵌关系为 0；
-- 8 个结构化技术档案和 71 条技术声明；
-- 55 条数值声明统一单位标准化，16 条描述性声明保留原义；
-- 5 条显式绑定配置和输入 claim 的派生指标；
-- 8 个实体、18 个配置的 Godot 紧凑运行时 Bundle；
-- Bundle/Lock 哈希、版本、实体顺序和来源引用校验；
-- 官方 Godot 4.7.1 Linux x86_64 实际运行验证。
+- 187 个规范实体、135 条独立 Relationship Assertion，实体内嵌关系为 0；
+- 35 个正式内容批次、152 个 `source_checked` 实体；
+- 123 个结构化技术档案、521 条技术声明；
+- 96 条数值声明统一单位标准化、425 条描述性声明保留原义、未知数值单位为 0；
+- 装甲车辆、轻武器/弹药、航空、舰艇/海军武器、火炮/导弹/防空/传感器五个可消费领域闭环；
+- Place、Country、Organization、Manufacturer、MilitaryUnit、Battle、Conflict、Person、Facility 九类上下文实体；
+- 时间轴、战役装备、产业链、工厂地点和部队编制五项路线图输出，并扩展全量关系图、地图和发展谱系；
+- 查询契约 1.1、交互式网站和事实 → 断言 → 来源证据回溯；
+- 正式 Godot 导入插件、缓存、查询、升级和回滚链路，以及《destory》真实工程接入。
+
+七个锁定 Godot Runtime profile 分别覆盖装甲车辆、轻武器、航空、海军、综合系统和两代《destory》游戏包。每个 profile 都通过 Bundle/Lock 哈希、版本、实体顺序、关系端点和来源引用契约校验；航空、海军和综合系统矩阵已在官方 Godot 4.7.1 Windows 引擎中实际运行，《destory》导入、集成、Smoke 与 SAM 场景也已在同一引擎版本通过。
+
+这里的“完成”是指 `ROADMAP.md` 中 v1.6–v2.0 的已批准版本边界全部具备数据、代码、测试和运行时证据，不表示 502 条候选目录或全球全部装备已经完成百科式收录。
 
 生成标准化技术比较和派生指标：
 
@@ -175,7 +180,8 @@ Godot 加载器位于 `examples/godot/CKBRuntimeBundle.gd`。加载器不会自�
 
 - `docs/DATA_STANDARD.md`：技术声明和标准化边界；
 - `docs/GODOT_INTEGRATION.md`：Bundle、Lock 和 Godot 加载方式；
-- `docs/V1_6_0_RELEASE.md`：v1.6.0 发布快照与验证范围。
+- `docs/V1_6_TO_V2_0_ACCEPTANCE.md`：v1.6–v2.0 逐条需求—证据矩阵；
+- `docs/V2_0_0_RELEASE.md`：v2.0.0 发布快照与验证范围。
 
 ## v1.3 候选实体解析
 
@@ -254,4 +260,4 @@ exports/                 自动生成结果
 
 ## 当前版本
 
-`2.0.0`：完成跨装备领域知识实体、独立关系断言、时间/地点/组织/战役上下文、查询接口、Godot Bundle/Lock/SDK 消费链路，并通过稳定版发布门禁。
+`2.0.0`：v1.6–v2.0 规划边界已在实现和本地验收中闭合；只有默认分支远程 CI 全绿后才构成最终发布完成证据。

@@ -7,6 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - run: python -m pip install -e ".[docs]"
       - run: PYTHONPATH=src python -m unittest discover -s tests -v
       - run: PYTHONPATH=src python -m ckb.cli validate
       - run: PYTHONPATH=src python -m ckb.cli catalog-audit
@@ -33,6 +34,10 @@ jobs:
       - run: test -f /tmp/manual_import.json
       - run: PYTHONPATH=src python -m ckb.cli build --output exports --profile destory --allow-unverified
       - run: PYTHONPATH=src python -m ckb.cli site --output /tmp/ckb-site-docs
+      - run: PYTHONPATH=src python -m ckb.cli site --output site_docs
+      - run: node --check assets/site/javascripts/ckb-explorer.js
+      - run: mkdocs build --strict --site-dir /tmp/ckb-built-site
+      - run: test -f /tmp/ckb-built-site/explorer/index.html && test -f /tmp/ckb-built-site/query-index.json && test -f /tmp/ckb-built-site/assets/javascripts/ckb-explorer.js
       - run: PYTHONPATH=src python -m ckb.technical --output /tmp/ckb-technical-comparison.json --markdown /tmp/ckb-site-docs/compare/technical.md --fail-on-unsupported
       - run: test -f /tmp/ckb-technical-comparison.json && test -f /tmp/ckb-site-docs/compare/technical.md
       - run: PYTHONPATH=src python -m ckb.technical_metrics --output /tmp/ckb-derived-metrics.json --markdown /tmp/ckb-site-docs/compare/derived-metrics.md --fail-on-error
@@ -45,7 +50,16 @@ jobs:
       - run: test -f /tmp/ckb-godot-small-arms/ckb_destory_small_arms_runtime.json && test -f /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json
       - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot-small-arms/ckb_destory_small_arms_runtime.json --lock /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json --output /tmp/ckb-small-arms-runtime-contract.json --fail-on-error
       - run: test -f /tmp/ckb-small-arms-runtime-contract.json
+      - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/aviation_build_profile.json --output /tmp/ckb-godot-aviation --fail-on-error
+      - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot-aviation/ckb_destory_aviation_runtime.json --lock /tmp/ckb-godot-aviation/ckb-aviation-lock.json --output /tmp/ckb-aviation-runtime-contract.json --fail-on-error
+      - run: test -f /tmp/ckb-aviation-runtime-contract.json
+      - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/naval_build_profile.json --output /tmp/ckb-godot-naval --fail-on-error
+      - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot-naval/ckb_destory_naval_runtime.json --lock /tmp/ckb-godot-naval/ckb-naval-lock.json --output /tmp/ckb-naval-runtime-contract.json --fail-on-error
+      - run: test -f /tmp/ckb-naval-runtime-contract.json
+      - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/integrated_systems_build_profile.json --output /tmp/ckb-godot-integrated-systems --fail-on-error
+      - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot-integrated-systems/ckb_destory_integrated_systems_runtime.json --lock /tmp/ckb-godot-integrated-systems/ckb-integrated-systems-lock.json --output /tmp/ckb-integrated-systems-runtime-contract.json --fail-on-error
+      - run: test -f /tmp/ckb-integrated-systems-runtime-contract.json
       - run: PYTHONPATH=src python -m ckb.stability_gate --output /tmp/ckb-v2-stability.json --fail-on-error
       - run: test -f /tmp/ckb-v2-stability.json
       - run: PYTHONPATH=src python -m ckb.cli visualize --output /tmp/ckb-visualizations
-      - run: test -f /tmp/ckb-visualizations/graph.json && test -f /tmp/ckb-visualizations/timeline.json && test -f /tmp/ckb-visualizations/map.json && test -f /tmp/ckb-visualizations/lineage.json && test -f /tmp/ckb-visualizations/battle_equipment.json && test -f /tmp/ckb-visualizations/industry_chain.json
+      - run: test -f /tmp/ckb-visualizations/graph.json && test -f /tmp/ckb-visualizations/timeline.json && test -f /tmp/ckb-visualizations/map.json && test -f /tmp/ckb-visualizations/lineage.json && test -f /tmp/ckb-visualizations/battle_equipment.json && test -f /tmp/ckb-visualizations/industry_chain.json && test -f /tmp/ckb-visualizations/factory_location.json && test -f /tmp/ckb-visualizations/unit_organization.json

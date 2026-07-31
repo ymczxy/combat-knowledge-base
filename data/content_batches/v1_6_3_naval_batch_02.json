@@ -1,0 +1,48 @@
+{
+  "batch_id": "v1.6.3-naval-batch-02-scaled-class-vessel-systems",
+  "version": "1.6.3",
+  "status": "source_checked",
+  "scope": "Scale naval coverage across three ship classes with named vessels, propulsion, weapons, sensors and service operators.",
+  "entity_ids": [
+    "ckb:platform:naval:type_45_daring_class",
+    "ckb:platform:naval:hms_daring_d32",
+    "ckb:component:engine:rolls_royce_wr_21",
+    "ckb:component:sensor:sampson_radar",
+    "ckb:weapon:naval:sea_viper",
+    "ckb:organization:military:royal_navy",
+    "ckb:platform:naval:virginia_class",
+    "ckb:platform:naval:uss_virginia_ssn_774",
+    "ckb:component:engine:virginia_class_nuclear_propulsion",
+    "ckb:component:sensor:an_bps_16_v4",
+    "ckb:weapon:missile:tomahawk_tlam",
+    "ckb:organization:military:united_states_navy",
+    "ckb:component:sensor:an_spy_1d",
+    "ckb:weapon:naval:mk_41_vls"
+  ],
+  "relationship_ids": [
+    "rel:v1_6_3_batch_02:daring:member_of_class:type_45",
+    "rel:v1_6_3_batch_02:daring:operated_by:royal_navy",
+    "rel:v1_6_3_batch_02:type_45:uses_engine:wr_21",
+    "rel:v1_6_3_batch_02:type_45:uses_sensor:sampson",
+    "rel:v1_6_3_batch_02:type_45:armed_with:sea_viper",
+    "rel:v1_6_3_batch_02:uss_virginia:member_of_class:virginia",
+    "rel:v1_6_3_batch_02:uss_virginia:operated_by:us_navy",
+    "rel:v1_6_3_batch_02:virginia:uses_engine:nuclear_propulsion",
+    "rel:v1_6_3_batch_02:virginia:uses_sensor:bps_16",
+    "rel:v1_6_3_batch_02:virginia:armed_with:tomahawk",
+    "rel:v1_6_3_batch_02:arleigh_burke:uses_sensor:spy_1d",
+    "rel:v1_6_3_batch_02:arleigh_burke:armed_with:mk_41"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 2,
+    "minimum_sources_per_relationship": 2,
+    "minimum_technical_claims_per_entity": 3,
+    "require_experience_profile": false,
+    "relationship_storage": "independent_assertions"
+  },
+  "notes": [
+    "Named vessels and ship classes are separated by the member_of_class predicate.",
+    "Service operators, propulsion, sensors and weapons are independent assertions.",
+    "No reactor design, weapon employment, evasion, attack or gameplay-balance instructions are included."
+  ]
+}

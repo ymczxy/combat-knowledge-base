@@ -1,0 +1,242 @@
+[
+  {
+    "id": "ckb:platform:naval:type_45_daring_class",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Daring-class Type 45 destroyer", "canonical_name_zh": "勇敢级45型驱逐舰", "aliases": ["Type 45 destroyer", "Daring class"]},
+    "classification": {"domain": "Platform", "class": "NavalPlatform", "subclass": "GuidedMissileDestroyerClass", "eras": ["CONTEMPORARY"], "tags": ["british", "surface_combatant", "air_defense", "destroyer_class"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public Royal Navy class-level identification and system composition.", "claims": [
+      {"field": "platform_role", "value": "air-defense and anti-missile destroyer class", "unit": "text", "qualifiers": {"class_scope": "Type 45"}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]},
+      {"field": "class_members", "value": "six named destroyers", "unit": "text", "qualifiers": {"scope": "Royal Navy class page"}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]},
+      {"field": "principal_weapon_system", "value": "Sea Viper", "unit": "designation", "qualifiers": {"class_scope": "Type 45"}, "source_urls": ["https://www.royalnavy.mod.uk/news/2022/may/24/20220524-sea-viper"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "royal_navy_daring_class", "url": "https://www.royalnavy.mod.uk/equipment/ships/daring-class"},
+      {"source_id": "royal_navy_sea_viper", "url": "https://www.royalnavy.mod.uk/news/2022/may/24/20220524-sea-viper"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:naval:hms_daring_d32",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "HMS Daring (D32)", "canonical_name_zh": "勇敢号驱逐舰（D32）", "aliases": ["HMS Daring", "D32"]},
+    "classification": {"domain": "Platform", "class": "NavalVessel", "subclass": "GuidedMissileDestroyer", "eras": ["CONTEMPORARY"], "tags": ["british", "royal_navy", "type_45", "named_vessel"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public vessel identity and service context.", "claims": [
+      {"field": "vessel_type", "value": "Type 45 destroyer", "unit": "text", "qualifiers": {"vessel": "HMS Daring"}, "source_urls": ["https://www.royalnavy.mod.uk/organisation/units-and-squadrons/destroyers/hms-daring"]},
+      {"field": "pennant_number", "value": "D32", "unit": "designation", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/organisation/units-and-squadrons/destroyers/hms-daring"]},
+      {"field": "operator", "value": "Royal Navy", "unit": "text", "qualifiers": {"service_scope": "commissioned naval vessel"}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "royal_navy_hms_daring", "url": "https://www.royalnavy.mod.uk/organisation/units-and-squadrons/destroyers/hms-daring"},
+      {"source_id": "royal_navy_daring_class", "url": "https://www.royalnavy.mod.uk/equipment/ships/daring-class"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:engine:rolls_royce_wr_21",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "Rolls-Royce WR-21 marine gas turbine", "canonical_name_zh": "罗尔斯-罗伊斯WR-21舰用燃气轮机", "aliases": ["WR-21", "WR21"]},
+    "classification": {"domain": "Component", "class": "Engine", "subclass": "MarineGasTurbine", "eras": ["CONTEMPORARY"], "tags": ["british", "marine", "gas_turbine", "type_45"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public propulsion-family identification; no maintenance or construction procedures.", "claims": [
+      {"field": "engine_type", "value": "marine gas turbine", "unit": "text", "qualifiers": {"designation": "WR-21"}, "source_urls": ["https://www.rolls-royce.com/media/press-releases-archive/yr-2011/110525-innovative-support-contract.aspx"]},
+      {"field": "platform_context", "value": "Royal Navy Type 45 destroyer", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/investors/results/presentations-and-briefings/jun-11-paris-airshow-briefing.pdf"]},
+      {"field": "design_context", "value": "modular marine engine with fuel-efficiency features", "unit": "text", "qualifiers": {"scope": "manufacturer public description"}, "source_urls": ["https://www.rolls-royce.com/media/press-releases-archive/yr-2011/110525-innovative-support-contract.aspx"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "rolls_royce_wr21_support", "url": "https://www.rolls-royce.com/media/press-releases-archive/yr-2011/110525-innovative-support-contract.aspx"},
+      {"source_id": "rolls_royce_wr21_selection", "url": "https://www.rolls-royce.com/~/media/Files/R/Rolls-Royce/documents/investors/results/presentations-and-briefings/jun-11-paris-airshow-briefing.pdf"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:sampson_radar",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "SAMPSON radar", "canonical_name_zh": "桑普森多功能雷达", "aliases": ["SAMPSON multi-function radar", "Sampson"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "NavalMultifunctionRadar", "eras": ["CONTEMPORARY"], "tags": ["british", "naval", "radar", "type_45"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public sensor identity and class integration.", "claims": [
+      {"field": "sensor_type", "value": "naval multi-function radar", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]},
+      {"field": "platform_context", "value": "Type 45 destroyer", "unit": "text", "qualifiers": {"class_scope": "Daring class"}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]},
+      {"field": "system_context", "value": "Sea Viper sensor component", "unit": "text", "qualifiers": {"scope": "public Royal Navy description"}, "source_urls": ["https://www.royalnavy.mod.uk/news/2016/july/11/160711-daring-sea-viper"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "royal_navy_daring_class", "url": "https://www.royalnavy.mod.uk/equipment/ships/daring-class"},
+      {"source_id": "royal_navy_daring_sea_viper", "url": "https://www.royalnavy.mod.uk/news/2016/july/11/160711-daring-sea-viper"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:naval:sea_viper",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "Sea Viper naval air-defense system", "canonical_name_zh": "海毒蛇舰载防空系统", "aliases": ["Sea Viper", "Principal Anti-Air Missile System"]},
+    "classification": {"domain": "Weapon", "class": "Missile", "subclass": "NavalSurfaceToAirMissileSystem", "eras": ["CONTEMPORARY"], "tags": ["british", "naval", "air_defense", "type_45"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public high-level weapon-system composition only; no engagement procedures.", "claims": [
+      {"field": "weapon_role", "value": "naval air and missile defense", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]},
+      {"field": "platform_context", "value": "Daring-class Type 45 destroyer", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/news/2022/may/24/20220524-sea-viper"]},
+      {"field": "system_components", "value": "Aster missile, SAMPSON radar and command-and-control elements", "unit": "text", "qualifiers": {"scope": "public Royal Navy system description"}, "source_urls": ["https://www.royalnavy.mod.uk/news/2022/may/24/20220524-sea-viper"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "royal_navy_daring_class", "url": "https://www.royalnavy.mod.uk/equipment/ships/daring-class"},
+      {"source_id": "royal_navy_sea_viper", "url": "https://www.royalnavy.mod.uk/news/2022/may/24/20220524-sea-viper"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:royal_navy",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Royal Navy", "canonical_name_zh": "英国皇家海军", "aliases": ["RN", "His Majesty's Naval Service"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "Navy", "eras": ["EARLY_GUNPOWDER", "INDUSTRIAL", "WWI", "WWII", "COLD_WAR", "CONTEMPORARY"], "tags": ["united_kingdom", "navy", "operator"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public institutional identity.", "claims": [
+      {"field": "organization_type", "value": "naval service", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/"]},
+      {"field": "country_context", "value": "United Kingdom", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.gov.uk/government/organisations/royal-navy"]},
+      {"field": "operator_context", "value": "operates Daring-class Type 45 destroyers", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.royalnavy.mod.uk/equipment/ships/daring-class"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/"},
+      {"source_id": "uk_government_royal_navy", "url": "https://www.gov.uk/government/organisations/royal-navy"},
+      {"source_id": "royal_navy_daring_class", "url": "https://www.royalnavy.mod.uk/equipment/ships/daring-class"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:naval:virginia_class",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Virginia-class attack submarine", "canonical_name_zh": "弗吉尼亚级攻击核潜艇", "aliases": ["SSN 774 class", "Virginia class"]},
+    "classification": {"domain": "Platform", "class": "NavalPlatform", "subclass": "NuclearAttackSubmarineClass", "eras": ["CONTEMPORARY"], "tags": ["american", "submarine", "nuclear_powered", "ship_class"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public U.S. Navy class identity and high-level configuration.", "claims": [
+      {"field": "platform_role", "value": "nuclear-powered attack submarine class", "unit": "text", "qualifiers": {"class_scope": "SSN 774"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]},
+      {"field": "propulsion_system", "value": "one nuclear reactor and one shaft", "unit": "text", "qualifiers": {"class_scope": "Virginia class"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]},
+      {"field": "documented_armament", "value": "Tomahawk missiles and Mk 48 torpedoes", "unit": "text", "qualifiers": {"configuration": "block dependent"}, "source_urls": ["https://www.navsea.navy.mil/Portals/103/Documents/PSNSY_IMF/News%20Releases/2013%20Naval%20Nuclear%20Propulsion%20Program.pdf?ver=2017-03-02-113143-683"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"},
+      {"source_id": "navsea_nuclear_propulsion", "url": "https://www.navsea.navy.mil/Portals/103/Documents/PSNSY_IMF/News%20Releases/2013%20Naval%20Nuclear%20Propulsion%20Program.pdf?ver=2017-03-02-113143-683"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:naval:uss_virginia_ssn_774",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "USS Virginia (SSN 774)", "canonical_name_zh": "弗吉尼亚号攻击核潜艇（SSN-774）", "aliases": ["USS Virginia", "SSN 774"]},
+    "classification": {"domain": "Platform", "class": "NavalVessel", "subclass": "NuclearAttackSubmarine", "eras": ["CONTEMPORARY"], "tags": ["american", "us_navy", "virginia_class", "named_vessel"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public vessel identity and service chronology.", "claims": [
+      {"field": "vessel_type", "value": "Virginia-class attack submarine", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.sublant.usff.navy.mil/SSN774/"]},
+      {"field": "hull_number", "value": "SSN 774", "unit": "designation", "qualifiers": {}, "source_urls": ["https://www.sublant.usff.navy.mil/SSN774/"]},
+      {"field": "commissioned_date", "value": "2004-10-03", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "sublant_uss_virginia", "url": "https://www.sublant.usff.navy.mil/SSN774/"},
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:engine:virginia_class_nuclear_propulsion",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "Virginia-class nuclear propulsion plant", "canonical_name_zh": "弗吉尼亚级核动力装置", "aliases": ["Virginia-class propulsion plant"]},
+    "classification": {"domain": "Component", "class": "Engine", "subclass": "NavalNuclearPropulsionPlant", "eras": ["CONTEMPORARY"], "tags": ["american", "marine", "nuclear_power", "virginia_class"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Only high-level public propulsion configuration; no reactor design or operational detail.", "claims": [
+      {"field": "engine_type", "value": "naval nuclear propulsion plant", "unit": "text", "qualifiers": {"class_scope": "Virginia class"}, "source_urls": ["https://www.navsea.navy.mil/Portals/103/Documents/PSNSY_IMF/News%20Releases/2013%20Naval%20Nuclear%20Propulsion%20Program.pdf?ver=2017-03-02-113143-683"]},
+      {"field": "public_configuration", "value": "one reactor", "unit": "text", "qualifiers": {"detail_level": "public class summary only"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]},
+      {"field": "shaft_configuration", "value": "one shaft", "unit": "text", "qualifiers": {"class_scope": "Virginia class"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "navsea_nuclear_propulsion", "url": "https://www.navsea.navy.mil/Portals/103/Documents/PSNSY_IMF/News%20Releases/2013%20Naval%20Nuclear%20Propulsion%20Program.pdf?ver=2017-03-02-113143-683"},
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:an_bps_16_v4",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "AN/BPS-16(V)4 radar", "canonical_name_zh": "AN/BPS-16(V)4潜艇雷达", "aliases": ["AN/BPS-16", "BPS-16(V)4"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "SubmarineNavigationRadar", "eras": ["CONTEMPORARY"], "tags": ["american", "submarine", "radar", "virginia_class"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public U.S. Navy sensor identity and platform fit.", "claims": [
+      {"field": "sensor_type", "value": "submarine X-band radar", "unit": "text", "qualifiers": {"designation": "AN/BPS-16(V)4"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166767/anbps-1516-radar/"]},
+      {"field": "documented_role", "value": "navigation and routine surface detection", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166767/anbps-1516-radar/"]},
+      {"field": "platform_context", "value": "first ten Virginia-class submarines", "unit": "text", "qualifiers": {"hull_scope": "SSN 774 through SSN 783"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_bps_radar", "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166767/anbps-1516-radar/"},
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:missile:tomahawk_tlam",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "Tomahawk Land Attack Missile", "canonical_name_zh": "战斧对陆攻击巡航导弹", "aliases": ["TLAM", "Tomahawk cruise missile"]},
+    "classification": {"domain": "Weapon", "class": "Missile", "subclass": "SeaLaunchedLandAttackCruiseMissile", "eras": ["LATE_COLD_WAR", "POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "naval", "cruise_missile", "surface_and_submarine_launched"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public role, platform and block chronology only; no mission planning or employment instructions.", "claims": [
+      {"field": "weapon_role", "value": "long-range subsonic land-attack cruise missile", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/DesktopModules/ArticleCS/Print.aspx?Article=2169229&ModuleId=724&PortalId=1"]},
+      {"field": "launch_platform_context", "value": "surface ships and submarines", "unit": "text", "qualifiers": {"operators": "U.S. Navy and Royal Navy contexts"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]},
+      {"field": "documented_blocks", "value": "Block IV and Block V fleet variants", "unit": "text", "qualifiers": {"scope": "public Navy chronology"}, "source_urls": ["https://www.navy.mil/DesktopModules/ArticleCS/Print.aspx?Article=2169229&ModuleId=724&PortalId=1"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_tomahawk", "url": "https://www.navy.mil/DesktopModules/ArticleCS/Print.aspx?Article=2169229&ModuleId=724&PortalId=1"},
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:united_states_navy",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "United States Navy", "canonical_name_zh": "美国海军", "aliases": ["U.S. Navy", "USN"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "Navy", "eras": ["EARLY_GUNPOWDER", "INDUSTRIAL", "WWI", "WWII", "COLD_WAR", "CONTEMPORARY"], "tags": ["united_states", "navy", "operator"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public institutional identity.", "claims": [
+      {"field": "organization_type", "value": "naval service", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/About/"]},
+      {"field": "country_context", "value": "United States", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.defense.gov/About/Our-Forces/"]},
+      {"field": "operator_context", "value": "operates Virginia-class attack submarines", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_about", "url": "https://www.navy.mil/About/"},
+      {"source_id": "us_defense_forces", "url": "https://www.defense.gov/About/Our-Forces/"},
+      {"source_id": "us_navy_attack_submarines", "url": "https://www.navy.mil/Resources/Fact-Files/fact-files/display/display-factfiles/article/Article/2169558/attack-submarines-ssn/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:an_spy_1d",
+    "entity_type": "component",
+    "identity": {"canonical_name_en": "AN/SPY-1D radar", "canonical_name_zh": "AN/SPY-1D多功能相控阵雷达", "aliases": ["SPY-1D", "AN/SPY-1"]},
+    "classification": {"domain": "Component", "class": "Sensor", "subclass": "NavalMultifunctionRadar", "eras": ["POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "naval", "radar", "aegis", "arleigh_burke"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public Aegis sensor identity and ship-class integration.", "claims": [
+      {"field": "sensor_type", "value": "multi-function phased-array radar", "unit": "text", "qualifiers": {"family": "SPY-1"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"]},
+      {"field": "system_context", "value": "Aegis Weapon System", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"]},
+      {"field": "platform_context", "value": "Arleigh Burke-class destroyer", "unit": "text", "qualifiers": {"flight": "configuration dependent"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_aegis", "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"},
+      {"source_id": "us_navy_destroyers", "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:naval:mk_41_vls",
+    "entity_type": "weapon",
+    "identity": {"canonical_name_en": "Mk 41 Vertical Launching System", "canonical_name_zh": "Mk 41垂直发射系统", "aliases": ["Mk 41 VLS", "Mark 41 Vertical Launching System"]},
+    "classification": {"domain": "Weapon", "class": "NavalWeaponSystem", "subclass": "VerticalLaunchingSystem", "eras": ["LATE_COLD_WAR", "POST_COLD_WAR", "CONTEMPORARY"], "tags": ["american", "naval", "vertical_launch", "aegis", "arleigh_burke"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public launcher-system identity and compatible weapon-family context; no operating procedures.", "claims": [
+      {"field": "weapon_system_type", "value": "naval vertical launching system", "unit": "text", "qualifiers": {"designation": "Mk 41"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"]},
+      {"field": "system_context", "value": "Aegis Weapon System", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"]},
+      {"field": "platform_context", "value": "Arleigh Burke-class destroyer", "unit": "text", "qualifiers": {"configuration": "class flight dependent"}, "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [
+      {"source_id": "us_navy_aegis", "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2166739/aegis-weapon-system/"},
+      {"source_id": "us_navy_destroyers", "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2169871/destroyers-ddg/destroyers-ddg-51/"}
+    ]},
+    "rights": {"rights_status": "deferred"}
+  }
+]

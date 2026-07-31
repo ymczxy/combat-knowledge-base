@@ -1,0 +1,84 @@
+[
+  {
+    "id": "rel:v1_6_3_release:arleigh_burke:armed_with:mk_45_mod_4",
+    "source_id": "ckb:platform:naval:arleigh_burke_class",
+    "predicate": "armed_with",
+    "target_id": "ckb:weapon:naval:mk_45_mod_4_5_inch_gun",
+    "confidence": 0.99,
+    "qualifiers": {"scope": "later DDG 51-class hulls", "configuration_specific": true},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_navy_mk45_fact_file",
+          "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"
+        },
+        {
+          "source_id": "secnav_fy2013_shipbuilding_book",
+          "url": "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_3_release:mk_45_mod_4:uses_ammunition:5_inch_62",
+    "source_id": "ckb:weapon:naval:mk_45_mod_4_5_inch_gun",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:naval:5_inch_62_conventional_round_family",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "public conventional-ammunition family",
+      "configuration_specific": true,
+      "not_inferred_from_caliber_alone": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_navy_mk45_fact_file",
+          "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"
+        },
+        {
+          "source_id": "secnav_fy2013_shipbuilding_book",
+          "url": "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_3_release:virginia:armed_with:mk_48_adcap",
+    "source_id": "ckb:platform:naval:virginia_class",
+    "predicate": "armed_with",
+    "target_id": "ckb:weapon:torpedo:mk_48_adcap",
+    "confidence": 0.99,
+    "qualifiers": {"scope": "Virginia-class public armament", "configuration_specific": true},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "nhhc_montana_ssn794",
+          "url": "https://www.history.navy.mil/research/histories/ship-histories/danfs/m/montana-ii--ssn-794-.html"
+        },
+        {"source_id": "sublant_submarine_facts", "url": "https://www.sublant.usff.navy.mil/About-Us/Submarine-Facts/"}
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_3_release:virginia:uses_sensor:an_bqq_10",
+    "source_id": "ckb:platform:naval:virginia_class",
+    "predicate": "uses_sensor",
+    "target_id": "ckb:component:sensor:an_bqq_10_arci",
+    "confidence": 0.97,
+    "qualifiers": {"scope": "Virginia-class A-RCI sonar integration", "configuration_specific": true},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "us_navy_optevfor_undersea", "url": "https://www.optevfor.navy.mil/Warfare-Divisions/Undersea-Warfare/"},
+        {
+          "source_id": "navsea_nuwc_annual_overview",
+          "url": "https://www.navsea.navy.mil/Portals/103/Documents/NUWC_Newport/AnnualOverviewfinal.pdf"
+        }
+      ]
+    }
+  }
+]

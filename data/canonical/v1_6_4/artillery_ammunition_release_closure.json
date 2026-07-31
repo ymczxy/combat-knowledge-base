@@ -1,0 +1,136 @@
+[
+  {
+    "id": "ckb:ammunition:artillery:m795_155mm_projectile",
+    "entity_type": "ammunition",
+    "identity": {
+      "canonical_name_en": "M795 155 mm projectile",
+      "canonical_name_zh": "M795型155毫米炮弹",
+      "aliases": ["M795 projectile", "155 mm M795"]
+    },
+    "classification": {
+      "domain": "Ammunition",
+      "class": "ArtilleryAmmunition",
+      "subclass": "155mmProjectile",
+      "eras": ["POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "artillery", "155_mm", "m795", "projectile"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public designation and weapon-family compatibility only; no loading, fuze, manufacture, employment or effects detail.",
+      "claims": [
+        {
+          "field": "ammunition_designation",
+          "value": "M795",
+          "unit": "designation",
+          "qualifiers": {"caliber_family": "155 mm"},
+          "source_urls": ["https://www.army.mil/article/262594/army_contract_actions_to_increase_155_mm_artillery_shell_body_capacity"]
+        },
+        {
+          "field": "ammunition_category",
+          "value": "155 mm artillery projectile",
+          "unit": "text",
+          "qualifiers": {"family_scope": "M795"},
+          "source_urls": ["https://www.army.mil/article/287732/new_production_facility_opens_to_streamline_artillery_production"]
+        },
+        {
+          "field": "compatibility_context",
+          "value": "documented for M777A2 and M109A7 weapon-family contexts",
+          "unit": "text",
+          "qualifiers": {"not_inferred_from_caliber_alone": true},
+          "source_urls": ["https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Precision-Fires-Mortars/Products/PGK/"]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_army_m795_capacity",
+          "url": "https://www.army.mil/article/262594/army_contract_actions_to_increase_155_mm_artillery_shell_body_capacity"
+        },
+        {
+          "source_id": "us_army_pgk_compatibility",
+          "url": "https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Precision-Fires-Mortars/Products/PGK/"
+        },
+        {
+          "source_id": "us_army_m795_facility",
+          "url": "https://www.army.mil/article/287732/new_production_facility_opens_to_streamline_artillery_production"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:ammunition:mortar:3_inch_stokes_bomb",
+    "entity_type": "ammunition",
+    "identity": {
+      "canonical_name_en": "3-inch Stokes mortar bomb",
+      "canonical_name_zh": "3英寸斯托克斯迫击炮弹",
+      "aliases": ["3 inch Stokes Trench Mortar Bomb", "Bomb, Mortar 3-inch Stokes"]
+    },
+    "classification": {
+      "domain": "Ammunition",
+      "class": "MortarAmmunition",
+      "subclass": "HistoricalMortarBomb",
+      "eras": ["WWI"],
+      "tags": ["british", "mortar", "3_inch", "stokes", "museum_object"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Museum-object identification and compatibility only; no fuze, filling, manufacture, loading or employment instructions.",
+      "claims": [
+        {
+          "field": "ammunition_category",
+          "value": "3-inch Stokes mortar bomb",
+          "unit": "text",
+          "qualifiers": {"object_type": "museum munition object"},
+          "source_urls": ["https://www.awm.gov.au/collection/RELAWM01909"]
+        },
+        {
+          "field": "collection_identity",
+          "value": "RELAWM01909 and IWM MUN 3125",
+          "unit": "designation",
+          "qualifiers": {"object_records": "kept distinct; family compatibility only"},
+          "source_urls": [
+            "https://www.awm.gov.au/collection/RELAWM01909",
+            "https://www.iwm.org.uk/collections/item/object/30021404"
+          ]
+        },
+        {
+          "field": "historical_context",
+          "value": "First World War British service",
+          "unit": "text",
+          "qualifiers": {"period": "1914-1918"},
+          "source_urls": [
+            "https://www.awm.gov.au/collection/RELAWM01909",
+            "https://www.iwm.org.uk/collections/item/object/30021404"
+          ]
+        },
+        {
+          "field": "compatibility_context",
+          "value": "3-inch Stokes mortar",
+          "unit": "text",
+          "qualifiers": {"not_inferred_from_diameter_alone": true},
+          "source_urls": [
+            "https://www.awm.gov.au/collection/RELAWM01909",
+            "https://www.iwm.org.uk/collections/item/object/30021404"
+          ]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "awm_stokes_munition", "url": "https://www.awm.gov.au/collection/RELAWM01909"},
+        {"source_id": "iwm_stokes_munition", "url": "https://www.iwm.org.uk/collections/item/object/30021404"}
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  }
+]

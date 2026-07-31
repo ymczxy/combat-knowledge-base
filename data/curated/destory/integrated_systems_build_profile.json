@@ -1,0 +1,37 @@
+{
+  "profile_id": "destory-integrated-systems",
+  "include_domains": ["Platform", "System", "Component", "Weapon", "Ammunition"],
+  "priority_tags": ["artillery", "mortar", "missile", "air_defense", "radar", "interceptor"],
+  "include_experience_profile": false,
+  "include_unverified": false,
+  "outputs": ["godot_runtime_json", "godot_lock"],
+  "godot_runtime_bundle": {
+    "enabled": true,
+    "bundle_id": "destory-integrated-systems-runtime-v1",
+    "format_version": 1,
+    "output_filename": "ckb_destory_integrated_systems_runtime.json",
+    "lock_filename": "ckb-integrated-systems-lock.json",
+    "derived_metric_specs": "data/derived/technical_metrics_destory_game.json",
+    "include_experience_profile": false,
+    "technical_fields": [],
+    "allowed_review_statuses": ["source_checked", "cross_checked", "expert_reviewed"],
+    "entity_ids": [
+      "ckb:weapon:artillery:m777a2_howitzer",
+      "ckb:platform:ground:m109a7_paladin",
+      "ckb:ammunition:artillery:m795_155mm_projectile",
+      "ckb:weapon:artillery:stokes_mortar",
+      "ckb:ammunition:mortar:3_inch_stokes_bomb",
+      "ckb:system:air_defense:patriot",
+      "ckb:component:sensor:patriot_an_mpq_65",
+      "ckb:weapon:missile:patriot_pac_3_interceptor",
+      "ckb:weapon:missile:fgm_148_javelin",
+      "ckb:component:sensor:javelin_command_launch_unit",
+      "ckb:system:air_defense:iron_dome",
+      "ckb:component:sensor:elm_2084_mmr",
+      "ckb:weapon:missile:tamir_interceptor",
+      "ckb:system:air_defense:nasams",
+      "ckb:component:sensor:an_mpq_64_sentinel",
+      "ckb:weapon:missile:aim_120_amraam"
+    ]
+  }
+}

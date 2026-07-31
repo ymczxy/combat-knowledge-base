@@ -1,0 +1,41 @@
+{
+  "profile_id": "destory-naval",
+  "include_domains": ["Platform", "Component", "Weapon", "Ammunition", "Context"],
+  "priority_tags": ["naval", "ship_class", "named_vessel", "propulsion", "radar", "sonar", "torpedo"],
+  "include_experience_profile": false,
+  "include_unverified": false,
+  "outputs": ["godot_runtime_json", "godot_lock"],
+  "godot_runtime_bundle": {
+    "enabled": true,
+    "bundle_id": "destory-naval-runtime-v1",
+    "format_version": 1,
+    "output_filename": "ckb_destory_naval_runtime.json",
+    "lock_filename": "ckb-naval-lock.json",
+    "derived_metric_specs": "data/derived/technical_metrics_destory_game.json",
+    "include_experience_profile": false,
+    "technical_fields": [],
+    "allowed_review_statuses": ["source_checked", "cross_checked", "expert_reviewed"],
+    "entity_ids": [
+      "ckb:platform:naval:arleigh_burke_class",
+      "ckb:component:engine:ge_lm2500_marine",
+      "ckb:component:sensor:an_spy_1d",
+      "ckb:weapon:naval:mk_41_vls",
+      "ckb:weapon:naval:mk_45_mod_4_5_inch_gun",
+      "ckb:ammunition:naval:5_inch_62_conventional_round_family",
+      "ckb:platform:naval:type_45_daring_class",
+      "ckb:platform:naval:hms_daring_d32",
+      "ckb:organization:military:royal_navy",
+      "ckb:component:engine:rolls_royce_wr_21",
+      "ckb:component:sensor:sampson_radar",
+      "ckb:weapon:naval:sea_viper",
+      "ckb:platform:naval:virginia_class",
+      "ckb:platform:naval:uss_virginia_ssn_774",
+      "ckb:organization:military:united_states_navy",
+      "ckb:component:engine:virginia_class_nuclear_propulsion",
+      "ckb:component:sensor:an_bps_16_v4",
+      "ckb:component:sensor:an_bqq_10_arci",
+      "ckb:weapon:missile:tomahawk_tlam",
+      "ckb:weapon:torpedo:mk_48_adcap"
+    ]
+  }
+}

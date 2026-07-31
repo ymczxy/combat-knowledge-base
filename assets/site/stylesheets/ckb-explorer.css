@@ -1,0 +1,161 @@
+.ckb-explorer {
+  --ckb-border: color-mix(in srgb, currentColor 18%, transparent);
+  --ckb-panel: color-mix(in srgb, var(--md-default-bg-color) 92%, var(--md-primary-fg-color));
+}
+
+.ckb-filter-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--ckb-border);
+  border-radius: 0.75rem;
+  background: var(--ckb-panel);
+}
+
+.ckb-filter-panel label,
+.ckb-graph-toolbar label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.ckb-filter-panel input,
+.ckb-filter-panel select,
+.ckb-graph-toolbar select {
+  min-height: 2.2rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--ckb-border);
+  border-radius: 0.35rem;
+  color: inherit;
+  background: var(--md-default-bg-color);
+}
+
+.ckb-filter-panel .ckb-check {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ckb-workspace {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.85fr) minmax(20rem, 1.6fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.ckb-results {
+  max-height: 42rem;
+  overflow: auto;
+  padding-right: 0.35rem;
+}
+
+.ckb-result-card,
+.ckb-node-card,
+.ckb-evidence {
+  margin: 0.65rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--ckb-border);
+  border-radius: 0.55rem;
+  background: var(--ckb-panel);
+}
+
+.ckb-result-card h3 {
+  margin: 0 0 0.25rem;
+}
+
+.ckb-result-card p {
+  margin: 0.2rem 0;
+}
+
+.ckb-result-card div,
+.ckb-graph-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: end;
+}
+
+.ckb-explorer button {
+  padding: 0.38rem 0.62rem;
+  border: 1px solid var(--md-primary-fg-color);
+  border-radius: 0.35rem;
+  color: var(--md-primary-fg-color);
+  background: transparent;
+  cursor: pointer;
+}
+
+.ckb-explorer button:hover {
+  color: var(--md-primary-bg-color);
+  background: var(--md-primary-fg-color);
+}
+
+.ckb-explorer button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ckb-graph {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.ckb-node-card {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr) auto;
+  gap: 0.35rem 0.75rem;
+  align-items: center;
+}
+
+.ckb-node-card code {
+  grid-column: 1 / -1;
+  overflow-wrap: anywhere;
+}
+
+.ckb-graph-children {
+  margin-left: 1rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--ckb-border);
+}
+
+.ckb-edge-row {
+  margin: 0.55rem 0;
+}
+
+.ckb-edge-label {
+  display: inline-block;
+  min-width: 8rem;
+  font-family: var(--md-code-font-family);
+}
+
+.ckb-expanded-node {
+  margin-left: 1rem;
+}
+
+.ckb-evidence pre {
+  max-height: 28rem;
+  overflow: auto;
+}
+
+.ckb-query-summary,
+.ckb-muted {
+  color: var(--md-default-fg-color--light);
+}
+
+.ckb-error {
+  color: var(--md-typeset-color);
+  background: var(--md-typeset-del-color);
+  padding: 0.75rem;
+  border-radius: 0.4rem;
+}
+
+@media (max-width: 60rem) {
+  .ckb-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .ckb-results {
+    max-height: 28rem;
+  }
+}

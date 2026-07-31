@@ -57,6 +57,33 @@ jobs:
             --lock /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json \
             --output /tmp/ckb-small-arms-runtime-contract.json \
             --fail-on-error
+          PYTHONPATH=src python -m ckb.godot_bundle \
+            --profile data/curated/destory/aviation_build_profile.json \
+            --output /tmp/ckb-godot-aviation \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.runtime_contract \
+            --bundle /tmp/ckb-godot-aviation/ckb_destory_aviation_runtime.json \
+            --lock /tmp/ckb-godot-aviation/ckb-aviation-lock.json \
+            --output /tmp/ckb-aviation-runtime-contract.json \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.godot_bundle \
+            --profile data/curated/destory/naval_build_profile.json \
+            --output /tmp/ckb-godot-naval \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.runtime_contract \
+            --bundle /tmp/ckb-godot-naval/ckb_destory_naval_runtime.json \
+            --lock /tmp/ckb-godot-naval/ckb-naval-lock.json \
+            --output /tmp/ckb-naval-runtime-contract.json \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.godot_bundle \
+            --profile data/curated/destory/integrated_systems_build_profile.json \
+            --output /tmp/ckb-godot-integrated-systems \
+            --fail-on-error
+          PYTHONPATH=src python -m ckb.runtime_contract \
+            --bundle /tmp/ckb-godot-integrated-systems/ckb_destory_integrated_systems_runtime.json \
+            --lock /tmp/ckb-godot-integrated-systems/ckb-integrated-systems-lock.json \
+            --output /tmp/ckb-integrated-systems-runtime-contract.json \
+            --fail-on-error
 
       - name: Prepare Godot smoke project
         shell: bash
@@ -76,6 +103,20 @@ jobs:
           cp /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json examples/godot_smoke_small/data/
           cp /tmp/ckb-small-arms-runtime-contract.json examples/godot_smoke_small/artifacts/python_runtime_contract.json
           cp /tmp/godot-version.txt examples/godot_smoke_small/artifacts/godot_version.txt
+          mkdir -p \
+            examples/godot_smoke_domains/data/aviation \
+            examples/godot_smoke_domains/data/naval \
+            examples/godot_smoke_domains/data/integrated \
+            examples/godot_smoke_domains/artifacts
+          cp examples/godot/CKBRuntimeBundle.gd examples/godot_smoke_domains/CKBRuntimeBundle.gd
+          cp examples/godot/CKBQuery.gd examples/godot_smoke_domains/CKBQuery.gd
+          cp /tmp/ckb-godot-aviation/ckb_destory_aviation_runtime.json examples/godot_smoke_domains/data/aviation/
+          cp /tmp/ckb-godot-aviation/ckb-aviation-lock.json examples/godot_smoke_domains/data/aviation/
+          cp /tmp/ckb-godot-naval/ckb_destory_naval_runtime.json examples/godot_smoke_domains/data/naval/
+          cp /tmp/ckb-godot-naval/ckb-naval-lock.json examples/godot_smoke_domains/data/naval/
+          cp /tmp/ckb-godot-integrated-systems/ckb_destory_integrated_systems_runtime.json examples/godot_smoke_domains/data/integrated/
+          cp /tmp/ckb-godot-integrated-systems/ckb-integrated-systems-lock.json examples/godot_smoke_domains/data/integrated/
+          cp /tmp/godot-version.txt examples/godot_smoke_domains/artifacts/godot_version.txt
 
       - name: Run actual Godot Linux scene and capture screenshot
         shell: bash
@@ -103,6 +144,12 @@ jobs:
           grep -q 'CKB_GODOT_SMALL_ARMS_SMOKE_RESULT=PASS' examples/godot_smoke_small/artifacts/godot_console.log
           test -s examples/godot_smoke_small/artifacts/godot_small_arms_smoke.png
           test -s examples/godot_smoke_small/artifacts/godot_small_arms_smoke.json
+          timeout 45s /tmp/godot/godot \
+            --headless \
+            --path examples/godot_smoke_domains \
+            2>&1 | tee examples/godot_smoke_domains/artifacts/godot_console.log
+          grep -q 'CKB_GODOT_DOMAIN_RUNTIME_SMOKE_RESULT=PASS' examples/godot_smoke_domains/artifacts/godot_console.log
+          test -s examples/godot_smoke_domains/artifacts/godot_domain_runtime_smoke.json
 
       - name: Run integrated destory project harness
         shell: bash
@@ -147,6 +194,10 @@ jobs:
             examples/godot_smoke_small/project.godot
             examples/godot_smoke_small/Smoke.gd
             examples/godot_smoke_small/Smoke.tscn
+            examples/godot_smoke_domains/artifacts/
+            examples/godot_smoke_domains/project.godot
+            examples/godot_smoke_domains/DomainSmoke.gd
+            examples/godot_smoke_domains/DomainSmoke.tscn
             godot/artifacts/
             godot/project.godot
             godot/DestoryIntegration.gd

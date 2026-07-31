@@ -1,0 +1,30 @@
+{
+  "profile_id": "destory-aviation",
+  "include_domains": ["Platform", "Component", "Weapon", "Ammunition"],
+  "priority_tags": ["fighter", "jet", "engine", "airborne", "radar", "air_to_air"],
+  "include_experience_profile": false,
+  "include_unverified": false,
+  "outputs": ["godot_runtime_json", "godot_lock"],
+  "godot_runtime_bundle": {
+    "enabled": true,
+    "bundle_id": "destory-aviation-runtime-v1",
+    "format_version": 1,
+    "output_filename": "ckb_destory_aviation_runtime.json",
+    "lock_filename": "ckb-aviation-lock.json",
+    "derived_metric_specs": "data/derived/technical_metrics_destory_game.json",
+    "include_experience_profile": false,
+    "technical_fields": [],
+    "allowed_review_statuses": ["source_checked", "cross_checked", "expert_reviewed"],
+    "entity_ids": [
+      "ckb:platform:air:spitfire_mk_i",
+      "ckb:component:engine:rolls_royce_merlin_ii",
+      "ckb:ammunition:cartridge:303_british",
+      "ckb:platform:air:f_16c_fighting_falcon",
+      "ckb:component:engine:pratt_whitney_f100_pw_220",
+      "ckb:platform:air:f_15_eagle_family",
+      "ckb:platform:air:f_15e_strike_eagle",
+      "ckb:component:sensor:an_apg_82_v1",
+      "ckb:weapon:missile:aim_120_amraam"
+    ]
+  }
+}

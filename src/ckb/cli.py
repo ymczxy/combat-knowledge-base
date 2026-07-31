@@ -19,7 +19,7 @@ from .resolution import SearchCache, decide_matches, write_resolution_bundle
 from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
 from .temporal import build_temporal_index
-from .query import entity_evidence, related_entities, search_entities
+from .query import entity_evidence, fact_evidence, related_entities, search_entities
 from .visualizations import write_visualization_artifacts
 from .validation import validate_all
 
@@ -102,8 +102,16 @@ def main() -> None:
     query.add_argument("--text")
     query.add_argument("--entity-type")
     query.add_argument("--domain")
+    query.add_argument("--class", dest="entity_class")
+    query.add_argument("--subclass")
     query.add_argument("--era")
+    query.add_argument("--tag")
+    query.add_argument("--review-status")
+    query.add_argument("--technical-field")
+    query.add_argument("--minimum-sources", type=int, default=0)
+    query.add_argument("--has-technical", action="store_true")
     query.add_argument("--entity-id")
+    query.add_argument("--fact-id")
     query.add_argument("--predicate")
     query.add_argument("--direction", choices=["out", "in", "both"], default="both")
     query.add_argument("--limit", type=int, default=50)
@@ -232,6 +240,18 @@ def main() -> None:
     if args.cmd == "query":
         if args.limit < 1:
             raise SystemExit("--limit must be positive")
+        if args.minimum_sources < 0:
+            raise SystemExit("--minimum-sources must be non-negative")
+        if args.entity_id and args.fact_id:
+            raise SystemExit("--entity-id and --fact-id are mutually exclusive")
+        if args.fact_id:
+            graph_model = _build_graph(entities)
+            try:
+                payload = fact_evidence(graph_model, args.fact_id)
+            except KeyError:
+                raise SystemExit(f"unknown fact: {args.fact_id}") from None
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+            return
         if args.entity_id:
             graph_model = _build_graph(entities)
             if args.entity_id not in graph_model.entities:
@@ -246,7 +266,14 @@ def main() -> None:
                 text=args.text,
                 entity_type=args.entity_type,
                 domain=args.domain,
+                entity_class=args.entity_class,
+                subclass=args.subclass,
                 era=args.era,
+                tag=args.tag,
+                review_status=args.review_status,
+                technical_field=args.technical_field,
+                minimum_sources=args.minimum_sources,
+                has_technical=True if args.has_technical else None,
                 limit=args.limit,
             )
         print(json.dumps([entity.raw for entity in rows], ensure_ascii=False, indent=2))

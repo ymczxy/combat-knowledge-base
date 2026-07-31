@@ -1,0 +1,256 @@
+[
+  {
+    "id": "ckb:weapon:naval:mk_45_mod_4_5_inch_gun",
+    "entity_type": "weapon",
+    "identity": {
+      "canonical_name_en": "Mk 45 Mod 4 5-inch/62-caliber naval gun",
+      "canonical_name_zh": "Mk 45 Mod 4型5英寸/62倍径舰炮",
+      "aliases": ["Mk 45 Mod 4", "5-inch/62-caliber Mk 45 gun"]
+    },
+    "classification": {
+      "domain": "Weapon",
+      "class": "NavalWeaponSystem",
+      "subclass": "NavalGunMount",
+      "eras": ["CONTEMPORARY"],
+      "tags": ["american", "naval", "gun_mount", "5_inch", "arleigh_burke"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public system identity, ship-class fit and ammunition-family boundary only; no firing or maintenance procedures.",
+      "claims": [
+        {
+          "field": "weapon_system_type",
+          "value": "fully automatic naval gun mount",
+          "unit": "text",
+          "qualifiers": {"designation": "Mk 45"},
+          "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"]
+        },
+        {
+          "field": "configuration",
+          "value": "Mk 45 Mod 4 with 5-inch/62-caliber barrel",
+          "unit": "designation",
+          "qualifiers": {"configuration_specific": true},
+          "source_urls": ["https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"]
+        },
+        {
+          "field": "platform_context",
+          "value": "installed on later DDG 51-class destroyers",
+          "unit": "text",
+          "qualifiers": {"class_scope": "Arleigh Burke class; flight and hull dependent"},
+          "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"]
+        },
+        {
+          "field": "ammunition_context",
+          "value": "uses conventional 5-inch naval-gun ammunition",
+          "unit": "text",
+          "qualifiers": {"family_scope": "public Navy fact-file wording"},
+          "source_urls": [
+            "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/",
+            "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+          ]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_navy_mk45_fact_file",
+          "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"
+        },
+        {
+          "source_id": "secnav_fy2013_shipbuilding_book",
+          "url": "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:ammunition:naval:5_inch_62_conventional_round_family",
+    "entity_type": "ammunition",
+    "identity": {
+      "canonical_name_en": "5-inch/62 conventional naval-gun round family",
+      "canonical_name_zh": "5英寸/62倍径常规舰炮弹药家族",
+      "aliases": ["5-inch/62 conventional ammunition", "Mk 45 Mod 4 conventional round family"]
+    },
+    "classification": {
+      "domain": "Ammunition",
+      "class": "NavalGunAmmunition",
+      "subclass": "NavalGunRoundFamily",
+      "eras": ["CONTEMPORARY"],
+      "tags": ["american", "naval", "5_inch", "conventional_ammunition", "mk_45"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Family-level public identification and compatibility only; no loading, manufacture, fuze or employment detail.",
+      "claims": [
+        {
+          "field": "ammunition_category",
+          "value": "conventional naval-gun ammunition",
+          "unit": "text",
+          "qualifiers": {"family_scope": "Mk 45 public fact-file category"},
+          "source_urls": ["https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"]
+        },
+        {
+          "field": "caliber_designation",
+          "value": "5-inch/62-caliber system family",
+          "unit": "designation",
+          "qualifiers": {"configuration": "Mk 45 Mod 4"},
+          "source_urls": ["https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"]
+        },
+        {
+          "field": "compatibility_context",
+          "value": "documented conventional-ammunition family for the Mk 45 Mod 4 gun mount",
+          "unit": "text",
+          "qualifiers": {"not_inferred_from_caliber_alone": true},
+          "source_urls": [
+            "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/",
+            "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+          ]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_navy_mk45_fact_file",
+          "url": "https://www.navy.mil/Resources/Fact-Files/Display-FactFiles/Article/2167864/mk-45-5-inch-5462-caliber-guns/mk-45-5-inch-5462-caliber-guns/"
+        },
+        {
+          "source_id": "secnav_fy2013_shipbuilding_book",
+          "url": "https://www.secnav.navy.mil/fmc/fmb/Documents/13pres/SCN_Book.pdf"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:weapon:torpedo:mk_48_adcap",
+    "entity_type": "weapon",
+    "identity": {
+      "canonical_name_en": "Mk 48 Advanced Capability heavyweight torpedo",
+      "canonical_name_zh": "Mk 48先进能力重型鱼雷",
+      "aliases": ["Mk 48 ADCAP", "MK 48 heavyweight torpedo"]
+    },
+    "classification": {
+      "domain": "Weapon",
+      "class": "Torpedo",
+      "subclass": "SubmarineLaunchedHeavyweightTorpedo",
+      "eras": ["LATE_COLD_WAR", "POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "naval", "submarine", "torpedo", "virginia_class"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public identity and platform compatibility only; no guidance, employment, maintenance or construction detail.",
+      "claims": [
+        {
+          "field": "weapon_role",
+          "value": "submarine-launched heavyweight torpedo",
+          "unit": "text",
+          "qualifiers": {"family": "Mk 48"},
+          "source_urls": ["https://www.sublant.usff.navy.mil/NSTFY/"]
+        },
+        {
+          "field": "configuration",
+          "value": "Advanced Capability (ADCAP) family",
+          "unit": "designation",
+          "qualifiers": {"variant_values": "kept outside this family-level record"},
+          "source_urls": ["https://www.history.navy.mil/research/histories/ship-histories/danfs/m/montana-ii--ssn-794-.html"]
+        },
+        {
+          "field": "platform_context",
+          "value": "documented armament for Virginia-class submarines",
+          "unit": "text",
+          "qualifiers": {"class_scope": "Virginia class"},
+          "source_urls": [
+            "https://www.history.navy.mil/research/histories/ship-histories/danfs/m/montana-ii--ssn-794-.html",
+            "https://www.sublant.usff.navy.mil/About-Us/Submarine-Facts/"
+          ]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "us_navy_torpedo_facility", "url": "https://www.sublant.usff.navy.mil/NSTFY/"},
+        {
+          "source_id": "nhhc_montana_ssn794",
+          "url": "https://www.history.navy.mil/research/histories/ship-histories/danfs/m/montana-ii--ssn-794-.html"
+        },
+        {"source_id": "sublant_submarine_facts", "url": "https://www.sublant.usff.navy.mil/About-Us/Submarine-Facts/"}
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:component:sensor:an_bqq_10_arci",
+    "entity_type": "component",
+    "identity": {
+      "canonical_name_en": "AN/BQQ-10 Acoustic Rapid COTS Insertion sonar system",
+      "canonical_name_zh": "AN/BQQ-10声学快速商用品插入声呐系统",
+      "aliases": ["AN/BQQ-10", "A-RCI sonar system", "ARCI sonar"]
+    },
+    "classification": {
+      "domain": "Component",
+      "class": "Sensor",
+      "subclass": "SubmarineSonarSystem",
+      "eras": ["POST_COLD_WAR", "CONTEMPORARY"],
+      "tags": ["american", "naval", "submarine", "sonar", "arci", "virginia_class"]
+    },
+    "technical": {
+      "profile_version": "1.0",
+      "profile_scope": "Public program identity and platform association only; no signal-processing, detection or operational procedures.",
+      "claims": [
+        {
+          "field": "sensor_type",
+          "value": "submarine sonar system",
+          "unit": "text",
+          "qualifiers": {"designation": "AN/BQQ-10"},
+          "source_urls": ["https://www.optevfor.navy.mil/Warfare-Divisions/Undersea-Warfare/"]
+        },
+        {
+          "field": "program_name",
+          "value": "Acoustic Rapid COTS Insertion",
+          "unit": "designation",
+          "qualifiers": {"abbreviation": "A-RCI"},
+          "source_urls": ["https://www.navsea.navy.mil/Portals/103/Documents/NUWC_Newport/AnnualOverviewfinal.pdf"]
+        },
+        {
+          "field": "platform_context",
+          "value": "fielded on Virginia-class submarine platforms",
+          "unit": "text",
+          "qualifiers": {"block_scope": "public program references include Virginia-class blocks"},
+          "source_urls": [
+            "https://www.optevfor.navy.mil/Warfare-Divisions/Undersea-Warfare/",
+            "https://www.navsea.navy.mil/Portals/103/Documents/NUWC_Newport/AnnualOverviewfinal.pdf"
+          ]
+        }
+      ]
+    },
+    "relationships": [],
+    "experience_profile": null,
+    "gameplay": {"status": "draft"},
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "us_navy_optevfor_undersea", "url": "https://www.optevfor.navy.mil/Warfare-Divisions/Undersea-Warfare/"},
+        {
+          "source_id": "navsea_nuwc_annual_overview",
+          "url": "https://www.navsea.navy.mil/Portals/103/Documents/NUWC_Newport/AnnualOverviewfinal.pdf"
+        }
+      ]
+    },
+    "rights": {"rights_status": "deferred"}
+  }
+]

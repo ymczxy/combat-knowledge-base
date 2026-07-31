@@ -1,0 +1,27 @@
+[
+  {
+    "id": "rel:v1_6_2_release:spitfire_mk_i:uses_ammunition:303_british",
+    "source_id": "ckb:platform:air:spitfire_mk_i",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:cartridge:303_british",
+    "confidence": 0.98,
+    "qualifiers": {
+      "scope": "Spitfire Mk I eight-.303-machine-gun armament configuration",
+      "configuration_specific": true,
+      "not_inferred_from_caliber_alone": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "imperial_war_museums_spitfire_armament",
+          "url": "https://www.iwm.org.uk/events/battle-of-britain-spitfire-vs-hurricane"
+        },
+        {
+          "source_id": "raf_museum_spitfire_k9942",
+          "url": "https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"
+        }
+      ]
+    }
+  }
+]

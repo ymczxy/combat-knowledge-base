@@ -1,7 +1,7 @@
 # v2.0.0 Stable Release
 
-v2.0.0 is the first stable CKB release. It freezes the core schema, predicate endpoint semantics, canonical entity envelope, technical normalization contract, and Godot runtime Bundle/Lock compatibility contract.
+This compatibility document points to the complete versioned release record in `V2_0_0_RELEASE.md` and the requirement-by-requirement acceptance matrix in `V1_6_TO_V2_0_ACCEPTANCE.md`.
 
-The release includes source-traceable content across armored vehicles, small arms and ammunition, aviation, naval propulsion, air defense/sensors, and a first time-place-organization-battle context graph. It also includes deterministic temporal indexing, explicit Python queries, a Godot query SDK, independent relationship assertions in runtime Bundles, and migration/rollback rules.
+v2.0.0 closes the approved v1.6–v2.0 roadmap boundary: five consumable equipment-domain closures, all nine context entity types, all five required v1.7 graph outputs, the complete v1.8 interactive query/evidence surface, and the formal v1.9 Godot consumption layer integrated into `destory`.
 
-Release acceptance is defined by `python -m ckb.stability_gate --fail-on-error`, the complete unittest suite, governance audits, reproducible Bundle/Lock contracts, and remote Godot 4.7.1 Linux Smoke.
+The exact content and seven Runtime Bundle/Lock snapshots are frozen in `data/releases/v2_0_0.json`. Final acceptance additionally requires official Godot 4.7.1 execution, default-branch merges, and green remote CI.

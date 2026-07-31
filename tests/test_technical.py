@@ -162,11 +162,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 40)
-        self.assertEqual(summary["claim_count"], 261)
-        self.assertEqual(summary["numeric_claim_count"], 95)
-        self.assertEqual(summary["normalized_numeric_claim_count"], 95)
-        self.assertEqual(summary["descriptive_claim_count"], 166)
+        self.assertEqual(summary["profile_entity_count"], 123)
+        self.assertEqual(summary["claim_count"], 521)
+        self.assertEqual(summary["numeric_claim_count"], 96)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 96)
+        self.assertEqual(summary["descriptive_claim_count"], 425)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,
@@ -175,7 +175,13 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_expected_profile_entities_are_present(self):
         actual = {row["entity_id"] for row in self.payload["rows"]}
-        self.assertEqual(actual, PROFILE_ENTITY_IDS)
+        expected_all = {
+            entity.id
+            for entity in self.entities
+            if isinstance(entity.technical, dict) and entity.technical.get("claims")
+        }
+        self.assertEqual(actual, expected_all)
+        self.assertTrue(PROFILE_ENTITY_IDS <= actual)
 
     def test_multiple_configurations_remain_multiple_rows(self):
         rows = [

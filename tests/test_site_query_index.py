@@ -23,11 +23,23 @@ class SiteQueryIndexTests(unittest.TestCase):
             output = Path(tmp) / "site"
             build_site_docs(entities, catalog, ROOT, output, relationships)
             index = json.loads((output / "query-index.json").read_text(encoding="utf-8"))
-            self.assertEqual(index["schema_version"], "1.0")
+            self.assertEqual(index["schema_version"], "1.1")
             self.assertEqual(len(index["entities"]), len(entities))
             self.assertEqual(len(index["relationships"]), len(relationships))
+            self.assertEqual(index["contract"]["evidence_chain"], ["fact", "assertions", "sources"])
+            self.assertTrue(index["facts"])
+            self.assertTrue(all(row["assertions"] for row in index["facts"]))
             self.assertTrue(any(row["predicate"] == "uses_sensor" for row in index["relationships"]))
             self.assertTrue((output / "relationships" / "index.md").exists())
+            self.assertTrue((output / "explorer" / "index.md").exists())
+            self.assertTrue((output / "assets" / "javascripts" / "ckb-explorer.js").exists())
+            self.assertTrue((output / "assets" / "stylesheets" / "ckb-explorer.css").exists())
+
+            patriot_page = (
+                output / "entities" / "ckb__system__air_defense__patriot.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn("rel:v1_6_4_batch_01:patriot:uses_sensor:an_mpq_65", patriot_page)
+            self.assertIn("关系断言与证据", patriot_page)
 
 
 if __name__ == "__main__":

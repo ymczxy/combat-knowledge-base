@@ -1,0 +1,15 @@
+; Engine configuration file.
+; Generated for the CKB domain-runtime matrix smoke test.
+
+config_version=5
+
+[application]
+
+config/name="CKB Godot Domain Runtime Matrix"
+run/main_scene="res://DomainSmoke.tscn"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+

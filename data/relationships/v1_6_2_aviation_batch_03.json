@@ -1,0 +1,98 @@
+[
+  {
+    "id": "rel:v1_6_2_batch_03:f_15e:variant_of:f_15_family",
+    "source_id": "ckb:platform:air:f_15e_strike_eagle",
+    "predicate": "variant_of",
+    "target_id": "ckb:platform:air:f_15_eagle_family",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "F-15E is a named member of the F-15 aircraft family",
+      "configuration_specific": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_f15e",
+          "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"
+        },
+        {
+          "source_id": "boeing_f15_history",
+          "url": "https://www.boeing.com/features/2026/02/built-to-adapt-the-f-15s-transformation-and-global-impact"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_2_batch_03:f_15e:uses_engine:f100_pw_220",
+    "source_id": "ckb:platform:air:f_15e_strike_eagle",
+    "predicate": "uses_engine",
+    "target_id": "ckb:component:engine:pratt_whitney_f100_pw_220",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "documented F-15E engine option",
+      "configuration_specific": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_f15e",
+          "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"
+        },
+        {
+          "source_id": "air_combat_command_f15e",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_2_batch_03:f_15e:uses_sensor:apg_82",
+    "source_id": "ckb:platform:air:f_15e_strike_eagle",
+    "predicate": "uses_sensor",
+    "target_id": "ckb:component:sensor:an_apg_82_v1",
+    "confidence": 0.98,
+    "qualifiers": {
+      "scope": "modernized F-15E radar configuration",
+      "configuration_specific": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "air_combat_command_f15e",
+          "url": "https://www.acc.af.mil/Portals/92/Docs/Fact%20Sheets%20-%202020%20Update/Facts%20Sheets%20-%202023%20Update/F-15E%20Strike%20Eagle_FEB%202023.pdf"
+        },
+        {
+          "source_id": "rtx_apg82",
+          "url": "https://www.rtx.com/raytheon/what-we-do/air/apg82v1"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_2_batch_03:f_15e:armed_with:aim_120",
+    "source_id": "ckb:platform:air:f_15e_strike_eagle",
+    "predicate": "armed_with",
+    "target_id": "ckb:weapon:missile:aim_120_amraam",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "documented F-15E air-to-air armament",
+      "configuration_specific": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_air_force_f15e",
+          "url": "https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104499/f-15e-strike-eagle/"
+        },
+        {
+          "source_id": "us_air_force_amraam",
+          "url": "https://www.af.mil/News/Article-Display/Article/104576/aim-120-amraam/"
+        }
+      ]
+    }
+  }
+]

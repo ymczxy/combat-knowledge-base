@@ -1,0 +1,620 @@
+[
+  {
+    "id": "ckb:country:united_kingdom",
+    "entity_type": "country",
+    "identity": {"canonical_name_en": "United Kingdom", "canonical_name_zh": "英国", "aliases": ["UK", "United Kingdom of Great Britain and Northern Ireland"]},
+    "classification": {"domain": "Context", "class": "Country", "subclass": "State", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["europe", "state", "battle_of_britain"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context only.", "claims": [
+      {"field": "historical_role", "value": "principal Allied state defended during the Battle of Britain", "unit": "text", "qualifiers": {"period": "1940"}, "source_urls": ["https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"]},
+      {"field": "theater_context", "value": "home territory of RAF Fighter Command", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]},
+      {"field": "state_type", "value": "sovereign state", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.gov.uk/government/history/past-prime-ministers/winston-churchill"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"}, {"source_id": "uk_government", "url": "https://www.gov.uk/government/history/past-prime-ministers/winston-churchill"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:raf_fighter_command",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "RAF Fighter Command", "canonical_name_zh": "英国皇家空军战斗机司令部", "aliases": ["Fighter Command"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "AirCommand", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["british", "royal_air_force", "air_defense"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public organization history only.", "claims": [
+      {"field": "service", "value": "Royal Air Force", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]},
+      {"field": "wartime_role", "value": "directed British fighter defence during the Battle of Britain", "unit": "text", "qualifiers": {"period": "1940"}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]},
+      {"field": "command_structure", "value": "four geographical groups subdivided into sectors", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:manufacturer:supermarine_aviation_works",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Supermarine Aviation Works", "canonical_name_zh": "超级马林航空制造公司", "aliases": ["Supermarine"]},
+    "classification": {"domain": "Context", "class": "Manufacturer", "subclass": "AircraftManufacturer", "eras": ["INTERWAR", "WWII"], "tags": ["british", "manufacturer", "aircraft"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public manufacturer history only.", "claims": [
+      {"field": "industry", "value": "aircraft manufacturing", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]},
+      {"field": "known_product", "value": "Supermarine Spitfire", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"]},
+      {"field": "design_context", "value": "R. J. Mitchell led the Spitfire design team", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:unit:military:raf_no_11_group",
+    "entity_type": "unit",
+    "identity": {"canonical_name_en": "No. 11 Group RAF", "canonical_name_zh": "英国皇家空军第11大队", "aliases": ["11 Group", "No 11 Group"]},
+    "classification": {"domain": "Context", "class": "MilitaryUnit", "subclass": "AirGroup", "eras": ["WWII"], "tags": ["british", "royal_air_force", "fighter_command"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public unit history only.", "claims": [
+      {"field": "parent_command", "value": "RAF Fighter Command", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]},
+      {"field": "area", "value": "London and south-east England", "unit": "text", "qualifiers": {"period": "1940"}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]},
+      {"field": "battle_role", "value": "bore the heaviest fighting during the Battle of Britain", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:battle:britain:battle_of_britain",
+    "entity_type": "battle",
+    "identity": {"canonical_name_en": "Battle of Britain", "canonical_name_zh": "不列颠战役", "aliases": ["Battle of Britain 1940"]},
+    "classification": {"domain": "Battle", "class": "AirBattle", "subclass": "AirCampaignBattle", "eras": ["WWII"], "tags": ["britain", "royal_air_force", "luftwaffe"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context; no operational guidance.", "claims": [
+      {"field": "start_date", "value": "1940-07-10", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"]},
+      {"field": "end_date", "value": "1940-10-31", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"]},
+      {"field": "location", "value": "United Kingdom and adjacent airspace", "unit": "text", "qualifiers": {"place_id": "ckb:place:region:southern_england"}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_battle_of_britain", "url": "https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"}, {"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:conflict:western_front_world_war_ii",
+    "entity_type": "conflict",
+    "identity": {"canonical_name_en": "Western Front of World War II", "canonical_name_zh": "第二次世界大战西线", "aliases": ["Western Front 1939-1945"]},
+    "classification": {"domain": "Context", "class": "Conflict", "subclass": "Theater", "eras": ["WWII"], "tags": ["europe", "western_front", "world_war_ii"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public theater-level historical context.", "claims": [
+      {"field": "parent_conflict", "value": "World War II", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"]},
+      {"field": "geographic_scope", "value": "western Europe and adjacent approaches", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/d-day-explained"]},
+      {"field": "included_battle", "value": "Battle of Britain", "unit": "text", "qualifiers": {"year": 1940}, "source_urls": ["https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_battle_of_britain", "url": "https://www.iwm.org.uk/history/the-dowding-system-and-the-battle-of-britain"}, {"source_id": "iwm_d_day", "url": "https://www.iwm.org.uk/history/d-day-explained"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:person:commander:hugh_dowding",
+    "entity_type": "person",
+    "identity": {"canonical_name_en": "Hugh Dowding", "canonical_name_zh": "休·道丁", "aliases": ["Air Chief Marshal Sir Hugh Dowding"]},
+    "classification": {"domain": "Context", "class": "Person", "subclass": "MilitaryCommander", "eras": ["WWII"], "tags": ["british", "royal_air_force", "fighter_command"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public biographical context only.", "claims": [
+      {"field": "role", "value": "Commander-in-Chief of RAF Fighter Command", "unit": "text", "qualifiers": {"period": "Battle of Britain"}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]},
+      {"field": "command_context", "value": "directed British fighter defence in summer and autumn 1940", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rafmuseum.org.uk/research/online-exhibitions/history-of-the-battle-of-britain/commander-in-chief-of-fighter-command/"]},
+      {"field": "system_context", "value": "air defence network became known as the Dowding System", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/research/online-exhibitions/history-of-the-battle-of-britain/commander-in-chief-of-fighter-command/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:facility:factory:castle_bromwich_aircraft_factory",
+    "entity_type": "facility",
+    "identity": {"canonical_name_en": "Castle Bromwich Aircraft Factory", "canonical_name_zh": "布罗姆维奇堡飞机工厂", "aliases": ["Castle Bromwich factory"]},
+    "classification": {"domain": "Context", "class": "Facility", "subclass": "AircraftFactory", "eras": ["WWII"], "tags": ["british", "manufacturing", "spitfire"]},
+    "location": {"latitude": 52.506, "longitude": -1.787, "precision": "district"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public industrial history and city-level location only.", "claims": [
+      {"field": "facility_type", "value": "aircraft factory", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"]},
+      {"field": "production_context", "value": "large-scale Spitfire production", "unit": "text", "qualifiers": {"period": "WWII"}, "source_urls": ["https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"]},
+      {"field": "location", "value": "Castle Bromwich, Birmingham", "unit": "text", "qualifiers": {"place_id": "ckb:place:city:castle_bromwich"}, "source_urls": ["https://www.iwm.org.uk/collections/item/object/205208601"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}, {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/205208601"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:region:southern_england",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Southern England", "canonical_name_zh": "英格兰南部", "aliases": ["South of England"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Region", "eras": ["WWII", "CONTEMPORARY"], "tags": ["united_kingdom", "battle_of_britain"]},
+    "location": {"latitude": 51.2, "longitude": -0.5, "precision": "region_centroid"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public regional context and approximate centroid.", "claims": [
+      {"field": "place_type", "value": "geographical region", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]},
+      {"field": "battle_context", "value": "included the heavily engaged No. 11 Group area", "unit": "text", "qualifiers": {"period": "1940"}, "source_urls": ["https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"]},
+      {"field": "country_context", "value": "United Kingdom", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/what-was-the-dowding-system"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "iwm_dowding_system", "url": "https://www.iwm.org.uk/history/what-was-the-dowding-system"}, {"source_id": "iwm_battle_of_britain_people", "url": "https://www.iwm.org.uk/history/whos-who-in-the-battle-of-britain"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:city:castle_bromwich",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Castle Bromwich", "canonical_name_zh": "布罗姆维奇堡", "aliases": []},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "UrbanArea", "eras": ["WWII", "CONTEMPORARY"], "tags": ["united_kingdom", "birmingham", "manufacturing"]},
+    "location": {"latitude": 52.506, "longitude": -1.787, "precision": "district"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public place and industrial context.", "claims": [
+      {"field": "place_type", "value": "urban area", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/collections/item/object/205208601"]},
+      {"field": "industrial_context", "value": "site of the Castle Bromwich Aircraft Factory", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"]},
+      {"field": "regional_context", "value": "Birmingham area", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/collections/item/object/205208601"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/205208601"}, {"source_id": "raf_museum", "url": "https://www.rafmuseum.org.uk/blog/the-first-flight-of-the-spitfire/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+
+  {
+    "id": "ckb:country:japan",
+    "entity_type": "country",
+    "identity": {"canonical_name_en": "Japan", "canonical_name_zh": "日本", "aliases": []},
+    "classification": {"domain": "Context", "class": "Country", "subclass": "State", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["east_asia", "state", "pacific_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context only.", "claims": [
+      {"field": "historical_role", "value": "Axis belligerent in the Pacific War", "unit": "text", "qualifiers": {"period": "1941-1945"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "battle_context", "value": "Imperial Japanese forces attacked Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]},
+      {"field": "state_type", "value": "sovereign state", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.state.gov/countries-areas/japan/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "naval_history_and_heritage_command", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "us_state_department", "url": "https://www.state.gov/countries-areas/japan/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:us_pacific_fleet",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "United States Pacific Fleet", "canonical_name_zh": "美国太平洋舰队", "aliases": ["U.S. Pacific Fleet", "Pacific Fleet"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "FleetCommand", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["united_states", "navy", "pacific"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public organization history only.", "claims": [
+      {"field": "service", "value": "United States Navy", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "wartime_commander", "value": "Admiral Chester W. Nimitz", "unit": "text", "qualifiers": {"period": "Battle of Midway"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "battle_context", "value": "organized American countermeasures for Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:manufacturer:grumman_aircraft_engineering",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Grumman Aircraft Engineering Corporation", "canonical_name_zh": "格鲁曼飞机工程公司", "aliases": ["Grumman"]},
+    "classification": {"domain": "Context", "class": "Manufacturer", "subclass": "AircraftManufacturer", "eras": ["INTERWAR", "WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["american", "manufacturer", "naval_aircraft"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public manufacturer history only.", "claims": [
+      {"field": "industry", "value": "aircraft manufacturing", "unit": "text", "qualifiers": {}, "source_urls": ["https://navalaviationmuseum.org/f4f-3-wildcat/"]},
+      {"field": "known_product", "value": "F4F Wildcat", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/content/history/museums/nnam/explore/collections/aircraft/f/f4f-3a-wildcat.html"]},
+      {"field": "design_context", "value": "developed the F4F Wildcat family", "unit": "text", "qualifiers": {}, "source_urls": ["https://navalaviationmuseum.org/f4f-3-wildcat/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_naval_aviation_museum", "url": "https://navalaviationmuseum.org/f4f-3-wildcat/"}, {"source_id": "naval_history_and_heritage_command", "url": "https://www.history.navy.mil/content/history/museums/nnam/explore/collections/aircraft/f/f4f-3a-wildcat.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:unit:military:us_task_force_16_midway",
+    "entity_type": "unit",
+    "identity": {"canonical_name_en": "Task Force 16 at Midway", "canonical_name_zh": "中途岛战役美国第16特遣舰队", "aliases": ["TF 16", "Task Force SIXTEEN"]},
+    "classification": {"domain": "Context", "class": "MilitaryUnit", "subclass": "NavalTaskForce", "eras": ["WWII"], "tags": ["united_states", "navy", "midway"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical order-of-battle context only.", "claims": [
+      {"field": "commander", "value": "Rear Admiral Raymond A. Spruance", "unit": "text", "qualifiers": {"battle": "Midway"}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]},
+      {"field": "core_carriers", "value": ["USS Enterprise", "USS Hornet"], "unit": "list", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "departure_date", "value": "1942-05-28", "unit": "date", "qualifiers": {"from": "Pearl Harbor"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:battle:pacific:battle_of_midway",
+    "entity_type": "battle",
+    "identity": {"canonical_name_en": "Battle of Midway", "canonical_name_zh": "中途岛战役", "aliases": ["Midway"]},
+    "classification": {"domain": "Battle", "class": "NavalBattle", "subclass": "CarrierBattle", "eras": ["WWII"], "tags": ["pacific", "midway", "carrier_aviation"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context; no operational guidance.", "claims": [
+      {"field": "start_date", "value": "1942-06-04", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "end_date", "value": "1942-06-07", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "location", "value": "waters and airspace around Midway Atoll", "unit": "text", "qualifiers": {"place_id": "ckb:place:island:midway_atoll"}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:conflict:pacific_war",
+    "entity_type": "conflict",
+    "identity": {"canonical_name_en": "Pacific War", "canonical_name_zh": "太平洋战争", "aliases": ["Asia-Pacific War"]},
+    "classification": {"domain": "Context", "class": "Conflict", "subclass": "Theater", "eras": ["WWII"], "tags": ["pacific", "world_war_ii", "asia"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public theater-level historical context.", "claims": [
+      {"field": "start_date", "value": "1941-12-07", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "parent_conflict", "value": "World War II", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/content/dam/nhhc/browse-by-topic/War%20and%20Conflict/WWII/midway-170519.pdf"]},
+      {"field": "included_battle", "value": "Battle of Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_combat_narrative", "url": "https://www.history.navy.mil/content/dam/nhhc/browse-by-topic/War%20and%20Conflict/WWII/midway-170519.pdf"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:person:commander:chester_nimitz",
+    "entity_type": "person",
+    "identity": {"canonical_name_en": "Chester W. Nimitz", "canonical_name_zh": "切斯特·尼米兹", "aliases": ["Admiral Nimitz"]},
+    "classification": {"domain": "Context", "class": "Person", "subclass": "MilitaryCommander", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["american", "united_states_navy", "pacific_fleet"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public biographical context only.", "claims": [
+      {"field": "role", "value": "Commander in Chief, U.S. Pacific Fleet", "unit": "text", "qualifiers": {"period": "Battle of Midway"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "battle_context", "value": "planned American countermeasures for Midway", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "command_action", "value": "assigned tactical commands to Fletcher and Spruance", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_midway", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}, {"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:facility:airfield:naval_air_station_midway",
+    "entity_type": "facility",
+    "identity": {"canonical_name_en": "Naval Air Station Midway", "canonical_name_zh": "中途岛海军航空站", "aliases": ["NAS Midway", "Midway airfield"]},
+    "classification": {"domain": "Context", "class": "Facility", "subclass": "MilitaryAirfield", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["united_states", "naval_aviation", "midway"]},
+    "location": {"latitude": 28.203, "longitude": -177.381, "precision": "island"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical facility and island-level location.", "claims": [
+      {"field": "facility_type", "value": "naval air station", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]},
+      {"field": "battle_role", "value": "based Marine and Navy aircraft during the Battle of Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/content/history/museums/nnam/education/articles/history-up-close/marine-fighter-ace-scores-first-kill-at-midway.html"]},
+      {"field": "location", "value": "Midway Atoll", "unit": "text", "qualifiers": {"place_id": "ckb:place:island:midway_atoll"}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "nhhc_usmc_midway", "url": "https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"}, {"source_id": "national_naval_aviation_museum", "url": "https://www.history.navy.mil/content/history/museums/nnam/education/articles/history-up-close/marine-fighter-ace-scores-first-kill-at-midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:island:midway_atoll",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Midway Atoll", "canonical_name_zh": "中途岛环礁", "aliases": ["Midway"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Atoll", "eras": ["WWII", "CONTEMPORARY"], "tags": ["north_pacific", "united_states", "island"]},
+    "location": {"latitude": 28.207, "longitude": -177.373, "precision": "atoll"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public geographical and historical context.", "claims": [
+      {"field": "place_type", "value": "North Pacific atoll", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.fws.gov/refuge/midway-atoll"]},
+      {"field": "battle_context", "value": "central location of the Battle of Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"]},
+      {"field": "facility_context", "value": "site of Naval Air Station Midway", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.history.navy.mil/research/library/online-reading-room/title-list-alphabetically/b/usmc-operations-in-world-war-II--decision-at-midway.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_fish_and_wildlife_service", "url": "https://www.fws.gov/refuge/midway-atoll"}, {"source_id": "naval_history_and_heritage_command", "url": "https://www.history.navy.mil/browse-by-topic/wars-conflicts-and-operations/world-war-ii/1942/midway.html"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:city:bethpage_new_york",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Bethpage, New York", "canonical_name_zh": "纽约州贝斯佩奇", "aliases": ["Bethpage"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Town", "eras": ["WWII", "CONTEMPORARY"], "tags": ["united_states", "new_york", "aircraft_industry"]},
+    "location": {"latitude": 40.744, "longitude": -73.483, "precision": "town"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public place and aviation-industry context.", "claims": [
+      {"field": "place_type", "value": "community in Nassau County, New York", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.census.gov/quickfacts/fact/table/bethpagecdpnewyork/PST045225"]},
+      {"field": "industrial_context", "value": "associated with Grumman aircraft manufacturing", "unit": "text", "qualifiers": {"period": "twentieth century"}, "source_urls": ["https://www.nps.gov/articles/000/grumman-bethpage.htm"]},
+      {"field": "country_context", "value": "United States", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.census.gov/quickfacts/fact/table/bethpagecdpnewyork/PST045225"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_census_bureau", "url": "https://www.census.gov/quickfacts/fact/table/bethpagecdpnewyork/PST045225"}, {"source_id": "national_park_service", "url": "https://www.nps.gov/articles/000/grumman-bethpage.htm"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+
+  {
+    "id": "ckb:country:soviet_union",
+    "entity_type": "country",
+    "identity": {"canonical_name_en": "Soviet Union", "canonical_name_zh": "苏联", "aliases": ["USSR", "Union of Soviet Socialist Republics"]},
+    "classification": {"domain": "Context", "class": "Country", "subclass": "HistoricalState", "eras": ["INTERWAR", "WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["eurasia", "historical_state", "eastern_front"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context only.", "claims": [
+      {"field": "historical_role", "value": "Allied belligerent on the Eastern Front", "unit": "text", "qualifiers": {"period": "1941-1945"}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "battle_context", "value": "defended the Kursk salient in July 1943", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/background-battle-kursk/"]},
+      {"field": "state_type", "value": "historical federal socialist state", "unit": "text", "qualifiers": {"end_year": 1991}, "source_urls": ["https://www.britannica.com/place/Soviet-Union"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/background-battle-kursk/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:red_army",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Red Army", "canonical_name_zh": "苏联红军", "aliases": ["Workers' and Peasants' Red Army"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "Army", "eras": ["INTERWAR", "WWII"], "tags": ["soviet", "army", "eastern_front"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public organization history only.", "claims": [
+      {"field": "state", "value": "Soviet Union", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]},
+      {"field": "battle_context", "value": "defended the Kursk salient", "unit": "text", "qualifiers": {"year": 1943}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "force_context", "value": "combined infantry, artillery and armoured formations", "unit": "text", "qualifiers": {"battle": "Kursk"}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}, {"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:manufacturer:ural_tank_factory_183",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Ural Tank Factory No. 183", "canonical_name_zh": "乌拉尔第183坦克工厂", "aliases": ["Factory No. 183", "Ural Tank Plant No. 183"]},
+    "classification": {"domain": "Context", "class": "Manufacturer", "subclass": "ArmoredVehicleManufacturer", "eras": ["WWII"], "tags": ["soviet", "manufacturer", "t_34"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public industrial history only.", "claims": [
+      {"field": "industry", "value": "armoured vehicle manufacturing", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]},
+      {"field": "known_product", "value": "T-34 medium tank", "unit": "text", "qualifiers": {"period": "WWII"}, "source_urls": ["https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"]},
+      {"field": "location", "value": "Nizhny Tagil", "unit": "text", "qualifiers": {"place_id": "ckb:place:city:nizhny_tagil"}, "source_urls": ["https://www.britannica.com/place/Nizhny-Tagil"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}, {"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:unit:military:soviet_5th_guards_tank_army",
+    "entity_type": "unit",
+    "identity": {"canonical_name_en": "5th Guards Tank Army", "canonical_name_zh": "苏联近卫第5坦克集团军", "aliases": ["Fifth Guards Tank Army"]},
+    "classification": {"domain": "Context", "class": "MilitaryUnit", "subclass": "TankArmy", "eras": ["WWII"], "tags": ["soviet", "red_army", "prokhorovka"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical order-of-battle context only.", "claims": [
+      {"field": "parent_organization", "value": "Red Army", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "commander", "value": "Pavel A. Rotmistrov", "unit": "text", "qualifiers": {"battle": "Prokhorovka"}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "battle_role", "value": "Soviet operational reserve committed near Prokhorovka", "unit": "text", "qualifiers": {"date": "1943-07-12"}, "source_urls": ["https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:battle:kursk:prokhorovka",
+    "entity_type": "battle",
+    "identity": {"canonical_name_en": "Battle of Prokhorovka", "canonical_name_zh": "普罗霍罗夫卡战役", "aliases": ["Prokhorovka"]},
+    "classification": {"domain": "Battle", "class": "LandBattle", "subclass": "ArmoredBattle", "eras": ["WWII"], "tags": ["kursk", "eastern_front", "armored"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context; no operational guidance.", "claims": [
+      {"field": "date", "value": "1943-07-12", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"]},
+      {"field": "location", "value": "area around Prokhorovka", "unit": "text", "qualifiers": {"place_id": "ckb:place:town:prokhorovka"}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "campaign_context", "value": "southern sector of the Battle of Kursk", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/background-battle-kursk/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}, {"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:conflict:eastern_front_world_war_ii",
+    "entity_type": "conflict",
+    "identity": {"canonical_name_en": "Eastern Front of World War II", "canonical_name_zh": "第二次世界大战东线", "aliases": ["Eastern Front 1941-1945"]},
+    "classification": {"domain": "Context", "class": "Conflict", "subclass": "Theater", "eras": ["WWII"], "tags": ["eastern_europe", "world_war_ii", "soviet_german_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public theater-level historical context.", "claims": [
+      {"field": "start_date", "value": "1941-06-22", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.nam.ac.uk/explore/eastern-front-1941"]},
+      {"field": "parent_conflict", "value": "World War II", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.nam.ac.uk/explore/eastern-front-1941"]},
+      {"field": "included_battle", "value": "Battle of Kursk and Prokhorovka", "unit": "text", "qualifiers": {"year": 1943}, "source_urls": ["https://tankmuseum.org/background-battle-kursk/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/eastern-front-1941"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/background-battle-kursk/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:person:commander:pavel_rotmistrov",
+    "entity_type": "person",
+    "identity": {"canonical_name_en": "Pavel A. Rotmistrov", "canonical_name_zh": "帕维尔·罗特米斯特罗夫", "aliases": ["P. A. Rotmistrov"]},
+    "classification": {"domain": "Context", "class": "Person", "subclass": "MilitaryCommander", "eras": ["WWII", "EARLY_COLD_WAR"], "tags": ["soviet", "tank_forces", "prokhorovka"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public biographical context only.", "claims": [
+      {"field": "role", "value": "commander of the 5th Guards Tank Army", "unit": "text", "qualifiers": {"battle": "Prokhorovka"}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "rank_context", "value": "Lieutenant General during the Kursk fighting", "unit": "text", "qualifiers": {"year": 1943}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "battle_context", "value": "led Soviet armoured forces committed at Prokhorovka", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:facility:factory:ural_tank_factory_183",
+    "entity_type": "facility",
+    "identity": {"canonical_name_en": "Ural Tank Factory No. 183 site", "canonical_name_zh": "乌拉尔第183坦克工厂厂区", "aliases": ["Ural Tank Plant No. 183 site"]},
+    "classification": {"domain": "Context", "class": "Facility", "subclass": "TankFactory", "eras": ["WWII"], "tags": ["soviet", "manufacturing", "t_34"]},
+    "location": {"latitude": 57.91, "longitude": 59.96, "precision": "city"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public industrial history and city-level location only.", "claims": [
+      {"field": "facility_type", "value": "tank manufacturing complex", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"]},
+      {"field": "production_context", "value": "wartime T-34 production", "unit": "text", "qualifiers": {"period": "WWII"}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]},
+      {"field": "location", "value": "Nizhny Tagil", "unit": "text", "qualifiers": {"place_id": "ckb:place:city:nizhny_tagil"}, "source_urls": ["https://www.britannica.com/place/Nizhny-Tagil"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}, {"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:town:prokhorovka",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Prokhorovka", "canonical_name_zh": "普罗霍罗夫卡", "aliases": ["Prokhorovka area"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Town", "eras": ["WWII", "CONTEMPORARY"], "tags": ["soviet_union", "kursk", "battlefield"]},
+    "location": {"latitude": 51.037, "longitude": 36.732, "precision": "town"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public geographical and historical context.", "claims": [
+      {"field": "place_type", "value": "settlement and surrounding area", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"]},
+      {"field": "battle_context", "value": "site of major armoured fighting on 12 July 1943", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"]},
+      {"field": "campaign_context", "value": "Kursk salient", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/background-battle-kursk/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/prokhorovka-myth-largest-tank-battle/"}, {"source_id": "us_army_combat_studies_institute", "url": "https://www.armyupress.army.mil/Portals/7/combat-studies-institute/csi-books/glantz2.pdf"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:city:nizhny_tagil",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Nizhny Tagil", "canonical_name_zh": "下塔吉尔", "aliases": []},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "City", "eras": ["WWII", "CONTEMPORARY"], "tags": ["soviet_union", "ural", "tank_industry"]},
+    "location": {"latitude": 57.91, "longitude": 59.96, "precision": "city"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public place and industrial context.", "claims": [
+      {"field": "place_type", "value": "industrial city in the Ural region", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.britannica.com/place/Nizhny-Tagil"]},
+      {"field": "industrial_context", "value": "major armoured vehicle production centre", "unit": "text", "qualifiers": {"period": "WWII"}, "source_urls": ["https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"]},
+      {"field": "factory_context", "value": "location of Ural Tank Factory No. 183", "unit": "text", "qualifiers": {}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "britannica", "url": "https://www.britannica.com/place/Nizhny-Tagil"}, {"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+
+  {
+    "id": "ckb:country:argentina",
+    "entity_type": "country",
+    "identity": {"canonical_name_en": "Argentina", "canonical_name_zh": "阿根廷", "aliases": ["Argentine Republic"]},
+    "classification": {"domain": "Context", "class": "Country", "subclass": "State", "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["south_america", "state", "falklands_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context only.", "claims": [
+      {"field": "historical_role", "value": "belligerent in the 1982 Falklands Conflict", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "geographic_context", "value": "South American state", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.cia.gov/the-world-factbook/countries/argentina/"]},
+      {"field": "state_type", "value": "sovereign republic", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.state.gov/countries-areas/argentina/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "us_state_department", "url": "https://www.state.gov/countries-areas/argentina/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:military:argentine_navy",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Argentine Navy", "canonical_name_zh": "阿根廷海军", "aliases": ["Armada de la República Argentina"]},
+    "classification": {"domain": "Context", "class": "MilitaryOrganization", "subclass": "Navy", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["argentina", "navy", "falklands_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public organization history only.", "claims": [
+      {"field": "service_type", "value": "navy", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.argentina.gob.ar/armada"]},
+      {"field": "state", "value": "Argentina", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.argentina.gob.ar/armada"]},
+      {"field": "conflict_context", "value": "participated in the 1982 Falklands Conflict", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "argentine_government", "url": "https://www.argentina.gob.ar/armada"}, {"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:organization:manufacturer:hawker_siddeley_aviation",
+    "entity_type": "organization",
+    "identity": {"canonical_name_en": "Hawker Siddeley Aviation", "canonical_name_zh": "霍克·西德利航空公司", "aliases": ["Hawker Siddeley"]},
+    "classification": {"domain": "Context", "class": "Manufacturer", "subclass": "AircraftManufacturer", "eras": ["EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["british", "manufacturer", "harrier"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public manufacturer history only.", "claims": [
+      {"field": "industry", "value": "aircraft manufacturing", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"]},
+      {"field": "known_product", "value": "Harrier family", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"]},
+      {"field": "naval_derivative", "value": "Sea Harrier", "unit": "text", "qualifiers": {"service": "Royal Navy"}, "source_urls": ["https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "bae_systems_heritage", "url": "https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:unit:military:royal_navy_task_group_317_8",
+    "entity_type": "unit",
+    "identity": {"canonical_name_en": "Royal Navy Task Group 317.8", "canonical_name_zh": "英国皇家海军317.8特遣群", "aliases": ["TG 317.8", "Carrier Battle Group"]},
+    "classification": {"domain": "Context", "class": "MilitaryUnit", "subclass": "NavalTaskGroup", "eras": ["LATE_COLD_WAR"], "tags": ["british", "royal_navy", "falklands_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical command context only.", "claims": [
+      {"field": "parent_organization", "value": "Royal Navy", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "commander", "value": "Rear Admiral Sandy Woodward", "unit": "text", "qualifiers": {"operation": "Corporate"}, "source_urls": ["https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"]},
+      {"field": "conflict_role", "value": "carrier battle group within the British task force", "unit": "text", "qualifiers": {"year": 1982}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:battle:falklands:san_carlos_landings",
+    "entity_type": "battle",
+    "identity": {"canonical_name_en": "San Carlos landings", "canonical_name_zh": "圣卡洛斯登陆战", "aliases": ["Operation Sutton landings", "San Carlos Bay landings"]},
+    "classification": {"domain": "Battle", "class": "AmphibiousBattle", "subclass": "LandingOperation", "eras": ["LATE_COLD_WAR"], "tags": ["falklands", "san_carlos", "amphibious"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public historical context; no operational guidance.", "claims": [
+      {"field": "date", "value": "1982-05-21", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "location", "value": "San Carlos Water and Ajax Bay, East Falkland", "unit": "text", "qualifiers": {"place_id": "ckb:place:water:san_carlos_water"}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "force_context", "value": "British task force landed approximately 4,000 troops", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.nam.ac.uk/explore/falklands-war-operation-sutton"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war-operation-sutton"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:conflict:falklands_war",
+    "entity_type": "conflict",
+    "identity": {"canonical_name_en": "Falklands War", "canonical_name_zh": "马岛战争", "aliases": ["Falklands Conflict"]},
+    "classification": {"domain": "Context", "class": "Conflict", "subclass": "InterstateWar", "eras": ["LATE_COLD_WAR"], "tags": ["south_atlantic", "united_kingdom", "argentina"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public conflict-level historical context.", "claims": [
+      {"field": "start_date", "value": "1982-04-02", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "end_date", "value": "1982-06-14", "unit": "date", "qualifiers": {"precision": "day"}, "source_urls": ["https://www.nam.ac.uk/explore/falklands-war"]},
+      {"field": "belligerent_context", "value": ["United Kingdom", "Argentina"], "unit": "list", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:person:commander:sandy_woodward",
+    "entity_type": "person",
+    "identity": {"canonical_name_en": "John 'Sandy' Woodward", "canonical_name_zh": "约翰·“桑迪”·伍德沃德", "aliases": ["Rear Admiral Sir Sandy Woodward", "John Forster Woodward"]},
+    "classification": {"domain": "Context", "class": "Person", "subclass": "MilitaryCommander", "eras": ["LATE_COLD_WAR"], "tags": ["british", "royal_navy", "falklands_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public biographical context only.", "claims": [
+      {"field": "service", "value": "Royal Navy", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/collections/item/object/18667"]},
+      {"field": "role", "value": "task force commander during the Falklands War", "unit": "text", "qualifiers": {"year": 1982}, "source_urls": ["https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"]},
+      {"field": "conflict_context", "value": "Falklands War", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/collections/item/object/18667"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/collections/item/object/18667"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:facility:factory:kingston_aircraft_factory",
+    "entity_type": "facility",
+    "identity": {"canonical_name_en": "Kingston aircraft factory", "canonical_name_zh": "金斯顿飞机工厂", "aliases": ["Hawker Kingston factory"]},
+    "classification": {"domain": "Context", "class": "Facility", "subclass": "AircraftFactory", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR"], "tags": ["british", "manufacturing", "hawker_siddeley"]},
+    "location": {"latitude": 51.412, "longitude": -0.3, "precision": "town"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public industrial history and town-level location only.", "claims": [
+      {"field": "facility_type", "value": "aircraft design and manufacturing site", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"]},
+      {"field": "industry_context", "value": "Hawker and Hawker Siddeley aircraft", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.kingstonaviation.org/"]},
+      {"field": "location", "value": "Kingston upon Thames", "unit": "text", "qualifiers": {"place_id": "ckb:place:city:kingston_upon_thames"}, "source_urls": ["https://www.kingston.gov.uk/heritage-conservation/aviation-history"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "bae_systems_heritage", "url": "https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"}, {"source_id": "royal_borough_kingston", "url": "https://www.kingston.gov.uk/heritage-conservation/aviation-history"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:water:san_carlos_water",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "San Carlos Water", "canonical_name_zh": "圣卡洛斯湾", "aliases": ["San Carlos Bay"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Inlet", "eras": ["LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["falkland_islands", "south_atlantic", "san_carlos"]},
+    "location": {"latitude": -51.53, "longitude": -59.02, "precision": "bay"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public geographical and historical context.", "claims": [
+      {"field": "place_type", "value": "sheltered inlet", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]},
+      {"field": "battle_context", "value": "British amphibious landing area on 21 May 1982", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.nam.ac.uk/explore/falklands-war-operation-sutton"]},
+      {"field": "island_context", "value": "East Falkland", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.iwm.org.uk/history/cold-war/falklands-conflict"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "imperial_war_museums", "url": "https://www.iwm.org.uk/history/cold-war/falklands-conflict"}, {"source_id": "national_army_museum", "url": "https://www.nam.ac.uk/explore/falklands-war-operation-sutton"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:place:city:kingston_upon_thames",
+    "entity_type": "place",
+    "identity": {"canonical_name_en": "Kingston upon Thames", "canonical_name_zh": "泰晤士河畔金斯顿", "aliases": ["Kingston"]},
+    "classification": {"domain": "Place", "class": "Place", "subclass": "Town", "eras": ["WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"], "tags": ["united_kingdom", "london", "aircraft_industry"]},
+    "location": {"latitude": 51.412, "longitude": -0.3, "precision": "town"},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public place and aviation-industry context.", "claims": [
+      {"field": "place_type", "value": "town and royal borough centre", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.kingston.gov.uk/"]},
+      {"field": "industrial_context", "value": "historic centre of Hawker aircraft design and manufacturing", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.kingston.gov.uk/heritage-conservation/aviation-history"]},
+      {"field": "country_context", "value": "United Kingdom", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.kingstonaviation.org/"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "royal_borough_kingston", "url": "https://www.kingston.gov.uk/heritage-conservation/aviation-history"}, {"source_id": "kingston_aviation", "url": "https://www.kingstonaviation.org/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+
+  {
+    "id": "ckb:platform:air:f4f_3_wildcat",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Grumman F4F-3 Wildcat", "canonical_name_zh": "格鲁曼F4F-3“野猫”战斗机", "aliases": ["F4F-3 Wildcat", "Wildcat"]},
+    "classification": {"domain": "Platform", "class": "Aircraft", "subclass": "CarrierFighter", "eras": ["WWII"], "tags": ["american", "naval_aviation", "midway"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public museum specification and historical context.", "claims": [
+      {"field": "service_start", "value": "1940", "unit": "year", "qualifiers": {"precision": "year"}, "source_urls": ["https://www.history.navy.mil/content/history/museums/nnam/explore/collections/aircraft/f/f4f-3a-wildcat.html"]},
+      {"field": "manufacturer", "value": "Grumman Aircraft Engineering Corporation", "unit": "text", "qualifiers": {}, "source_urls": ["https://navalaviationmuseum.org/f4f-3-wildcat/"]},
+      {"field": "battle_context", "value": "F4F variants flew at the Battle of Midway", "unit": "text", "qualifiers": {"year": 1942}, "source_urls": ["https://www.history.navy.mil/our-collections/photography/wars-and-events/world-war-ii/midway/80-G-61533.html"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "naval_history_and_heritage_command", "url": "https://www.history.navy.mil/content/history/museums/nnam/explore/collections/aircraft/f/f4f-3a-wildcat.html"}, {"source_id": "national_naval_aviation_museum", "url": "https://navalaviationmuseum.org/f4f-3-wildcat/"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:ground:t_34_model_1943",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "T-34 Model 1943", "canonical_name_zh": "T-34 1943年型中型坦克", "aliases": ["T-34/76 Model 1943", "T-34"]},
+    "classification": {"domain": "Platform", "class": "GroundVehicle", "subclass": "MediumTank", "eras": ["WWII"], "tags": ["soviet", "tracked", "kursk"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public museum configuration and historical context.", "claims": [
+      {"field": "service_start", "value": "1943", "unit": "year", "qualifiers": {"precision": "year", "configuration": "Model 1943"}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]},
+      {"field": "battle_context", "value": "T-34 was the most common Soviet tank at Kursk", "unit": "text", "qualifiers": {"year": 1943}, "source_urls": ["https://tankmuseum.org/soviet-tanks-kursk/"]},
+      {"field": "armament", "value": "76.2 mm gun", "unit": "text", "qualifiers": {"configuration": "T-34/76"}, "source_urls": ["https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "tank_museum", "url": "https://tankmuseum.org/soviet-tanks-kursk/"}, {"source_id": "national_wwii_museum", "url": "https://www.nationalww2museum.org/war/articles/t-34-tank-soviet-union"}]},
+    "rights": {"rights_status": "deferred"}
+  },
+  {
+    "id": "ckb:platform:air:sea_harrier_frs1",
+    "entity_type": "platform",
+    "identity": {"canonical_name_en": "Sea Harrier FRS.1", "canonical_name_zh": "海鹞FRS.1舰载战斗机", "aliases": ["Sea Harrier", "SHAR FRS.1"]},
+    "classification": {"domain": "Platform", "class": "Aircraft", "subclass": "CarrierFighter", "eras": ["LATE_COLD_WAR"], "tags": ["british", "royal_navy", "falklands_war"]},
+    "technical": {"profile_version": "1.0", "profile_scope": "Public service and historical context only.", "claims": [
+      {"field": "service_start", "value": "1980", "unit": "year", "qualifiers": {"service": "Royal Navy"}, "source_urls": ["https://www.rafmuseum.org.uk/research/collections/hawker-siddeley-sea-harrier-falklands/"]},
+      {"field": "manufacturer", "value": "Hawker Siddeley", "unit": "text", "qualifiers": {}, "source_urls": ["https://www.baesystems.com/en/heritage/hawker-siddeley-harrier"]},
+      {"field": "conflict_context", "value": "fleet air defence during the Falklands War", "unit": "text", "qualifiers": {"year": 1982}, "source_urls": ["https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"]}
+    ]},
+    "relationships": [], "experience_profile": null, "gameplay": {"status": "draft"},
+    "provenance": {"review_status": "source_checked", "sources": [{"source_id": "royal_air_force_museum", "url": "https://www.rafmuseum.org.uk/research/collections/hawker-siddeley-sea-harrier-falklands/"}, {"source_id": "royal_navy", "url": "https://www.royalnavy.mod.uk/news/2024/may/21/20240521-sharkey-ward-obituary"}]},
+    "rights": {"rights_status": "deferred"}
+  }
+]

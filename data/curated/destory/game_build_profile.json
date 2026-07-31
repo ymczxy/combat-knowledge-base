@@ -1,0 +1,29 @@
+{
+  "profile_id": "destory-game",
+  "include_domains": ["System", "Weapon", "Component", "Material"],
+  "priority_tags": ["air_defense", "missile_defense", "radar", "bunker", "structural"],
+  "include_experience_profile": false,
+  "include_unverified": false,
+  "outputs": ["godot_runtime_json", "godot_lock"],
+  "godot_runtime_bundle": {
+    "enabled": true,
+    "bundle_id": "destory-game-ckb-runtime-v2",
+    "format_version": 1,
+    "output_filename": "ckb_destory_game_runtime_v2.ckb",
+    "lock_filename": "ckb-destory-game-v2-lock.json",
+    "derived_metric_specs": "data/derived/technical_metrics_destory_game.json",
+    "include_experience_profile": false,
+    "technical_fields": [],
+    "allowed_review_statuses": [
+      "source_checked",
+      "cross_checked",
+      "expert_reviewed"
+    ],
+    "entity_ids": [
+      "ckb:system:air_defense:patriot",
+      "ckb:component:sensor:patriot_an_mpq_65",
+      "ckb:weapon:missile:patriot_pac_3_interceptor",
+      "ckb:material:reinforced_concrete"
+    ]
+  }
+}

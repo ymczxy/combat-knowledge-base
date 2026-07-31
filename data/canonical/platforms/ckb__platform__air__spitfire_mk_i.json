@@ -4,6 +4,7 @@
   "identity":{"canonical_name_en":"Supermarine Spitfire Mk I","canonical_name_zh":"超级马林喷火式Mk I战斗机","aliases":["Spitfire Mk I","Spitfire I"]},
   "classification":{"domain":"Platform","class":"Aircraft","subclass":"Fighter","eras":["WWII"],"tags":["british","single_engine","propeller","fighter","battle_of_britain"]},
   "technical":{"profile_version":"1.0","profile_scope":"Public historical and technical identification of the Spitfire Mk I; configuration-specific claims remain qualified.","claims":[
+    {"field":"service_start","value":"1938","unit":"year","qualifiers":{"operator":"Royal Air Force","precision":"year"},"source_urls":["https://www.iwm.org.uk/iwm-duxford/about"]},
     {"field":"crew_count","value":1,"unit":"people","qualifiers":{"configuration":"Spitfire Mk I"},"source_urls":["https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"]},
     {"field":"engine_type","value":"Rolls-Royce Merlin II","unit":"designation","qualifiers":{"configuration":"K9942 contract aircraft"},"source_urls":["https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"]},
     {"field":"engine_count","value":"single-engine","unit":"text","qualifiers":{"configuration":"single-engine fighter"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},

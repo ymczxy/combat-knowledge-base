@@ -1,0 +1,71 @@
+[
+  {
+    "id": "rel:v1_6_4_release:m777a2:uses_ammunition:m795",
+    "source_id": "ckb:weapon:artillery:m777a2_howitzer",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:artillery:m795_155mm_projectile",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "documented M795/M777A2 weapon-family compatibility",
+      "configuration_specific": true,
+      "not_inferred_from_caliber_alone": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_army_pgk_compatibility",
+          "url": "https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Precision-Fires-Mortars/Products/PGK/"
+        },
+        {
+          "source_id": "us_army_m777_program",
+          "url": "https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Tactical-Artillery-Systems/Products/M777A2/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_4_release:m109a7:uses_ammunition:m795",
+    "source_id": "ckb:platform:ground:m109a7_paladin",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:artillery:m795_155mm_projectile",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "documented M795/M109A7 weapon-family compatibility",
+      "configuration_specific": true,
+      "not_inferred_from_caliber_alone": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {
+          "source_id": "us_army_pgk_compatibility",
+          "url": "https://www.cpeae.army.mil/Project-Offices/PM-CAS/Organizations/Precision-Fires-Mortars/Products/PGK/"
+        },
+        {
+          "source_id": "peo_gcs_m109",
+          "url": "https://www.peogcs.army.mil/Portals/126/Documents/GCS-FactSheets.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rel:v1_6_4_release:stokes:uses_ammunition:3_inch_bomb",
+    "source_id": "ckb:weapon:artillery:stokes_mortar",
+    "predicate": "uses_ammunition",
+    "target_id": "ckb:ammunition:mortar:3_inch_stokes_bomb",
+    "confidence": 0.99,
+    "qualifiers": {
+      "scope": "museum-documented 3-inch Stokes mortar and bomb family",
+      "configuration_specific": true,
+      "not_inferred_from_caliber_alone": true
+    },
+    "provenance": {
+      "review_status": "source_checked",
+      "sources": [
+        {"source_id": "awm_stokes_munition", "url": "https://www.awm.gov.au/collection/RELAWM01909"},
+        {"source_id": "iwm_stokes_munition", "url": "https://www.iwm.org.uk/collections/item/object/30021404"}
+      ]
+    }
+  }
+]

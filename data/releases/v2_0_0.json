@@ -1,13 +1,144 @@
 {
-  "release_version":"2.0.0",
-  "release_date":"2026-07-31",
-  "scope":"first stable CKB release",
-  "status":"released",
-  "baseline_commit":"759929ae1a0113d69f96b6771396cdb331fe9010",
-  "content_snapshot":{"canonical_entity_count":113,"relationship_assertion_count":69,"embedded_relationship_count":0,"content_batch_count":28,"source_checked_entity_count":75,"technical_profile_count":40,"technical_claim_count":261,"normalized_numeric_claim_count":95,"descriptive_claim_count":166,"unsupported_numeric_claim_count":0},
-  "godot_runtime_snapshot":{"bundle_format":"ckb.godot.runtime","format_version":1,"schema_version":"1.0","profile_id":"destory-small-arms","bundle_id":"destory-small-arms-runtime-v1","entity_count":5,"configuration_count":5,"technical_claim_count":32,"derived_metric_count":0,"source_ref_count":6,"relationship_assertion_count":3,"content_sha256":"e431602d88e49757044404576550b156394ca067e1f29b134dd50aa02ebb7fd4","bundle_file_sha256":"7eb6acc55af7acd96cf6154b98cbbdb1d5625bfaf6bcda8ae8b228871c209c51"},
-  "godot_runtime_snapshots":{"armored_v2_0_0":{"profile_id":"destory","entity_count":8,"technical_claim_count":71,"derived_metric_count":5,"relationship_assertion_count":0,"content_sha256":"edb519edb9e54f3bfbced99d8cd6344e53ef07167ca5aa62e9f321f18b8ef150","bundle_file_sha256":"2793577b9276bb0c034f7792c136b993879ff756f5ceec993dd4524189e88147"},"small_arms_v2_0_0":{"profile_id":"destory-small-arms","entity_count":5,"technical_claim_count":32,"derived_metric_count":0,"relationship_assertion_count":3,"content_sha256":"e431602d88e49757044404576550b156394ca067e1f29b134dd50aa02ebb7fd4","bundle_file_sha256":"7eb6acc55af7acd96cf6154b98cbbdb1d5625bfaf6bcda8ae8b228871c209c51"}},
-  "engine_validation":{"engine":"Godot","version":"4.7.1-stable","platform":"Ubuntu 24.04 Linux x86_64","renderer":"OpenGL compatibility via Mesa llvmpipe","result":"pass","workflow_runs":{"ckb_ci":418,"godot_linux_runtime_smoke":39},"pull_request":30},
-  "stable_contract":{"schema_version":"1.0","predicate_registry_version":"1.0","godot_bundle_format":"ckb.godot.runtime","godot_bundle_format_version":1,"godot_lock_version":1},
-  "boundaries":{"contains_game_balance":false,"contains_source_documents":false,"migration_policy":"docs/V2_0_MIGRATION.md","rollback":"restore previous Bundle/Lock pair and release snapshot"}
+  "release_version": "2.0.0",
+  "release_date": "2026-07-31",
+  "scope": "first stable CKB release with complete v1.6-v2.0 roadmap closure",
+  "status": "released",
+  "content_snapshot": {
+    "canonical_entity_count": 187,
+    "relationship_assertion_count": 135,
+    "embedded_relationship_count": 0,
+    "content_batch_count": 35,
+    "source_checked_entity_count": 152,
+    "technical_profile_count": 123,
+    "technical_claim_count": 521,
+    "normalized_numeric_claim_count": 96,
+    "descriptive_claim_count": 425,
+    "unsupported_numeric_claim_count": 0
+  },
+  "godot_runtime_snapshot": {
+    "bundle_format": "ckb.godot.runtime",
+    "format_version": 1,
+    "schema_version": "1.0",
+    "profile_id": "destory-small-arms",
+    "bundle_id": "destory-small-arms-runtime-v1",
+    "entity_count": 5,
+    "configuration_count": 5,
+    "technical_claim_count": 32,
+    "derived_metric_count": 0,
+    "source_ref_count": 6,
+    "relationship_assertion_count": 3,
+    "content_sha256": "e431602d88e49757044404576550b156394ca067e1f29b134dd50aa02ebb7fd4",
+    "bundle_file_sha256": "7eb6acc55af7acd96cf6154b98cbbdb1d5625bfaf6bcda8ae8b228871c209c51"
+  },
+  "godot_runtime_snapshots": {
+    "build_profile.json": {
+      "profile_id": "destory",
+      "entity_count": 8,
+      "configuration_count": 18,
+      "technical_claim_count": 71,
+      "derived_metric_count": 5,
+      "source_ref_count": 14,
+      "relationship_assertion_count": 0,
+      "content_sha256": "edb519edb9e54f3bfbced99d8cd6344e53ef07167ca5aa62e9f321f18b8ef150",
+      "bundle_file_sha256": "2793577b9276bb0c034f7792c136b993879ff756f5ceec993dd4524189e88147"
+    },
+    "small_arms_build_profile.json": {
+      "profile_id": "destory-small-arms",
+      "entity_count": 5,
+      "configuration_count": 5,
+      "technical_claim_count": 32,
+      "derived_metric_count": 0,
+      "source_ref_count": 6,
+      "relationship_assertion_count": 3,
+      "content_sha256": "e431602d88e49757044404576550b156394ca067e1f29b134dd50aa02ebb7fd4",
+      "bundle_file_sha256": "7eb6acc55af7acd96cf6154b98cbbdb1d5625bfaf6bcda8ae8b228871c209c51"
+    },
+    "aviation_build_profile.json": {
+      "profile_id": "destory-aviation",
+      "entity_count": 9,
+      "configuration_count": 25,
+      "technical_claim_count": 49,
+      "derived_metric_count": 0,
+      "source_ref_count": 21,
+      "relationship_assertion_count": 7,
+      "content_sha256": "d1819fc918638ca053f78d93baad038014167598e6c643a79f42a430610fc145",
+      "bundle_file_sha256": "6edaba48f7526b5d5e78d04e4adbc5fd958b51bd913b866e7ee916904490b4cd"
+    },
+    "naval_build_profile.json": {
+      "profile_id": "destory-naval",
+      "entity_count": 20,
+      "configuration_count": 24,
+      "technical_claim_count": 67,
+      "derived_metric_count": 0,
+      "source_ref_count": 28,
+      "relationship_assertion_count": 17,
+      "content_sha256": "9ec182cb99fc838a5310930e9d303144f99c7018ae95fd72be71170cd0d4e6f1",
+      "bundle_file_sha256": "859eea63f85976db2c3f37830f8fb0b7c3e8913b985045acdd90872eeba43d99"
+    },
+    "integrated_systems_build_profile.json": {
+      "profile_id": "destory-integrated-systems",
+      "entity_count": 16,
+      "configuration_count": 20,
+      "technical_claim_count": 58,
+      "derived_metric_count": 0,
+      "source_ref_count": 32,
+      "relationship_assertion_count": 10,
+      "content_sha256": "48b0fe7f218f1598e24e2d384d47b36fa0395bb55c1629e92a1cee872dddf506",
+      "bundle_file_sha256": "89cfc71e0e8ebaba89b52609a0803379ed9a6fd4f28e2da1f981875a6d1d32eb"
+    },
+    "game_build_profile_v1.json": {
+      "profile_id": "destory-game-v1",
+      "entity_count": 4,
+      "configuration_count": 3,
+      "technical_claim_count": 16,
+      "derived_metric_count": 0,
+      "source_ref_count": 8,
+      "relationship_assertion_count": 2,
+      "content_sha256": "4b2f981cfc87a0ca0aca1029e2b9d19f3e41c037dff368d5c14056c7f04b79d3",
+      "bundle_file_sha256": "5414368a30fb7228a1a1a871ba703503b04717661748ab178e1ee77c4fc21180"
+    },
+    "game_build_profile.json": {
+      "profile_id": "destory-game",
+      "entity_count": 4,
+      "configuration_count": 3,
+      "technical_claim_count": 16,
+      "derived_metric_count": 0,
+      "source_ref_count": 8,
+      "relationship_assertion_count": 2,
+      "content_sha256": "4b2f981cfc87a0ca0aca1029e2b9d19f3e41c037dff368d5c14056c7f04b79d3",
+      "bundle_file_sha256": "19c6edbce12e14c14771075f8da20f5de3a4bca2a97c509ce9f70aa6f404d7ea"
+    }
+  },
+  "engine_validation": {
+    "engine": "Godot",
+    "required_version": "4.7.1-stable",
+    "result": "pass",
+    "local_windows_domain_matrix": {
+      "version": "4.7.1.stable.official.a13da4feb",
+      "result": "pass",
+      "profiles": ["destory-aviation", "destory-naval", "destory-integrated-systems"]
+    },
+    "remote_linux": {
+      "platform": "Ubuntu 24.04 Linux x86_64",
+      "renderer": "OpenGL compatibility via Mesa llvmpipe",
+      "required_workflow": "Godot Linux Runtime Smoke",
+      "merge_policy": "must pass before default-branch merge"
+    }
+  },
+  "stable_contract": {
+    "schema_version": "1.0",
+    "predicate_registry_version": "1.0",
+    "query_contract_version": "1.1",
+    "godot_bundle_format": "ckb.godot.runtime",
+    "godot_bundle_format_version": 1,
+    "godot_lock_version": 1
+  },
+  "boundaries": {
+    "contains_game_balance": false,
+    "contains_source_documents": false,
+    "embedded_relationship_count": 0,
+    "migration_policy": "docs/V2_0_MIGRATION.md",
+    "rollback": "restore the previous Bundle/Lock pair and release snapshot",
+    "destory_project_integration": "formal EditorImportPlugin, cache, query, upgrade and rollback path"
+  }
 }

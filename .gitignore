@@ -4,5 +4,7 @@ __pycache__/
 .pytest_cache/
 exports/*
 !exports/.gitkeep
+site_docs/
+src/*.egg-info/
 *.sqlite
 .DS_Store
