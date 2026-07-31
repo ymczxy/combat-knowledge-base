@@ -1,0 +1,29 @@
+; CKB-integrated destory project acceptance harness.
+
+config_version=5
+
+[application]
+
+config/name="destory - CKB Integration"
+run/main_scene="res://DestoryIntegration.tscn"
+
+[autoload]
+
+CKBRuntimeCache="*res://addons/ckb/CKBRuntimeCache.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ckb/plugin.cfg")
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

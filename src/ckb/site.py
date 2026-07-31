@@ -9,6 +9,7 @@ import shutil
 from .catalog import CatalogItem
 from .graph import Relationship
 from .model import Entity
+from .visualizations import write_visualization_artifacts
 
 
 def _slug(value: str) -> str:
@@ -370,4 +371,5 @@ def build_site_docs(
     _write_era_indexes(output, entity_rows)
     _write_catalog(output, catalog_rows)
     _write_relationship_index(output, entity_rows, relationship_rows)
+    write_visualization_artifacts(entity_rows, relationship_rows, output / "visualizations")
     _copy_reference_docs(project_root, output)

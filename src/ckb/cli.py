@@ -19,7 +19,8 @@ from .resolution import SearchCache, decide_matches, write_resolution_bundle
 from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
 from .temporal import build_temporal_index
-from .query import related_entities, search_entities
+from .query import entity_evidence, related_entities, search_entities
+from .visualizations import write_visualization_artifacts
 from .validation import validate_all
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -106,6 +107,7 @@ def main() -> None:
     query.add_argument("--predicate")
     query.add_argument("--direction", choices=["out", "in", "both"], default="both")
     query.add_argument("--limit", type=int, default=50)
+    query.add_argument("--evidence", action="store_true", help="include raw assertions and source URLs for --entity-id")
 
     assertion_audit = sub.add_parser("assertion-audit")
     assertion_audit.add_argument("--output", type=Path)
@@ -157,6 +159,9 @@ def main() -> None:
 
     site = sub.add_parser("site")
     site.add_argument("--output", type=Path, default=ROOT / "site_docs")
+
+    visualize = sub.add_parser("visualize")
+    visualize.add_argument("--output", type=Path, default=ROOT / "exports" / "visualizations")
 
     graph = sub.add_parser("graph")
     graph.add_argument("--output", type=Path, default=ROOT / "exports" / "graph" / "ckb-graph.json")
@@ -231,6 +236,9 @@ def main() -> None:
             graph_model = _build_graph(entities)
             if args.entity_id not in graph_model.entities:
                 raise SystemExit(f"unknown entity: {args.entity_id}")
+            if args.evidence:
+                print(json.dumps(entity_evidence(graph_model, args.entity_id, predicate=args.predicate, direction=args.direction), ensure_ascii=False, indent=2))
+                return
             rows = related_entities(graph_model, args.entity_id, predicate=args.predicate, direction=args.direction)
         else:
             rows = search_entities(
@@ -379,6 +387,15 @@ def main() -> None:
             raise SystemExit(_print_errors(errors))
         build_site_docs(entities, catalog, ROOT, args.output, load_relationships(RELATIONSHIPS))
         print(f"Built site source into {args.output}")
+        return
+
+    if args.cmd == "visualize":
+        graph_model = _build_graph(entities)
+        errors = graph_model.validate()
+        if errors:
+            raise SystemExit(_print_errors(errors))
+        datasets = write_visualization_artifacts(entities, graph_model.relationships, args.output)
+        print(f"Built visualizations: {len(datasets)} datasets -> {args.output}")
         return
 
     if args.cmd == "source-audit":

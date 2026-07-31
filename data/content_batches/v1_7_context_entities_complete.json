@@ -1,0 +1,34 @@
+{
+  "batch_id": "v1.7-context-entities-complete",
+  "version": "1.7.0",
+  "status": "source_reviewed",
+  "scope": "Complete the first context-graph entity envelope with country, manufacturer, military unit, conflict, person, facility and mapped place records.",
+  "entity_ids": [
+    "ckb:country:united_states",
+    "ckb:organization:manufacturer:chrysler_defense",
+    "ckb:unit:military:us_1st_infantry_division",
+    "ckb:conflict:world_war_ii",
+    "ckb:person:designer:joseph_gavin",
+    "ckb:facility:arsenal:detroit_arsenal",
+    "ckb:place:facility:detroit"
+  ],
+  "relationship_ids": [
+    "rel:v1_7_complete:chrysler:produces:m1_abrams",
+    "rel:v1_7_complete:gavin:designed:m1_abrams",
+    "rel:v1_7_complete:arsenal:located_in:detroit",
+    "rel:v1_7_complete:unit:participated_in:d_day",
+    "rel:v1_7_complete:d_day:part_of:wwii"
+  ],
+  "quality_targets": {
+    "minimum_sources_per_entity": 1,
+    "minimum_sources_per_relationship": 1,
+    "review_status": "source_checked",
+    "relationship_storage": "independent_assertions",
+    "map_coordinates": "required for mapped records"
+  },
+  "notes": [
+    "The batch preserves the distinction between participation and organization.",
+    "Coordinates are public city-level locations and are not operational targeting data.",
+    "No manufacturing, evasion or real-world attack instructions are included."
+  ]
+}

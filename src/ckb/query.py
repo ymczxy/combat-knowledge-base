@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Iterable
 
-from .graph import KnowledgeGraph
+from .graph import KnowledgeGraph, Relationship
 from .model import Entity
 
 
@@ -50,3 +50,40 @@ def related_entities(graph: KnowledgeGraph, entity_id: str, predicate: str | Non
         if target not in target_ids:
             target_ids.append(target)
     return [graph.entities[target_id] for target_id in target_ids if target_id in graph.entities]
+
+
+def entity_evidence(
+    graph: KnowledgeGraph,
+    entity_id: str,
+    *,
+    predicate: str | None = None,
+    direction: str = "both",
+) -> dict[str, object]:
+    """Return an entity together with raw independent assertions and source URLs."""
+    if entity_id not in graph.entities:
+        raise KeyError(entity_id)
+    assertions: list[Relationship] = []
+    for row in graph.relationships:
+        if predicate and row.predicate != predicate:
+            continue
+        outgoing = row.source_id == entity_id
+        incoming = row.target_id == entity_id
+        if direction == "out" and not outgoing:
+            continue
+        if direction == "in" and not incoming:
+            continue
+        if direction == "both" and not (outgoing or incoming):
+            continue
+        assertions.append(row)
+    assertions.sort(key=lambda row: row.id)
+    source_urls: list[str] = []
+    for row in assertions:
+        for source in row.provenance.get("sources", []):
+            url = source.get("url") if isinstance(source, dict) else None
+            if url and url not in source_urls:
+                source_urls.append(str(url))
+    return {
+        "entity": graph.entities[entity_id].raw,
+        "assertions": [row.to_dict() for row in assertions],
+        "source_urls": source_urls,
+    }
