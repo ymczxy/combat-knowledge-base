@@ -241,7 +241,7 @@
       "symmetric": false,
       "transitive": true,
       "source_entity_types": ["event", "battle"],
-      "target_entity_types": ["event", "battle"],
+      "target_entity_types": ["event", "battle", "conflict"],
       "status": "active"
     },
     {

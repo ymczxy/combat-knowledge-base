@@ -104,6 +104,22 @@ jobs:
           test -s examples/godot_smoke_small/artifacts/godot_small_arms_smoke.png
           test -s examples/godot_smoke_small/artifacts/godot_small_arms_smoke.json
 
+      - name: Run integrated destory project harness
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p godot/data godot/artifacts
+          cp /tmp/ckb-godot/ckb_destory_runtime.json godot/data/ckb_destory_runtime.json
+          cp /tmp/ckb-godot/ckb-lock.json godot/data/ckb-lock.json
+          xvfb-run -a -s '-screen 0 1280x720x24' \
+            timeout 45s /tmp/godot/godot \
+              --path godot \
+              --rendering-method gl_compatibility \
+              --audio-driver Dummy \
+              2>&1 | tee godot/artifacts/destory_integration_console.log
+          grep -q 'CKB_DESTORY_INTEGRATION_RESULT=PASS' godot/artifacts/destory_integration_console.log
+          test -s godot/artifacts/destory_integration.json
+
       - name: Inspect screenshot
         shell: bash
         run: |
@@ -129,3 +145,7 @@ jobs:
             examples/godot_smoke_small/project.godot
             examples/godot_smoke_small/Smoke.gd
             examples/godot_smoke_small/Smoke.tscn
+            godot/artifacts/
+            godot/project.godot
+            godot/DestoryIntegration.gd
+            godot/DestoryIntegration.tscn

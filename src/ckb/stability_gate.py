@@ -20,6 +20,7 @@ from .runtime_contract import validate_runtime_contract
 from .technical import build_technical_comparison
 from .temporal import build_temporal_index
 from .validation import validate_all
+from .visualizations import write_visualization_artifacts
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -74,6 +75,12 @@ def run_stability_gate(project_root: Path = ROOT) -> tuple[dict[str, Any], list[
     if [row.id for row in related] != ["ckb:component:sensor:patriot_an_mpq_65"]:
         errors.append("stable query relationship result mismatch")
 
+    visualization_dir = project_root / "exports" / ".stability_visualizations"
+    visualization_payloads = write_visualization_artifacts(entities, relationships, visualization_dir)
+    expected_visualizations = {"graph", "timeline", "map", "lineage", "battle_equipment", "industry_chain"}
+    if set(visualization_payloads) != expected_visualizations:
+        errors.append("visualization contract mismatch: expected all roadmap datasets")
+
     runtime_summaries: dict[str, Any] = {}
     for profile_name in ("build_profile.json", "small_arms_build_profile.json"):
         with TemporaryDirectory() as directory:
@@ -100,6 +107,7 @@ def run_stability_gate(project_root: Path = ROOT) -> tuple[dict[str, Any], list[
         "content": content,
         "query_search_count": len(query_rows),
         "query_related_count": len(related),
+        "visualization_dataset_count": len(visualization_payloads),
         "runtime": runtime_summaries,
         "compatibility": migration_policy(),
         "error_count": len(errors),

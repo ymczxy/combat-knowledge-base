@@ -20,6 +20,7 @@ from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
 from .temporal import build_temporal_index
 from .query import related_entities, search_entities
+from .visualizations import write_visualization_artifacts
 from .validation import validate_all
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -157,6 +158,9 @@ def main() -> None:
 
     site = sub.add_parser("site")
     site.add_argument("--output", type=Path, default=ROOT / "site_docs")
+
+    visualize = sub.add_parser("visualize")
+    visualize.add_argument("--output", type=Path, default=ROOT / "exports" / "visualizations")
 
     graph = sub.add_parser("graph")
     graph.add_argument("--output", type=Path, default=ROOT / "exports" / "graph" / "ckb-graph.json")
@@ -379,6 +383,15 @@ def main() -> None:
             raise SystemExit(_print_errors(errors))
         build_site_docs(entities, catalog, ROOT, args.output, load_relationships(RELATIONSHIPS))
         print(f"Built site source into {args.output}")
+        return
+
+    if args.cmd == "visualize":
+        graph_model = _build_graph(entities)
+        errors = graph_model.validate()
+        if errors:
+            raise SystemExit(_print_errors(errors))
+        datasets = write_visualization_artifacts(entities, graph_model.relationships, args.output)
+        print(f"Built visualizations: {len(datasets)} datasets -> {args.output}")
         return
 
     if args.cmd == "source-audit":

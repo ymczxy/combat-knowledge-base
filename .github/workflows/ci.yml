@@ -47,3 +47,5 @@ jobs:
       - run: test -f /tmp/ckb-small-arms-runtime-contract.json
       - run: PYTHONPATH=src python -m ckb.stability_gate --output /tmp/ckb-v2-stability.json --fail-on-error
       - run: test -f /tmp/ckb-v2-stability.json
+      - run: PYTHONPATH=src python -m ckb.cli visualize --output /tmp/ckb-visualizations
+      - run: test -f /tmp/ckb-visualizations/graph.json && test -f /tmp/ckb-visualizations/timeline.json && test -f /tmp/ckb-visualizations/map.json && test -f /tmp/ckb-visualizations/lineage.json && test -f /tmp/ckb-visualizations/battle_equipment.json && test -f /tmp/ckb-visualizations/industry_chain.json
