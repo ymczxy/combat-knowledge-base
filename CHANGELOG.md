@@ -1,5 +1,21 @@
 # Changelog
 
+## 2.0.0
+
+- 冻结 CKB Schema、核心谓词、实体边界和 Godot Runtime Bundle/Lock 合同。
+- 完成装甲车辆、轻武器/弹药、航空、舰船、防空传感器及时间/地点/组织/战役上下文首批规范化内容。
+- 新增时间索引、实体/关系查询 API、Godot `CKBQuery` SDK 和独立关系断言消费。
+- 明确 v2.0 迁移、兼容性、发布快照和回滚规则，并通过稳定版门禁。
+
+## 1.6.1
+
+- 完成 M2 Browning 与 12.7 x 99 mm / .50 BMG source-checked vertical slice。
+- 建立 Magazine component 边界、方向性 `accepts_magazine` 谓词及显式端点约束。
+- 为 `variant_of` / `has_variant` 增加端点类型约束，并完成 Thompson family 与 M1A1 闭环。
+- 新增独立轻武器 Godot Runtime Bundle、Lock 和 Linux Smoke 场景；装甲车辆 Runtime 快照保持不变。
+- 通过 157 项单元测试、完整治理审计、Bundle/Lock Contract、CKB CI 和 Godot Linux Runtime Smoke。
+- 保持现实技术资料、体验派生值和游戏平衡值分层；不包含装药、制造、攻击操作或游戏平衡指导。
+
 ## 1.6.0
 
 - 完成首个装甲车辆主体库：79 个 Canonical Entity，其中 57 个 GroundVehicle，覆盖苏联/俄罗斯、德国、美国、英国、法国、中国和日本主要发展线。

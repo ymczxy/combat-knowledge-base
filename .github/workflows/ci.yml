@@ -41,3 +41,9 @@ jobs:
       - run: test -f /tmp/ckb-godot/ckb_destory_runtime.json && test -f /tmp/ckb-godot/ckb-lock.json
       - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot/ckb_destory_runtime.json --lock /tmp/ckb-godot/ckb-lock.json --output /tmp/ckb-runtime-contract.json --fail-on-error
       - run: test -f /tmp/ckb-runtime-contract.json && test -f examples/godot/CKBRuntimeBundle.gd
+      - run: PYTHONPATH=src python -m ckb.godot_bundle --profile data/curated/destory/small_arms_build_profile.json --output /tmp/ckb-godot-small-arms --fail-on-error
+      - run: test -f /tmp/ckb-godot-small-arms/ckb_destory_small_arms_runtime.json && test -f /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json
+      - run: PYTHONPATH=src python -m ckb.runtime_contract --bundle /tmp/ckb-godot-small-arms/ckb_destory_small_arms_runtime.json --lock /tmp/ckb-godot-small-arms/ckb-small-arms-lock.json --output /tmp/ckb-small-arms-runtime-contract.json --fail-on-error
+      - run: test -f /tmp/ckb-small-arms-runtime-contract.json
+      - run: PYTHONPATH=src python -m ckb.stability_gate --output /tmp/ckb-v2-stability.json --fail-on-error
+      - run: test -f /tmp/ckb-v2-stability.json

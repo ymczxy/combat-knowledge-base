@@ -1,0 +1,40 @@
+{
+  "id": "ckb:ammunition:cartridge:12_7x99",
+  "entity_type": "ammunition",
+  "identity": {
+    "canonical_name_en": "12.7 x 99 mm cartridge",
+    "canonical_name_zh": "12.7×99毫米枪弹",
+    "aliases": [".50 BMG", ".50 Browning Machine Gun", "12.7 mm NATO"]
+  },
+  "classification": {
+    "domain": "Ammunition",
+    "class": "SmallArmsAmmunition",
+    "subclass": "HeavyMachineGunCartridge",
+    "eras": ["WWI", "WWII", "EARLY_COLD_WAR", "LATE_COLD_WAR", "CONTEMPORARY"],
+    "tags": ["cartridge", "12_7mm", "nato", "rimless", "machine_gun_ammunition"]
+  },
+  "technical": {
+    "profile_version": "1.0",
+    "profile_scope": "Public identification, standardized designation and compatibility metadata; no loading, manufacturing or effects data.",
+    "claims": [
+      {"field":"metric_designation","value":"12.7 x 99 mm","unit":"designation","qualifiers":{"standard_context":"NATO AEP-97 / STANAG-AOP 4383 reference"},"source_urls":["https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"]},
+      {"field":"common_designation","value":".50 BMG","unit":"designation","qualifiers":{"expanded_name":".50 Browning Machine Gun"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/","https://www.army.mil/article/92130/m2a1_machine_gun_features_greater_safety_heightened_lethality"]},
+      {"field":"caliber_designation","value":"12.7 mm","unit":"designation","qualifiers":{"source_wording_preserved":true},"source_urls":["https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"]},
+      {"field":"length_designation","value":"99 mm","unit":"designation","qualifiers":{"cartridge_length_role":"designation component; not a complete dimensional specification"},"source_urls":["https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"]},
+      {"field":"standardization_context","value":"NATO small-arms ammunition standard referenced as STANAG / AOP 4383","unit":"text","qualifiers":{"standard_scope":"12.7 mm x 99 ammunition and links"},"source_urls":["https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"]},
+      {"field":"compatibility_context","value":"the standardized 12.7 mm x 99 ammunition category is associated with the M2 .50 caliber machine gun","unit":"text","qualifiers":{"compatibility_basis":"official equipment and NATO standard designation; not inferred from calibre alone"},"source_urls":["https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/","https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"]}
+    ]
+  },
+  "relationships": [],
+  "experience_profile": null,
+  "gameplay": {"status":"draft"},
+  "provenance": {
+    "review_status":"source_checked",
+    "sources":[
+      {"source_id":"official_military","url":"https://cpeground.army.mil/Equipment/Equipment-Portfolio/PM-MBCT-Lethality-Portfolio/M2-M2A1-50-Caliber-Machine-Gun/"},
+      {"source_id":"official_military","url":"https://www.army.mil/article/92130/m2a1_machine_gun_features_greater_safety_heightened_lethality"},
+      {"source_id":"standards_body","url":"https://diweb.hq.nato.int/naag/Public%20Release%20Documents/AEP-97%20EDA%20V1%20E.pdf"}
+    ]
+  },
+  "rights":{"rights_status":"deferred"}
+}

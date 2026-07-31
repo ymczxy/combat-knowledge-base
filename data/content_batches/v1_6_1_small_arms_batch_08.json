@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.6.1-small-arms-batch-08-m2-browning",
+  "version":"1.6.1",
+  "status":"source_checked",
+  "scope":"Add the M2 Browning and 12.7 x 99 mm cartridge as a source-checked heavy-machine-gun vertical slice.",
+  "entity_ids":["ckb:weapon:firearm:m2_browning","ckb:ammunition:cartridge:12_7x99"],
+  "relationship_ids":["rel:v1_6_1_batch_08:m2_browning:uses_ammunition:12_7x99"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":1,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["The relationship is based on explicit official weapon and NATO standard references, not calibre-only inference.","No loading recipes, propellant charges, primer specifications, manufacturing guidance, attack instructions or gameplay balance values are included."]
+}

@@ -1,0 +1,17 @@
+{
+  "id":"ckb:platform:air:spitfire_mk_i",
+  "entity_type":"platform",
+  "identity":{"canonical_name_en":"Supermarine Spitfire Mk I","canonical_name_zh":"超级马林喷火式Mk I战斗机","aliases":["Spitfire Mk I","Spitfire I"]},
+  "classification":{"domain":"Platform","class":"Aircraft","subclass":"Fighter","eras":["WWII"],"tags":["british","single_engine","propeller","fighter","battle_of_britain"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public historical and technical identification of the Spitfire Mk I; configuration-specific claims remain qualified.","claims":[
+    {"field":"crew_count","value":1,"unit":"people","qualifiers":{"configuration":"Spitfire Mk I"},"source_urls":["https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"]},
+    {"field":"engine_type","value":"Rolls-Royce Merlin II","unit":"designation","qualifiers":{"configuration":"K9942 contract aircraft"},"source_urls":["https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"]},
+    {"field":"engine_count","value":"single-engine","unit":"text","qualifiers":{"configuration":"single-engine fighter"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},
+    {"field":"maximum_speed","value":362,"unit":"mph","qualifiers":{"configuration":"Mk I published historical specification","source_wording":"maximum speed"},"source_urls":["https://www.iwm.org.uk/sites/default/files/fies/2021-11/spitfire_exhibition_media_release.pdf"]},
+    {"field":"armament","value":"eight .303 machine guns","unit":"text","qualifiers":{"configuration":"Battle of Britain Spitfire Mk I"},"source_urls":["https://www.iwm.org.uk/events/battle-of-britain-spitfire-vs-hurricane"]},
+    {"field":"service_context","value":"RAF fighter aircraft associated with the Battle of Britain","unit":"text","qualifiers":{"era":"WWII"},"source_urls":["https://www.iwm.org.uk/events/spitfire-evolution-of-an-icon"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"raf_museum","url":"https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/events/battle-of-britain-spitfire-vs-hurricane"}]},
+  "rights":{"rights_status":"deferred"}
+}

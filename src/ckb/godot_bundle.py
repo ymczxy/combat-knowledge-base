@@ -8,6 +8,7 @@ import json
 import re
 
 from .export import load_profile
+from .graph import Relationship, load_relationships
 from .model import Entity, load_entities
 from .technical import NORMALIZATION_VERSION, build_technical_comparison
 from .technical_metrics import build_derived_metrics, load_metric_specs
@@ -203,6 +204,7 @@ def build_godot_runtime_bundle(
     profile: dict[str, Any],
     *,
     project_root: Path = ROOT,
+    relationships: Iterable[Relationship] | None = None,
 ) -> tuple[dict[str, Any] | None, list[str]]:
     entity_rows = list(entities)
     config, errors = _runtime_config(profile)
@@ -305,9 +307,17 @@ def build_godot_runtime_bundle(
             runtime_entity["experience_profile"] = experience
         runtime_entities.append(runtime_entity)
 
+    selected_ids = {entity.id for entity in selected}
+    relationship_rows = [
+        relation.to_dict()
+        for relation in (relationships or [])
+        if relation.source_id in selected_ids and relation.target_id in selected_ids
+    ]
+    relationship_rows.sort(key=lambda row: str(row["id"]))
     payload = {
         "source_table": source_table,
         "entities": runtime_entities,
+        "relationships": relationship_rows,
     }
     content_sha256 = _sha256_text(_canonical_json(payload))
     bundle = {
@@ -328,6 +338,7 @@ def build_godot_runtime_bundle(
             "descriptive_claim_count": technical["summary"]["descriptive_claim_count"],
             "derived_metric_count": metrics["summary"]["derived_metric_count"],
             "source_ref_count": len(source_table),
+            "relationship_assertion_count": len(relationship_rows),
             "content_sha256": content_sha256,
             "boundaries": {
                 "contains_source_documents": False,
@@ -347,12 +358,16 @@ def validate_godot_runtime_bundle(bundle: dict[str, Any]) -> list[str]:
     manifest = bundle.get("manifest")
     entities = bundle.get("entities")
     source_table = bundle.get("source_table")
+    relationships = bundle.get("relationships", [])
     if not isinstance(manifest, dict):
         return ["manifest must be an object"]
     if not isinstance(entities, list):
         return ["entities must be an array"]
     if not isinstance(source_table, list):
         return ["source_table must be an array"]
+    if not isinstance(relationships, list):
+        errors.append("relationships must be an array")
+        relationships = []
 
     source_refs = {
         row.get("ref")
@@ -372,6 +387,27 @@ def validate_godot_runtime_bundle(bundle: dict[str, Any]) -> list[str]:
     normalized_count = 0
     descriptive_count = 0
     metric_count = 0
+    relationship_ids: set[str] = set()
+    entity_ids = {
+        str(row.get("id", ""))
+        for row in entities
+        if isinstance(row, dict)
+    }
+    for relationship in relationships:
+        if not isinstance(relationship, dict):
+            errors.append("runtime relationship must be an object")
+            continue
+        relation_id = relationship.get("id")
+        if not isinstance(relation_id, str) or not relation_id:
+            errors.append("runtime relationship id is required")
+        elif relation_id in relationship_ids:
+            errors.append(f"duplicate runtime relationship id {relation_id}")
+        else:
+            relationship_ids.add(relation_id)
+        if relationship.get("source_id") not in entity_ids:
+            errors.append(f"runtime relationship has unknown source {relationship.get('source_id')}")
+        if relationship.get("target_id") not in entity_ids:
+            errors.append(f"runtime relationship has unknown target {relationship.get('target_id')}")
 
     forbidden_entity_keys = {"provenance", "rights", "gameplay", "raw"}
     for entity in entities:
@@ -463,6 +499,7 @@ def validate_godot_runtime_bundle(bundle: dict[str, Any]) -> list[str]:
         "descriptive_claim_count": descriptive_count,
         "derived_metric_count": metric_count,
         "source_ref_count": len(source_table),
+        "relationship_assertion_count": len(relationships),
     }
     for field, expected in expected_counts.items():
         if manifest.get(field) != expected:
@@ -470,7 +507,7 @@ def validate_godot_runtime_bundle(bundle: dict[str, Any]) -> list[str]:
                 f"manifest.{field} is {manifest.get(field)!r}; expected {expected}"
             )
 
-    payload = {"source_table": source_table, "entities": entities}
+    payload = {"source_table": source_table, "entities": entities, "relationships": relationships}
     expected_digest = _sha256_text(_canonical_json(payload))
     if manifest.get("content_sha256") != expected_digest:
         errors.append("manifest.content_sha256 does not match bundle payload")
@@ -496,7 +533,11 @@ def write_godot_runtime_artifacts(
     lock_filename = str(config.get("lock_filename", "ckb-lock.json"))
     bundle_path = output / bundle_filename
     bundle_text = json.dumps(bundle, ensure_ascii=False, indent=2)
-    bundle_path.write_text(bundle_text, encoding="utf-8")
+    # Keep the serialized bytes identical across platforms.  The lock stores
+    # the hash of the UTF-8 payload, so Windows newline translation here would
+    # make a freshly written valid Bundle fail its own runtime contract.
+    with bundle_path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(bundle_text)
     bundle_file_sha256 = _sha256_text(bundle_text)
 
     manifest = bundle["manifest"]
@@ -511,6 +552,7 @@ def write_godot_runtime_artifacts(
         "bundle_file_sha256": bundle_file_sha256,
         "bundle_filename": bundle_filename,
         "entity_ids": [row["id"] for row in bundle["entities"]],
+        "relationship_ids": [row["id"] for row in bundle.get("relationships", [])],
         "resource_manifest": [
             {
                 "path": bundle_filename,
@@ -519,10 +561,8 @@ def write_godot_runtime_artifacts(
         ],
     }
     lock_path = output / lock_filename
-    lock_path.write_text(
-        json.dumps(lock, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
+    with lock_path.open("w", encoding="utf-8", newline="") as handle:
+        handle.write(json.dumps(lock, ensure_ascii=False, indent=2))
     return bundle_path, lock_path, lock
 
 
@@ -532,11 +572,13 @@ def build_and_write_godot_runtime_bundle(
     output: Path,
     *,
     project_root: Path = ROOT,
+    relationships: Iterable[Relationship] | None = None,
 ) -> tuple[Path | None, Path | None, dict[str, Any] | None, list[str]]:
     bundle, errors = build_godot_runtime_bundle(
         entities,
         profile,
         project_root=project_root,
+        relationships=relationships,
     )
     if bundle is None or errors:
         return None, None, None, errors
@@ -557,12 +599,14 @@ def main() -> None:
     args = parser.parse_args()
 
     entities = load_entities(args.canonical)
+    relationships = load_relationships(ROOT / "data" / "relationships")
     profile = load_profile(args.profile)
     bundle_path, lock_path, lock, errors = build_and_write_godot_runtime_bundle(
         entities,
         profile,
         args.output,
         project_root=ROOT,
+        relationships=relationships,
     )
     for error in errors:
         print("ERROR:", error)

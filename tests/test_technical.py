@@ -38,8 +38,27 @@ SMALL_ARMS_PROFILE_ENTITY_IDS = {
     "ckb:weapon:firearm:thompson_m1a1",
     "ckb:ammunition:cartridge:45_auto",
     "ckb:weapon:firearm:mg42",
+    "ckb:weapon:firearm:m2_browning",
+    "ckb:ammunition:cartridge:12_7x99",
+    "ckb:component:magazine:thompson_wartime_box",
+    "ckb:weapon:family:thompson_submachine_gun",
 }
 PROFILE_ENTITY_IDS = ARMORED_PROFILE_ENTITY_IDS | SMALL_ARMS_PROFILE_ENTITY_IDS
+PROFILE_ENTITY_IDS |= {
+    "ckb:platform:air:spitfire_mk_i",
+    "ckb:component:engine:rolls_royce_merlin_ii",
+    "ckb:platform:air:f_16c_fighting_falcon",
+    "ckb:component:engine:pratt_whitney_f100_pw_220",
+    "ckb:platform:naval:arleigh_burke_class",
+    "ckb:component:engine:ge_lm2500_marine",
+    "ckb:system:air_defense:patriot",
+    "ckb:weapon:missile:patriot_pac_3_interceptor",
+    "ckb:component:sensor:patriot_an_mpq_65",
+    "ckb:place:region:normandy",
+    "ckb:event:operation:overlord",
+    "ckb:battle:normandy:d_day",
+    "ckb:organization:military:us_1st_infantry_division",
+}
 
 
 def entity_with_claim(claim: dict) -> Entity:
@@ -143,11 +162,11 @@ class RepositoryTechnicalComparisonTests(unittest.TestCase):
 
     def test_current_profiles_are_fully_normalizable(self):
         summary = self.payload["summary"]
-        self.assertEqual(summary["profile_entity_count"], 23)
-        self.assertEqual(summary["claim_count"], 164)
-        self.assertEqual(summary["numeric_claim_count"], 85)
-        self.assertEqual(summary["normalized_numeric_claim_count"], 85)
-        self.assertEqual(summary["descriptive_claim_count"], 79)
+        self.assertEqual(summary["profile_entity_count"], 40)
+        self.assertEqual(summary["claim_count"], 261)
+        self.assertEqual(summary["numeric_claim_count"], 95)
+        self.assertEqual(summary["normalized_numeric_claim_count"], 95)
+        self.assertEqual(summary["descriptive_claim_count"], 166)
         self.assertEqual(
             summary["unsupported_numeric_count"],
             0,

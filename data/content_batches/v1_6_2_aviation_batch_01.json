@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.6.2-aviation-batch-01-spitfire-merlin",
+  "version":"1.6.2",
+  "status":"source_checked",
+  "scope":"Add a WWII propeller-aircraft and engine component vertical slice with an explicit configuration-scoped uses_engine relation.",
+  "entity_ids":["ckb:platform:air:spitfire_mk_i","ckb:component:engine:rolls_royce_merlin_ii"],
+  "relationship_ids":["rel:v1_6_2_batch_01:spitfire_mk_i:uses_engine:merlin_ii"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":2,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["The engine link is explicit and configuration-scoped; it is not inferred from a generic aircraft class.","Only public identification and high-level technical facts are recorded. No maintenance, construction, flight-operation or weapon-employment instructions are included."]
+}

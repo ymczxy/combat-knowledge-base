@@ -1,0 +1,11 @@
+[
+  {
+    "id":"rel:v1_6_2_batch_02:f_16c:uses_engine:f100_pw_220",
+    "source_id":"ckb:platform:air:f_16c_fighting_falcon",
+    "predicate":"uses_engine",
+    "target_id":"ckb:component:engine:pratt_whitney_f100_pw_220",
+    "confidence":0.9,
+    "qualifiers":{"scope":"F-16C/D fact sheet lists F100 family as a powerplant option; F100-PW-220 is separately identified by the USAF museum","configuration_specific":true},
+    "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_air_force","url":"https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"},{"source_id":"national_museum_usaf","url":"https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196437/pratt-whitney-f100-pw-220/"}]}
+  }
+]

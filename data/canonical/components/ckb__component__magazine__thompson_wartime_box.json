@@ -1,0 +1,17 @@
+{
+  "id":"ckb:component:magazine:thompson_wartime_box",
+  "entity_type":"component",
+  "identity":{"canonical_name_en":"Thompson wartime box magazine","canonical_name_zh":"Thompson战时盒式弹匣","aliases":["Thompson box magazine","20-round Thompson magazine","30-round Thompson magazine"]},
+  "classification":{"domain":"Component","class":"Magazine","subclass":"BoxMagazine","eras":["WWII","EARLY_COLD_WAR"],"tags":["magazine","box_magazine","thompson_family","feeding_component"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public identification and family-scoped capacity/compatibility metadata; no loading or operational instructions.","claims":[
+    {"field":"component_type","value":"box magazine","unit":"categorical","qualifiers":{"source_context":"National Army Museum wartime Thompson description"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"ammunition_capacity","value":[20,30],"unit":"rounds","qualifiers":{"scope":"wartime Thompson A1 family statement"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"associated_weapon_family","value":"Thompson submachine gun","unit":"text","qualifiers":{"family_level":true},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"compatibility_scope","value":"wartime Thompson A1 examples described with box magazines","unit":"text","qualifiers":{"does_not_generalize_to":"all Thompson variants"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"component_form","value":"detachable box magazine pattern","unit":"text","qualifiers":{"source_basis":"box magazine terminology; no dimensional reconstruction"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]},
+    {"field":"service_context","value":"wartime Thompson use","unit":"text","qualifiers":{"source_context":"National Army Museum collection description"},"source_urls":["https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}]},
+  "rights":{"rights_status":"deferred"}
+}

@@ -1,0 +1,16 @@
+{
+  "id":"ckb:place:region:normandy",
+  "entity_type":"place",
+  "identity":{"canonical_name_en":"Normandy","canonical_name_zh":"诺曼底","aliases":["Normandie"]},
+  "classification":{"domain":"Place","class":"Region","subclass":"HistoricalRegion","eras":["MEDIEVAL","EARLY_MODERN","INDUSTRIAL","WWII","CONTEMPORARY"],"tags":["france","northwestern_europe","coastal_region"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public geographical and historical context only.","claims":[
+    {"field":"place_type","value":"historical and administrative region in northwestern France","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]},
+    {"field":"historical_context","value":"site of Allied landings during Operation Overlord","unit":"text","qualifiers":{"date":"6 June 1944"},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"coastal_context","value":"included the five D-Day assault beaches Utah, Omaha, Gold, Juno and Sword","unit":"text","qualifiers":{"event":"D-Day"},"source_urls":["https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"]},
+    {"field":"country_context","value":"France","unit":"text","qualifiers":{"period":"WWII"},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]},
+    {"field":"context_scope","value":"geographical container for event and battle assertions, not a unit or combat formation","unit":"text","qualifiers":{},"source_urls":["https://www.iwm.org.uk/history/d-day-explained"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/d-day-explained"},{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-10-things-you-need-to-know-about-d-day"}]},
+  "rights":{"rights_status":"deferred"}
+}

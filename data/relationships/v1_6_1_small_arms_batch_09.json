@@ -1,0 +1,3 @@
+[
+  {"id":"rel:v1_6_1_batch_09:thompson_m1a1:accepts_magazine:thompson_wartime_box","source_id":"ckb:weapon:firearm:thompson_m1a1","predicate":"accepts_magazine","target_id":"ckb:component:magazine:thompson_wartime_box","confidence":0.93,"qualifiers":{"scope":"wartime Thompson A1 family statement; not generalized to all variants","compatibility_basis":"explicit box-magazine statement"},"provenance":{"review_status":"source_checked","sources":[{"source_id":"national_army_museum","url":"https://collection.nam.ac.uk/detail.php?acc=1965-10-204-1-1"}]}}
+]

@@ -1,0 +1,10 @@
+{
+  "batch_id":"v1.6.4-air-defense-batch-01-patriot-radar-pac3",
+  "version":"1.6.4",
+  "status":"source_checked",
+  "scope":"Add a Patriot air-defense system, PAC-3 interceptor and AN/MPQ-65 radar component chain.",
+  "entity_ids":["ckb:system:air_defense:patriot","ckb:weapon:missile:patriot_pac_3_interceptor","ckb:component:sensor:patriot_an_mpq_65"],
+  "relationship_ids":["rel:v1_6_4_batch_01:patriot:uses_sensor:an_mpq_65","rel:v1_6_4_batch_01:patriot:armed_with:pac_3"],
+  "quality_targets":{"minimum_sources_per_entity":2,"minimum_sources_per_relationship":2,"minimum_technical_claims_per_entity":5,"require_experience_profile":false,"relationship_storage":"independent_assertions"},
+  "notes":["Sensor and interceptor links are explicit system-level assertions, not inferred from tags.","Only public identification and high-level system facts are recorded; no operational employment instructions are included."]
+}

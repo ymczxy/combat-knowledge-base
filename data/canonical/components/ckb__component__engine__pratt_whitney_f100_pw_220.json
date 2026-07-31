@@ -1,0 +1,16 @@
+{
+  "id":"ckb:component:engine:pratt_whitney_f100_pw_220",
+  "entity_type":"component",
+  "identity":{"canonical_name_en":"Pratt & Whitney F100-PW-220","canonical_name_zh":"普惠F100-PW-220涡扇发动机","aliases":["F100-PW-220","F100 engine"]},
+  "classification":{"domain":"Component","class":"Engine","subclass":"AfterburningTurbofan","eras":["LATE_COLD_WAR","POST_COLD_WAR","CONTEMPORARY"],"tags":["american","jet_engine","turbofan","afterburning","f100_family"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public museum identification and high-level engine role; no maintenance or construction guidance.","claims":[
+    {"field":"engine_type","value":"high-performance turbofan","unit":"text","qualifiers":{"model":"F100-PW-220"},"source_urls":["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196437/pratt-whitney-f100-pw-220/"]},
+    {"field":"afterburner","value":"afterburning","unit":"text","qualifiers":{"family_scope":"F100 family"},"source_urls":["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196735/general-dynamics-f-16a-fighting-falcon/"]},
+    {"field":"thrust","value":"23,830 lbf with afterburner","unit":"text","qualifiers":{"configuration":"F-16A with F100-PW-200; related F100 family reference"},"source_urls":["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196735/general-dynamics-f-16a-fighting-falcon/"]},
+    {"field":"powered_aircraft","value":"F-15 Eagle and the majority of F-16 Fighting Falcons","unit":"text","qualifiers":{"family_scope":"F100 family"},"source_urls":["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196437/pratt-whitney-f100-pw-220/"]},
+    {"field":"engine_variant","value":"F100-PW-220","unit":"designation","qualifiers":{"museum_display":true},"source_urls":["https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196437/pratt-whitney-f100-pw-220/"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"national_museum_usaf","url":"https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196437/pratt-whitney-f100-pw-220/"},{"source_id":"national_museum_usaf","url":"https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196735/general-dynamics-f-16a-fighting-falcon/"}]},
+  "rights":{"rights_status":"deferred"}
+}

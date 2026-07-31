@@ -52,6 +52,8 @@
       "inverse": "has_variant",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system", "component"],
+      "target_entity_types": ["weapon", "platform", "system", "component"],
       "status": "active"
     },
     {
@@ -61,6 +63,8 @@
       "inverse": "variant_of",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system", "component"],
+      "target_entity_types": ["weapon", "platform", "system", "component"],
       "status": "active"
     },
     {
@@ -230,12 +234,57 @@
       "status": "active"
     },
     {
+      "name": "part_of",
+      "labels": {"en": "part of", "zh": "part of"},
+      "description": {"en": "The source event or battle is a bounded part of the target event or battle.", "zh": "The source event or battle is a bounded part of the target event or battle."},
+      "inverse": "has_part",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "has_part",
+      "labels": {"en": "has part", "zh": "has part"},
+      "description": {"en": "The source event or battle contains the target bounded event or battle as a part.", "zh": "The source event or battle contains the target bounded event or battle as a part."},
+      "inverse": "part_of",
+      "symmetric": false,
+      "transitive": true,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
+      "name": "organized_by",
+      "labels": {"en": "organized by", "zh": "organized by"},
+      "description": {"en": "The source event or battle was organized or directed by the target organization.", "zh": "The source event or battle was organized or directed by the target organization."},
+      "inverse": "organized",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["event", "battle"],
+      "target_entity_types": ["organization"],
+      "status": "active"
+    },
+    {
+      "name": "organized",
+      "labels": {"en": "organized", "zh": "organized"},
+      "description": {"en": "The source organization organized or directed the target event or battle.", "zh": "The source organization organized or directed the target event or battle."},
+      "inverse": "organized_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["organization"],
+      "target_entity_types": ["event", "battle"],
+      "status": "active"
+    },
+    {
       "name": "participated_in",
       "labels": {"en": "participated in", "zh": "参加了"},
       "description": {"en": "The source entity participated in or was fielded during the target event or battle.", "zh": "源实体参加了目标事件或战役，或在其中被投入使用。"},
       "inverse": "involved_entity",
       "symmetric": false,
       "transitive": false,
+      "source_entity_types": ["platform", "weapon", "system", "organization", "unit"],
       "target_entity_types": ["event", "battle"],
       "status": "active"
     },
@@ -256,6 +305,7 @@
       "inverse": "contains_location",
       "symmetric": false,
       "transitive": true,
+      "source_entity_types": ["place", "facility", "organization", "event", "battle"],
       "target_entity_types": ["place"],
       "status": "active"
     },
@@ -289,6 +339,50 @@
       "transitive": true,
       "source_entity_types": ["unit", "organization"],
       "target_entity_types": ["person", "unit", "organization"],
+      "status": "active"
+    },
+    {
+      "name": "uses_sensor",
+      "labels": {"en": "uses sensor", "zh": "uses sensor"},
+      "description": {"en": "The source weapon, platform, or system uses the target sensor component within a named configuration.", "zh": "The source weapon, platform, or system uses the target sensor component within a named configuration."},
+      "inverse": "sensor_used_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon", "platform", "system"],
+      "target_entity_types": ["component"],
+      "status": "active"
+    },
+    {
+      "name": "sensor_used_by",
+      "labels": {"en": "sensor used by", "zh": "sensor used by"},
+      "description": {"en": "The source sensor component is used by the target weapon, platform, or system within a named configuration.", "zh": "The source sensor component is used by the target weapon, platform, or system within a named configuration."},
+      "inverse": "uses_sensor",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["component"],
+      "target_entity_types": ["weapon", "platform", "system"],
+      "status": "active"
+    },
+    {
+      "name": "accepts_magazine",
+      "labels": {"en": "accepts magazine", "zh": "accepts magazine"},
+      "description": {"en": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence.", "zh": "The source weapon explicitly accepts the target magazine or feeding component according to named-interface evidence."},
+      "inverse": "magazine_accepted_by",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["weapon"],
+      "target_entity_types": ["component"],
+      "status": "active"
+    },
+    {
+      "name": "magazine_accepted_by",
+      "labels": {"en": "magazine accepted by", "zh": "magazine accepted by"},
+      "description": {"en": "The source magazine or feeding component is explicitly accepted by the target weapon according to named-interface evidence.", "zh": "The source magazine or feeding component is explicitly accepted by the target weapon according to named-interface evidence."},
+      "inverse": "accepts_magazine",
+      "symmetric": false,
+      "transitive": false,
+      "source_entity_types": ["component"],
+      "target_entity_types": ["weapon"],
       "status": "active"
     }
   ]

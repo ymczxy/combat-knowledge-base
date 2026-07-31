@@ -1,0 +1,20 @@
+[
+  {
+    "id":"rel:v1_6_4_batch_01:patriot:uses_sensor:an_mpq_65",
+    "source_id":"ckb:system:air_defense:patriot",
+    "predicate":"uses_sensor",
+    "target_id":"ckb:component:sensor:patriot_an_mpq_65",
+    "confidence":0.98,
+    "qualifiers":{"scope":"Patriot system and Army radar references","configuration_specific":true},
+    "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_army_pac3","url":"https://api.army.mil/e2/c/downloads/533115.pdf?ref=kycuong.com"},{"source_id":"us_army","url":"https://www.army.mil/article/225044/patriot_force_halfway_thru_major_modernization"}]}
+  },
+  {
+    "id":"rel:v1_6_4_batch_01:patriot:armed_with:pac_3",
+    "source_id":"ckb:system:air_defense:patriot",
+    "predicate":"armed_with",
+    "target_id":"ckb:weapon:missile:patriot_pac_3_interceptor",
+    "confidence":0.99,
+    "qualifiers":{"scope":"PATRIOT system and PAC-3 program references","configuration_specific":true},
+    "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_army_pac3","url":"https://api.army.mil/e2/c/downloads/533115.pdf?ref=kycuong.com"},{"source_id":"us_army_doctrine","url":"https://rdl.train.army.mil/catalog-ws/view/100.ATSC/C01CC9C1-DA1C-4D5E-A6EB-5FCFAE218DCD-1398170439966/fm3_01.pdf"}]}
+  }
+]

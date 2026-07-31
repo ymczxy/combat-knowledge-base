@@ -1,0 +1,17 @@
+{
+  "id":"ckb:component:engine:rolls_royce_merlin_ii",
+  "entity_type":"component",
+  "identity":{"canonical_name_en":"Rolls-Royce Merlin II","canonical_name_zh":"罗尔斯·罗伊斯梅林II航空发动机","aliases":["Merlin II","Rolls-Royce Merlin engine"]},
+  "classification":{"domain":"Component","class":"Engine","subclass":"PistonAircraftEngine","eras":["WWII"],"tags":["british","aircraft_engine","liquid_cooled","v12","merlin_family"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public identification and high-level specifications for the Merlin family; no maintenance or construction guidance.","claims":[
+    {"field":"engine_configuration","value":"liquid-cooled V12 piston engine","unit":"text","qualifiers":{"family_scope":"Merlin family"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},
+    {"field":"displacement","value":27,"unit":"L","qualifiers":{"family_scope":"Merlin family"},"source_urls":["https://www.iwm.org.uk/events/battle-of-britain-spitfire-vs-hurricane"]},
+    {"field":"development_types","value":"over 50 different development types","unit":"text","qualifiers":{"family_scope":"Merlin production life"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},
+    {"field":"power_range","value":[1000,2050],"unit":"hp","qualifiers":{"family_scope":"Merlin production life","source_wording":"just over 1,000 to 2,050 horsepower"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},
+    {"field":"powered_aircraft","value":"Spitfire, Hurricane, Mosquito, Mustang and Lancaster","unit":"text","qualifiers":{"family_scope":"Merlin family"},"source_urls":["https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"]},
+    {"field":"engine_variant","value":"Merlin II","unit":"designation","qualifiers":{"evidence_scope":"Spitfire Mk I K9942 collection record"},"source_urls":["https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"imperial_war_museums","url":"https://www.iwm.org.uk/history/the-rolls-royce-merlin-engine"},{"source_id":"raf_museum","url":"https://www.rafmuseum.org.uk/documents/collections/72-A-263_Spitfire1_K9942.pdf"}]},
+  "rights":{"rights_status":"deferred"}
+}

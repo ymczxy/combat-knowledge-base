@@ -1,0 +1,17 @@
+{
+  "id":"ckb:platform:air:f_16c_fighting_falcon",
+  "entity_type":"platform",
+  "identity":{"canonical_name_en":"F-16C Fighting Falcon","canonical_name_zh":"F-16C战隼多用途战斗机","aliases":["F-16 Fighting Falcon","F-16C"]},
+  "classification":{"domain":"Platform","class":"Aircraft","subclass":"MultiroleFighter","eras":["LATE_COLD_WAR","POST_COLD_WAR","CONTEMPORARY"],"tags":["american","jet","single_engine","multirole","supersonic"]},
+  "technical":{"profile_version":"1.0","profile_scope":"Public identification of the F-16C and its documented engine alternatives; no operational employment instructions.","claims":[
+    {"field":"crew_count","value":1,"unit":"people","qualifiers":{"configuration":"F-16C"},"source_urls":["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"]},
+    {"field":"engine_count","value":"single-engine","unit":"text","qualifiers":{"configuration":"F-16C/D family"},"source_urls":["https://www.osan.af.mil/About-Us/Fact-Sheets/Display/Article/1757435/f-16-fighting-falcon/"]},
+    {"field":"engine_options","value":"Pratt & Whitney F100 or General Electric F110 family","unit":"text","qualifiers":{"configuration":"F-16C/D"},"source_urls":["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"]},
+    {"field":"maximum_speed","value":1500,"unit":"mph","qualifiers":{"configuration":"F-16 fact sheet","source_wording":"speed"},"source_urls":["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"]},
+    {"field":"wingspan","value":9.8,"unit":"m","qualifiers":{"configuration":"F-16C/D fact sheet"},"source_urls":["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"]},
+    {"field":"role","value":"compact multirole fighter","unit":"text","qualifiers":{},"source_urls":["https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"]}
+  ]},
+  "relationships":[],"experience_profile":null,"gameplay":{"status":"draft"},
+  "provenance":{"review_status":"source_checked","sources":[{"source_id":"us_air_force","url":"https://www.af.mil/About-Us/Fact-Sheets/Display/Article/104505/f-16-fighting-falcon/"},{"source_id":"us_air_force_base","url":"https://www.osan.af.mil/About-Us/Fact-Sheets/Display/Article/1757435/f-16-fighting-falcon/"}]},
+  "rights":{"rights_status":"deferred"}
+}

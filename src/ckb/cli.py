@@ -18,6 +18,8 @@ from .predicates import load_predicate_registry
 from .resolution import SearchCache, decide_matches, write_resolution_bundle
 from .sources import load_source_registry, validate_source_registry
 from .site import build_site_docs
+from .temporal import build_temporal_index
+from .query import related_entities, search_entities
 from .validation import validate_all
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -91,6 +93,19 @@ def main() -> None:
     sub.add_parser("catalog-audit")
     sub.add_parser("source-audit")
     sub.add_parser("predicate-audit")
+
+    temporal = sub.add_parser("temporal-audit")
+    temporal.add_argument("--output", type=Path, default=ROOT / "exports" / "temporal" / "index.json")
+
+    query = sub.add_parser("query")
+    query.add_argument("--text")
+    query.add_argument("--entity-type")
+    query.add_argument("--domain")
+    query.add_argument("--era")
+    query.add_argument("--entity-id")
+    query.add_argument("--predicate")
+    query.add_argument("--direction", choices=["out", "in", "both"], default="both")
+    query.add_argument("--limit", type=int, default=50)
 
     assertion_audit = sub.add_parser("assertion-audit")
     assertion_audit.add_argument("--output", type=Path)
@@ -196,6 +211,38 @@ def main() -> None:
         errors = registry.validate()
         print(f"predicates: {len(registry.definitions)}")
         raise SystemExit(_print_errors(errors))
+
+    if args.cmd == "temporal-audit":
+        payload = build_temporal_index(entities)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        summary = payload["summary"]
+        print(
+            f"Temporal index: {summary['date_claim_count']} claims, "
+            f"{summary['normalized_count']} normalized, "
+            f"{summary['unparsed_count']} unparsed -> {args.output}"
+        )
+        raise SystemExit(1 if summary["unparsed_count"] else 0)
+
+    if args.cmd == "query":
+        if args.limit < 1:
+            raise SystemExit("--limit must be positive")
+        if args.entity_id:
+            graph_model = _build_graph(entities)
+            if args.entity_id not in graph_model.entities:
+                raise SystemExit(f"unknown entity: {args.entity_id}")
+            rows = related_entities(graph_model, args.entity_id, predicate=args.predicate, direction=args.direction)
+        else:
+            rows = search_entities(
+                entities,
+                text=args.text,
+                entity_type=args.entity_type,
+                domain=args.domain,
+                era=args.era,
+                limit=args.limit,
+            )
+        print(json.dumps([entity.raw for entity in rows], ensure_ascii=False, indent=2))
+        return
 
     if args.cmd == "assertion-audit":
         graph_model = _build_graph(entities, include_embedded=not args.exclude_embedded)
@@ -330,7 +377,7 @@ def main() -> None:
         errors = validate_all(entities) + validate_catalog(catalog)
         if errors:
             raise SystemExit(_print_errors(errors))
-        build_site_docs(entities, catalog, ROOT, args.output)
+        build_site_docs(entities, catalog, ROOT, args.output, load_relationships(RELATIONSHIPS))
         print(f"Built site source into {args.output}")
         return
 
